@@ -5,9 +5,16 @@
 
 <main>
     <h2>Resources list</h2>
-    <ul>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Planets</th>
+            <th>Needs</th>
+            <th>Deps.</th>
+        </tr>
         {#each $resources as resource}
             <ResourceEntryList data={resource}/>
         {/each}
-    </ul>
+    </table>
 </main>
