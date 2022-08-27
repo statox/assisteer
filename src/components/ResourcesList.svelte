@@ -1,6 +1,7 @@
 <script lang="ts">
     import {resources} from '../stores';
     import ResourceEntryList from './ResourceEntryList.svelte';
+    import ResourceDepGraph from './ResourceDepGraph.svelte';
 </script>
 
 <main>
@@ -17,4 +18,8 @@
             <ResourceEntryList data={resource}/>
         {/each}
     </table>
+
+    {#each $resources as resource}
+        <ResourceDepGraph target={resource}/>
+    {/each}
 </main>
