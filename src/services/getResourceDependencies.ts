@@ -4,6 +4,9 @@ import type {
   ResourceRefined,
   ResourceComposite,
   ResourceAtmospheric,
+  DepsTree,
+  SimpleDepsTree,
+  RecursiveDepsTree,
 } from "../types/stores.types";
 
 import { RESOURCES } from "../defaults";
@@ -20,13 +23,14 @@ function getResourcesDependencies(resource: Resource) {
 
 function getNaturalResourceDependencies(
   resource: ResourceNatural | ResourceAtmospheric
-) {
+): SimpleDepsTree {
   let tool = "digging";
   if (resource.type === "atmospheric") {
     tool = "atmospheric extractor";
   }
 
   return {
+    resource: resource.name,
     tool,
     planets: resource.planets,
   };
@@ -34,7 +38,7 @@ function getNaturalResourceDependencies(
 
 function getRefinedResourceDependencies(
   resource: ResourceRefined | ResourceComposite
-) {
+): RecursiveDepsTree {
   let tool = "smelting furnace";
   if (resource.type === "composite") {
     tool = "chemitry lab";
@@ -48,6 +52,7 @@ function getRefinedResourceDependencies(
   }, {});
 
   return {
+    resource: resource.name,
     tool,
     deps,
   };

@@ -1,4 +1,5 @@
 type ResourceType = "natural" | "refined";
+
 type Planet =
   | "atrox"
   | "calidor"
@@ -38,7 +39,26 @@ type ResourceComposite = {
   needs: string[];
 };
 
+type DepsTree = SimpleDepsTree | RecursiveDepsTree;
+
+type SimpleDepsTree = {
+  resource: string;
+  tool: string;
+  planets: "all" | Planet[];
+};
+
+type RecursiveDepsTree = {
+  resource: string;
+  tool: string;
+  deps?: {
+    [k: string]: DepsTree;
+  };
+};
+
 export type {
+  DepsTree,
+  RecursiveDepsTree,
+  SimpleDepsTree,
   Resource,
   ResourceNatural,
   ResourceRefined,
