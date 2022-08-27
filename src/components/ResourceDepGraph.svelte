@@ -77,6 +77,25 @@ const addNaturalNode = (current: SimpleDepsTree) => {
         return;
     }
 
+    const toolId = current.resource + current.tool;
+    cy.add({
+        group: 'nodes',
+        data: {
+            id: toolId,
+            type: 'tool',
+            label: current.tool
+        },
+    });
+    cy.add(
+        {
+            group: 'edges',
+            data: {
+                source: current.resource,
+                target: toolId
+            }
+        }
+    );
+
     if (!nodeExists(targetId)) {
         cy.add({
             group: 'nodes',
@@ -91,7 +110,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
             group: 'edges',
             data: {
                 id: current.resource + current.tool + targetId,
-                source: current.resource,
+                source: toolId,
                 target: targetId
             }
         }
