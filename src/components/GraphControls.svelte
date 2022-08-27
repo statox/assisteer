@@ -12,13 +12,27 @@
     });
 </script>
 
+<style>
+    table {
+        width: 100%;
+    }
+    td {
+        text-align: center;
+    }
+    table, th, td {
+        border: 1px solid;
+        border-collapse: collapse;
+    }
+</style>
+
 <main>
-    <table>
+    <table id="controlsContainer">
         <thead>
             <tr>
                 <th><label for="resource">Choose a resource:</label></th>
                 <th><label for="planetsMode">Choose planets to show:</label></th>
                 <th><label for="curvesMode">Curves mode:</label></th>
+                <th><label for="mergePlanets">Merge uniques planets:</label></th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +58,9 @@
                         <option value={"segments"}>Segments</option>
                         <option value={"straight"}>Straight</option>
                     </select>
+                </td>
+                <td>
+                    <input name="mergePlanets" id="mergePlanets" type=checkbox bind:checked={$controlsState.mergeUniquePlanets} on:change={updateGraph}>
                 </td>
             </tr>
         </tbody>

@@ -6,6 +6,7 @@ const controlsState = writable({
   selected: "titanium alloy",
   planetsMode: "uniq",
   curvesMode: "taxi",
+  mergeUniquePlanets: true,
 });
 
 export { resources, controlsState };

@@ -63,6 +63,9 @@ const resetCytoscape = () => {
 const addNaturalNode = (current: SimpleDepsTree) => {
     const targetId = current.planets.toString();
 
+    /*
+     * Node for the current resource
+     */
     if (!nodeExists(current.resource)) {
         cy.add({
             group: 'nodes',
@@ -77,6 +80,9 @@ const addNaturalNode = (current: SimpleDepsTree) => {
         return;
     }
 
+    /*
+     * Node for the tool and edge to the current resource
+     */
     const toolId = current.resource + current.tool;
     cy.add({
         group: 'nodes',
@@ -96,25 +102,58 @@ const addNaturalNode = (current: SimpleDepsTree) => {
         }
     );
 
-    if (!nodeExists(targetId)) {
-        cy.add({
-            group: 'nodes',
-            data: {
-                id: targetId,
-                type: 'planet'
-            },
-        });
-    }
-    cy.add(
-        {
-            group: 'edges',
-            data: {
-                id: current.resource + current.tool + targetId,
-                source: toolId,
-                target: targetId
-            }
+    /*
+     * If mergeUniquePlanets is enabled create only one node for the planets hosting the resource
+     */
+    if ($controlsState.mergeUniquePlanets) {
+        const mergedPlanets = current.planets.toString();
+        if (!nodeExists(mergedPlanets)) {
+            cy.add({
+                group: 'nodes',
+                data: {
+                    id: mergedPlanets,
+                    type: 'planet'
+                },
+            });
+            cy.add(
+                {
+                    group: 'edges',
+                    data: {
+                        source: toolId,
+                        target: targetId
+                    }
+                }
+            );
         }
-    );
+
+        return;
+    }
+
+    /*
+     * If mergeUniquePlanets is disabled create one node by planet hosting the resource
+     */
+    const planets = Array.isArray(current.planets) ? current.planets : [current.planets];
+    for (const planet of planets) {
+        if (!nodeExists(planet)) {
+            cy.add({
+                group: 'nodes',
+                data: {
+                    id: planet,
+                    type: 'planet'
+                },
+            });
+        }
+        cy.add(
+            {
+                group: 'edges',
+                data: {
+                    id: current.resource + current.tool + planet,
+                    source: toolId,
+                    target: planet
+                }
+            }
+        );
+    }
 };
 
 const addRefinedNode = (current: RecursiveDepsTree) => {
@@ -152,7 +191,7 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
 
         if (!nodeExists(targetId)) {
             cy.add({
-            group: 'nodes',
+                group: 'nodes',
                 data: {id: targetId}
             });
         }
