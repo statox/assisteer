@@ -20,6 +20,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
 
     if (!nodeExists(current.resource)) {
         cy.add({
+            group: 'nodes',
             data: {id: current.resource}
         });
     }
@@ -33,11 +34,13 @@ const addNaturalNode = (current: SimpleDepsTree) => {
 
     if (!nodeExists(targetId)) {
         cy.add({
+            group: 'nodes',
             data: {id: targetId}
         });
     }
     cy.add(
         {
+            group: 'edges',
             data: {
                 id: current.resource + current.tool + targetId,
                 source: current.resource,
@@ -52,6 +55,7 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
 
     if (!nodeExists(current.resource)) {
         cy.add({
+            group: 'nodes',
             data: {id: current.resource}
         });
     }
@@ -61,14 +65,19 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
 
         if (!nodeExists(targetId)) {
             cy.add({
+            group: 'nodes',
                 data: {id: targetId}
             });
         }
         cy.add(
             {
+                group: 'edges',
                 data: {
                     source: current.resource,
-                    target: target.resource
+                    target: target.resource,
+                },
+                style: {
+                    label: current.tool
                 }
             }
         );
