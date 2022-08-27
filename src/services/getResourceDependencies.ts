@@ -12,7 +12,6 @@ import type {
 import { RESOURCES } from "../defaults";
 
 function getResourcesDependencies(resource: Resource) {
-  console.log("deps for", resource.name, "-", resource.type);
   if (resource.type === "natural" || resource.type === "atmospheric") {
     return getNaturalResourceDependencies(resource);
   }

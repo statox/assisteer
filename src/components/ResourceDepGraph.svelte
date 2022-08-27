@@ -35,7 +35,10 @@ const addNaturalNode = (current: SimpleDepsTree) => {
     if (!nodeExists(targetId)) {
         cy.add({
             group: 'nodes',
-            data: {id: targetId}
+            data: {
+                id: targetId,
+                type: 'planet'
+            },
         });
     }
     cy.add(
@@ -127,8 +130,9 @@ document.addEventListener("DOMContentLoaded", function() {
             {
                 selector: 'node',
                 style: {
-                    'background-color': '#666',
-                    'label': 'data(id)'
+                    'label': 'data(id)',
+                    'background-color': node => node.data('type') === 'planet' ? '#4ef542' : '#666',
+                    'color': node => node.data('type') === 'planet' ? '#4ef542' : '#000',
                 }
             },
             {
