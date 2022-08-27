@@ -11,7 +11,6 @@ const updateGraph = () => {
 
 document.addEventListener("DOMContentLoaded", function() {
     const cyDiv = document.getElementById('cy');
-    console.log({cyDiv});
     var cy = cytoscape({
         container: cyDiv, // container to render in
         elements: [ // list of graph elements to start with
@@ -25,12 +24,31 @@ document.addEventListener("DOMContentLoaded", function() {
                 data: { id: 'ab', source: 'a', target: 'b' }
             }
         ],
+        style: [ // the stylesheet for the graph
+            {
+                selector: 'node',
+                style: {
+                    'background-color': '#666',
+                    'label': 'data(id)'
+                }
+            },
+
+            {
+                selector: 'edge',
+                style: {
+                    'width': 3,
+                    'line-color': '#ccc',
+                    'target-arrow-color': '#ccc',
+                    'target-arrow-shape': 'triangle',
+                    'curve-style': 'bezier'
+                }
+            }
+        ],
         layout: {
             name: 'grid',
             rows: 1
         }
     });
-    console.log({cy});
 })
 
 </script>
@@ -45,5 +63,5 @@ document.addEventListener("DOMContentLoaded", function() {
         {/each}
     </select> 
 
-    <div id="cy"></div>
+    <div id="cy"> </div>
 </main>
