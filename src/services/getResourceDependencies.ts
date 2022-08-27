@@ -40,7 +40,7 @@ function getRefinedResourceDependencies(
 ): RecursiveDepsTree {
   let tool = "smelting furnace";
   if (resource.type === "composite") {
-    tool = "chemitry lab";
+    tool = "chemistry lab";
   }
 
   const deps = resource.needs.reduce((g, name) => {

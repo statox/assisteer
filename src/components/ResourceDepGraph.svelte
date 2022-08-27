@@ -62,6 +62,26 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
             data: {id: current.resource}
         });
     }
+
+    const toolId = current.resource + current.tool;
+    cy.add({
+        group: 'nodes',
+        data: {
+            id: toolId,
+            type: 'tool',
+            label: current.tool
+        }
+    });
+    cy.add(
+        {
+            group: 'edges',
+            data: {
+                source: current.resource,
+                target: toolId
+            }
+        }
+    );
+
     for (const dep of Object.keys(current.deps)) {
         const target = current.deps[dep];
         const targetId = target.resource;
@@ -76,11 +96,8 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
             {
                 group: 'edges',
                 data: {
-                    source: current.resource,
+                    source: toolId,
                     target: target.resource,
-                },
-                style: {
-                    label: current.tool
                 }
             }
         );
@@ -130,16 +147,29 @@ document.addEventListener("DOMContentLoaded", function() {
             {
                 selector: 'node',
                 style: {
-                    'label': 'data(id)',
-                    'background-color': node => node.data('type') === 'planet' ? '#4ef542' : '#666',
-                    'color': node => node.data('type') === 'planet' ? '#4ef542' : '#000',
+                    'label': (node) => {
+                        if (node.data('label')) {
+                            return node.data('label');
+                        }
+                        return node.data('id');
+                    },
+                    'background-color': ( node ) => {
+                        if (node.data('type') === 'planet') return '#4ef542';
+                        if (node.data('type') === 'tool') return '#e84c09';
+                        return '#666';
+                    },
+                    'color': ( node ) => {
+                        if (node.data('type') === 'planet') return '#4ef542';
+                        if (node.data('type') === 'tool') return '#e84c09';
+                        return '#fff';
+                    }
                 }
             },
             {
                 selector: 'edge',
                 style: {
                     'width': 3,
-                    'line-color': '#ccc',
+                    'line-color': '#919191',
                     'target-arrow-color': '#ccc',
                     'target-arrow-shape': 'triangle',
                     'curve-style': 'bezier'
