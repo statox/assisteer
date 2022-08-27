@@ -8,12 +8,55 @@ import { getResourcesDependencies } from '../services/getResourceDependencies';
 
 import { onMount } from 'svelte';
 
-let selected, cy, planetsMode;
+let selected, cy, planetsMode, curvesMode;
 
 const nodeExists = (id: string) => {
     const existing = cy.nodes(`[id = "${id}"]`);
     return existing.length > 0;
 };
+
+const resetCytoscape = () => {
+    const cyDiv = document.getElementById('cy');
+    cy = cytoscape({
+        container: cyDiv, // container to render in
+        elements: [],
+        style: [ // the stylesheet for the graph
+            {
+                selector: 'node',
+                style: {
+                    // TODO The doc advises to memoize the functions
+                    'label': (node) => {
+                        if (node.data('label')) {
+                            return node.data('label');
+                        }
+                        return node.data('id');
+                    },
+                    'background-color': ( node ) => {
+                        if (node.data('type') === 'planet') return '#4ef542';
+                        if (node.data('type') === 'tool') return '#e84c09';
+                        return '#666';
+                    },
+                    'color': ( node ) => {
+                        if (node.data('type') === 'planet') return '#4ef542';
+                        if (node.data('type') === 'tool') return '#e84c09';
+                        return '#fff';
+                    }
+                }
+            },
+            {
+                selector: 'edge',
+                style: {
+                    'width': 3,
+                    'line-color': '#919191',
+                    'target-arrow-color': '#ccc',
+                    'target-arrow-shape': 'triangle',
+                    'curve-style': curvesMode
+                }
+            }
+        ]
+    });
+    updateGraph();
+}
 
 const addNaturalNode = (current: SimpleDepsTree) => {
     const targetId = current.planets.toString();
@@ -138,46 +181,8 @@ const updateGraph = () => {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const cyDiv = document.getElementById('cy');
     cytoscape.use( dagre );
-    cy = cytoscape({
-        container: cyDiv, // container to render in
-        elements: [],
-        style: [ // the stylesheet for the graph
-            {
-                selector: 'node',
-                style: {
-                    'label': (node) => {
-                        if (node.data('label')) {
-                            return node.data('label');
-                        }
-                        return node.data('id');
-                    },
-                    'background-color': ( node ) => {
-                        if (node.data('type') === 'planet') return '#4ef542';
-                        if (node.data('type') === 'tool') return '#e84c09';
-                        return '#666';
-                    },
-                    'color': ( node ) => {
-                        if (node.data('type') === 'planet') return '#4ef542';
-                        if (node.data('type') === 'tool') return '#e84c09';
-                        return '#fff';
-                    }
-                }
-            },
-            {
-                selector: 'edge',
-                style: {
-                    'width': 3,
-                    'line-color': '#919191',
-                    'target-arrow-color': '#ccc',
-                    'target-arrow-shape': 'triangle',
-                    'curve-style': 'bezier'
-                }
-            }
-        ]
-    });
-    updateGraph();
+    resetCytoscape();
 })
 
   let ref;
@@ -203,6 +208,15 @@ document.addEventListener("DOMContentLoaded", function() {
         <option value={"uniq"}>Uniques only</option>
         <option value={"all"}>All</option>
         <option value={"none"}>None</option>
+    </select>
+
+    <label for="curvesMode">Curves mode:</label>
+
+    <select name="curvesMode" id="curvesMode" bind:value={curvesMode} on:change={resetCytoscape}>
+        <option value={"taxi"}>Taxi</option>
+        <option value={"bezier"}>Bezier</option>
+        <option value={"segments"}>Segments</option>
+        <option value={"straight"}>Straight</option>
     </select>
 
     <div id="cy"></div>
