@@ -6,7 +6,9 @@ import {isSimpleDepsTree} from '../types/typeguards';
 import {resources} from '../stores';
 import { getResourcesDependencies } from '../services/getResourceDependencies';
 
-let selected, cy;
+import { onMount } from 'svelte';
+
+let selected, cy, planetsMode;
 
 const nodeExists = (id: string) => {
     const existing = cy.nodes(`[id = "${id}"]`);
@@ -21,6 +23,14 @@ const addNaturalNode = (current: SimpleDepsTree) => {
             data: {id: current.resource}
         });
     }
+
+    if (planetsMode === 'none') {
+        return;
+    }
+    if (planetsMode === 'uniq' && targetId === 'all') {
+        return;
+    }
+
     if (!nodeExists(targetId)) {
         cy.add({
             data: {id: targetId}
@@ -93,7 +103,8 @@ const updateGraph = () => {
     }
 
     cy.layout({
-        name: 'dagre'
+        name: 'dagre',
+        nodeDimensionsIncludeLabels: true
     }).run();
 }
 
@@ -125,17 +136,31 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     updateGraph();
 })
+
+  let ref;
+
+  onMount(() => {
+    ref.focus();
+  });
 </script>
 
 <main>
     <h2>Dependencies graph</h2>
     <label for="resource">Choose a resource:</label>
 
-    <select name="resources" id="resources" bind:value={selected} on:change={updateGraph}>
+    <select name="resources" id="resources" bind:value={selected} on:change={updateGraph} bind:this={ref}>
         {#each $resources as resource}
             <option value={resource}>{resource.name}</option>
         {/each}
     </select> 
+
+    <label for="planetsMode">Choose planets to show:</label>
+
+    <select name="planetsMode" id="planetsMode" bind:value={planetsMode} on:change={updateGraph}>
+        <option value={"uniq"}>Uniques only</option>
+        <option value={"all"}>All</option>
+        <option value={"none"}>None</option>
+    </select>
 
     <div id="cy"></div>
 </main>
