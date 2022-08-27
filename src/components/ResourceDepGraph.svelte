@@ -1,5 +1,6 @@
 <script lang="ts">
 import cytoscape from 'cytoscape';
+import dagre from 'cytoscape-dagre';
 import type {Resource, DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types/stores.types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import {resources} from '../stores';
@@ -92,15 +93,13 @@ const updateGraph = () => {
     }
 
     cy.layout({
-        name: 'cose',
-        avoidOverlap: true, // prevents node overlap, may overflow boundingBox if not enough space
-        fit: true,
-        gravity: -1
+        name: 'dagre'
     }).run();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
     const cyDiv = document.getElementById('cy');
+    cytoscape.use( dagre );
     cy = cytoscape({
         container: cyDiv, // container to render in
         elements: [],
@@ -138,5 +137,5 @@ document.addEventListener("DOMContentLoaded", function() {
         {/each}
     </select> 
 
-    <div id="cy"> </div>
+    <div id="cy"></div>
 </main>
