@@ -3,12 +3,13 @@ import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import type {Resource, DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types/stores.types';
 import {isSimpleDepsTree} from '../types/typeguards';
-import {resources} from '../stores';
+import { controlsState, resources } from '../stores';
 import { getResourcesDependencies } from '../services/getResourceDependencies';
+import GraphControls from './GraphControls.svelte';
 
 import { onMount } from 'svelte';
 
-let selected, cy, planetsMode, curvesMode;
+let cy;
 
 const nodeExists = (id: string) => {
     const existing = cy.nodes(`[id = "${id}"]`);
@@ -50,7 +51,8 @@ const resetCytoscape = () => {
                     'line-color': '#919191',
                     'target-arrow-color': '#ccc',
                     'target-arrow-shape': 'triangle',
-                    'curve-style': curvesMode
+                    // TODO Fix typing. I'm too lazy to do it now
+                    'curve-style': $controlsState.curvesMode
                 }
             }
         ]
@@ -68,10 +70,10 @@ const addNaturalNode = (current: SimpleDepsTree) => {
         });
     }
 
-    if (planetsMode === 'none') {
+    if ($controlsState.planetsMode === 'none') {
         return;
     }
-    if (planetsMode === 'uniq' && targetId === 'all') {
+    if ($controlsState.planetsMode === 'uniq' && targetId === 'all') {
         return;
     }
 
@@ -156,7 +158,8 @@ const updateGraph = () => {
         return element;
     });
     cy.remove(allNodes);
-    const tree = getResourcesDependencies(selected);
+    const resource = $resources.find(r => r.name === $controlsState.selected);
+    const tree = getResourcesDependencies(resource);
 
     const stack: DepsTree[] = [tree];
 
@@ -184,40 +187,13 @@ document.addEventListener("DOMContentLoaded", function() {
     cytoscape.use( dagre );
     resetCytoscape();
 })
-
-  let ref;
-
-  onMount(() => {
-    ref.focus();
-  });
 </script>
 
 <main>
     <h2>Dependencies graph</h2>
-    <label for="resource">Choose a resource:</label>
 
-    <select name="resources" id="resources" bind:value={selected} on:change={updateGraph} bind:this={ref}>
-        {#each $resources as resource}
-            <option value={resource}>{resource.name}</option>
-        {/each}
-    </select> 
-
-    <label for="planetsMode">Choose planets to show:</label>
-
-    <select name="planetsMode" id="planetsMode" bind:value={planetsMode} on:change={updateGraph}>
-        <option value={"uniq"}>Uniques only</option>
-        <option value={"all"}>All</option>
-        <option value={"none"}>None</option>
-    </select>
-
-    <label for="curvesMode">Curves mode:</label>
-
-    <select name="curvesMode" id="curvesMode" bind:value={curvesMode} on:change={resetCytoscape}>
-        <option value={"taxi"}>Taxi</option>
-        <option value={"bezier"}>Bezier</option>
-        <option value={"segments"}>Segments</option>
-        <option value={"straight"}>Straight</option>
-    </select>
+    <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
+    <br/>
 
     <div id="cy"></div>
 </main>
