@@ -37,6 +37,11 @@ const resetCytoscape = () => {
                         if (node.data('type') === 'tool') return '#e84c09';
                         return '#666';
                     },
+                    'background-image': (node) => {
+                        console.log(node.data('id'), node.data('icon'));
+                        return node.data('icon') || 'https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Scrap.png';
+                    },
+                    'background-fit': 'cover',
                     'color': ( node ) => {
                         if (node.data('type') === 'planet') return '#4ef542';
                         if (node.data('type') === 'tool') return '#e84c09';
@@ -66,10 +71,13 @@ const addNaturalNode = (current: SimpleDepsTree) => {
     /*
      * Node for the current resource
      */
-    if (!nodeExists(current.resource)) {
+    if (!nodeExists(current.resource.name)) {
         cy.add({
             group: 'nodes',
-            data: {id: current.resource}
+            data: {
+                id: current.resource.name,
+                icon: current.resource.icon
+            }
         });
     }
 
@@ -83,7 +91,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
     /*
      * Node for the tool and edge to the current resource
      */
-    const toolId = current.resource + current.tool;
+    const toolId = current.resource.name + current.tool;
     cy.add({
         group: 'nodes',
         data: {
@@ -96,7 +104,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
         {
             group: 'edges',
             data: {
-                source: current.resource,
+                source: current.resource.name,
                 target: toolId
             }
         }
@@ -147,7 +155,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
             {
                 group: 'edges',
                 data: {
-                    id: current.resource + current.tool + planet,
+                    id: current.resource.name + current.tool + planet,
                     source: toolId,
                     target: planet
                 }
@@ -159,14 +167,23 @@ const addNaturalNode = (current: SimpleDepsTree) => {
 const addRefinedNode = (current: RecursiveDepsTree) => {
     const children = [];
 
-    if (!nodeExists(current.resource)) {
+    /*
+     * Add node for the current resource
+     */
+    if (!nodeExists(current.resource.name)) {
         cy.add({
             group: 'nodes',
-            data: {id: current.resource}
+            data: {
+                id: current.resource.name,
+                icon: current.resource.icon
+            }
         });
     }
 
-    const toolId = current.resource + current.tool;
+    /*
+     * Add the node and the edge for the tool needed to produce the current resource
+     */
+    const toolId = current.resource.name + current.tool;
     cy.add({
         group: 'nodes',
         data: {
@@ -179,20 +196,26 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
         {
             group: 'edges',
             data: {
-                source: current.resource,
+                source: current.resource.name,
                 target: toolId
             }
         }
     );
 
+    /*
+     * For each dependency create the node for the child resource and an edge to it
+     */
     for (const dep of Object.keys(current.deps)) {
         const target = current.deps[dep];
-        const targetId = target.resource;
+        const targetId = target.resource.name;
 
         if (!nodeExists(targetId)) {
             cy.add({
                 group: 'nodes',
-                data: {id: targetId}
+                data: {
+                    id: targetId,
+                    icon: target.resource.icon
+                }
             });
         }
         cy.add(
@@ -200,7 +223,7 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
                 group: 'edges',
                 data: {
                     source: toolId,
-                    target: target.resource,
+                    target: target.resource.name,
                 }
             }
         );

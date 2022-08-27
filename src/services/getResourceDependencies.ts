@@ -29,7 +29,7 @@ function getNaturalResourceDependencies(
   }
 
   return {
-    resource: resource.name,
+    resource,
     tool,
     planets: resource.planets,
   };
@@ -51,7 +51,7 @@ function getRefinedResourceDependencies(
   }, {});
 
   return {
-    resource: resource.name,
+    resource,
     tool,
     deps,
   };
