@@ -37,10 +37,10 @@ function getNaturalResourceDependencies(
 function getRefinedResourceDependencies(
   resource: ResourceRefined | ResourceComposite | Widget
 ): RecursiveDepsTree {
-  const toolName = resource.needs.tool;
+  const toolName = resource.needs[0].tool;
   const tool = TOOLS.find((t) => t.name === toolName);
 
-  const deps = resource.needs.resources.reduce((g, name) => {
+  const deps = resource.needs[0].resources.reduce((g, name) => {
     const r = RESOURCES.find((i) => i.name === name);
     g[name] = getResourcesDependencies(r);
 

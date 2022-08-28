@@ -26,7 +26,7 @@ type ResourceNatural = {
 type ResourceRefined = {
   name: string;
   type: "refined";
-  needs: ToolDependency;
+  needs: ToolDependency[];
   icon: string;
 };
 
@@ -40,7 +40,7 @@ type ResourceAtmospheric = {
 type ResourceComposite = {
   name: string;
   type: "composite";
-  needs: ToolDependency;
+  needs: ToolDependency[];
   icon: string;
 };
 
@@ -74,7 +74,7 @@ type Widget = {
   name: string;
   type: "widget";
   icon: string;
-  needs: ToolDependency;
+  needs: ToolDependency[];
 };
 
 export type {
