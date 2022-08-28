@@ -9,7 +9,7 @@ import type {
   Widget,
 } from "../types/stores.types";
 
-import { RESOURCES, TOOLS } from "../defaults";
+import { RESOURCES, TOOLS } from "../data";
 
 function getResourcesDependencies(resource: Resource) {
   if (resource.type === "natural" || resource.type === "atmospheric") {

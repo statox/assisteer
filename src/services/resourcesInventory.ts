@@ -1,4 +1,4 @@
-import { RESOURCES } from "../defaults";
+import { RESOURCES } from "../data";
 
 const getResourcesByType = () => {
   return RESOURCES.reduce((inventory, resource) => {

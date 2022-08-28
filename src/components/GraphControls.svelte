@@ -1,6 +1,6 @@
 <script lang="ts">
     import { controlsState } from '../stores';
-    import { allObjects } from '../defaults';
+    import { allObjects } from '../data';
     import { onMount } from 'svelte';
 
     export let updateGraph = null;

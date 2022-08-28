@@ -1,5 +1,5 @@
 import { writable, readable } from "svelte/store";
-import { RESOURCES } from "./defaults";
+import { RESOURCES } from "./data";
 
 const resources = readable(RESOURCES);
 const controlsState = writable({
