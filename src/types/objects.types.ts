@@ -15,9 +15,19 @@ type Widget = GenericObject & {
   type: "widget";
 };
 
+type Platform = GenericObject & {
+  type: "platform";
+  powerConnectors: number;
+  bytes: number;
+  smallSlots?: number;
+  mediumSlots?: number;
+  largeSlots?: number;
+  extraLargeSlots?: number;
+};
+
 type Module = GenericObject & {
   type: "module";
   tier: Tier;
 };
 
-export type { GenericObject, Module, Tool, Widget };
+export type { GenericObject, Module, Platform, Tool, Widget };
