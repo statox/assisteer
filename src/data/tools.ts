@@ -1,4 +1,4 @@
-import type { Tool } from "../types/stores.types";
+import type { Tool } from "../types/objects.types";
 
 const TOOLS: Tool[] = [
   {

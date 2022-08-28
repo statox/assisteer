@@ -1,5 +1,3 @@
-import type { Widget } from "../types/stores.types";
-
 import type {
   Resource,
   ResourceNatural,
@@ -11,6 +9,7 @@ import type {
 } from "../types";
 
 import { RESOURCES, TOOLS } from "../data";
+import type { Widget } from "../types/objects.types";
 
 function getResourcesDependencies(resource: Resource) {
   if (resource.type === "natural" || resource.type === "atmospheric") {

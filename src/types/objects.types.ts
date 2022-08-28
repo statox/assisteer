@@ -1,7 +1,4 @@
-type ToolDependency = {
-  tool: string;
-  resources: string[];
-};
+import type { ToolDependency } from "./helper.types";
 
 type Tool = {
   name: string;
@@ -15,4 +12,4 @@ type Widget = {
   needs: ToolDependency[];
 };
 
-export type { Tool, ToolDependency, Widget };
+export type { Tool, Widget };

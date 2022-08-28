@@ -1,4 +1,4 @@
-import type { Widget } from "../types/stores.types";
+import type { Widget } from "../types/objects.types";
 
 // https://astroneer.fandom.com/wiki/Widgets
 const WIDGETS: Widget[] = [

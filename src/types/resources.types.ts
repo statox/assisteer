@@ -1,4 +1,5 @@
-import type { ToolDependency, Widget } from "./stores.types";
+import type { ToolDependency } from "./helper.types";
+import type { Widget } from "./objects.types";
 
 type Planet =
   | "atrox"

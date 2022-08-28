@@ -13,6 +13,8 @@ import type {
   ResourceRefined,
 } from "./resources.types";
 
+import type { Tool, Widget } from "./objects.types";
+
 export type {
   Planet,
   Resource,
@@ -23,4 +25,6 @@ export type {
   DepsTree,
   RecursiveDepsTree,
   SimpleDepsTree,
+  Tool,
+  Widget,
 };

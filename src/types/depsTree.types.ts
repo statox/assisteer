@@ -1,5 +1,5 @@
+import type { Tool } from "./objects.types";
 import type { Planet, Resource } from "./resources.types";
-import type { Tool } from "./stores.types";
 
 type DepsTree = SimpleDepsTree | RecursiveDepsTree;
 
