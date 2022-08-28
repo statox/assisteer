@@ -8,6 +8,7 @@ import { controlsState } from '../stores';
 import { getResourcesDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
+import { addResourceNode } from '../services/graph';
 
 let cy: cytoscape.Core;
 
@@ -69,15 +70,10 @@ const addNaturalNode = (current: SimpleDepsTree) => {
     /*
      * Node for the current resource
      */
-    if (!nodeExists(current.resource.name)) {
-        const node = cy.add({
-            group: 'nodes',
-            data: {
-                id: current.resource.name,
-                icon: current.resource.icon
-            }
-        });
-    }
+    addResourceNode(cy, {
+        id: current.resource.name,
+        icon: current.resource.icon
+    });
 
     if ($controlsState.planetsMode === 'none') {
         return;
@@ -169,15 +165,10 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
     /*
      * Add node for the current resource
      */
-    if (!nodeExists(current.resource.name)) {
-        cy.add({
-            group: 'nodes',
-            data: {
-                id: current.resource.name,
-                icon: current.resource.icon
-            }
-        });
-    }
+    addResourceNode(cy, {
+        id: current.resource.name,
+        icon: current.resource.icon
+    });
 
     /*
      * Add the node and the edge for the tool needed to produce the current resource
