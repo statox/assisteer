@@ -11,10 +11,6 @@ import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolFo
 
 let cy: cytoscape.Core;
 
-const nodeExists = (id: string) => {
-    return cy.getElementById(id).length > 0;
-};
-
 const resetCytoscape = () => {
     const cyDiv = document.getElementById('cy');
     cy = cytoscape({
@@ -44,7 +40,10 @@ const resetCytoscape = () => {
                         if (node.data('type') === 'planet') return '#4ef542';
                         if (node.data('type') === 'tool') return '#e84c09';
                         return '#fff';
-                    }
+                    },
+                    'width': '150%',
+                    'height': '150%',
+                    "font-size": '50'
                 }
             },
             {
@@ -126,7 +125,6 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
      */
     for (const dep of Object.keys(current.deps)) {
         const target = current.deps[dep];
-        const targetId = target.resource.name;
 
         addResourceForToolNode(cy, {
             targetResourceName: target.resource.name,
