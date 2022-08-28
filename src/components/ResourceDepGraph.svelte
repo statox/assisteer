@@ -1,6 +1,7 @@
 <script lang="ts">
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
+import evenParent from 'cytoscape-even-parent';
 import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState } from '../stores';
@@ -161,6 +162,19 @@ const updateGraph = () => {
         }
     }
 
+    if ($controlsState.graphMode.includes('eventparent')) {
+        cytoscape.use( evenParent );
+        cy.layout({
+            name: 'evenParent',
+            smart: false,
+            childrenSize: 1,
+            verticalPadding: 2000,
+            horizontalSpread: $controlsState.graphMode.includes('horizontal')
+        } as any).run();
+        return;
+    }
+
+    cytoscape.use( dagre );
     cy.layout({
         name: 'dagre',
         nodeDimensionsIncludeLabels: true // whether labels should be included in determining the space used by a node
@@ -168,7 +182,6 @@ const updateGraph = () => {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    cytoscape.use( dagre );
     resetCytoscape();
 })
 </script>

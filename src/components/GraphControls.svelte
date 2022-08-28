@@ -32,6 +32,7 @@
             <tr>
                 <th><label for="resource">Choose an object or a resource:</label></th>
                 <th><label for="planetsMode">Choose planets to show:</label></th>
+                <th><label for="graphMode">Graph mode:</label></th>
                 <th><label for="curvesMode">Curves mode:</label></th>
                 <th><label for="mergePlanets">Merge uniques planets:</label></th>
             </tr>
@@ -55,6 +56,13 @@
                         <option value={"uniq"}>Uniques only</option>
                         <option value={"all"}>All</option>
                         <option value={"none"}>None</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="graphMode" id="graphMode" bind:value={$controlsState.graphMode} on:change={resetCytoscape}>
+                        <option value={"dagre"}>Dagre</option>
+                        <option value={"eventparent"}>Even parent</option>
+                        <option value={"eventparent-horizontal"}>Even parent - Horizontal</option>
                     </select>
                 </td>
                 <td>
