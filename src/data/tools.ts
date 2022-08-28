@@ -25,6 +25,14 @@ const TOOLS: Tool[] = [
     name: "small printer",
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6c/Small_Printer.png",
   },
+  {
+    name: "medium printer",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/52/Medium_Printer.png",
+  },
+  {
+    name: "large printer",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7e/Large_Printer.png",
+  },
 ];
 
 export { TOOLS };
