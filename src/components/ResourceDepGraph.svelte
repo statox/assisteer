@@ -258,7 +258,8 @@ const updateGraph = () => {
 
     cy.layout({
         name: 'dagre',
-    }).run();
+        nodeDimensionsIncludeLabels: true // whether labels should be included in determining the space used by a node
+    } as dagre.DagreLayoutOptions).run();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
