@@ -8,7 +8,7 @@ import { controlsState } from '../stores';
 import { getResourcesDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
-import { addResourceNode } from '../services/graph';
+import { addResourceNode, addToolForResourceNode } from '../services/graph';
 
 let cy: cytoscape.Core;
 
@@ -85,25 +85,12 @@ const addNaturalNode = (current: SimpleDepsTree) => {
     /*
      * Node for the tool and edge to the current resource
      */
-    const toolId = current.resource.name + current.tool.name + uuidv4(); // uuidv4 is a shitty hack until I find a better way to handle duplicate dependencies
-    cy.add({
-        group: 'nodes',
-        data: {
-            id: toolId,
-            type: 'tool',
-            label: current.tool.name,
-            icon: current.tool.icon
-        },
+    const toolNode = addToolForResourceNode(cy, {
+        toolName: current.tool.name,
+        toolIcon: current.tool.icon,
+        resourceName: current.resource.name
     });
-    cy.add(
-        {
-            group: 'edges',
-            data: {
-                source: current.resource.name,
-                target: toolId
-            }
-        }
-    );
+    const toolId = toolNode.data('id');
 
     /*
      * If mergeUniquePlanets is enabled create only one node for the planets hosting the resource
@@ -173,25 +160,12 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
     /*
      * Add the node and the edge for the tool needed to produce the current resource
      */
-    const toolId = current.resource.name + current.tool.name + uuidv4(); // uuidv4 is a shitty hack until I find a better way to handle duplicate dependencies
-    cy.add({
-        group: 'nodes',
-        data: {
-            id: toolId,
-            type: 'tool',
-            label: current.tool.name,
-            icon: current.tool.icon
-        }
+    const toolNode = addToolForResourceNode(cy, {
+        toolName: current.tool.name,
+        toolIcon: current.tool.icon,
+        resourceName: current.resource.name
     });
-    cy.add(
-        {
-            group: 'edges',
-            data: {
-                source: current.resource.name,
-                target: toolId
-            }
-        }
-    );
+    const toolId = toolNode.data('id');
 
     /*
      * For each dependency create the node for the child resource and an edge to it
