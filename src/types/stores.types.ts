@@ -1,5 +1,3 @@
-type ResourceType = "natural" | "refined";
-
 type Planet =
   | "atrox"
   | "calidor"

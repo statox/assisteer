@@ -4,7 +4,6 @@ import type {
   ResourceRefined,
   ResourceComposite,
   ResourceAtmospheric,
-  DepsTree,
   SimpleDepsTree,
   RecursiveDepsTree,
   Widget,

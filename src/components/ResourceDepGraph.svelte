@@ -1,13 +1,11 @@
 <script lang="ts">
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
-import type {Resource, DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types/stores.types';
+import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types/stores.types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState, resources } from '../stores';
 import { getResourcesDependencies } from '../services/getResourceDependencies';
 import GraphControls from './GraphControls.svelte';
-
-import { onMount } from 'svelte';
 
 let cy;
 
@@ -56,7 +54,7 @@ const resetCytoscape = () => {
                     'source-arrow-color': '#ccc',
                     'source-arrow-shape': 'triangle',
                     // TODO Fix typing. I'm too lazy to do it now
-                    'curve-style': $controlsState.curvesMode
+                    'curve-style': $controlsState.curvesMode as PropertyValueEdge<"taxi" | "bezier" | "segments" | "straight" | "haystack" | "unbundled-bezier">
                 }
             }
         ]
@@ -236,7 +234,7 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
 
 const updateGraph = () => {
     // Hacky clean up
-    const allNodes = cy.filter(function(element, i){
+    const allNodes = cy.filter(function(element){
         return element;
     });
     cy.remove(allNodes);
