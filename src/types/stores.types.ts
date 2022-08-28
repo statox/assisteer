@@ -1,21 +1,3 @@
-import type { Planet, Resource } from "./resources.types";
-
-type DepsTree = SimpleDepsTree | RecursiveDepsTree;
-
-type SimpleDepsTree = {
-  resource: Resource;
-  tool: Tool;
-  planets: "all" | Planet[];
-};
-
-type RecursiveDepsTree = {
-  resource: Resource;
-  tool: Tool;
-  deps?: {
-    [k: string]: DepsTree;
-  };
-};
-
 type ToolDependency = {
   tool: string;
   resources: string[];
@@ -33,11 +15,4 @@ type Widget = {
   needs: ToolDependency[];
 };
 
-export type {
-  DepsTree,
-  RecursiveDepsTree,
-  SimpleDepsTree,
-  Tool,
-  ToolDependency,
-  Widget,
-};
+export type { Tool, ToolDependency, Widget };

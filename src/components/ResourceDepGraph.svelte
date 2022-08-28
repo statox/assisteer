@@ -1,7 +1,7 @@
 <script lang="ts">
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
-import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types/stores.types';
+import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState, resources } from '../stores';
 import { getResourcesDependencies } from '../services/getResourceDependencies';
