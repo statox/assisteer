@@ -1,14 +1,13 @@
 <script lang="ts">
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
-import { v4 as uuidv4 } from 'uuid';
 import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState } from '../stores';
 import { getResourcesDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
-import { addResourceNode, addToolForResourceNode } from '../services/graph';
+import { addPlanetToNodeNode, addResourceNode, addToolForResourceNode } from '../services/graph';
 
 let cy: cytoscape.Core;
 
@@ -65,8 +64,6 @@ const resetCytoscape = () => {
 }
 
 const addNaturalNode = (current: SimpleDepsTree) => {
-    const targetId = current.planets.toString();
-
     /*
      * Node for the current resource
      */
@@ -78,7 +75,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
     if ($controlsState.planetsMode === 'none') {
         return;
     }
-    if ($controlsState.planetsMode === 'uniq' && targetId === 'all') {
+    if ($controlsState.planetsMode === 'uniq' && current.planets.toString() === 'all') {
         return;
     }
 
@@ -94,56 +91,13 @@ const addNaturalNode = (current: SimpleDepsTree) => {
 
     /*
      * If mergeUniquePlanets is enabled create only one node for the planets hosting the resource
-     */
-    if ($controlsState.mergeUniquePlanets) {
-        const mergedPlanets = current.planets.toString();
-        if (!nodeExists(mergedPlanets)) {
-            cy.add({
-                group: 'nodes',
-                data: {
-                    id: mergedPlanets,
-                    type: 'planet'
-                },
-            });
-            cy.add(
-                {
-                    group: 'edges',
-                    data: {
-                        source: toolId,
-                        target: targetId
-                    }
-                }
-            );
-        }
-
-        return;
-    }
-
-    /*
      * If mergeUniquePlanets is disabled create one node by planet hosting the resource
      */
-    const planets = Array.isArray(current.planets) ? current.planets : [current.planets];
-    for (const planet of planets) {
-        if (!nodeExists(planet)) {
-            cy.add({
-                group: 'nodes',
-                data: {
-                    id: planet,
-                    type: 'planet'
-                },
-            });
-        }
-        cy.add(
-            {
-                group: 'edges',
-                data: {
-                    id: current.resource.name + current.tool.name + planet,
-                    source: toolId,
-                    target: planet
-                }
-            }
-        );
-    }
+    addPlanetToNodeNode(cy, {
+        parentNodeId: toolId,
+        mergeUniquePlanets: $controlsState.mergeUniquePlanets,
+        planets: current.planets
+    });
 };
 
 const addRefinedNode = (current: RecursiveDepsTree) => {

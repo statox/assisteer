@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import type { Planet } from "../types";
 
 const nodeExists = (cy: cytoscape.Core, id: string) => {
   return cy.getElementById(id).length > 0;
@@ -55,4 +56,50 @@ const addToolForResourceNode = (
   return node;
 };
 
-export { addResourceNode, addToolForResourceNode };
+/*
+ * Takes a list of planets or "all" and a parentNodeId (usually a toolNode)
+ * - Depending on mergeUniquePlanets create one or distinct nodes for the planets
+ * (without duplicate for individual planets)
+ ** - Then create the edges from the new nodes to the parent node
+ */
+const addPlanetToNodeNode = (
+  cy: cytoscape.Core,
+  params: {
+    parentNodeId: string;
+    mergeUniquePlanets: boolean;
+    planets: "all" | Planet[];
+  }
+) => {
+  let planetsList: string[];
+  if (Array.isArray(params.planets)) {
+    if (params.mergeUniquePlanets) {
+      planetsList = [params.planets.toString()];
+    } else {
+      planetsList = params.planets;
+    }
+  } else {
+    planetsList = [params.planets];
+  }
+
+  for (const planet of planetsList) {
+    if (!nodeExists(cy, planet)) {
+      cy.add({
+        group: "nodes",
+        data: {
+          id: planet,
+          type: "planet",
+        },
+      });
+    }
+
+    cy.add({
+      group: "edges",
+      data: {
+        source: params.parentNodeId,
+        target: planet,
+      },
+    });
+  }
+};
+
+export { addPlanetToNodeNode, addResourceNode, addToolForResourceNode };
