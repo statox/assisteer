@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState } from '../stores';
-import { getResourcesDependencies } from '../services/getResourceDependencies';
+import { getResourcesDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
 
