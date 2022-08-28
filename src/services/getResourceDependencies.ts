@@ -8,8 +8,9 @@ import type {
   RecursiveDepsTree,
 } from "../types";
 
-import { allObjects, RESOURCES, TOOLS } from "../data";
+import { TOOLS } from "../data";
 import type { Widget } from "../types/objects.types";
+import { searchInAllObjects } from "./resources";
 
 function getResourcesDependencies(resource: Resource) {
   if (resource.type === "natural" || resource.type === "atmospheric") {
@@ -33,11 +34,6 @@ function getNaturalResourceDependencies(
   };
 }
 
-const allResources = [...Object.keys(allObjects)].reduce((all, key) => {
-  all.push(...allObjects[key]);
-  return all;
-}, []);
-
 function getRefinedResourceDependencies(
   resource: ResourceRefined | ResourceComposite | Widget
 ): RecursiveDepsTree {
@@ -45,7 +41,7 @@ function getRefinedResourceDependencies(
   const tool = TOOLS.find((t) => t.name === toolName);
 
   const deps = resource.needs[0].resources.reduce((g, name) => {
-    const r = allResources.find((i) => i.name === name);
+    const r = searchInAllObjects(name);
     g[name] = getResourcesDependencies(r);
 
     return g;

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { controlsState } from '../stores';
-    import { allObjects } from '../data';
     import { onMount } from 'svelte';
+    import { allCategories, getCategoryObjects } from '../services/resources';
 
     export let updateGraph = null;
     export let resetCytoscape = null;
@@ -40,12 +40,12 @@
             <tr>
                 <td>
                     <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateGraph}>
-                        {#each Object.keys(allObjects) as type}
+                        {#each allCategories as type}
                             <option value={type}>{type}</option>
                         {/each}
                     </select>
                     <select name="resources" id="resources" bind:value={$controlsState.selected} on:change={updateGraph} bind:this={ref}>
-                        {#each allObjects[$controlsState.selectedCategory] as resource}
+                        {#each getCategoryObjects($controlsState.selectedCategory) as resource}
                             <option value={resource.name}>{resource.name}</option>
                         {/each}
                     </select> 
