@@ -1,6 +1,7 @@
 <script lang="ts">
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
+import { v4 as uuidv4 } from 'uuid';
 import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState } from '../stores';
@@ -89,7 +90,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
     /*
      * Node for the tool and edge to the current resource
      */
-    const toolId = current.resource.name + current.tool.name;
+    const toolId = current.resource.name + current.tool.name + uuidv4(); // uuidv4 is a shitty hack until I find a better way to handle duplicate dependencies
     cy.add({
         group: 'nodes',
         data: {
@@ -182,7 +183,7 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
     /*
      * Add the node and the edge for the tool needed to produce the current resource
      */
-    const toolId = current.resource.name + current.tool.name;
+    const toolId = current.resource.name + current.tool.name + uuidv4(); // uuidv4 is a shitty hack until I find a better way to handle duplicate dependencies
     cy.add({
         group: 'nodes',
         data: {

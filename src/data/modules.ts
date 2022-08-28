@@ -144,21 +144,18 @@ const MODULES: Module[] = [
     ],
     tier: 3,
   },
-  /*
-   * // Needs a fix to handle multiple tool+ressources similar combinations
-   * {
-   *   name: "extra large shredder",
-   *   type: "module",
-   *   icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/16/Extra_Large_Shredder.png",
-   *   needs: [
-   *     {
-   *       tool: "large printer",
-   *       resources: ["exo chip", "exo chip", "tungsten carbide", "steel"],
-   *     },
-   *   ],
-   *   tier: 3,
-   * },
-   */
+  {
+    name: "extra large shredder",
+    type: "module",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/16/Extra_Large_Shredder.png",
+    needs: [
+      {
+        tool: "large printer",
+        resources: ["exo chip", "exo chip", "tungsten carbide", "steel"],
+      },
+    ],
+    tier: 4,
+  },
 ];
 
 export { MODULES };
