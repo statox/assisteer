@@ -47,16 +47,21 @@ type DepsTree = SimpleDepsTree | RecursiveDepsTree;
 
 type SimpleDepsTree = {
   resource: Resource;
-  tool: string;
+  tool: Tool;
   planets: "all" | Planet[];
 };
 
 type RecursiveDepsTree = {
   resource: Resource;
-  tool: string;
+  tool: Tool;
   deps?: {
     [k: string]: DepsTree;
   };
+};
+
+type Tool = {
+  name: string;
+  icon: string;
 };
 
 export type {

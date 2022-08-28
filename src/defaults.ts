@@ -7,6 +7,7 @@ import type {
 } from "./types/stores.types";
 
 // TODO get the images locally instead of getting them from wikia
+// https://astroneer.fandom.com/wiki/Category:Resource_icons
 const NATURAL_RESOURCES: ResourceNatural[] = [
   {
     name: "soil",
@@ -277,10 +278,29 @@ const COMPOSITE_RESOURCES: ResourceComposite[] = [
   },
 ];
 
+const TOOLS = [
+  {
+    name: "digging",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f5/Drill_Mod_1.png",
+  },
+  {
+    name: "chemistry lab",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d2/Chemistry_Lab.jpg",
+  },
+  {
+    name: "smelting furnace",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/79/Smelting_Furnace.png",
+  },
+  {
+    name: "atmospheric extractor",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/02/Apt_condensor.png",
+  },
+];
+
 const RESOURCES: Resource[] = [
   ...NATURAL_RESOURCES,
   ...REFINED_RESOURCES,
   ...ATMOSPHERIC_RESOURCES,
   ...COMPOSITE_RESOURCES,
 ];
-export { RESOURCES };
+export { RESOURCES, TOOLS };

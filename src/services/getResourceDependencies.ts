@@ -9,7 +9,7 @@ import type {
   RecursiveDepsTree,
 } from "../types/stores.types";
 
-import { RESOURCES } from "../defaults";
+import { RESOURCES, TOOLS } from "../defaults";
 
 function getResourcesDependencies(resource: Resource) {
   if (resource.type === "natural" || resource.type === "atmospheric") {
@@ -23,9 +23,9 @@ function getResourcesDependencies(resource: Resource) {
 function getNaturalResourceDependencies(
   resource: ResourceNatural | ResourceAtmospheric
 ): SimpleDepsTree {
-  let tool = "digging";
+  let tool = TOOLS.find((t) => t.name === "digging");
   if (resource.type === "atmospheric") {
-    tool = "atmospheric extractor";
+    tool = TOOLS.find((t) => t.name === "atmospheric extractor");
   }
 
   return {
@@ -38,9 +38,9 @@ function getNaturalResourceDependencies(
 function getRefinedResourceDependencies(
   resource: ResourceRefined | ResourceComposite
 ): RecursiveDepsTree {
-  let tool = "smelting furnace";
+  let tool = TOOLS.find((t) => t.name === "smelting furnace");
   if (resource.type === "composite") {
-    tool = "chemistry lab";
+    tool = TOOLS.find((t) => t.name === "chemistry lab");
   }
 
   const deps = resource.needs.reduce((g, name) => {

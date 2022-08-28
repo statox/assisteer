@@ -38,7 +38,6 @@ const resetCytoscape = () => {
                         return '#666';
                     },
                     'background-image': (node) => {
-                        console.log(node.data('id'), node.data('icon'));
                         return node.data('icon') || 'https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Scrap.png';
                     },
                     'background-fit': 'cover',
@@ -91,13 +90,14 @@ const addNaturalNode = (current: SimpleDepsTree) => {
     /*
      * Node for the tool and edge to the current resource
      */
-    const toolId = current.resource.name + current.tool;
+    const toolId = current.resource.name + current.tool.name;
     cy.add({
         group: 'nodes',
         data: {
             id: toolId,
             type: 'tool',
-            label: current.tool
+            label: current.tool.name,
+            icon: current.tool.icon
         },
     });
     cy.add(
@@ -155,7 +155,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
             {
                 group: 'edges',
                 data: {
-                    id: current.resource.name + current.tool + planet,
+                    id: current.resource.name + current.tool.name + planet,
                     source: toolId,
                     target: planet
                 }
@@ -183,13 +183,14 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
     /*
      * Add the node and the edge for the tool needed to produce the current resource
      */
-    const toolId = current.resource.name + current.tool;
+    const toolId = current.resource.name + current.tool.name;
     cy.add({
         group: 'nodes',
         data: {
             id: toolId,
             type: 'tool',
-            label: current.tool
+            label: current.tool.name,
+            icon: current.tool.icon
         }
     });
     cy.add(
