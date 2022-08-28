@@ -4,6 +4,8 @@ import type {
   ResourceRefined,
   ResourceAtmospheric,
   ResourceComposite,
+  Tool,
+  Widget,
 } from "./types/stores.types";
 
 // TODO get the images locally instead of getting them from wikia
@@ -111,55 +113,82 @@ const REFINED_RESOURCES: ResourceRefined[] = [
   {
     name: "carbon",
     type: "refined",
-    needs: ["organic"],
+    needs: {
+      tool: "smelting furnace",
+      resources: ["organic"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d1/Icon_Carbon.png",
   },
   {
     name: "ceramic",
     type: "refined",
-    needs: ["clay"],
+    needs: {
+      tool: "smelting furnace",
+      resources: ["clay"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/03/Icon_Ceramic.png",
   },
   {
     name: "glass",
     type: "refined",
-    needs: ["quartz"],
+    needs: {
+      tool: "smelting furnace",
+      resources: ["quartz"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/76/Icon_Glass.png",
   },
   {
     name: "aluminum",
     type: "refined",
-    needs: ["laterite"],
+    needs: {
+      tool: "smelting furnace",
+      resources: ["laterite"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/ac/Icon_Aluminum.png",
   },
   {
     name: "zinc",
     type: "refined",
-    needs: ["sphalerite"],
+    needs: {
+      tool: "smelting furnace",
+      resources: ["sphalerite"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/85/Icon_Zinc.png",
   },
   {
     name: "copper",
     type: "refined",
-    needs: ["malachite"],
+    needs: {
+      tool: "smelting furnace",
+      resources: ["malachite"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/db/Icon_Copper.png",
   },
   {
     name: "tungsten",
     type: "refined",
-    needs: ["wolframite"],
+    needs: {
+      tool: "smelting furnace",
+      resources: ["wolframite"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/91/Icon_Tungsten.png",
   },
   {
     name: "iron",
     type: "refined",
-    needs: ["hematite"],
+    needs: {
+      tool: "smelting furnace",
+      resources: ["hematite"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/71/Icon_Iron.png",
   },
   {
     name: "titanium",
     type: "refined",
-    needs: ["titanite"],
+    needs: {
+      tool: "smelting furnace",
+      resources: ["titanite"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2a/Icon_Titanium.png",
   },
 ];
@@ -207,78 +236,114 @@ const COMPOSITE_RESOURCES: ResourceComposite[] = [
   {
     name: "rubber",
     type: "composite",
-    needs: ["organic", "resin"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["organic", "resin"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a5/Icon_Rubber.png",
   },
   {
     name: "plastic",
     type: "composite",
-    needs: ["carbon", "compound"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["carbon", "compound"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c8/Icon_Plastic.png",
   },
   {
     name: "aluminum alloy",
     type: "composite",
-    needs: ["aluminum", "copper"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["aluminum", "copper"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/30/Icon_Aluminum_Alloy.png",
   },
   {
     name: "tungsten carbide",
     type: "composite",
-    needs: ["tungsten", "carbon"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["tungsten", "carbon"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/06/Icon_Tungsten_Carbide.png",
   },
   {
     name: "graphene",
     type: "composite",
-    needs: ["graphite", "hydrazine"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["graphite", "hydrazine"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/af/Icon_Graphene.png",
   },
   {
     name: "diamond",
     type: "composite",
-    needs: ["graphene", "graphene"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["graphene", "graphene"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/af/Icon_Diamond.png",
   },
   {
     name: "hydrazine",
     type: "composite",
-    needs: ["ammonium", "ammonium", "hydrogen"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["ammonium", "ammonium", "hydrogen"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fb/Icon_Hydrazine.png",
   },
   {
     name: "silicone",
     type: "composite",
-    needs: ["resin", "quartz", "methane"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["resin", "quartz", "methane"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/11/Icon_Silicone.png",
   },
   {
     name: "explosive powder",
     type: "composite",
-    needs: ["carbon", "carbon", "sulfur"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["carbon", "carbon", "sulfur"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/8f/Icon_Explosive_Powder.png",
   },
   {
     name: "steel",
     type: "composite",
-    needs: ["iron", "carbon", "argon"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["iron", "carbon", "argon"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/38/Icon_Steel.png",
   },
   {
     name: "titanium alloy",
     type: "composite",
-    needs: ["titanium", "graphene", "nitrogen"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["titanium", "graphene", "nitrogen"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/85/Icon_Titanium_Alloy.png",
   },
   {
     name: "nanocarbon alloy",
     type: "composite",
-    needs: ["titanium alloy", "steel", "helium"],
+    needs: {
+      tool: "chemistry lab",
+      resources: ["titanium alloy", "steel", "helium"],
+    },
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/0c/Icon_Nanocarbon_Alloy.png",
   },
 ];
 
-const TOOLS = [
+const TOOLS: Tool[] = [
   {
     name: "digging",
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f5/Drill_Mod_1.png",
@@ -295,6 +360,25 @@ const TOOLS = [
     name: "atmospheric extractor",
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/02/Apt_condensor.png",
   },
+  {
+    name: "backpack",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/13/Backpack_2.0.png",
+  },
+];
+
+const WIDGETS: Widget[] = [
+  {
+    name: "small solar panel",
+    type: "widget",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a6/Small_Solar_Panel.png",
+    needs: { tool: "backpack", resources: ["copper"] },
+  },
+  {
+    name: "small wind turbine",
+    type: "widget",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ed/Small_Wind_Turbine.png",
+    needs: { tool: "backpack", resources: ["ceramic"] },
+  },
 ];
 
 const RESOURCES: Resource[] = [
@@ -302,5 +386,6 @@ const RESOURCES: Resource[] = [
   ...REFINED_RESOURCES,
   ...ATMOSPHERIC_RESOURCES,
   ...COMPOSITE_RESOURCES,
+  ...WIDGETS,
 ];
 export { RESOURCES, TOOLS };

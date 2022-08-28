@@ -53,8 +53,8 @@ const resetCytoscape = () => {
                 style: {
                     'width': 3,
                     'line-color': '#919191',
-                    'target-arrow-color': '#ccc',
-                    'target-arrow-shape': 'triangle',
+                    'source-arrow-color': '#ccc',
+                    'source-arrow-shape': 'triangle',
                     // TODO Fix typing. I'm too lazy to do it now
                     'curve-style': $controlsState.curvesMode
                 }

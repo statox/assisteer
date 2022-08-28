@@ -7,6 +7,7 @@ import type {
   DepsTree,
   SimpleDepsTree,
   RecursiveDepsTree,
+  Widget,
 } from "../types/stores.types";
 
 import { RESOURCES, TOOLS } from "../defaults";
@@ -15,9 +16,7 @@ function getResourcesDependencies(resource: Resource) {
   if (resource.type === "natural" || resource.type === "atmospheric") {
     return getNaturalResourceDependencies(resource);
   }
-  if (resource.type === "refined" || resource.type === "composite") {
-    return getRefinedResourceDependencies(resource);
-  }
+  return getRefinedResourceDependencies(resource);
 }
 
 function getNaturalResourceDependencies(
@@ -36,14 +35,12 @@ function getNaturalResourceDependencies(
 }
 
 function getRefinedResourceDependencies(
-  resource: ResourceRefined | ResourceComposite
+  resource: ResourceRefined | ResourceComposite | Widget
 ): RecursiveDepsTree {
-  let tool = TOOLS.find((t) => t.name === "smelting furnace");
-  if (resource.type === "composite") {
-    tool = TOOLS.find((t) => t.name === "chemistry lab");
-  }
+  const toolName = resource.needs.tool;
+  const tool = TOOLS.find((t) => t.name === toolName);
 
-  const deps = resource.needs.reduce((g, name) => {
+  const deps = resource.needs.resources.reduce((g, name) => {
     const r = RESOURCES.find((i) => i.name === name);
     g[name] = getResourcesDependencies(r);
 

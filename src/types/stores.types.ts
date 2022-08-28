@@ -13,7 +13,8 @@ type Resource =
   | ResourceNatural
   | ResourceRefined
   | ResourceAtmospheric
-  | ResourceComposite;
+  | ResourceComposite
+  | Widget;
 
 type ResourceNatural = {
   name: string;
@@ -25,7 +26,7 @@ type ResourceNatural = {
 type ResourceRefined = {
   name: string;
   type: "refined";
-  needs: string[];
+  needs: ToolDependency;
   icon: string;
 };
 
@@ -39,7 +40,7 @@ type ResourceAtmospheric = {
 type ResourceComposite = {
   name: string;
   type: "composite";
-  needs: string[];
+  needs: ToolDependency;
   icon: string;
 };
 
@@ -59,9 +60,21 @@ type RecursiveDepsTree = {
   };
 };
 
+type ToolDependency = {
+  tool: string;
+  resources: string[];
+};
+
 type Tool = {
   name: string;
   icon: string;
+};
+
+type Widget = {
+  name: string;
+  type: "widget";
+  icon: string;
+  needs: ToolDependency;
 };
 
 export type {
@@ -73,4 +86,6 @@ export type {
   ResourceRefined,
   ResourceAtmospheric,
   ResourceComposite,
+  Tool,
+  Widget,
 };
