@@ -3,9 +3,10 @@ import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types';
 import {isSimpleDepsTree} from '../types/typeguards';
-import { controlsState, resources } from '../stores';
+import { controlsState } from '../stores';
 import { getResourcesDependencies } from '../services/getResourceDependencies';
 import GraphControls from './GraphControls.svelte';
+import { allObjects } from '../data';
 
 let cy: cytoscape.Core;
 
@@ -236,7 +237,7 @@ const updateGraph = () => {
     // Hacky clean up
     const allNodes = cy.filter((e: any) => e);
     cy.remove(allNodes);
-    const resource = $resources.find(r => r.name === $controlsState.selected);
+    const resource = allObjects[$controlsState.selectedCategory].find(r => r.name === $controlsState.selected);
     const tree = getResourcesDependencies(resource);
 
     const stack: DepsTree[] = [tree];

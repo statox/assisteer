@@ -7,7 +7,6 @@
     export let resetCytoscape = null;
 
     let ref: any; // TODO Fix type
-    let objectTypeSelected = "composite resources";
 
     onMount(() => {
         ref.focus();
@@ -40,13 +39,13 @@
         <tbody>
             <tr>
                 <td>
-                    <select name="object_type" id="object_type" bind:value={objectTypeSelected} on:change={updateGraph}>
+                    <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateGraph}>
                         {#each Object.keys(allObjects) as type}
                             <option value={type}>{type}</option>
                         {/each}
                     </select>
                     <select name="resources" id="resources" bind:value={$controlsState.selected} on:change={updateGraph} bind:this={ref}>
-                        {#each allObjects[objectTypeSelected] as resource}
+                        {#each allObjects[$controlsState.selectedCategory] as resource}
                             <option value={resource.name}>{resource.name}</option>
                         {/each}
                     </select> 

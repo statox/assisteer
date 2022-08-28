@@ -13,16 +13,17 @@ import type {
   ResourceRefined,
 } from "./resources.types";
 
-import type { Tool, Widget } from "./objects.types";
+import type { Module, Tool, Widget } from "./objects.types";
 
 export type {
+  DepsTree,
+  Module,
   Planet,
   Resource,
   ResourceNatural,
   ResourceRefined,
   ResourceAtmospheric,
   ResourceComposite,
-  DepsTree,
   RecursiveDepsTree,
   SimpleDepsTree,
   Tool,
