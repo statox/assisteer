@@ -1,13 +1,16 @@
 import type {
+  SimpleDepsTree,
+  RecursiveDepsTree,
+  Widget,
+} from "../types/stores.types";
+
+import type {
   Resource,
   ResourceNatural,
   ResourceRefined,
   ResourceComposite,
   ResourceAtmospheric,
-  SimpleDepsTree,
-  RecursiveDepsTree,
-  Widget,
-} from "../types/stores.types";
+} from "../types/resources.types";
 
 import { RESOURCES, TOOLS } from "../data";
 

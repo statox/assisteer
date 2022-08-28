@@ -1,4 +1,4 @@
-import type { ResourceNatural } from "../types/stores.types";
+import type { ResourceNatural } from "../types/resources.types";
 
 // TODO get the images locally instead of getting them from wikia
 // https://astroneer.fandom.com/wiki/Category:Resource_icons

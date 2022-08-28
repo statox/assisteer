@@ -1,4 +1,4 @@
-import type { Resource } from "../types/stores.types";
+import type { Resource } from "../types/resources.types";
 
 import { ATMOSPHERIC_RESOURCES } from "./atmosphericResources";
 import { COMPOSITE_RESOURCES } from "./compositeResources";
