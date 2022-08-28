@@ -1,8 +1,8 @@
 import { writable } from "svelte/store";
 
 const controlsState = writable({
-  selectedCategory: "composite resources",
-  selected: "titanium alloy",
+  selectedCategory: "modules",
+  selected: "extra large shredder",
   planetsMode: "uniq",
   curvesMode: "taxi",
   mergeUniquePlanets: true,

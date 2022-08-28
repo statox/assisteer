@@ -12,8 +12,7 @@ import GraphControls from './GraphControls.svelte';
 let cy: cytoscape.Core;
 
 const nodeExists = (id: string) => {
-    const existing = cy.nodes(`[id = "${id}"]`);
-    return existing.length > 0;
+    return cy.getElementById(id).length > 0;
 };
 
 const resetCytoscape = () => {
@@ -71,7 +70,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
      * Node for the current resource
      */
     if (!nodeExists(current.resource.name)) {
-        cy.add({
+        const node = cy.add({
             group: 'nodes',
             data: {
                 id: current.resource.name,
