@@ -7,7 +7,7 @@ import { controlsState } from '../stores';
 import { getResourcesDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
-import { addPlanetToNodeNode, addResourceNode, addToolForResourceNode } from '../services/graph';
+import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolForResourceNode } from '../services/graph';
 
 let cy: cytoscape.Core;
 
@@ -101,7 +101,6 @@ const addNaturalNode = (current: SimpleDepsTree) => {
 };
 
 const addRefinedNode = (current: RecursiveDepsTree) => {
-    const children = [];
 
     /*
      * Add node for the current resource
@@ -121,6 +120,7 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
     });
     const toolId = toolNode.data('id');
 
+    const children = [];
     /*
      * For each dependency create the node for the child resource and an edge to it
      */
@@ -128,24 +128,12 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
         const target = current.deps[dep];
         const targetId = target.resource.name;
 
-        if (!nodeExists(targetId)) {
-            cy.add({
-                group: 'nodes',
-                data: {
-                    id: targetId,
-                    icon: target.resource.icon
-                }
-            });
-        }
-        cy.add(
-            {
-                group: 'edges',
-                data: {
-                    source: toolId,
-                    target: target.resource.name,
-                }
-            }
-        );
+        addResourceForToolNode(cy, {
+            targetResourceName: target.resource.name,
+            targetResourceIcon: target.resource.icon,
+            sourceNodeId: toolId
+        });
+
         children.push(target);
     }
 

@@ -56,6 +56,28 @@ const addToolForResourceNode = (
   return node;
 };
 
+const addResourceForToolNode = (
+  cy: cytoscape.Core,
+  params: {
+    targetResourceName: string;
+    targetResourceIcon: string;
+    sourceNodeId: string;
+  }
+) => {
+  addResourceNode(cy, {
+    id: params.targetResourceName,
+    icon: params.targetResourceIcon,
+  });
+
+  cy.add({
+    group: "edges",
+    data: {
+      source: params.sourceNodeId,
+      target: params.targetResourceName,
+    },
+  });
+};
+
 /*
  * Takes a list of planets or "all" and a parentNodeId (usually a toolNode)
  * - Depending on mergeUniquePlanets create one or distinct nodes for the planets
@@ -102,4 +124,9 @@ const addPlanetToNodeNode = (
   }
 };
 
-export { addPlanetToNodeNode, addResourceNode, addToolForResourceNode };
+export {
+  addPlanetToNodeNode,
+  addResourceForToolNode,
+  addResourceNode,
+  addToolForResourceNode,
+};
