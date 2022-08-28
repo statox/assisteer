@@ -1,5 +1,4 @@
-import { writable, readable } from "svelte/store";
-import { RESOURCES } from "./data";
+import { writable } from "svelte/store";
 
 const controlsState = writable({
   selectedCategory: "composite resources",
