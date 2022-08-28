@@ -6,7 +6,7 @@
     export let updateGraph = null;
     export let resetCytoscape = null;
 
-    let ref;
+    let ref: any; // TODO Fix type
     let objectTypeSelected = "composite resources";
 
     onMount(() => {

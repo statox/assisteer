@@ -14,32 +14,28 @@ type Resource =
   | ResourceComposite
   | Widget;
 
-type ResourceNatural = {
+type ResourceGeneric = {
   name: string;
+  icon: string;
+};
+type ResourceNatural = ResourceGeneric & {
   type: "natural";
   planets: "all" | Planet[];
-  icon: string;
 };
 
-type ResourceRefined = {
-  name: string;
+type ResourceRefined = ResourceGeneric & {
   type: "refined";
   needs: ToolDependency[];
-  icon: string;
 };
 
-type ResourceAtmospheric = {
-  name: string;
+type ResourceAtmospheric = ResourceGeneric & {
   type: "atmospheric";
   planets: "all" | Planet[];
-  icon: string;
 };
 
-type ResourceComposite = {
-  name: string;
+type ResourceComposite = ResourceGeneric & {
   type: "composite";
   needs: ToolDependency[];
-  icon: string;
 };
 
 type DepsTree = SimpleDepsTree | RecursiveDepsTree;

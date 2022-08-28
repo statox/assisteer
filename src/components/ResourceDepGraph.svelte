@@ -7,7 +7,7 @@ import { controlsState, resources } from '../stores';
 import { getResourcesDependencies } from '../services/getResourceDependencies';
 import GraphControls from './GraphControls.svelte';
 
-let cy;
+let cy: cytoscape.Core;
 
 const nodeExists = (id: string) => {
     const existing = cy.nodes(`[id = "${id}"]`);
@@ -24,22 +24,22 @@ const resetCytoscape = () => {
                 selector: 'node',
                 style: {
                     // TODO The doc advises to memoize the functions
-                    'label': (node) => {
+                    'label': (node: any) => {
                         if (node.data('label')) {
                             return node.data('label');
                         }
                         return node.data('id');
                     },
-                    'background-color': ( node ) => {
+                    'background-color': ( node: any ) => {
                         if (node.data('type') === 'planet') return '#4ef542';
                         if (node.data('type') === 'tool') return '#e84c09';
                         return '#666';
                     },
-                    'background-image': (node) => {
+                    'background-image': (node: any) => {
                         return node.data('icon') || 'https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Scrap.png';
                     },
                     'background-fit': 'cover',
-                    'color': ( node ) => {
+                    'color': ( node: any ) => {
                         if (node.data('type') === 'planet') return '#4ef542';
                         if (node.data('type') === 'tool') return '#e84c09';
                         return '#fff';
@@ -54,7 +54,7 @@ const resetCytoscape = () => {
                     'source-arrow-color': '#ccc',
                     'source-arrow-shape': 'triangle',
                     // TODO Fix typing. I'm too lazy to do it now
-                    'curve-style': $controlsState.curvesMode as PropertyValueEdge<"taxi" | "bezier" | "segments" | "straight" | "haystack" | "unbundled-bezier">
+                    'curve-style': $controlsState.curvesMode as any
                 }
             }
         ]
@@ -234,9 +234,7 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
 
 const updateGraph = () => {
     // Hacky clean up
-    const allNodes = cy.filter(function(element){
-        return element;
-    });
+    const allNodes = cy.filter((e: any) => e);
     cy.remove(allNodes);
     const resource = $resources.find(r => r.name === $controlsState.selected);
     const tree = getResourcesDependencies(resource);
@@ -259,7 +257,6 @@ const updateGraph = () => {
 
     cy.layout({
         name: 'dagre',
-        nodeDimensionsIncludeLabels: true
     }).run();
 }
 
