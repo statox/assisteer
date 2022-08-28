@@ -51,7 +51,7 @@ const resetCytoscape = () => {
             {
                 selector: 'edge',
                 style: {
-                    'width': 3,
+                    'width': 1,
                     'line-color': '#919191',
                     'source-arrow-color': '#ccc',
                     'source-arrow-shape': 'triangle',
