@@ -503,6 +503,13 @@ const WIDGETS: Widget[] = [
   },
 ];
 
+const allObjects = {
+  "natural resources": NATURAL_RESOURCES,
+  "refined resources": REFINED_RESOURCES,
+  "atmospheric resources": ATMOSPHERIC_RESOURCES,
+  "composite resources": COMPOSITE_RESOURCES,
+  widgets: WIDGETS,
+};
 const RESOURCES: Resource[] = [
   ...NATURAL_RESOURCES,
   ...REFINED_RESOURCES,
@@ -510,4 +517,4 @@ const RESOURCES: Resource[] = [
   ...COMPOSITE_RESOURCES,
   ...WIDGETS,
 ];
-export { RESOURCES, TOOLS };
+export { RESOURCES, TOOLS, allObjects };

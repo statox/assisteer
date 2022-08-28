@@ -1,11 +1,13 @@
 <script lang="ts">
-    import { controlsState, resources } from '../stores';
+    import { controlsState } from '../stores';
+    import { allObjects } from '../defaults';
     import { onMount } from 'svelte';
 
     export let updateGraph = null;
     export let resetCytoscape = null;
 
     let ref;
+    let objectTypeSelected = "composite resources";
 
     onMount(() => {
         ref.focus();
@@ -29,7 +31,7 @@
     <table id="controlsContainer">
         <thead>
             <tr>
-                <th><label for="resource">Choose a resource:</label></th>
+                <th><label for="resource">Choose an object or a resource:</label></th>
                 <th><label for="planetsMode">Choose planets to show:</label></th>
                 <th><label for="curvesMode">Curves mode:</label></th>
                 <th><label for="mergePlanets">Merge uniques planets:</label></th>
@@ -38,8 +40,13 @@
         <tbody>
             <tr>
                 <td>
+                    <select name="object_type" id="object_type" bind:value={objectTypeSelected} on:change={updateGraph}>
+                        {#each Object.keys(allObjects) as type}
+                            <option value={type}>{type}</option>
+                        {/each}
+                    </select>
                     <select name="resources" id="resources" bind:value={$controlsState.selected} on:change={updateGraph} bind:this={ref}>
-                        {#each $resources as resource}
+                        {#each allObjects[objectTypeSelected] as resource}
                             <option value={resource.name}>{resource.name}</option>
                         {/each}
                     </select> 
