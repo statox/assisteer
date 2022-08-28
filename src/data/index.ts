@@ -1,5 +1,3 @@
-import type { Resource } from "../types";
-
 import { ATMOSPHERIC_RESOURCES } from "./atmosphericResources";
 import { COMPOSITE_RESOURCES } from "./compositeResources";
 import { MODULES } from "./modules";
@@ -16,12 +14,5 @@ const allObjects = {
   widgets: WIDGETS,
   modules: MODULES,
 };
-const RESOURCES: any[] = [
-  ...NATURAL_RESOURCES,
-  ...REFINED_RESOURCES,
-  ...ATMOSPHERIC_RESOURCES,
-  ...COMPOSITE_RESOURCES,
-  ...WIDGETS,
-  ...MODULES,
-];
-export { RESOURCES, TOOLS, allObjects };
+
+export { TOOLS, allObjects };

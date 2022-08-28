@@ -20,4 +20,4 @@ type Module = GenericObject & {
   tier: Tier;
 };
 
-export type { Module, Tool, Widget };
+export type { GenericObject, Module, Tool, Widget };
