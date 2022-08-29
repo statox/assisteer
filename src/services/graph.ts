@@ -62,7 +62,6 @@ const addResourceForToolNode = (
     targetResourceName: string;
     targetResourceIcon: string;
     sourceNodeId: string;
-    quantity: number;
   }
 ) => {
   addResourceNode(cy, {
@@ -75,7 +74,6 @@ const addResourceForToolNode = (
     data: {
       source: params.sourceNodeId,
       target: params.targetResourceName,
-      label: "x" + params.quantity,
     },
   });
 };

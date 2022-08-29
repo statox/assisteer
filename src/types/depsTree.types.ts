@@ -12,7 +12,6 @@ type SimpleDepsTree = {
 type RecursiveDepsTree = {
   resource: Resource;
   tool: Tool;
-  quantity?: number;
   deps?: {
     [k: string]: DepsTree;
   };
