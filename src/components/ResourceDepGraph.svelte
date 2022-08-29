@@ -9,7 +9,7 @@ import { getObjectDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
 import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolForResourceNode} from '../services/graph';
-import {  makeNodesMoveSubtree } from '../services/cytoscape';
+import {  makeNodesMoveSubtree, makeNodesShowHideOnTap } from '../services/cytoscape';
 
 let cy: cytoscape.Core;
 
@@ -66,6 +66,7 @@ const resetCytoscape = () => {
             }
         ]
     });
+    makeNodesShowHideOnTap(cy);
     updateGraph();
 }
 
@@ -160,24 +161,6 @@ const updateGraph = () => {
             stack.push(child);
         }
     }
-
-    /*
-     * Allow to hide/show successors when clicking a node
-     */
-    cy.on('tap', 'node', function() {
-        if (this.scratch().restData == null) {
-            // Save node data and remove
-            this.scratch({
-                restData: this.successors().targets().remove()
-            });
-        } else {
-            // Restore the removed nodes from saved data
-            this.scratch().restData.restore();
-            this.scratch({
-                restData: null
-            });
-        }
-    });
 
     makeNodesMoveSubtree(cy);
 

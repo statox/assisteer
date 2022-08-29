@@ -1,3 +1,5 @@
+import type cytoscape from "cytoscape";
+
 /*
  * Add event listeners to all nodes so that they move
  * all their successors when drag and dropped
@@ -44,4 +46,24 @@ function makeNodesMoveSubtree(cy: cytoscape.Core) {
   }
 }
 
-export { makeNodesMoveSubtree };
+/*
+ * Allow to hide/show successors when clicking a node
+ */
+function makeNodesShowHideOnTap(cy: cytoscape.Core) {
+  cy.on("tap", "node", function () {
+    if (this.scratch().restData == null) {
+      // Save node data and remove
+      this.scratch({
+        restData: this.successors().targets().remove(),
+      });
+    } else {
+      // Restore the removed nodes from saved data
+      this.scratch().restData.restore();
+      this.scratch({
+        restData: null,
+      });
+    }
+  });
+}
+
+export { makeNodesMoveSubtree, makeNodesShowHideOnTap };
