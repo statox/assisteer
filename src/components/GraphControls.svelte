@@ -27,6 +27,7 @@
 </style>
 
 <main>
+    <h2>Controls panel</h2>
     <table id="controlsContainer">
         <thead>
             <tr>

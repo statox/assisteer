@@ -24,8 +24,6 @@ export let stats: Stats = null;
         <table>
         <tbody>
                 <tr>
-                    <td>Name</td>
-                    <td>{stats?.product}</td>
                 </tr>
             </tbody>
         </table>
@@ -33,16 +31,22 @@ export let stats: Stats = null;
     <div>
         <h3>Material needed</h3>
         <table>
-        {#each Object.keys(stats?.resources || {}) as type }
+            <tr><td colspan="2"><h4>Material to be produced</h4></td></tr>
+            <tr>
+                <td>Name</td>
+                <td>{stats?.product}</td>
+            </tr>
+            <tr><td colspan="2"><h4>Material required</h4></td></tr>
+            {#each Object.keys(stats?.resources || {}) as type }
             <tr>
                 <td><span>{type}</span></td>
                 <td>
                 {#each stats?.resources[type] as item }
                     <div>{item.resource} x{item.count}</div>
                 {/each}
-                </td>
+            </td>
             </tr>
-        {/each}
+            {/each}
         </table>
     </div>
 </main>

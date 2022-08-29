@@ -198,6 +198,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <main>
     <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
     <br/>
-    <div id="cy"></div>
     <StatsPanel stats={stats}/>
+    <br/>
+    <h2>Production graph</h2>
+    <div id="cy"></div>
 </main>
