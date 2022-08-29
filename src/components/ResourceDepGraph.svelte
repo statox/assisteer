@@ -136,7 +136,18 @@ const updateGraph = () => {
     // Hacky clean up
     const allNodes = cy.filter((e: any) => e);
     cy.remove(allNodes);
-    const resource = searchInCategory($controlsState.selectedCategory, $controlsState.selected);
+
+    let resource = searchInCategory($controlsState.selectedCategory, $controlsState.selected);
+
+    // Small hack to handle when $controlsState.selectedCategory changes:
+    // In this case $controlsState.selected isn't changed so searchInCategory() doesn't
+    // find the right resource so instead we get the first resource of the category
+    // and update $controlsState.selected to keep things tidy
+    if (!resource) {
+        resource = searchInCategory($controlsState.selectedCategory, "default");
+        $controlsState.selected = resource.name;
+    }
+
     const tree = getObjectDependencies(resource, 1);
 
     const stack: DepsTree[] = [tree];

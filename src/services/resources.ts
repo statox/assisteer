@@ -13,6 +13,10 @@ const searchInAllObjects = (name: string) => {
 };
 
 const searchInCategory = (category: string, name: string) => {
+  if (name === "default") {
+    return allObjects[category][0];
+  }
+
   return allObjects[category].find((r: GenericObject) => r.name === name);
 };
 
