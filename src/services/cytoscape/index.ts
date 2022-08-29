@@ -1,3 +1,4 @@
 import { makeNodesMoveSubtree, makeNodesShowHideOnTap } from "./ui";
+import { computeStats } from "./stats";
 
-export { makeNodesMoveSubtree, makeNodesShowHideOnTap };
+export { computeStats, makeNodesMoveSubtree, makeNodesShowHideOnTap };

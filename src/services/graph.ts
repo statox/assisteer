@@ -73,6 +73,7 @@ const addResourceForToolNode = (
   cy.add({
     group: "edges",
     data: {
+      type: "count",
       source: params.sourceNodeId,
       target: params.targetResourceName,
       label: "x" + params.quantity,

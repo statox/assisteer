@@ -9,7 +9,7 @@ import { getObjectDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
 import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolForResourceNode} from '../services/graph';
-import {  makeNodesMoveSubtree, makeNodesShowHideOnTap } from '../services/cytoscape';
+import {  computeStats, makeNodesMoveSubtree, makeNodesShowHideOnTap } from '../services/cytoscape';
 
 let cy: cytoscape.Core;
 
@@ -184,10 +184,6 @@ const updateGraph = () => {
         name: 'dagre',
         nodeDimensionsIncludeLabels: true // whether labels should be included in determining the space used by a node
     } as dagre.DagreLayoutOptions).run();
-}
-
-function computeStats(cy: cytoscape.Core) {
-    console.log('STATS');
 }
 
 document.addEventListener("DOMContentLoaded", function() {
