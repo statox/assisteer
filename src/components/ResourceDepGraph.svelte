@@ -162,6 +162,25 @@ const updateGraph = () => {
         }
     }
 
+    /*
+     * Allow to hide/show successors when clicking a node
+     */
+    cy.on('tap', 'node', function() {
+        console.log('coucou');
+        if (this.scratch().restData == null) {
+            // Save node data and remove
+            this.scratch({
+                restData: this.successors().targets().remove()
+            });
+        } else {
+            // Restore the removed nodes from saved data
+            this.scratch().restData.restore();
+            this.scratch({
+                restData: null
+            });
+        }
+    });
+
     if ($controlsState.graphMode.includes('eventparent')) {
         cytoscape.use( evenParent );
         cy.layout({
