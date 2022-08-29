@@ -3,15 +3,18 @@ import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import evenParent from 'cytoscape-even-parent';
 import type {DepsTree} from '../types';
+import type {Stats} from '../types/stats.types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState } from '../stores';
 import { getObjectDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
+import StatsPanel from './StatsPanel.svelte';
 import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolForResourceNode} from '../services/graph';
 import {  computeStats, makeNodesMoveSubtree, makeNodesShowHideOnTap } from '../services/cytoscape';
 
 let cy: cytoscape.Core;
+let stats: Stats;
 
 const resetCytoscape = () => {
     const cyDiv = document.getElementById('cy');
@@ -163,8 +166,7 @@ const updateGraph = () => {
         }
     }
 
-    const stats = computeStats(cy);
-    console.log(stats);
+    stats = computeStats(cy);
 
     makeNodesMoveSubtree(cy);
 
@@ -194,9 +196,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <main>
-    <h2>Dependencies graph</h2>
-
     <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
     <br/>
     <div id="cy"></div>
+    <StatsPanel stats={stats}/>
 </main>
