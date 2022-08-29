@@ -2,7 +2,7 @@
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import evenParent from 'cytoscape-even-parent';
-import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types';
+import type {DepsTree} from '../types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState } from '../stores';
 import { getObjectDependencies } from '../services/dependencies';
@@ -63,7 +63,7 @@ const resetCytoscape = () => {
     updateGraph();
 }
 
-const addNaturalNode = (current: SimpleDepsTree) => {
+const addNode = (current: DepsTree) => {
     /*
      * Node for the current resource
      */
@@ -87,53 +87,30 @@ const addNaturalNode = (current: SimpleDepsTree) => {
         });
     }
 
-    if ($controlsState.planetsMode === 'none') {
-        return;
-    }
-    if ($controlsState.planetsMode === 'uniq' && current.planets.toString() === 'all') {
-        return;
-    }
+    if (isSimpleDepsTree(current)) {
+        /*
+         * For objects with just a planet as dependency create only the planet nodes when needed
+         */
+        if ($controlsState.planetsMode === 'none') {
+            return [];
+        }
+        if ($controlsState.planetsMode === 'uniq' && current.planets.toString() === 'all') {
+            return [];
+        }
 
-    /*
-     * If mergeUniquePlanets is enabled create only one node for the planets hosting the resource
-     * If mergeUniquePlanets is disabled create one node by planet hosting the resource
-     */
-    addPlanetToNodeNode(cy, {
-        parentNodeId: anchorNode.data('id'),
-        mergeUniquePlanets: $controlsState.mergeUniquePlanets,
-        planets: current.planets
-    });
-};
-
-const addRefinedNode = (current: RecursiveDepsTree) => {
-
-    /*
-     * Add node for the current resource
-     */
-    const resourceNode = addResourceNode(cy, {
-        id: current.resource.name,
-        icon: current.resource.icon
-    });
-
-    // The anchorNode will contain either the resourceNode or
-    // the tool node to let the children attach
-    let anchorNode = resourceNode;
-
-    /*
-     * Add the node and the edge for the tool needed to produce the current resource
-     */
-    if ($controlsState.showTools) {
-        anchorNode = addToolForResourceNode(cy, {
-            toolName: current.tool.name,
-            toolIcon: current.tool.icon,
-            resourceName: current.resource.name
+        addPlanetToNodeNode(cy, {
+            parentNodeId: anchorNode.data('id'),
+            mergeUniquePlanets: $controlsState.mergeUniquePlanets,
+            planets: current.planets
         });
+        return [];
     }
 
-    const children = [];
     /*
+     * For objects which are not natural or atmospheric resources:
      * For each dependency create the node for the child resource and an edge to it
      */
+    const children = [];
     for (const dep of Object.keys(current.deps)) {
         const target = current.deps[dep];
 
@@ -160,15 +137,9 @@ const updateGraph = () => {
 
     while (stack.length) {
         const current = stack.shift();
-        if (isSimpleDepsTree(current)) {
-            // If it's a natural or atmospheric resource show the planet it is available on
-            addNaturalNode(current);
-        } else {
-            // Otherwise show the link with the dependencies
-            const children = addRefinedNode(current);
-            for (const child of children) {
-                stack.push(child);
-            }
+        const children = addNode(current);
+        for (const child of children) {
+            stack.push(child);
         }
     }
 
@@ -176,7 +147,6 @@ const updateGraph = () => {
      * Allow to hide/show successors when clicking a node
      */
     cy.on('tap', 'node', function() {
-        console.log('coucou');
         if (this.scratch().restData == null) {
             // Save node data and remove
             this.scratch({
@@ -192,13 +162,14 @@ const updateGraph = () => {
     });
 
     if ($controlsState.graphMode.includes('eventparent')) {
+        const horizontalSpread = $controlsState.graphMode.includes('horizontal');
         cytoscape.use( evenParent );
         cy.layout({
             name: 'evenParent',
             smart: false,
             childrenSize: 1,
             verticalPadding: 2000,
-            horizontalSpread: $controlsState.graphMode.includes('horizontal')
+            horizontalSpread
         } as any).run();
         return;
     }
