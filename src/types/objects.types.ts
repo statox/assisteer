@@ -30,4 +30,13 @@ type Module = GenericObject & {
   tier: Tier;
 };
 
-export type { GenericObject, Module, Platform, Tool, Widget };
+type Vehicule = GenericObject & {
+  type: "vehicule";
+  bytes: number;
+  smallSlots?: number;
+  mediumSlots?: number;
+  largeSlots?: number;
+  extraLargeSlots?: number;
+};
+
+export type { GenericObject, Module, Platform, Tool, Vehicule, Widget };

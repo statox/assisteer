@@ -4,6 +4,7 @@ import { MODULES } from "./modules";
 import { NATURAL_RESOURCES } from "./naturalResources";
 import { PLATFORMS } from "./platforms";
 import { REFINED_RESOURCES } from "./refinedResources";
+import { ROVERS } from "./rovers";
 import { TOOLS } from "./tools";
 import { WIDGETS } from "./widgets";
 
@@ -15,6 +16,7 @@ const allObjects = {
   widgets: WIDGETS,
   modules: MODULES,
   platforms: PLATFORMS,
+  rovers: ROVERS,
 };
 
 export { TOOLS, allObjects };
