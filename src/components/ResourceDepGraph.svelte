@@ -72,16 +72,10 @@ const addNaturalNode = (current: SimpleDepsTree) => {
         icon: current.resource.icon
     });
 
-    if ($controlsState.planetsMode === 'none') {
-        return;
-    }
-    if ($controlsState.planetsMode === 'uniq' && current.planets.toString() === 'all') {
-        return;
-    }
-
     // The anchorNode will contain either the resourceNode or
     // the tool node to let the children attach
     let anchorNode = resourceNode;
+
     /*
      * Node for the tool and edge to the current resource
      */
@@ -91,6 +85,13 @@ const addNaturalNode = (current: SimpleDepsTree) => {
             toolIcon: current.tool.icon,
             resourceName: current.resource.name
         });
+    }
+
+    if ($controlsState.planetsMode === 'none') {
+        return;
+    }
+    if ($controlsState.planetsMode === 'uniq' && current.planets.toString() === 'all') {
+        return;
     }
 
     /*

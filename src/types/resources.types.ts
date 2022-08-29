@@ -20,25 +20,22 @@ type Resource =
 type ResourceGeneric = {
   name: string;
   icon: string;
+  needs: ToolDependency[];
 };
 type ResourceNatural = ResourceGeneric & {
   type: "natural";
-  planets: "all" | Planet[];
 };
 
 type ResourceRefined = ResourceGeneric & {
   type: "refined";
-  needs: ToolDependency[];
 };
 
 type ResourceAtmospheric = ResourceGeneric & {
   type: "atmospheric";
-  planets: "all" | Planet[];
 };
 
 type ResourceComposite = ResourceGeneric & {
   type: "composite";
-  needs: ToolDependency[];
 };
 
 export type {
