@@ -8,6 +8,7 @@ import { MODULES } from "./modules";
 import { PLATFORMS } from "./platforms";
 import { TOOLS } from "./tools";
 import { WIDGETS } from "./widgets";
+import { OTHER_VEHICULES } from "./vehicules/others";
 
 const allObjects = {
   "natural resources": NATURAL_RESOURCES,
@@ -19,6 +20,7 @@ const allObjects = {
   platforms: PLATFORMS,
   rovers: ROVERS,
   shuttles: SHUTTLES,
+  "other vehicules": OTHER_VEHICULES,
 };
 
 export { TOOLS, allObjects };
