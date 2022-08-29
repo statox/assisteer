@@ -8,7 +8,8 @@ import { controlsState } from '../stores';
 import { getObjectDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
-import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolForResourceNode } from '../services/graph';
+import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolForResourceNode} from '../services/graph';
+import {  makeNodesMoveSubtree } from '../services/cytoscape';
 
 let cy: cytoscape.Core;
 
@@ -177,6 +178,8 @@ const updateGraph = () => {
             });
         }
     });
+
+    makeNodesMoveSubtree(cy);
 
     if ($controlsState.graphMode.includes('eventparent')) {
         const horizontalSpread = $controlsState.graphMode.includes('horizontal');
