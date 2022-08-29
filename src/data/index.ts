@@ -9,12 +9,14 @@ import { PLATFORMS } from "./platforms";
 import { TOOLS } from "./tools";
 import { WIDGETS } from "./widgets";
 import { OTHER_VEHICULES } from "./vehicules/others";
+import { AUGMENTS } from "./augments";
 
 const allObjects = {
   "natural resources": NATURAL_RESOURCES,
   "refined resources": REFINED_RESOURCES,
   "atmospheric resources": ATMOSPHERIC_RESOURCES,
   "composite resources": COMPOSITE_RESOURCES,
+  augments: AUGMENTS,
   widgets: WIDGETS,
   modules: MODULES,
   platforms: PLATFORMS,

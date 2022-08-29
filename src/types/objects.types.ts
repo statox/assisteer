@@ -17,6 +17,12 @@ type Widget = GenericObject & {
   type: "widget";
 };
 
+type Augment = GenericObject & {
+  type: "augment";
+  bytes: number;
+  powerDrain: number;
+};
+
 type Platform = GenericObject & {
   type: "platform";
   powerConnectors: number;
@@ -41,4 +47,12 @@ type Vehicule = GenericObject & {
   extraLargeSlots?: number;
 };
 
-export type { GenericObject, Module, Platform, Tool, Vehicule, Widget };
+export type {
+  Augment,
+  GenericObject,
+  Module,
+  Platform,
+  Tool,
+  Vehicule,
+  Widget,
+};
