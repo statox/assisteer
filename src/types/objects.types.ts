@@ -5,10 +5,12 @@ type GenericObject = {
   icon: string;
   needs: ToolDependency[];
 };
+
 type Tool = {
   name: string;
   icon: string;
 };
+
 type Tier = 1 | 2 | 3 | 4;
 
 type Widget = GenericObject & {

@@ -1,16 +1,16 @@
-import type { Tool } from "./objects.types";
-import type { Planet, Resource } from "./resources.types";
+import type { GenericObject, Tool } from "./objects.types";
+import type { Planet } from "./resources.types";
 
 type DepsTree = SimpleDepsTree | RecursiveDepsTree;
 
 type SimpleDepsTree = {
-  resource: Resource;
+  resource: GenericObject;
   tool: Tool;
-  planets: "all" | Planet[];
+  planets: Planet[];
 };
 
 type RecursiveDepsTree = {
-  resource: Resource;
+  resource: GenericObject;
   tool: Tool;
   deps?: {
     [k: string]: DepsTree;

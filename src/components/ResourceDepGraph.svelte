@@ -5,7 +5,7 @@ import evenParent from 'cytoscape-even-parent';
 import type {DepsTree, SimpleDepsTree, RecursiveDepsTree} from '../types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState } from '../stores';
-import { getResourcesDependencies } from '../services/dependencies';
+import { getObjectDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
 import GraphControls from './GraphControls.svelte';
 import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolForResourceNode } from '../services/graph';
@@ -154,7 +154,7 @@ const updateGraph = () => {
     const allNodes = cy.filter((e: any) => e);
     cy.remove(allNodes);
     const resource = searchInCategory($controlsState.selectedCategory, $controlsState.selected);
-    const tree = getResourcesDependencies(resource);
+    const tree = getObjectDependencies(resource);
 
     const stack: DepsTree[] = [tree];
 

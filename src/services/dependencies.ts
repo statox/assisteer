@@ -1,35 +1,27 @@
-import type {
-  Resource,
-  ResourceNatural,
-  ResourceRefined,
-  ResourceComposite,
-  ResourceAtmospheric,
-  SimpleDepsTree,
-  RecursiveDepsTree,
-} from "../types";
-
+import type { DepsTree, Planet } from "../types";
+import type { GenericObject } from "../types/objects.types";
 import { TOOLS } from "../data";
-import type { Widget } from "../types/objects.types";
 import { searchInAllObjects } from "./resources";
 
-function getResourcesDependencies(resource: Resource) {
-  const toolName = resource.needs[0].tool;
+function getObjectDependencies(resource: GenericObject): DepsTree {
+  const dependency = resource.needs[0];
+
+  const toolName = dependency.tool;
   const tool = TOOLS.find((t) => t.name === toolName);
 
-  const dependency = resource.needs[0];
   // If the dependency is a natural resource we create a lead for the planet
   if (["digging", "atmospheric extractor"].includes(dependency.tool)) {
     return {
       resource,
       tool,
-      planets: dependency.resources,
+      planets: dependency.resources as Planet[],
     };
   }
 
   // Otherwise continue the graph with the subdependencies
   const deps = dependency.resources.reduce((g, name) => {
     const r = searchInAllObjects(name);
-    g[name] = getResourcesDependencies(r);
+    g[name] = getObjectDependencies(r);
 
     return g;
   }, {});
@@ -41,4 +33,4 @@ function getResourcesDependencies(resource: Resource) {
   };
 }
 
-export { getResourcesDependencies };
+export { getObjectDependencies };

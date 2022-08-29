@@ -1,5 +1,4 @@
-import type { ToolDependency } from "./helper.types";
-import type { Widget } from "./objects.types";
+import type { GenericObject } from "./objects.types";
 
 type Planet =
   | "atrox"
@@ -14,27 +13,21 @@ type Resource =
   | ResourceNatural
   | ResourceRefined
   | ResourceAtmospheric
-  | ResourceComposite
-  | Widget;
+  | ResourceComposite;
 
-type ResourceGeneric = {
-  name: string;
-  icon: string;
-  needs: ToolDependency[];
-};
-type ResourceNatural = ResourceGeneric & {
+type ResourceNatural = GenericObject & {
   type: "natural";
 };
 
-type ResourceRefined = ResourceGeneric & {
+type ResourceRefined = GenericObject & {
   type: "refined";
 };
 
-type ResourceAtmospheric = ResourceGeneric & {
+type ResourceAtmospheric = GenericObject & {
   type: "atmospheric";
 };
 
-type ResourceComposite = ResourceGeneric & {
+type ResourceComposite = GenericObject & {
   type: "composite";
 };
 
