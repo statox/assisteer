@@ -47,11 +47,19 @@ type Vehicule = GenericObject & {
   extraLargeSlots?: number;
 };
 
+type PowerSource = GenericObject & {
+  type: "power_source";
+  output: number;
+  bytes: number;
+  tier: Tier;
+};
+
 export type {
   Augment,
   GenericObject,
   Module,
   Platform,
+  PowerSource,
   Tool,
   Vehicule,
   Widget,

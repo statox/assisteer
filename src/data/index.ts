@@ -10,6 +10,7 @@ import { TOOLS } from "./tools";
 import { WIDGETS } from "./widgets";
 import { OTHER_VEHICULES } from "./vehicules/others";
 import { AUGMENTS } from "./augments";
+import { POWER_SOURCES } from "./power/producers";
 
 const allObjects = {
   "natural resources": NATURAL_RESOURCES,
@@ -23,6 +24,7 @@ const allObjects = {
   rovers: ROVERS,
   shuttles: SHUTTLES,
   "other vehicules": OTHER_VEHICULES,
+  "power sources": POWER_SOURCES,
 };
 
 export { TOOLS, allObjects };
