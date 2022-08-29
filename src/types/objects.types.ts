@@ -1,8 +1,21 @@
 import type { ToolDependency } from "./helper.types";
 
+type ObjectType =
+  | "natural"
+  | "refined"
+  | "atmospheric"
+  | "composite"
+  | "widget"
+  | "augment"
+  | "platform"
+  | "vehicule"
+  | "module"
+  | "power_source";
+
 type GenericObject = {
   name: string;
   icon: string;
+  type: ObjectType;
   needs: ToolDependency[];
 };
 
@@ -58,6 +71,7 @@ export type {
   Augment,
   GenericObject,
   Module,
+  ObjectType,
   Platform,
   PowerSource,
   Tool,

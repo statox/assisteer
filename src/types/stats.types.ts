@@ -6,7 +6,7 @@ type Stats = {
     [k: string]: {
       resource: GenericObject;
       count: number;
-    };
+    }[];
   };
 };
 
