@@ -67,7 +67,7 @@ const addNaturalNode = (current: SimpleDepsTree) => {
     /*
      * Node for the current resource
      */
-    addResourceNode(cy, {
+    const resourceNode = addResourceNode(cy, {
         id: current.resource.name,
         icon: current.resource.icon
     });
@@ -79,22 +79,26 @@ const addNaturalNode = (current: SimpleDepsTree) => {
         return;
     }
 
+    // The anchorNode will contain either the resourceNode or
+    // the tool node to let the children attach
+    let anchorNode = resourceNode;
     /*
      * Node for the tool and edge to the current resource
      */
-    const toolNode = addToolForResourceNode(cy, {
-        toolName: current.tool.name,
-        toolIcon: current.tool.icon,
-        resourceName: current.resource.name
-    });
-    const toolId = toolNode.data('id');
+    if ($controlsState.showTools) {
+        anchorNode = addToolForResourceNode(cy, {
+            toolName: current.tool.name,
+            toolIcon: current.tool.icon,
+            resourceName: current.resource.name
+        });
+    }
 
     /*
      * If mergeUniquePlanets is enabled create only one node for the planets hosting the resource
      * If mergeUniquePlanets is disabled create one node by planet hosting the resource
      */
     addPlanetToNodeNode(cy, {
-        parentNodeId: toolId,
+        parentNodeId: anchorNode.data('id'),
         mergeUniquePlanets: $controlsState.mergeUniquePlanets,
         planets: current.planets
     });
@@ -105,20 +109,25 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
     /*
      * Add node for the current resource
      */
-    addResourceNode(cy, {
+    const resourceNode = addResourceNode(cy, {
         id: current.resource.name,
         icon: current.resource.icon
     });
 
+    // The anchorNode will contain either the resourceNode or
+    // the tool node to let the children attach
+    let anchorNode = resourceNode;
+
     /*
      * Add the node and the edge for the tool needed to produce the current resource
      */
-    const toolNode = addToolForResourceNode(cy, {
-        toolName: current.tool.name,
-        toolIcon: current.tool.icon,
-        resourceName: current.resource.name
-    });
-    const toolId = toolNode.data('id');
+    if ($controlsState.showTools) {
+        anchorNode = addToolForResourceNode(cy, {
+            toolName: current.tool.name,
+            toolIcon: current.tool.icon,
+            resourceName: current.resource.name
+        });
+    }
 
     const children = [];
     /*
@@ -130,7 +139,7 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
         addResourceForToolNode(cy, {
             targetResourceName: target.resource.name,
             targetResourceIcon: target.resource.icon,
-            sourceNodeId: toolId
+            sourceNodeId: anchorNode.data('id'),
         });
 
         children.push(target);

@@ -7,14 +7,14 @@ const nodeExists = (cy: cytoscape.Core, id: string) => {
 
 /*
  * Add a node for a resource only if it doesn't exist already
- * Return the new node
+ * Return the new node or the existing one
  */
 const addResourceNode = (
   cy: cytoscape.Core,
   params: { id: string; icon: string }
 ) => {
   if (nodeExists(cy, params.id)) {
-    return;
+    return cy.getElementById(params.id);
   }
   return cy.add({
     group: "nodes",

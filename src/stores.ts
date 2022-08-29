@@ -7,6 +7,7 @@ const controlsState = writable({
   graphMode: "dagre",
   curvesMode: "taxi",
   mergeUniquePlanets: true,
+  showTools: true,
 });
 
 export { controlsState };

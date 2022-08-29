@@ -30,11 +30,12 @@
     <table id="controlsContainer">
         <thead>
             <tr>
-                <th><label for="resource">Choose an object or a resource:</label></th>
-                <th><label for="planetsMode">Choose planets to show:</label></th>
-                <th><label for="graphMode">Graph mode:</label></th>
-                <th><label for="curvesMode">Curves mode:</label></th>
-                <th><label for="mergePlanets">Merge uniques planets:</label></th>
+                <th><label for="resource">Choose an object or a resource</label></th>
+                <th><label for="planetsMode">Choose planets to show</label></th>
+                <th><label for="graphMode">Graph mode</label></th>
+                <th><label for="curvesMode">Curves mode</label></th>
+                <th><label for="mergePlanets">Merge uniques planets</label></th>
+                <th><label for="showTools">Show tools</label></th>
             </tr>
         </thead>
         <tbody>
@@ -75,6 +76,9 @@
                 </td>
                 <td>
                     <input name="mergePlanets" id="mergePlanets" type=checkbox bind:checked={$controlsState.mergeUniquePlanets} on:change={updateGraph}>
+                </td>
+                <td>
+                    <input name="showTools" id="showTools" type=checkbox bind:checked={$controlsState.showTools} on:change={updateGraph}>
                 </td>
             </tr>
         </tbody>
