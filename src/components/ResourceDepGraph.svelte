@@ -51,11 +51,16 @@ const resetCytoscape = () => {
                 selector: 'edge',
                 style: {
                     'width': 1,
+                    'color': '#fff',
+                    "font-size": '50',
                     'line-color': '#919191',
                     'source-arrow-color': '#ccc',
                     'source-arrow-shape': 'triangle',
                     // TODO Fix typing. I'm too lazy to do it now
-                    'curve-style': $controlsState.curvesMode as any
+                    'curve-style': $controlsState.curvesMode as any,
+                    'label': (node: any) => {
+                            return node.data('label') || "";
+                    },
                 }
             }
         ]
@@ -135,11 +140,13 @@ const addRefinedNode = (current: RecursiveDepsTree) => {
      */
     for (const dep of Object.keys(current.deps)) {
         const target = current.deps[dep];
+        const quantity = (current.deps[dep] as RecursiveDepsTree).quantity;
 
         addResourceForToolNode(cy, {
             targetResourceName: target.resource.name,
             targetResourceIcon: target.resource.icon,
             sourceNodeId: anchorNode.data('id'),
+            quantity
         });
 
         children.push(target);
@@ -175,7 +182,6 @@ const updateGraph = () => {
      * Allow to hide/show successors when clicking a node
      */
     cy.on('tap', 'node', function() {
-        console.log('coucou');
         if (this.scratch().restData == null) {
             // Save node data and remove
             this.scratch({

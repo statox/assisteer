@@ -43,6 +43,12 @@ function getRefinedResourceDependencies(
   const deps = resource.needs[0].resources.reduce((g, name) => {
     const r = searchInAllObjects(name);
     g[name] = getResourcesDependencies(r);
+    // The quantity being computed here (and not in the return value)
+    // forces to have the quantity property as optional in RecursiveDepsTree
+    // A better way would probably be to propagate the quantities as the graph is built (TODO)
+    g[name].quantity = resource.needs[0].resources.filter(
+      (r) => r === name
+    ).length;
 
     return g;
   }, {});
