@@ -162,6 +162,8 @@ const updateGraph = () => {
         }
     }
 
+    computeStats(cy);
+
     makeNodesMoveSubtree(cy);
 
     if ($controlsState.graphMode.includes('eventparent')) {
@@ -184,6 +186,10 @@ const updateGraph = () => {
     } as dagre.DagreLayoutOptions).run();
 }
 
+function computeStats(cy: cytoscape.Core) {
+    console.log('STATS');
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     resetCytoscape();
 })
@@ -194,6 +200,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
     <br/>
-
     <div id="cy"></div>
 </main>
