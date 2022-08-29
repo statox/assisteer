@@ -1,4 +1,4 @@
-import type { Vehicule } from "../types/objects.types";
+import type { Vehicule } from "../../types/objects.types";
 
 const ROVERS: Vehicule[] = [
   {

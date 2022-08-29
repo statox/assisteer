@@ -1,11 +1,11 @@
-import { ATMOSPHERIC_RESOURCES } from "./atmosphericResources";
-import { COMPOSITE_RESOURCES } from "./compositeResources";
+import { ATMOSPHERIC_RESOURCES } from "./resources/atmosphericResources";
+import { COMPOSITE_RESOURCES } from "./resources/compositeResources";
+import { NATURAL_RESOURCES } from "./resources/naturalResources";
+import { REFINED_RESOURCES } from "./resources/refinedResources";
+import { ROVERS } from "./vehicules/rovers";
+import { SHUTTLES } from "./vehicules/shuttles";
 import { MODULES } from "./modules";
-import { NATURAL_RESOURCES } from "./naturalResources";
 import { PLATFORMS } from "./platforms";
-import { REFINED_RESOURCES } from "./refinedResources";
-import { ROVERS } from "./rovers";
-import { SHUTTLES } from "./shuttles";
 import { TOOLS } from "./tools";
 import { WIDGETS } from "./widgets";
 

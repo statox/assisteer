@@ -1,4 +1,4 @@
-import type { ResourceAtmospheric } from "../types";
+import type { ResourceAtmospheric } from "../../types";
 
 // TODO get the images locally instead of getting them from wikia
 // https://astroneer.fandom.com/wiki/Category:Resource_icons
