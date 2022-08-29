@@ -3,7 +3,10 @@ import type { GenericObject } from "../types/objects.types";
 import { TOOLS } from "../data";
 import { searchInAllObjects } from "./resources";
 
-function getObjectDependencies(resource: GenericObject): DepsTree {
+function getObjectDependencies(
+  resource: GenericObject,
+  quantity: number
+): DepsTree {
   const dependency = resource.needs[0];
 
   const toolName = dependency.tool;
@@ -13,6 +16,7 @@ function getObjectDependencies(resource: GenericObject): DepsTree {
   if (["digging", "atmospheric extractor"].includes(dependency.tool)) {
     return {
       resource,
+      quantity,
       tool,
       planets: dependency.resources as Planet[],
     };
@@ -20,14 +24,16 @@ function getObjectDependencies(resource: GenericObject): DepsTree {
 
   // Otherwise continue the graph with the subdependencies
   const deps = dependency.resources.reduce((g, name) => {
+    const count = dependency.resources.filter((r) => r === name).length;
     const r = searchInAllObjects(name);
-    g[name] = getObjectDependencies(r);
+    g[name] = getObjectDependencies(r, count * quantity);
 
     return g;
   }, {});
 
   return {
     resource,
+    quantity,
     tool,
     deps,
   };

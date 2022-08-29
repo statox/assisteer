@@ -51,9 +51,14 @@ const resetCytoscape = () => {
                 selector: 'edge',
                 style: {
                     'width': 1,
+                    'color': '#fff',
+                    "font-size": '50',
                     'line-color': '#919191',
                     'source-arrow-color': '#ccc',
                     'source-arrow-shape': 'triangle',
+                    'label': (node: any) => {
+                        return node.data('label') || "";
+                    },
                     // TODO Fix typing. I'm too lazy to do it now
                     'curve-style': $controlsState.curvesMode as any
                 }
@@ -118,6 +123,7 @@ const addNode = (current: DepsTree) => {
             targetResourceName: target.resource.name,
             targetResourceIcon: target.resource.icon,
             sourceNodeId: anchorNode.data('id'),
+            quantity: target.quantity
         });
 
         children.push(target);
@@ -131,7 +137,7 @@ const updateGraph = () => {
     const allNodes = cy.filter((e: any) => e);
     cy.remove(allNodes);
     const resource = searchInCategory($controlsState.selectedCategory, $controlsState.selected);
-    const tree = getObjectDependencies(resource);
+    const tree = getObjectDependencies(resource, 1);
 
     const stack: DepsTree[] = [tree];
 
