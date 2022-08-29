@@ -1,6 +1,7 @@
 html, body {
     position: relative;
-    width: 100%;
+    margin: auto;
+    width: 95%;
     height: 100%;
 }
 
@@ -81,7 +82,8 @@ button:focus {
 }
 
 #cy {
-    width: 100%;
+    margin: auto;
+    width: 95%;
     height: 800px;
     display: block;
     background-color: #393940;
