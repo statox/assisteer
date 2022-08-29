@@ -124,6 +124,7 @@ const addNode = (current: DepsTree) => {
         addResourceForToolNode(cy, {
             targetResourceName: target.resource.name,
             targetResourceIcon: target.resource.icon,
+            targetResource: target.resource,
             sourceNodeId: anchorNode.data('id'),
             quantity: target.quantity
         });
@@ -162,7 +163,8 @@ const updateGraph = () => {
         }
     }
 
-    computeStats(cy);
+    const stats = computeStats(cy);
+    console.log(stats);
 
     makeNodesMoveSubtree(cy);
 

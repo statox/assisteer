@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import type { Planet } from "../types";
+import type { GenericObject } from "../types/objects.types";
 
 const nodeExists = (cy: cytoscape.Core, id: string) => {
   return cy.getElementById(id).length > 0;
@@ -61,6 +62,7 @@ const addResourceForToolNode = (
   params: {
     targetResourceName: string;
     targetResourceIcon: string;
+    targetResource: GenericObject;
     sourceNodeId: string;
     quantity: number;
   }
@@ -77,6 +79,8 @@ const addResourceForToolNode = (
       source: params.sourceNodeId,
       target: params.targetResourceName,
       label: "x" + params.quantity,
+      targetResource: params.targetResource,
+      count: params.quantity,
     },
   });
 };
