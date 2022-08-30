@@ -20,16 +20,6 @@ export let stats: Stats = null;
 <main>
     <h2>Production stats</h2>
     <div>
-        <h3>To be produced</h3>
-        <table>
-        <tbody>
-                <tr>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div>
-        <h3>Material needed</h3>
         <table>
             <tr><td colspan="2"><h4>Material to be produced</h4></td></tr>
             <tr>
@@ -50,4 +40,3 @@ export let stats: Stats = null;
         </table>
     </div>
 </main>
-
