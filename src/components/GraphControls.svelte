@@ -1,16 +1,10 @@
 <script lang="ts">
     import { controlsState } from '../stores';
-    import { onMount } from 'svelte';
     import { allCategories, getCategoryObjects } from '../services/resources';
 
     export let updateGraph = null;
     export let resetCytoscape = null;
 
-    let ref: any; // TODO Fix type
-
-    onMount(() => {
-        ref.focus();
-    });
 </script>
 
 <style>
@@ -31,7 +25,6 @@
     <table id="controlsContainer">
         <thead>
             <tr>
-                <th><label for="resource">Choose an object or a resource</label></th>
                 <th><label for="planetsMode">Choose planets to show</label></th>
                 <th><label for="graphMode">Graph mode</label></th>
                 <th><label for="curvesMode">Curves mode</label></th>
@@ -40,18 +33,6 @@
         </thead>
         <tbody>
             <tr>
-                <td>
-                    <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateGraph}>
-                        {#each allCategories as type}
-                            <option value={type}>{type}</option>
-                        {/each}
-                    </select>
-                    <select name="resources" id="resources" bind:value={$controlsState.selected} on:change={updateGraph} bind:this={ref}>
-                        {#each getCategoryObjects($controlsState.selectedCategory) as resource}
-                            <option value={resource.name}>{resource.name}</option>
-                        {/each}
-                    </select> 
-                </td>
                 <td>
                     <select name="planetsMode" id="planetsMode" bind:value={$controlsState.planetsMode} on:change={updateGraph}>
                         <option value={"uniq"}>Uniques only</option>

@@ -1,7 +1,9 @@
 <script lang="ts">
     import type { GenericObject } from '../types/objects.types';
+    import { onMount } from 'svelte';
     import { controlsState, project } from '../stores';
     import { searchInAllObjects } from '../services/resources';
+    import { allCategories, getCategoryObjects } from '../services/resources';
     export let updateGraph = null;
 
     const addToProject = () => {
@@ -36,6 +38,11 @@
             updateGraph();
         }
     }
+
+    let ref: any; // TODO Fix type
+    onMount(() => {
+        ref.focus();
+    });
 </script>
 
 <style>
@@ -59,7 +66,16 @@
             <table>
                 <tr>
                     <td>
-                        {$controlsState.selected}
+                        <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateGraph}>
+                            {#each allCategories as type}
+                                <option value={type}>{type}</option>
+                            {/each}
+                        </select>
+                        <select name="resources" id="resources" bind:value={$controlsState.selected} on:change={updateGraph} bind:this={ref}>
+                            {#each getCategoryObjects($controlsState.selectedCategory) as resource}
+                                <option value={resource.name}>{resource.name}</option>
+                            {/each}
+                        </select>
                     </td>
                     <td>
                         <button on:click={addToProject}>Add to project</button>

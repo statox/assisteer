@@ -211,12 +211,12 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <main>
-    <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
-    <br/>
     <ProjectPanel updateGraph={updateGraph} />
     <br/>
     <StatsPanel stats={stats}/>
     <br/>
     <h2>Production graph</h2>
     <div id="cy"></div>
+    <br/>
+    <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
 </main>
