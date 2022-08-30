@@ -64,6 +64,7 @@
                         <option value={"dagre"}>Dagre</option>
                         <option value={"eventparent"}>Even parent</option>
                         <option value={"eventparent-horizontal"}>Even parent - Horizontal</option>
+                        <option value={"breadthfirst"}>Breadthfirst</option>
                     </select>
                 </td>
                 <td>

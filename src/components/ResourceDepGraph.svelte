@@ -183,6 +183,14 @@ const updateGraph = () => {
         return;
     }
 
+    if ($controlsState.graphMode === 'breadthfirst') {
+        cy.layout({
+            name: 'breadthfirst',
+            directed: true,
+        }).run();
+        return
+    }
+
     cytoscape.use( dagre );
     cy.layout({
         name: 'dagre',
