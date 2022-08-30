@@ -5,9 +5,10 @@ import evenParent from 'cytoscape-even-parent';
 import type {DepsTree} from '../types';
 import type {Stats} from '../types/stats.types';
 import {isSimpleDepsTree} from '../types/typeguards';
-import { controlsState } from '../stores';
+import { controlsState, project } from '../stores';
 import { getObjectDependencies } from '../services/dependencies';
 import { searchInCategory } from '../services/resources';
+import ProjectPanel from './ProjectPanel.svelte';
 import GraphControls from './GraphControls.svelte';
 import StatsPanel from './StatsPanel.svelte';
 import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolForResourceNode} from '../services/graph';
@@ -158,11 +159,17 @@ const updateGraph = () => {
 
     const stack: DepsTree[] = [tree];
 
-    while (stack.length) {
-        const current = stack.shift();
-        const children = addNode(current);
-        for (const child of children) {
-            stack.push(child);
+    for (const item of $project) {
+        const {object, quantity}=item;
+        const tree = getObjectDependencies(object, quantity);
+
+        const stack: DepsTree[] = [tree];
+        while (stack.length) {
+            const current = stack.shift();
+            const children = addNode(current);
+            for (const child of children) {
+                stack.push(child);
+            }
         }
     }
 
@@ -205,6 +212,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <main>
     <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
+    <br/>
+    <ProjectPanel updateGraph={updateGraph} />
     <br/>
     <StatsPanel stats={stats}/>
     <br/>

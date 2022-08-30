@@ -2,6 +2,9 @@ import type { Stats } from "../../types/stats.types";
 
 function computeStats(cy: cytoscape.Core): Stats {
   const root = cy.nodes().roots()[0];
+  if (!root) {
+    return;
+  }
 
   const neighbors = root.successors("[type = 'count']").edges();
 
