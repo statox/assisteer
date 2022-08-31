@@ -3,18 +3,6 @@ import type { Widget } from "../types/objects.types";
 // https://astroneer.fandom.com/wiki/Widgets
 const WIDGETS: Widget[] = [
   {
-    name: "small solar panel",
-    type: "widget",
-    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a6/Small_Solar_Panel.png",
-    needs: [{ tool: "backpack", resources: ["copper"] }],
-  },
-  {
-    name: "small wind turbine",
-    type: "widget",
-    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ed/Small_Wind_Turbine.png",
-    needs: [{ tool: "backpack", resources: ["ceramic"] }],
-  },
-  {
     name: "small battery",
     type: "widget",
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/af/Small_Battery.jpg",
@@ -25,12 +13,6 @@ const WIDGETS: Widget[] = [
     type: "widget",
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b7/SmallTank.jpg",
     needs: [{ tool: "backpack", resources: ["glass"] }],
-  },
-  {
-    name: "small generator",
-    type: "widget",
-    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/45/Small_Generator.png",
-    needs: [{ tool: "backpack", resources: ["compound"] }],
   },
   {
     name: "portable oxygenator",
