@@ -1,5 +1,6 @@
 <script lang="ts">
 import type {Stats} from '../types/stats.types';
+import { project } from '../stores';
 
 export let stats: Stats = null;
 </script>
@@ -22,7 +23,7 @@ export let stats: Stats = null;
     <div>
         <table>
             <tr><td colspan="2"><h4>Material required</h4></td></tr>
-            {#if !stats || Object.keys(stats).length === 0}
+            {#if $project.length === 0}
             <tr>
                 <td colspan=3>No object added yet...</td>
             </tr>
