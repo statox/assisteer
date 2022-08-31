@@ -40,7 +40,6 @@
 
     function updateCategory() {
         $controlsState.selected = searchInCategory($controlsState.selectedCategory, "default");;
-        updateGraph();
     }
 
     let ref: any; // TODO Fix type
@@ -78,7 +77,7 @@
                                 <option value={type}>{type}</option>
                             {/each}
                         </select>
-                        <select name="resources" id="resources" bind:value={$controlsState.selected} on:change={updateGraph} bind:this={ref}>
+                        <select name="resources" id="resources" bind:value={$controlsState.selected} bind:this={ref}>
                             {#each getCategoryObjects($controlsState.selectedCategory) as resource}
                                 <option value={resource}>{resource.name}</option>
                             {/each}
