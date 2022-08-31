@@ -2,7 +2,7 @@
     import type { GenericObject } from '../types/objects.types';
     import { onMount } from 'svelte';
     import { controlsState, project } from '../stores';
-    import { allCategories, getCategoryObjects } from '../services/resources';
+    import { allCategories, getCategoryObjects, searchInCategory } from '../services/resources';
     export let updateGraph = null;
 
     const addToProject = () => {
@@ -38,6 +38,11 @@
         }
     }
 
+    function updateCategory() {
+        $controlsState.selected = searchInCategory($controlsState.selectedCategory, "default");;
+        updateGraph();
+    }
+
     let ref: any; // TODO Fix type
     onMount(() => {
         ref.focus();
@@ -68,7 +73,7 @@
                         <img src={$controlsState.selected.icon} alt={$controlsState.selected.name}/>
                     </td>
                     <td>
-                        <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateGraph}>
+                        <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateCategory}>
                             {#each allCategories as type}
                                 <option value={type}>{type}</option>
                             {/each}

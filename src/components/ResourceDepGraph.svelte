@@ -7,7 +7,6 @@ import type {Stats} from '../types/stats.types';
 import {isSimpleDepsTree} from '../types/typeguards';
 import { controlsState, project } from '../stores';
 import { getObjectDependencies } from '../services/dependencies';
-import { searchInCategory } from '../services/resources';
 import ProjectPanel from './ProjectPanel.svelte';
 import GraphControls from './GraphControls.svelte';
 import StatsPanel from './StatsPanel.svelte';
@@ -145,15 +144,6 @@ const updateGraph = () => {
     cy.remove(allNodes);
 
     let resource = $controlsState.selected;
-
-    // Small hack to handle when $controlsState.selectedCategory changes:
-    // In this case $controlsState.selected isn't changed so searchInCategory() doesn't
-    // find the right resource so instead we get the first resource of the category
-    // and update $controlsState.selected to keep things tidy
-    if (!resource) {
-        resource = searchInCategory($controlsState.selectedCategory, "default");
-        $controlsState.selected = resource;
-    }
 
     const tree = getObjectDependencies(resource, 1);
 
