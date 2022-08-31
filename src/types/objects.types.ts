@@ -11,13 +11,22 @@ type ObjectType =
   | "vehicule"
   | "module"
   | "power_source"
-  | "power_storage";
+  | "power_storage"
+  | "automation_tool";
 
 type GenericObject = {
   name: string;
   icon: string;
   type: ObjectType;
   needs: ToolDependency[];
+};
+
+type ResearchableObject = GenericObject & {
+  bytes: number;
+};
+
+type PowerConsumer = {
+  powerDrain: number;
 };
 
 type Tool = {
@@ -31,53 +40,59 @@ type Widget = GenericObject & {
   type: "widget";
 };
 
-type Augment = GenericObject & {
-  type: "augment";
-  bytes: number;
-  powerDrain: number;
-};
+type Augment = GenericObject &
+  PowerConsumer &
+  ResearchableObject & {
+    type: "augment";
+  };
 
-type Platform = GenericObject & {
-  type: "platform";
-  powerConnectors: number;
-  bytes: number;
-  smallSlots?: number;
-  mediumSlots?: number;
-  largeSlots?: number;
-  extraLargeSlots?: number;
-};
+type Platform = GenericObject &
+  ResearchableObject & {
+    type: "platform";
+    powerConnectors: number;
+    smallSlots?: number;
+    mediumSlots?: number;
+    largeSlots?: number;
+    extraLargeSlots?: number;
+  };
 
 type Module = GenericObject & {
   type: "module";
   tier: Tier;
 };
 
-type Vehicule = GenericObject & {
-  type: "vehicule";
-  bytes: number;
-  smallSlots?: number;
-  mediumSlots?: number;
-  largeSlots?: number;
-  extraLargeSlots?: number;
-};
+type Vehicule = GenericObject &
+  ResearchableObject & {
+    type: "vehicule";
+    bytes: number;
+    smallSlots?: number;
+    mediumSlots?: number;
+    largeSlots?: number;
+    extraLargeSlots?: number;
+  };
 
-type PowerSource = GenericObject & {
-  type: "power_source";
-  output: number;
-  bytes: number;
-  tier: Tier;
-};
+type PowerSource = GenericObject &
+  ResearchableObject & {
+    type: "power_source";
+    output: number;
+    tier: Tier;
+  };
 
-type PowerStorage = GenericObject & {
-  type: "power_storage";
-  output: number;
-  capacity: number;
-  bytes: number;
-  tier: number;
-};
+type PowerStorage = GenericObject &
+  ResearchableObject & {
+    type: "power_storage";
+    output: number;
+    capacity: number;
+    tier: number;
+  };
+
+type AutomationTool = GenericObject &
+  PowerConsumer &
+  ResearchableObject & { tier: number };
 
 export type {
   Augment,
+  AutomationTool,
   GenericObject,
   Module,
   ObjectType,
