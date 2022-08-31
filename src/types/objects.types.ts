@@ -10,7 +10,8 @@ type ObjectType =
   | "platform"
   | "vehicule"
   | "module"
-  | "power_source";
+  | "power_source"
+  | "power_storage";
 
 type GenericObject = {
   name: string;
@@ -67,6 +68,14 @@ type PowerSource = GenericObject & {
   tier: Tier;
 };
 
+type PowerStorage = GenericObject & {
+  type: "power_storage";
+  output: number;
+  capacity: number;
+  bytes: number;
+  tier: number;
+};
+
 export type {
   Augment,
   GenericObject,
@@ -74,6 +83,7 @@ export type {
   ObjectType,
   Platform,
   PowerSource,
+  PowerStorage,
   Tool,
   Vehicule,
   Widget,

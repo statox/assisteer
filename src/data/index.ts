@@ -11,6 +11,7 @@ import { WIDGETS } from "./widgets";
 import { OTHER_VEHICULES } from "./vehicules/others";
 import { AUGMENTS } from "./augments";
 import { POWER_SOURCES } from "./power/producers";
+import { POWER_STORAGES } from "./power/storages";
 
 const allObjects = {
   "natural resources": NATURAL_RESOURCES,
@@ -25,6 +26,7 @@ const allObjects = {
   shuttles: SHUTTLES,
   "other vehicules": OTHER_VEHICULES,
   "power sources": POWER_SOURCES,
+  "power storages": POWER_STORAGES,
 };
 
 export { TOOLS, allObjects };
