@@ -7,6 +7,9 @@ function getObjectDependencies(
   resource: GenericObject,
   quantity: number
 ): DepsTree {
+  if (!resource?.needs.length) {
+    return;
+  }
   const dependency = resource.needs[0];
 
   const toolName = dependency.tool;

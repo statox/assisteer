@@ -2,12 +2,11 @@
     import type { GenericObject } from '../types/objects.types';
     import { onMount } from 'svelte';
     import { controlsState, project } from '../stores';
-    import { searchInAllObjects } from '../services/resources';
     import { allCategories, getCategoryObjects } from '../services/resources';
     export let updateGraph = null;
 
     const addToProject = () => {
-        const object = searchInAllObjects($controlsState.selected);
+        const object = $controlsState.selected;
         const itemIndex = $project.findIndex(item => item.object.name === object.name)
         if (itemIndex === -1) {
             $project.push({object, quantity: 1});
@@ -66,6 +65,9 @@
             <table>
                 <tr>
                     <td>
+                        <img src={$controlsState.selected.icon} alt={$controlsState.selected.name}/>
+                    </td>
+                    <td>
                         <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateGraph}>
                             {#each allCategories as type}
                                 <option value={type}>{type}</option>
@@ -73,7 +75,7 @@
                         </select>
                         <select name="resources" id="resources" bind:value={$controlsState.selected} on:change={updateGraph} bind:this={ref}>
                             {#each getCategoryObjects($controlsState.selectedCategory) as resource}
-                                <option value={resource.name}>{resource.name}</option>
+                                <option value={resource}>{resource.name}</option>
                             {/each}
                         </select>
                     </td>

@@ -1,6 +1,8 @@
+import type { GenericObject } from "./objects.types";
+
 type Controls = {
   selectedCategory: string;
-  selected: string;
+  selected: GenericObject;
   planetsMode: string;
   graphMode: string;
   curvesMode: string;

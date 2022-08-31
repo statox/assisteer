@@ -1,6 +1,5 @@
 <script lang="ts">
     import { controlsState } from '../stores';
-    import { allCategories, getCategoryObjects } from '../services/resources';
 
     export let updateGraph = null;
     export let resetCytoscape = null;

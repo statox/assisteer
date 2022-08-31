@@ -144,7 +144,7 @@ const updateGraph = () => {
     const allNodes = cy.filter((e: any) => e);
     cy.remove(allNodes);
 
-    let resource = searchInCategory($controlsState.selectedCategory, $controlsState.selected);
+    let resource = $controlsState.selected;
 
     // Small hack to handle when $controlsState.selectedCategory changes:
     // In this case $controlsState.selected isn't changed so searchInCategory() doesn't
@@ -152,7 +152,7 @@ const updateGraph = () => {
     // and update $controlsState.selected to keep things tidy
     if (!resource) {
         resource = searchInCategory($controlsState.selectedCategory, "default");
-        $controlsState.selected = resource.name;
+        $controlsState.selected = resource;
     }
 
     const tree = getObjectDependencies(resource, 1);
