@@ -143,12 +143,6 @@ const updateGraph = () => {
     const allNodes = cy.filter((e: any) => e);
     cy.remove(allNodes);
 
-    let resource = $controlsState.selected;
-
-    const tree = getObjectDependencies(resource, 1);
-
-    const stack: DepsTree[] = [tree];
-
     for (const item of $project) {
         const {object, quantity}=item;
         const tree = getObjectDependencies(object, quantity);
