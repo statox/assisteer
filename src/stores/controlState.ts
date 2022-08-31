@@ -1,7 +1,6 @@
 import { writable } from "svelte/store";
-import { searchInAllObjects, searchInCategory } from "./services/resources";
-import type { Controls } from "./types/controls.types";
-import type { Project } from "./types/project.types";
+import { searchInAllObjects, searchInCategory } from "../services/resources";
+import type { Controls } from "../types/controls.types";
 
 const defaultControls: Controls = {
   selectedCategory: "modules",
@@ -34,6 +33,4 @@ controlsState.subscribe((value) => {
   localStorage.setItem("controls", JSON.stringify(value));
 });
 
-const project = writable<Project>([]);
-
-export { controlsState, project };
+export { controlsState };
