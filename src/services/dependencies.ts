@@ -16,7 +16,11 @@ function getObjectDependencies(
   const tool = TOOLS.find((t) => t.name === toolName);
 
   // If the dependency is a natural resource we create a lead for the planet
-  if (["digging", "atmospheric extractor"].includes(dependency.tool)) {
+  if (
+    ["digging", "atmospheric extractor", "exo cache", "shredding"].includes(
+      dependency.tool
+    )
+  ) {
     return {
       resource,
       quantity,

@@ -6,6 +6,7 @@ type ObjectType =
   | "refined"
   | "atmospheric"
   | "composite"
+  | "special_resource"
   | "widget"
   | "augment"
   | "platform"

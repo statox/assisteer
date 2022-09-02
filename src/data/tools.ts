@@ -33,6 +33,14 @@ const TOOLS: Tool[] = [
     name: "large printer",
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7e/Large_Printer.png",
   },
+  {
+    name: "exo cache",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/07/EXO_Cache.png",
+  },
+  {
+    name: "shredding",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/57/Medium_shredder.png",
+  },
 ];
 
 export { TOOLS };

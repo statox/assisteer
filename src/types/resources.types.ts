@@ -21,7 +21,8 @@ type Resource =
   | ResourceNatural
   | ResourceRefined
   | ResourceAtmospheric
-  | ResourceComposite;
+  | ResourceComposite
+  | ResourceSpecial;
 
 type ResourceNatural = GenericObject & {
   type: "natural";
@@ -39,6 +40,10 @@ type ResourceComposite = GenericObject & {
   type: "composite";
 };
 
+type ResourceSpecial = GenericObject & {
+  type: "special_resource";
+};
+
 export type {
   Planet,
   Resource,
@@ -46,5 +51,6 @@ export type {
   ResourceComposite,
   ResourceNatural,
   ResourceRefined,
+  ResourceSpecial,
   ResourceType,
 };

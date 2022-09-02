@@ -179,17 +179,6 @@ const NATURAL_RESOURCES: ResourceNatural[] = [
     ],
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d8/Icon_Titanite.png",
   },
-  {
-    name: "exo chip",
-    type: "natural",
-    needs: [
-      {
-        tool: "digging",
-        resources: ["all"],
-      },
-    ],
-    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fa/Icon_EXO_Chip.png",
-  },
 ];
 
 export { NATURAL_RESOURCES };

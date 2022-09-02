@@ -15,12 +15,14 @@ import { POWER_STORAGES } from "./power/storages";
 import { AUTOMATION_TOOLS } from "./automation";
 import { STORAGES } from "./storages/storage";
 import { CANISTERS } from "./storages/canisters";
+import { SPECIAL_RESOURCES } from "./resources/specialResources";
 
 const allObjects = {
   "natural resources": NATURAL_RESOURCES,
   "refined resources": REFINED_RESOURCES,
   "atmospheric resources": ATMOSPHERIC_RESOURCES,
   "composite resources": COMPOSITE_RESOURCES,
+  "special resources": SPECIAL_RESOURCES,
   augments: AUGMENTS,
   widgets: WIDGETS,
   modules: MODULES,

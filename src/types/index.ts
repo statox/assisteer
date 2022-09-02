@@ -11,6 +11,7 @@ import type {
   ResourceComposite,
   ResourceNatural,
   ResourceRefined,
+  ResourceSpecial,
 } from "./resources.types";
 
 import type { Module, Tool, Widget } from "./objects.types";
@@ -24,6 +25,7 @@ export type {
   ResourceRefined,
   ResourceAtmospheric,
   ResourceComposite,
+  ResourceSpecial,
   RecursiveDepsTree,
   SimpleDepsTree,
   Tool,
