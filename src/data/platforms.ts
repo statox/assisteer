@@ -12,7 +12,9 @@ const PLATFORMS: Platform[] = [
     needs: [{ tool: "small printer", resources: ["resin"] }],
     bytes: 0,
     powerConnectors: 4,
-    mediumSlots: 1,
+    storageCapacity: {
+      mediumSlots: 1,
+    },
   },
   {
     name: "medium platform B",
@@ -21,8 +23,10 @@ const PLATFORMS: Platform[] = [
     needs: [{ tool: "small printer", resources: ["resin", "resin"] }],
     bytes: 250,
     powerConnectors: 4,
-    smallSlots: 2,
-    mediumSlots: 1,
+    storageCapacity: {
+      smallSlots: 2,
+      mediumSlots: 1,
+    },
   },
   {
     name: "medium platform C",
@@ -31,8 +35,10 @@ const PLATFORMS: Platform[] = [
     needs: [{ tool: "small printer", resources: ["resin"] }],
     bytes: 400,
     powerConnectors: 3,
-    smallSlots: 2,
-    mediumSlots: 1,
+    storageCapacity: {
+      smallSlots: 2,
+      mediumSlots: 1,
+    },
   },
   {
     name: "tall platform",
@@ -41,8 +47,10 @@ const PLATFORMS: Platform[] = [
     needs: [{ tool: "small printer", resources: ["ceramic"] }],
     bytes: 750,
     powerConnectors: 3,
-    smallSlots: 4,
-    mediumSlots: 2,
+    storageCapacity: {
+      smallSlots: 4,
+      mediumSlots: 2,
+    },
   },
   {
     name: "medium T platform",
@@ -51,7 +59,9 @@ const PLATFORMS: Platform[] = [
     needs: [{ tool: "small printer", resources: ["resin", "resin"] }],
     bytes: 400,
     powerConnectors: 3,
-    mediumSlots: 2,
+    storageCapacity: {
+      mediumSlots: 2,
+    },
   },
   /*
    * Large platforms
@@ -63,7 +73,9 @@ const PLATFORMS: Platform[] = [
     needs: [{ tool: "small printer", resources: ["resin", "resin"] }],
     bytes: 0,
     powerConnectors: 4,
-    largeSlots: 1,
+    storageCapacity: {
+      largeSlots: 1,
+    },
   },
   {
     name: "large platform B",
@@ -72,8 +84,10 @@ const PLATFORMS: Platform[] = [
     needs: [{ tool: "medium printer", resources: ["resin", "resin", "resin"] }],
     bytes: 500,
     powerConnectors: 4,
-    mediumSlots: 2,
-    largeSlots: 1,
+    storageCapacity: {
+      mediumSlots: 2,
+      largeSlots: 1,
+    },
   },
   {
     name: "large platform C",
@@ -84,8 +98,10 @@ const PLATFORMS: Platform[] = [
     ],
     bytes: 1000,
     powerConnectors: 4,
-    smallSlots: 20,
-    largeSlots: 1,
+    storageCapacity: {
+      smallSlots: 20,
+      largeSlots: 1,
+    },
   },
   {
     name: "large T platform",
@@ -96,7 +112,9 @@ const PLATFORMS: Platform[] = [
     ],
     bytes: 1000,
     powerConnectors: 3,
-    largeSlots: 2,
+    storageCapacity: {
+      largeSlots: 2,
+    },
   },
   {
     name: "large curved platform",
@@ -107,7 +125,9 @@ const PLATFORMS: Platform[] = [
     ],
     bytes: 1000,
     powerConnectors: 4,
-    largeSlots: 1,
+    storageCapacity: {
+      largeSlots: 1,
+    },
   },
   {
     name: "large extended platform",
@@ -116,7 +136,9 @@ const PLATFORMS: Platform[] = [
     needs: [{ tool: "medium printer", resources: ["resin", "resin"] }],
     bytes: 500,
     powerConnectors: 6,
-    mediumSlots: 2,
+    storageCapacity: {
+      mediumSlots: 2,
+    },
   },
   /*
    * XL Platforms
@@ -133,7 +155,9 @@ const PLATFORMS: Platform[] = [
     ],
     bytes: 2000,
     powerConnectors: 8,
-    extraLargeSlots: 1,
+    storageCapacity: {
+      extraLargeSlots: 1,
+    },
   },
   {
     name: "extra large platform B",
@@ -147,7 +171,9 @@ const PLATFORMS: Platform[] = [
     ],
     bytes: 3000,
     powerConnectors: 4,
-    mediumSlots: 10,
+    storageCapacity: {
+      mediumSlots: 10,
+    },
   },
   {
     name: "extra large platform C",
@@ -161,8 +187,10 @@ const PLATFORMS: Platform[] = [
     ],
     bytes: 2000,
     powerConnectors: 4,
-    extraLargeSlots: 1,
-    largeSlots: 2,
+    storageCapacity: {
+      extraLargeSlots: 1,
+      largeSlots: 2,
+    },
   },
   {
     name: "extra large curved platform",
@@ -176,8 +204,10 @@ const PLATFORMS: Platform[] = [
     ],
     bytes: 2000,
     powerConnectors: 4,
-    largeSlots: 2,
-    mediumSlots: 1,
+    storageCapacity: {
+      largeSlots: 2,
+      mediumSlots: 1,
+    },
   },
   {
     name: "figurine platform",
@@ -191,7 +221,9 @@ const PLATFORMS: Platform[] = [
     ],
     bytes: 3000,
     powerConnectors: 4,
-    smallSlots: 64,
+    storageCapacity: {
+      smallSlots: 64,
+    },
   },
   {
     name: "extra large extended platform",
@@ -205,8 +237,10 @@ const PLATFORMS: Platform[] = [
     ],
     bytes: 750,
     powerConnectors: 4,
-    largeSlots: 1,
-    mediumSlots: 2,
+    storageCapacity: {
+      largeSlots: 1,
+      mediumSlots: 2,
+    },
   },
 ];
 

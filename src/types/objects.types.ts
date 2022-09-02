@@ -1,4 +1,5 @@
 import type { ToolDependency } from "./helper.types";
+import type { StorageCapacity } from "./storages.types";
 
 type ObjectType =
   | "natural"
@@ -50,10 +51,7 @@ type Platform = GenericObject &
   ResearchableObject & {
     type: "platform";
     powerConnectors: number;
-    smallSlots?: number;
-    mediumSlots?: number;
-    largeSlots?: number;
-    extraLargeSlots?: number;
+    storageCapacity: StorageCapacity;
   };
 
 type Module = GenericObject & {
