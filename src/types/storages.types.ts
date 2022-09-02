@@ -1,3 +1,5 @@
+import type { GenericObject, ResearchableObject, Tier } from "./objects.types";
+
 type StorageCapacity = {
   smallSlots?: number;
   mediumSlots?: number;
@@ -5,4 +7,10 @@ type StorageCapacity = {
   extraLargeSlots?: number;
 };
 
-export type { StorageCapacity };
+type Storage = ResearchableObject & {
+  type: "storage";
+  tier: Tier;
+  storageCapacity: StorageCapacity;
+};
+
+export type { StorageCapacity, Storage };

@@ -13,7 +13,8 @@ type ObjectType =
   | "module"
   | "power_source"
   | "power_storage"
-  | "automation_tool";
+  | "automation_tool"
+  | "storage";
 
 type GenericObject = {
   name: string;
@@ -94,7 +95,9 @@ export type {
   Platform,
   PowerSource,
   PowerStorage,
+  ResearchableObject,
   Tool,
+  Tier,
   Vehicule,
   Widget,
 };
