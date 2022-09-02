@@ -14,6 +14,7 @@ import { POWER_SOURCES } from "./power/producers";
 import { POWER_STORAGES } from "./power/storages";
 import { AUTOMATION_TOOLS } from "./automation";
 import { STORAGES } from "./storages/storage";
+import { CANISTERS } from "./storages/canisters";
 
 const allObjects = {
   "natural resources": NATURAL_RESOURCES,
@@ -26,6 +27,7 @@ const allObjects = {
   "automation tools": AUTOMATION_TOOLS,
   platforms: PLATFORMS,
   storages: STORAGES,
+  canisters: CANISTERS,
   rovers: ROVERS,
   shuttles: SHUTTLES,
   "other vehicules": OTHER_VEHICULES,

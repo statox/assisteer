@@ -14,7 +14,8 @@ type ObjectType =
   | "power_source"
   | "power_storage"
   | "automation_tool"
-  | "storage";
+  | "storage"
+  | "canister";
 
 type GenericObject = {
   name: string;

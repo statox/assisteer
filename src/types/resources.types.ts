@@ -9,6 +9,14 @@ type Planet =
   | "desolo"
   | "novus";
 
+type ResourceType =
+  | "natural"
+  | "refined"
+  | "atmospheric"
+  | "composite"
+  | "soil"
+  | "hydrazine";
+
 type Resource =
   | ResourceNatural
   | ResourceRefined
@@ -34,8 +42,9 @@ type ResourceComposite = GenericObject & {
 export type {
   Planet,
   Resource,
-  ResourceNatural,
-  ResourceRefined,
   ResourceAtmospheric,
   ResourceComposite,
+  ResourceNatural,
+  ResourceRefined,
+  ResourceType,
 };
