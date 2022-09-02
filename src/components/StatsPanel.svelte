@@ -5,19 +5,6 @@ import { project } from '../stores';
 export let stats: Stats = null;
 </script>
 
-<style>
-    table {
-        width: 100%;
-    }
-    td {
-        text-align: center;
-    }
-    table, td {
-        border: 1px solid;
-        border-collapse: collapse;
-    }
-</style>
-
 <main>
     <h2>Production stats</h2>
     <div>

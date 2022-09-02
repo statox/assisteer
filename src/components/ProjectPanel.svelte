@@ -48,19 +48,6 @@
     });
 </script>
 
-<style>
-    table {
-        width: 100%;
-    }
-    td {
-        text-align: center;
-    }
-    table, th, td {
-        border: 1px solid;
-        border-collapse: collapse;
-    }
-</style>
-
 <main>
     <h2>Project Panel</h2>
     <div>
