@@ -63,10 +63,7 @@ type Vehicule = GenericObject &
   ResearchableObject & {
     type: "vehicule";
     bytes: number;
-    smallSlots?: number;
-    mediumSlots?: number;
-    largeSlots?: number;
-    extraLargeSlots?: number;
+    storageCapacity: StorageCapacity;
   };
 
 type PowerSource = GenericObject &

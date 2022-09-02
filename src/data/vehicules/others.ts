@@ -12,6 +12,7 @@ const OTHER_VEHICULES: Vehicule[] = [
       },
     ],
     bytes: 0,
+    storageCapacity: {},
   },
   {
     name: "vtol",
@@ -24,6 +25,7 @@ const OTHER_VEHICULES: Vehicule[] = [
       },
     ],
     bytes: 0,
+    storageCapacity: {},
   },
 ];
 

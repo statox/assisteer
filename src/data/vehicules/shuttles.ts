@@ -12,7 +12,9 @@ const SHUTTLES: Vehicule[] = [
       },
     ],
     bytes: 1500,
-    mediumSlots: 1,
+    storageCapacity: {
+      mediumSlots: 1,
+    },
   },
   {
     name: "medium shuttle",
@@ -25,7 +27,9 @@ const SHUTTLES: Vehicule[] = [
       },
     ],
     bytes: 3750,
-    mediumSlots: 3,
+    storageCapacity: {
+      mediumSlots: 3,
+    },
   },
   {
     name: "large shuttle",
@@ -38,8 +42,10 @@ const SHUTTLES: Vehicule[] = [
       },
     ],
     bytes: 5000,
-    mediumSlots: 1,
-    largeSlots: 2,
+    storageCapacity: {
+      mediumSlots: 1,
+      largeSlots: 2,
+    },
   },
 ];
 

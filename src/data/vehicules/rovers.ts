@@ -12,7 +12,9 @@ const ROVERS: Vehicule[] = [
       },
     ],
     bytes: 1000,
-    mediumSlots: 1,
+    storageCapacity: {
+      mediumSlots: 1,
+    },
   },
   {
     name: "trailer",
@@ -25,7 +27,9 @@ const ROVERS: Vehicule[] = [
       },
     ],
     bytes: 1500,
-    mediumSlots: 1,
+    storageCapacity: {
+      mediumSlots: 1,
+    },
   },
   {
     name: "buggy",
@@ -38,7 +42,9 @@ const ROVERS: Vehicule[] = [
       },
     ],
     bytes: 1500,
-    smallSlots: 2,
+    storageCapacity: {
+      smallSlots: 2,
+    },
   },
   {
     name: "medium rover",
@@ -51,8 +57,10 @@ const ROVERS: Vehicule[] = [
       },
     ],
     bytes: 3750,
-    mediumSlots: 2,
-    largeSlots: 1,
+    storageCapacity: {
+      mediumSlots: 2,
+      largeSlots: 1,
+    },
   },
   {
     name: "large rover",
@@ -65,7 +73,9 @@ const ROVERS: Vehicule[] = [
       },
     ],
     bytes: 5000,
-    largeSlots: 4,
+    storageCapacity: {
+      largeSlots: 4,
+    },
   },
 ];
 
