@@ -18,6 +18,11 @@ let stats: Stats;
 
 const resetCytoscape = () => {
     const cyDiv = document.getElementById('cy');
+    const sizeFunction = (node: any) => {
+        // Make tool nodes smaller than other object nodes
+        if (node.data('type') === 'tool') return '80%';
+        return '150%';
+    }
     cy = cytoscape({
         container: cyDiv, // container to render in
         elements: [],
@@ -46,8 +51,8 @@ const resetCytoscape = () => {
                         if (node.data('type') === 'tool') return '#e84c09';
                         return '#fff';
                     },
-                    'width': '150%',
-                    'height': '150%',
+                    'width': sizeFunction,
+                    'height': sizeFunction,
                     "font-size": '50'
                 }
             },
