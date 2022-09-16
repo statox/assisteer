@@ -151,6 +151,12 @@ const addNode = (current: DepsTree) => {
 }
 
 const updateGraph = () => {
+    if (!cy) {
+        // This is a hack to make the page work when we come back to this component
+        // after going to the about page
+        // TODO fix that in a better way
+        resetCytoscape();
+    }
     // Hacky clean up
     const allNodes = cy.filter((e: any) => e);
     cy.remove(allNodes);
