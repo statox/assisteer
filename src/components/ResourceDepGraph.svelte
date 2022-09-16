@@ -3,6 +3,8 @@ import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import evenParent from 'cytoscape-even-parent';
 import avsdf from 'cytoscape-avsdf';
+import cola from 'cytoscape-cola';
+import fcose from 'cytoscape-fcose';
 import type {DepsTree} from '../types';
 import type {Stats} from '../types/stats.types';
 import {isSimpleDepsTree} from '../types/typeguards';
@@ -13,6 +15,7 @@ import GraphControls from './GraphControls.svelte';
 import StatsPanel from './StatsPanel.svelte';
 import { addPlanetToNodeNode, addResourceForToolNode, addResourceNode, addToolForResourceNode} from '../services/graph';
 import {  computeStats, makeNodesMoveSubtree, makeNodesShowHideOnTap } from '../services/cytoscape';
+import { searchInAllObjects } from '../services/resources';
 
 let cy: cytoscape.Core;
 let stats: Stats;
@@ -22,7 +25,7 @@ const resetCytoscape = () => {
     const sizeFunction = (node: any) => {
         // Make tool nodes smaller than other object nodes
         if (node.data('type') === 'tool') return '80%';
-        return '150%';
+        return '100%';
     }
     cy = cytoscape({
         container: cyDiv, // container to render in
@@ -223,6 +226,68 @@ const updateGraph = () => {
         cy.layout({
             name: 'avsdf',
         }).run();
+        return
+    }
+
+    if ($controlsState.graphMode === 'cola') {
+        cytoscape.use( cola );
+        cy.layout({
+            name: 'cola',
+            nodeDimensionsIncludeLabels: true,
+        } as any).run();
+        return
+    }
+
+    if ($controlsState.graphMode === 'fcose') {
+        cytoscape.use( fcose );
+
+        const nodes = cy.nodes();
+        // interface AnyNode: cytoscape.EdgeSingular | cytoscape.NodeSingular | cytoscape.SingularElementargument
+        const constraintsByDepth = nodes.reduce((constraints: any, ele: any) => {
+            const id = ele.data('id');
+            const object = searchInAllObjects(id);
+            const {type} = object;
+            const depth = ele.data('depth');
+            console.log(id, type, depth);
+            if (!constraints[depth]){
+                constraints[depth]=[];
+            }
+            constraints[depth].push(id);
+            return constraints;
+        }, {});
+
+        console.log(constraintsByDepth);
+        const horizontalConstraints = Object.keys(constraintsByDepth).map(k => constraintsByDepth[k]);
+        const verticalConstraints = [];
+        for (let i=0; i<horizontalConstraints.length-1; i++) {
+            verticalConstraints.push([
+                horizontalConstraints[i][0],
+                horizontalConstraints[i+1][0],
+            ]);
+        }
+        console.log({horizontalConstraints});
+        console.log('not used', {verticalConstraints});
+
+        cy.layout({
+            name: 'fcose',
+            nodeDimensionsIncludeLabels: true,
+            // Whether or not simple nodes (non-compound nodes) are of uniform dimensions
+            uniformNodeDimensions: true,
+            // 'draft', 'default' or 'proof'
+            // - "draft" only applies spectral layout
+            // - "default" improves the quality with incremental layout (fast cooling rate)
+            // - "proof" improves the quality with incremental layout (slow cooling rate)
+            quality: "proof",
+            // Use random node positions at beginning of layout
+            // if this is set to false, then quality option must be "proof"
+            randomize: false,
+            /* fixedNodeConstraint: [
+                {nodeId: 'large rover', position: {x: 0, y: 0}},
+                {nodeId: 'malachite', position: {x: 100, y: 0}}
+            ] */
+            alignmentConstraint: {/* vertical: verticalConstraints, */ horizontal: horizontalConstraints},
+        } as any).run();
+
         return
     }
 

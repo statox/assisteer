@@ -57,6 +57,8 @@
                             <option value={"circle"}>Circle</option>
                             <option value={"concentric"}>Concentric</option>
                             <option value={"avsdf"}>avsdf</option>
+                            <option value={"cola"}>Cola</option>
+                            <option value={"fcose"}>fcose</option>
                         </select>
                     </td>
                 </tr>
