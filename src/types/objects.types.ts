@@ -23,6 +23,9 @@ type GenericObject = {
   icon: string;
   type: ObjectType;
   needs: ToolDependency[];
+  bytesToUnlock?: number;
+  wikiUrl?: string;
+  icon2?: string;
 };
 
 type ResearchableObject = GenericObject & {
