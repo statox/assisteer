@@ -5,9 +5,19 @@
   --content-header-bg-color: #2d9bf0;
 }
 
-html, body {
+body {
+    background-image: url('Site-background-light.webp');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 4%;
+}
+
+html, .top-container {
     background-color: var(--main-bg-color);
     color: var(--main-color);
+    padding: 5px;
+    border-radius: 3px;
 }
 
 .content-header {
