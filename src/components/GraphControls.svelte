@@ -27,6 +27,23 @@
                 </tr>
                 <tr>
                     <th>
+                        Toggles
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <button on:click={() => {$controlsState.mergeUniquePlanets = !$controlsState.mergeUniquePlanets; updateGraph()}}>
+                            <label for="mergePlanets" on:click={() => {$controlsState.mergeUniquePlanets = !$controlsState.mergeUniquePlanets; updateGraph()}}>Merge planets</label>
+                            <input name="mergePlanets" id="mergePlanets" type=checkbox bind:checked={$controlsState.mergeUniquePlanets} on:change={updateGraph}>
+                        </button>
+                        <button on:click={() => {$controlsState.showTools = !$controlsState.showTools; updateGraph()}}>
+                            <label for="showTools" on:click={() => {$controlsState.showTools = !$controlsState.showTools; updateGraph()}}>Show tools</label>
+                            <input name="showTools" id="showTools" type=checkbox bind:checked={$controlsState.showTools} on:change={updateGraph}>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
                         <label for="graphMode">Graph mode</label>
                     </th>
                 </tr>
@@ -53,23 +70,6 @@
                             <option value={"segments"}>Segments</option>
                             <option value={"straight"}>Straight</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Toggles</label>
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <button on:click={() => {$controlsState.mergeUniquePlanets = !$controlsState.mergeUniquePlanets}}>
-                            <label for="mergePlanets">Merge planets</label>
-                            <input name="mergePlanets" id="mergePlanets" type=checkbox bind:checked={$controlsState.mergeUniquePlanets} on:change={updateGraph}>
-                        </button>
-                        <button on:click={() => {$controlsState.mergeUniquePlanets = !$controlsState.showTools}}>
-                            <label for="showTools">Show tools</label>
-                            <input name="showTools" id="showTools" type=checkbox bind:checked={$controlsState.showTools} on:change={updateGraph}>
-                        </button>
                     </td>
                 </tr>
             </tbody>

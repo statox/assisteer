@@ -1,3 +1,9 @@
+<style>
+    a {
+        color: white;
+        text-decoration: underline;
+    }
+</style>
 <main>
     <footer>
         <br/>

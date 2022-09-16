@@ -212,7 +212,18 @@ document.addEventListener("DOMContentLoaded", function() {
     <StatsPanel stats={stats}/>
     <br/>
     <h2 class="content-header">Production graph</h2>
-    <div id="cy" class="content-container"></div>
+    <div class="content-container" class:hidden="{$project.length !== 0}">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>No object added yet...</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="cy" class="content-container" class:hidden="{$project.length === 0}"></div>
     <br/>
     <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
 </main>

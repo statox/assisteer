@@ -111,6 +111,9 @@
                             {#each $project as item}
                                 <tr>
                                     <td>
+                                        {item.object.name}
+                                        <br/>
+                                        <br/>
                                         <button on:click={() => changeQuantity(item, 'dec')}>-</button>
                                         &nbsp{item.quantity}&nbsp
                                         <button on:click={() => changeQuantity(item, 'inc')}>+</button>
@@ -119,8 +122,6 @@
                                     </td>
                                     <td>
                                         <img src="{item.object.icon}" alt="{item.object.name}"/>
-                                        <br/>
-                                        {item.object.name}
                                     </td>
                                 </tr>
                             {/each}
