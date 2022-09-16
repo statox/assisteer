@@ -3,11 +3,23 @@
   --main-color: #3a3a3a;
   --content-header-color: #ffcf01;
   --content-header-bg-color: #2d9bf0;
+  --content-subheader-bg-color: #8ac5f2;
 }
 
-html, body {
+body {
+    background-image: url('Site-background-light.webp');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 4%;
+}
+
+.top-container {
     background-color: var(--main-bg-color);
     color: var(--main-color);
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 3px;
 }
 
 .content-header {
@@ -22,7 +34,7 @@ html, body {
 
 .content-subheader {
     color: white;
-    background-color: var(--content-header-bg-color);
+    background-color: var(--content-subheader-bg-color);
     border: none;
     box-shadow: none;
     margin-bottom: 7px;
