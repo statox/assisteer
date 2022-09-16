@@ -45,7 +45,7 @@ const WIDGETS: Widget[] = [
     needs: [{ tool: "backpack", resources: ["exo chip"] }],
   },
   {
-    name: "tehters",
+    name: "tethers",
     type: "widget",
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fc/Tethers.png",
     needs: [{ tool: "backpack", resources: ["compound"] }],

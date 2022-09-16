@@ -27,6 +27,10 @@ body {
     /* background: black; */
 }
 
+h1, h2 {
+    text-align: center;
+}
+
 a {
     color: rgb(0,100,200);
     text-decoration: none;
@@ -89,6 +93,11 @@ button:focus {
     background-color: #393940;
 }
 
+
+.tableContainer {
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
 }
@@ -101,4 +110,9 @@ table, td {
     border: 1px solid;
     border-collapse: collapse;
     padding: 10px;
+}
+
+footer {
+    font-size: x-small;
+    text-align: center;
 }

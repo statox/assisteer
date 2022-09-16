@@ -51,66 +51,78 @@
 <main>
     <h2>Project Panel</h2>
     <div>
-        <h3>Current selection</h3>
-        <div>
+        <h3>Object selection</h3>
+        <div class="tableContainer">
             <table>
-                <tr>
-                    <td>
-                        <img src={$controlsState.selected.icon} alt={$controlsState.selected.name}/>
-                    </td>
-                    <td>
-                        <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateCategory}>
-                            {#each allCategories as type}
-                                <option value={type}>{type}</option>
-                            {/each}
-                        </select>
-                        <select name="resources" id="resources" bind:value={$controlsState.selected} bind:this={ref}>
-                            {#each getCategoryObjects($controlsState.selectedCategory) as resource}
-                                <option value={resource}>{resource.name}</option>
-                            {/each}
-                        </select>
-                    </td>
-                    <td>
-                        <button on:click={addToProject}>Add to project</button>
-                    </td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Selection</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateCategory}>
+                                {#each allCategories as type}
+                                    <option value={type}>{type}</option>
+                                {/each}
+                            </select>
+
+                            <br/>
+                            <select name="resources" id="resources" bind:value={$controlsState.selected} bind:this={ref}>
+                                {#each getCategoryObjects($controlsState.selectedCategory) as resource}
+                                    <option value={resource}>{resource.name}</option>
+                                {/each}
+                            </select>
+
+                            <br/>
+                            <br/>
+                            <button on:click={addToProject}>Add to project</button>
+                        </td>
+                        <td>
+                            <img src={$controlsState.selected.icon} alt={$controlsState.selected.name}/>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         <div>
             <h3>Project</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Object</th>
-                        <th>Quantity</th>
-                        <th>Remove object</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {#if $project.length === 0}
+            <div class="tableContainer">
+                <table>
+                    <thead>
                         <tr>
-                            <td colspan=3>No object added yet...</td>
+                            <th>Quantity</th>
+                            <th>Object</th>
                         </tr>
-                    {:else}
-                        {#each $project as item}
+                    </thead>
+                    <tbody>
+                        {#if $project.length === 0}
                             <tr>
-                                <td>
-                                    <img src="{item.object.icon}" alt="{item.object.name}"/>
-                                    <br/>
-                                    {item.object.name}
-                                </td>
-                                <td>
-                                    <button on:click={() => changeQuantity(item, 'dec')}>-</button>
-                                    &nbsp{item.quantity}&nbsp
-                                    <button on:click={() => changeQuantity(item, 'inc')}>+</button>
-                                <td>
-                                    <button on:click={() => removeFromProject(item)}>Remove</button>
-                                </td>
+                                <td colspan=3>No object added yet...</td>
                             </tr>
-                        {/each}
-                    {/if}
-                </tbody>
-            </table>
+                        {:else}
+                            {#each $project as item}
+                                <tr>
+                                    <td>
+                                        <button on:click={() => changeQuantity(item, 'dec')}>-</button>
+                                        &nbsp{item.quantity}&nbsp
+                                        <button on:click={() => changeQuantity(item, 'inc')}>+</button>
+                                        <br/>
+                                        <button on:click={() => removeFromProject(item)}>Remove</button>
+                                    </td>
+                                    <td>
+                                        <img src="{item.object.icon}" alt="{item.object.name}"/>
+                                        <br/>
+                                        {item.object.name}
+                                    </td>
+                                </tr>
+                            {/each}
+                        {/if}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </main>
