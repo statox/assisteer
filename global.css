@@ -86,8 +86,6 @@ button:focus {
 }
 
 #cy {
-    margin: auto;
-    width: 95%;
     height: 800px;
     display: block;
     background-color: #2d9bf0;
