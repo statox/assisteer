@@ -54,6 +54,9 @@
                             <option value={"eventparent"}>Even parent</option>
                             <option value={"eventparent-horizontal"}>Even parent - Horizontal</option>
                             <option value={"breadthfirst"}>Breadthfirst</option>
+                            <option value={"circle"}>Circle</option>
+                            <option value={"concentric"}>Concentric</option>
+                            <option value={"avsdf"}>avsdf</option>
                         </select>
                     </td>
                 </tr>

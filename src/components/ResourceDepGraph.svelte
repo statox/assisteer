@@ -2,6 +2,7 @@
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import evenParent from 'cytoscape-even-parent';
+import avsdf from 'cytoscape-avsdf';
 import type {DepsTree} from '../types';
 import type {Stats} from '../types/stats.types';
 import {isSimpleDepsTree} from '../types/typeguards';
@@ -15,13 +16,6 @@ import {  computeStats, makeNodesMoveSubtree, makeNodesShowHideOnTap } from '../
 
 let cy: cytoscape.Core;
 let stats: Stats;
-
-export const resizeContainer = (newContainerHeight) => {
-    const container = document.getElementById('cy');
-    container.style.height = newContainerHeight;
-    cy.resize();
-    cy.fit();
-}
 
 const resetCytoscape = () => {
     const cyDiv = document.getElementById('cy');
@@ -85,7 +79,8 @@ const resetCytoscape = () => {
     updateGraph();
 }
 
-const addNode = (current: DepsTree) => {
+const addNode = (params: {tree: DepsTree, depth: number}) => {
+    const {tree: current, depth} = params;
     /*
      * Node for the current resource
      */
@@ -93,6 +88,7 @@ const addNode = (current: DepsTree) => {
         id: current.resource.name,
         icon: current.resource.icon
     });
+    resourceNode.data('depth', depth);
 
     // The anchorNode will contain either the resourceNode or
     // the tool node to let the children attach
@@ -107,6 +103,7 @@ const addNode = (current: DepsTree) => {
             toolIcon: current.tool.icon,
             resourceName: current.resource.name
         });
+        resourceNode.data('depth', depth+0.5);
     }
 
     if (isSimpleDepsTree(current)) {
@@ -165,12 +162,12 @@ const updateGraph = () => {
         const {object, quantity}=item;
         const tree = getObjectDependencies(object, quantity);
 
-        const stack: DepsTree[] = [tree];
+        const stack: {tree: DepsTree, depth: number}[] = [{tree, depth: 1}];
         while (stack.length) {
             const current = stack.shift();
             const children = addNode(current);
             for (const child of children) {
-                stack.push(child);
+                stack.push({tree: child, depth: current.depth+1});
             }
         }
     }
@@ -196,6 +193,35 @@ const updateGraph = () => {
         cy.layout({
             name: 'breadthfirst',
             directed: true,
+        }).run();
+        return
+    }
+
+    if ($controlsState.graphMode === 'circle') {
+        cy.layout({
+            name: 'circle',
+            avoidOverlap: true
+        }).run();
+        return
+    }
+
+    if ($controlsState.graphMode === 'concentric') {
+        cy.layout({
+            name: 'concentric',
+            avoidOverlap: true,
+            nodeDimensionsIncludeLabels: true,
+            concentric: function( node: any ){ // returns numeric value for each node, placing higher nodes in levels towards the centre
+                const invertedDepth = 15 - node.data('depth');
+                return invertedDepth;
+            },
+        }).run();
+        return
+    }
+
+    if ($controlsState.graphMode === 'avsdf') {
+        cytoscape.use( avsdf );
+        cy.layout({
+            name: 'avsdf',
         }).run();
         return
     }
