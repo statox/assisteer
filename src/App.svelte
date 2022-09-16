@@ -4,7 +4,7 @@ import Footer from './components/Footer.svelte';
 </script>
 
 <main>
-    <h1>Assisteer</h1>
+    <h1 class="content-header">ASSISTEER</h1>
     <ResourceDepGraph/>
 </main>
 

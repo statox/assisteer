@@ -7,8 +7,8 @@
 </script>
 
 <main>
-    <h2>Controls panel</h2>
-    <div class="tableContainer">
+    <h2 class="content-header">Controls panel</h2>
+    <div class="content-container">
         <table id="controlsContainer">
             <tbody>
                 <tr>
@@ -66,7 +66,7 @@
                             <label for="mergePlanets">Merge planets</label>
                             <input name="mergePlanets" id="mergePlanets" type=checkbox bind:checked={$controlsState.mergeUniquePlanets} on:change={updateGraph}>
                         </button>
-                        <button on:click={() => {$controlsState.showTools = !$controlsState.showTools}}>
+                        <button on:click={() => {$controlsState.mergeUniquePlanets = !$controlsState.showTools}}>
                             <label for="showTools">Show tools</label>
                             <input name="showTools" id="showTools" type=checkbox bind:checked={$controlsState.showTools} on:change={updateGraph}>
                         </button>

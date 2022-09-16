@@ -16,6 +16,13 @@ import {  computeStats, makeNodesMoveSubtree, makeNodesShowHideOnTap } from '../
 let cy: cytoscape.Core;
 let stats: Stats;
 
+export const resizeContainer = (newContainerHeight) => {
+    const container = document.getElementById('cy');
+    container.style.height = newContainerHeight;
+    cy.resize();
+    cy.fit();
+}
+
 const resetCytoscape = () => {
     const cyDiv = document.getElementById('cy');
     const sizeFunction = (node: any) => {
@@ -62,8 +69,8 @@ const resetCytoscape = () => {
                     'width': 1,
                     'color': '#fff',
                     "font-size": '50',
-                    'line-color': '#919191',
-                    'source-arrow-color': '#ccc',
+                    'line-color': '#343b60',
+                    'source-arrow-color': '#343b60',
                     'source-arrow-shape': 'triangle',
                     'label': (node: any) => {
                         return node.data('label') || "";
@@ -204,8 +211,8 @@ document.addEventListener("DOMContentLoaded", function() {
     <br/>
     <StatsPanel stats={stats}/>
     <br/>
-    <h2>Production graph</h2>
-    <div id="cy"></div>
+    <h2 class="content-header">Production graph</h2>
+    <div id="cy" class="content-container"></div>
     <br/>
     <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
 </main>

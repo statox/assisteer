@@ -86,11 +86,10 @@ button:focus {
 }
 
 #cy {
-    margin: auto;
-    width: 95%;
     height: 800px;
     display: block;
-    background-color: #393940;
+    background-color: #2d9bf0;
+    border-radius: 10px;
 }
 
 
@@ -108,7 +107,6 @@ td {
 
 table, td {
     border: 1px solid;
-    border-collapse: collapse;
     padding: 10px;
 }
 

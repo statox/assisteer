@@ -49,20 +49,23 @@
 </script>
 
 <main>
-    <h2>Project Panel</h2>
-    <div>
-        <h3>Object selection</h3>
+    <h2 class="content-header">Project Panel</h2>
+    <div class="content-container">
         <div class="tableContainer">
             <table>
                 <thead>
                     <tr>
-                        <th>Selection</th>
-                        <th>Image</th>
-                    </tr>
+                        <th class="content-subheader">
+                            Object selection
+                        </th>
+                    <tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
+                            <img src={$controlsState.selected.icon} alt={$controlsState.selected.name}/>
+
+                            <br/>
                             <select name="object_type" id="object_type" bind:value={$controlsState.selectedCategory} on:change={updateCategory}>
                                 {#each allCategories as type}
                                     <option value={type}>{type}</option>
@@ -80,22 +83,20 @@
                             <br/>
                             <button on:click={addToProject}>Add to project</button>
                         </td>
-                        <td>
-                            <img src={$controlsState.selected.icon} alt={$controlsState.selected.name}/>
-                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <br/>
         <div>
-            <h3>Project</h3>
             <div class="tableContainer">
                 <table>
                     <thead>
                         <tr>
-                            <th>Quantity</th>
-                            <th>Object</th>
-                        </tr>
+                            <th colspan="2" class="content-subheader">
+                                Project
+                            </th>
+                        <tr>
                     </thead>
                     <tbody>
                         {#if $project.length === 0}
@@ -103,6 +104,10 @@
                                 <td colspan=3>No object added yet...</td>
                             </tr>
                         {:else}
+                            <tr>
+                                <th class="content-subheader">Quantity</th>
+                                <th class="content-subheader">Object</th>
+                            </tr>
                             {#each $project as item}
                                 <tr>
                                     <td>
