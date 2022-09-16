@@ -25,6 +25,15 @@ const MODULES: Module[] = [
     tier: 2,
   },
   {
+    name: "oxygenator",
+    type: "module",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3b/Oxygenator.png",
+    icon2: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ef/Icon_Oxygenator.png",
+    wikiUrl: "https://astroneer.fandom.com/wiki/Oxygenator",
+    needs: [{ tool: "small printer", resources: ["aluminum", "ceramic"] }],
+    tier: 2,
+  },
+  {
     name: "large printer",
     type: "module",
     icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7e/Large_Printer.png",

@@ -123,6 +123,17 @@ const POWER_SOURCES: PowerSource[] = [
     bytes: 12500,
     tier: 2,
   },
+  {
+    name: "power cells",
+    type: "power_source",
+    icon: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d5/Power-cells.png",
+    icon2: "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/9b/Icon_Power_Cells.png",
+    wikiUrl: "https://astroneer.fandom.com/wiki/Power_Cells",
+    needs: [{ tool: "backpack", resources: ["graphite"] }],
+    output: 1,
+    bytes: 800,
+    tier: 1,
+  },
 ];
 
 export { POWER_SOURCES };
