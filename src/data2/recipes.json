@@ -261,15 +261,6 @@
             }
         }
     ],
-    "extra large active storage": [
-        {
-            "tool": "large printer",
-            "resources": {
-                "iron": 2,
-                "ceramic": 2
-            }
-        }
-    ],
     "extra large storage": [
         {
             "tool": "large printer",
