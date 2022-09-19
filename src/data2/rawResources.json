@@ -1,0 +1,90 @@
+{
+    "ammonium": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/30/Icon_Ammonium.png"
+    },
+    "astronium": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3c/Icon_Astronium.png"
+    },
+    "clay": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4e/Icon_Clay.png"
+    },
+    "compound": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/9a/Icon_Compound.png"
+    },
+    "graphite": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c1/Icon_Graphite.png"
+    },
+    "hematite": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/75/Icon_Hematite.png"
+    },
+    "laterite": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/05/Icon_Laterite.png"
+    },
+    "lithium": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/20/Icon_Lithium.png"
+    },
+    "malachite": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3b/Icon_Malachite.png"
+    },
+    "organic": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/90/Icon_Organic.png"
+    },
+    "quartz": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fc/Icon_Quartz.png"
+    },
+    "resin": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/e0/Icon_Resin.png"
+    },
+    "sphalerite": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/5d/Icon_Sphalerite.png"
+    },
+    "titanite": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d8/Icon_Titanite.png"
+    },
+    "wolframite": {
+        "type": "natural",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/ae/Icon_Wolframite.png"
+    },
+    "argon": {
+        "type": "atmospheric",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/24/Icon_Argon.png"
+    },
+    "helium": {
+        "type": "atmospheric",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/79/Icon_Helium.png"
+    },
+    "hydrogen": {
+        "type": "atmospheric",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/42/Icon_Hydrogen.png"
+    },
+    "methane": {
+        "type": "atmospheric",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/14/Icon_Methane.png"
+    },
+    "nitrogen": {
+        "type": "atmospheric",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/e2/Icon_Nitrogen.png"
+    },
+    "sulfur": {
+        "type": "atmospheric",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/45/Icon_Sulfur.png"
+    },
+    "exo chip": {
+        "type": "special_resource",
+        "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fa/Icon_EXO_Chip.png"
+    }
+}

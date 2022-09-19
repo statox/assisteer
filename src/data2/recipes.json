@@ -1,0 +1,1430 @@
+{
+    "alignment mod": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "aluminum": [
+        {
+            "tool": "smelting furnace",
+            "resources": {
+                "laterite": 1
+            }
+        }
+    ],
+    "aluminum alloy": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "aluminum": 1,
+                "copper": 1
+            }
+        }
+    ],
+    "atmospheric condenser": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "plastic": 1,
+                "glass": 1,
+                "iron": 1
+            }
+        }
+    ],
+    "auto arm": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "aluminum": 1,
+                "graphite": 1
+            }
+        }
+    ],
+    "auto extractor": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "exo chip": 1,
+                "rubber": 1,
+                "tungsten carbide": 1,
+                "steel": 1
+            }
+        }
+    ],
+    "battery sensor": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "graphite": 1,
+                "zinc": 1
+            }
+        }
+    ],
+    "button repeater": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "count repeater": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "delay repeater": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "beacon": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "quartz": 1
+            }
+        }
+    ],
+    "boost mod": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "buggy": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "compound": 1,
+                "aluminum": 1
+            }
+        }
+    ],
+    "carbon": [
+        {
+            "tool": "smelting furnace",
+            "resources": {
+                "organic": 1
+            }
+        }
+    ],
+    "ceramic": [
+        {
+            "tool": "smelting furnace",
+            "resources": {
+                "clay": 1
+            }
+        }
+    ],
+    "chemistry lab": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "tungsten": 1,
+                "glass": 1,
+                "ceramic": 1
+            }
+        }
+    ],
+    "copper": [
+        {
+            "tool": "smelting furnace",
+            "resources": {
+                "malachite": 1
+            }
+        }
+    ],
+    "crane": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "steel": 1,
+                "silicone": 1,
+                "titanium": 1
+            }
+        }
+    ],
+    "diamond": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "graphene": 2
+            }
+        }
+    ],
+    "drill mod 1": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "ceramic": 1
+            }
+        }
+    ],
+    "drill mod 2": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "tungsten carbide": 1
+            }
+        }
+    ],
+    "drill mod 3": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "diamond": 1
+            }
+        }
+    ],
+    "drill strength 1": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "ceramic": 1,
+                "tungsten carbide": 1
+            }
+        }
+    ],
+    "drill strength 2": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "titanium alloy": 1,
+                "tungsten carbide": 1
+            }
+        }
+    ],
+    "drill strength 3": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "titanium alloy": 1,
+                "diamond": 1
+            }
+        }
+    ],
+    "dynamite": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "explosive powder": 1
+            }
+        },
+        {
+            "tool": "small printer",
+            "resources": {
+                "explosive powder": 1
+            }
+        }
+    ],
+    "exo request platform": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "resin": 2,
+                "ceramic": 1
+            }
+        }
+    ],
+    "explosive powder": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "carbon": 2,
+                "sulfur": 1
+            }
+        }
+    ],
+    "extenders": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "copper": 1
+            }
+        },
+        {
+            "tool": "small printer",
+            "resources": {
+                "copper": 1
+            }
+        }
+    ],
+    "extra large active storage": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "iron": 2,
+                "ceramic": 2
+            }
+        }
+    ],
+    "extra large storage": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "iron": 2,
+                "ceramic": 2
+            }
+        }
+    ],
+    "extra large curved platform": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "ceramic": 2,
+                "compound": 2
+            }
+        }
+    ],
+    "extra large extended platform": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "resin": 3
+            }
+        }
+    ],
+    "extra large platform a": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "iron": 2,
+                "ceramic": 2
+            }
+        }
+    ],
+    "extra large platform b": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "iron": 4
+            }
+        }
+    ],
+    "extra large platform c": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "iron": 2,
+                "resin": 2
+            }
+        }
+    ],
+    "extra large sensor arch": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "zinc": 2,
+                "quartz": 2
+            }
+        }
+    ],
+    "extra large sensor canopy": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "zinc": 2,
+                "quartz": 2
+            }
+        }
+    ],
+    "extra large sensor hoop a": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "zinc": 2,
+                "quartz": 2
+            }
+        }
+    ],
+    "extra large sensor hoop b": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "zinc": 3,
+                "quartz": 1
+            }
+        }
+    ],
+    "extra large shredder": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "exo chip": 2,
+                "tungsten carbide": 1,
+                "steel": 1
+            }
+        }
+    ],
+    "extra large wind turbine": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "ceramic": 1,
+                "iron": 1,
+                "aluminum alloy": 1,
+                "graphene": 1
+            }
+        }
+    ],
+    "field shelter": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "silicone": 1,
+                "graphene": 1
+            }
+        }
+    ],
+    "figurine platform": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "iron": 4
+            }
+        }
+    ],
+    "fireworks": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "explosive powder": 1
+            }
+        },
+        {
+            "tool": "small printer",
+            "resources": {
+                "explosive powder": 1
+            }
+        }
+    ],
+    "floodlight": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "tungsten": 1
+            }
+        },
+        {
+            "tool": "small printer",
+            "resources": {
+                "tungsten": 1
+            }
+        }
+    ],
+    "glass": [
+        {
+            "tool": "smelting furnace",
+            "resources": {
+                "quartz": 1
+            }
+        }
+    ],
+    "glowsticks": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "organic": 1
+            }
+        }
+    ],
+    "graphene": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "graphite": 1,
+                "hydrazine": 1
+            }
+        }
+    ],
+    "holographic figurine": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "plastic": 1
+            }
+        }
+    ],
+    "hoverboard": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "exo chip": 1
+            }
+        }
+    ],
+    "hydrazine": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "ammonium": 2,
+                "hydrogen": 1
+            }
+        }
+    ],
+    "hydrazine jet pack": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "titanium alloy": 1
+            }
+        }
+    ],
+    "hydrazine thruster": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "exo chip": 1,
+                "steel": 1
+            }
+        }
+    ],
+    "inhibitor mod": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "iron": [
+        {
+            "tool": "smelting furnace",
+            "resources": {
+                "hematite": 1
+            }
+        }
+    ],
+    "landing pad": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "ceramic": 2,
+                "aluminum": 1
+            }
+        }
+    ],
+    "large t platform": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "aluminum": 2,
+                "resin": 1
+            }
+        }
+    ],
+    "large active storage": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "zinc": 1,
+                "aluminum": 1,
+                "resin": 1
+            }
+        }
+    ],
+    "large curved platform": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "ceramic": 2,
+                "compound": 1
+            }
+        }
+    ],
+    "large extended platform": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "resin": 2
+            }
+        }
+    ],
+    "large fog horn": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "plastic": 1,
+                "rubber": 1,
+                "steel": 1
+            }
+        }
+    ],
+    "large platform a": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "resin": 2
+            }
+        }
+    ],
+    "large platform b": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "resin": 3
+            }
+        }
+    ],
+    "large platform c": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "resin": 1,
+                "iron": 1,
+                "ceramic": 1
+            }
+        }
+    ],
+    "large printer": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "compound": 3
+            }
+        }
+    ],
+    "large resource canister": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "glass": 1,
+                "titanium": 1,
+                "nanocarbon alloy": 1
+            }
+        }
+    ],
+    "large rover": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "exo chip": 2,
+                "aluminum alloy": 1,
+                "rubber": 1
+            }
+        }
+    ],
+    "large rover seat": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "plastic": 2,
+                "compound": 1
+            }
+        }
+    ],
+    "large sensor hoop a": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "zinc": 1,
+                "quartz": 2
+            }
+        }
+    ],
+    "large sensor hoop b": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "zinc": 2,
+                "quartz": 1
+            }
+        }
+    ],
+    "large sensor ring": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "zinc": 1,
+                "quartz": 1
+            }
+        }
+    ],
+    "large shredder": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "exo chip": 1,
+                "tungsten carbide": 1,
+                "iron": 1
+            }
+        }
+    ],
+    "large shuttle": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "exo chip": 2,
+                "titanium alloy": 1,
+                "ceramic": 1
+            }
+        }
+    ],
+    "large solar panel": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "copper": 1,
+                "glass": 1,
+                "aluminum alloy": 1
+            }
+        }
+    ],
+    "large storage": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "ceramic": 3
+            }
+        }
+    ],
+    "large storage silo a": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "aluminum": 2,
+                "steel": 1
+            }
+        }
+    ],
+    "large storage silo b": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "steel": 3
+            }
+        }
+    ],
+    "large wind turbine": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "ceramic": 1,
+                "glass": 1,
+                "aluminum alloy": 1
+            }
+        }
+    ],
+    "leveling block": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "soil": 1
+            }
+        }
+    ],
+    "medium T platform": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "resin": 2
+            }
+        }
+    ],
+    "medium battery": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "zinc": 1,
+                "lithium": 1
+            }
+        }
+    ],
+    "medium buggy horn": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "plastic": 1,
+                "rubber": 1
+            }
+        }
+    ],
+    "medium fluid & soil canister": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "plastic": 1,
+                "glass": 1
+            }
+        }
+    ],
+    "medium gas canister": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "silicone": 1,
+                "glass": 1
+            }
+        }
+    ],
+    "medium generator": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "tungsten": 1,
+                "aluminum": 1
+            }
+        }
+    ],
+    "medium platform A": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "resin": 1
+            }
+        }
+    ],
+    "medium platform B": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "resin": 2
+            }
+        }
+    ],
+    "medium platform C": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "resin": 1
+            }
+        }
+    ],
+    "medium printer": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "compound": 2
+            }
+        }
+    ],
+    "medium resource canister": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "plastic": 1,
+                "glass": 1
+            }
+        }
+    ],
+    "medium rover": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "plastic": 2,
+                "rubber": 1
+            }
+        }
+    ],
+    "medium sensor arch": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "zinc": 1,
+                "quartz": 1
+            }
+        }
+    ],
+    "medium shredder": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "iron": 2
+            }
+        }
+    ],
+    "medium shuttle": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "ceramic": 2,
+                "aluminum alloy": 1
+            }
+        }
+    ],
+    "medium solar panel": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "copper": 1,
+                "glass": 1
+            }
+        }
+    ],
+    "medium storage": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "resin": 2
+            }
+        }
+    ],
+    "medium storage silo": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "titanium": 2
+            }
+        }
+    ],
+    "medium wind turbine": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "aluminum": 1,
+                "ceramic": 1
+            }
+        }
+    ],
+    "nanocarbon alloy": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "titanium alloy": 1,
+                "steel": 1,
+                "helium": 1
+            }
+        }
+    ],
+    "narrow mod": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "oxygen filter": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "resin": 1
+            }
+        }
+    ],
+    "oxygen tank": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "glass": 1
+            }
+        }
+    ],
+    "oxygenator": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "aluminum": 1,
+                "ceramic": 1
+            }
+        }
+    ],
+    "packager": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "graphite": 1
+            }
+        }
+    ],
+    "paver": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "aluminum alloy": 1,
+                "silicone": 1
+            }
+        }
+    ],
+    "plastic": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "carbon": 1,
+                "compound": 1
+            }
+        }
+    ],
+    "portable oxygenator": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "nanocarbon alloy": 1
+            }
+        }
+    ],
+    "power cells": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "graphite": 1
+            }
+        }
+    ],
+    "power sensor": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "zinc": 1,
+                "copper": 1
+            }
+        }
+    ],
+    "power switch": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "copper": 1
+            }
+        }
+    ],
+    "probe scanner": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "steel": 1
+            }
+        }
+    ],
+    "proximity repeater": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "rail car": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "resin": 2,
+                "aluminum": 1
+            }
+        }
+    ],
+    "rail engine": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "resin": 1,
+                "aluminum": 1,
+                "copper": 1
+            }
+        }
+    ],
+    "rail junction bundle": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "aluminum": 2
+            }
+        }
+    ],
+    "rail post bundle": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "resin": 1,
+                "aluminum": 1
+            }
+        }
+    ],
+    "rail station": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "titanium": 2,
+                "copper": 1,
+                "quartz": 1
+            }
+        }
+    ],
+    "recreational sphere": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "aluminum alloy": 1,
+                "rubber": 1
+            }
+        }
+    ],
+    "research chamber": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "compound": 2,
+                "resin": 1
+            }
+        }
+    ],
+    "rover seat": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "compound": 2
+            }
+        }
+    ],
+    "rtg": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "lithium": 1,
+                "nanocarbon alloy": 1
+            }
+        }
+    ],
+    "rubber": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "organic": 1,
+                "resin": 1
+            }
+        }
+    ],
+    "scrap": [
+        {
+            "tool": "shredding",
+            "resources": {
+                "all": 1
+            }
+        }
+    ],
+    "shelter": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "silicone": 2,
+                "plastic": 2
+            }
+        }
+    ],
+    "silicone": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "resin": 1,
+                "quartz": 1,
+                "methane": 1
+            }
+        }
+    ],
+    "small battery": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "zinc": 1
+            }
+        },
+        {
+            "tool": "backpack",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "small camera": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "exo chip": 1
+            }
+        }
+    ],
+    "small canister": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "resin": 1
+            }
+        }
+    ],
+    "small generator": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "compound": 1
+            }
+        }
+    ],
+    "small printer": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "compound": 1
+            }
+        }
+    ],
+    "small shuttle": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "aluminum": 2
+            }
+        }
+    ],
+    "small solar panel": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "copper": 1
+            }
+        }
+    ],
+    "small trumpet horn": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "resin": 1
+            }
+        }
+    ],
+    "small wind turbine": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "ceramic": 1
+            }
+        }
+    ],
+    "smelting furnace": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "resin": 2,
+                "compound": 1
+            }
+        }
+    ],
+    "soil centrifuge": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "compound": 2,
+                "aluminum": 1
+            }
+        }
+    ],
+    "solar array": [
+        {
+            "tool": "large printer",
+            "resources": {
+                "copper": 1,
+                "glass": 1,
+                "aluminum alloy": 1,
+                "graphene": 1
+            }
+        }
+    ],
+    "solid fuel jump jet": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "aluminum alloy": 1
+            }
+        }
+    ],
+    "solid fuel thruster": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "ammonium": 1,
+                "aluminum": 1
+            }
+        }
+    ],
+    "splitter": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "copper": 1,
+                "graphite": 1
+            }
+        }
+    ],
+    "steel": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "iron": 1,
+                "carbon": 1,
+                "argon": 1
+            }
+        }
+    ],
+    "storage sensor": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "zinc": 1,
+                "quartz": 1
+            }
+        }
+    ],
+    "tall platform": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "ceramic": 1
+            }
+        }
+    ],
+    "tall rail post bundle": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "resin": 1,
+                "aluminum": 1
+            }
+        }
+    ],
+    "tall storage": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "ceramic": 1
+            }
+        }
+    ],
+    "terrain analyzer": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "tethers": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "compound": 1
+            }
+        }
+    ],
+    "titanium": [
+        {
+            "tool": "smelting furnace",
+            "resources": {
+                "titanite": 1
+            }
+        }
+    ],
+    "titanium alloy": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "titanium": 1,
+                "graphene": 1,
+                "nitrogen": 1
+            }
+        }
+    ],
+    "tractor": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "aluminum": 2
+            }
+        }
+    ],
+    "trade platform": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "exo chip": 1,
+                "tungsten": 1,
+                "iron": 1
+            }
+        }
+    ],
+    "trailer": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "compound": 1,
+                "aluminum": 1
+            }
+        }
+    ],
+    "tungsten": [
+        {
+            "tool": "smelting furnace",
+            "resources": {
+                "wolframite": 1
+            }
+        }
+    ],
+    "tungsten carbide": [
+        {
+            "tool": "chemistry lab",
+            "resources": {
+                "tungsten": 1,
+                "carbon": 1
+            }
+        }
+    ],
+    "vtol": [
+        {
+            "tool": "medium printer",
+            "resources": {
+                "exo chip": 1,
+                "tungsten carbide": 1,
+                "silicone": 1
+            }
+        }
+    ],
+    "wide mod": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "zinc": 1
+            }
+        }
+    ],
+    "winch": [
+        {
+            "tool": "small printer",
+            "resources": {
+                "exo chip": 1,
+                "rubber": 1
+            }
+        }
+    ],
+    "worklight": [
+        {
+            "tool": "backpack",
+            "resources": {
+                "copper": 1
+            }
+        },
+        {
+            "tool": "small printer",
+            "resources": {
+                "copper": 1
+            }
+        }
+    ],
+    "zinc": [
+        {
+            "tool": "smelting furnace",
+            "resources": {
+                "sphalerite": 1
+            }
+        }
+    ]
+}
