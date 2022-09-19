@@ -1,6 +1,8 @@
+import * as newInventory from '../data2/objects.json';
 import * as recipes from '../data2/recipes.json';
 import * as fs from 'fs';
 import { allObjects } from "../data";
+import { searchInAllObjects } from '../services/resources';
 
 
 function createNewRecipesFile() {
@@ -75,4 +77,75 @@ function orderRecipes() {
     console.log(JSON.stringify(orderedRecipes, null, 2));
     fs.writeFileSync('./src/data2/recipes.json', JSON.stringify(orderedRecipes, null, 2) , 'utf-8');
 }
-orderRecipes();
+
+function findMissingData() {
+    const completeObjectNameList = Object.keys(recipes).sort((a, b) => a<b?-1:1);
+    const completeObjectInventory = {};
+    const types = new Set();
+    for (const objectName of completeObjectNameList) {
+        let object = searchInAllObjects(objectName);
+        if (!object) {
+            object = {};
+        }
+        delete object.needs
+        if (object.type) {
+            object.category = object.type;
+            if (['refined', 'composite', 'special_resource'].includes(object.type)) {
+                object.type = 'resource';
+            } else {
+                object.type = 'object';
+            }
+            types.add(object.type);
+        }
+        object.labels = {
+            'en': object.name
+        }
+        delete object.name;
+        if (object.bytesToUnlock) {
+            object.bytes = object.bytesToUnlock;
+            delete object.bytesToUnlock;
+        }
+
+        const transformedName = objectName.split(' ')
+                                .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+                                .join('_');
+        const probableWikiUrl = `https://astroneer.fandom.com/wiki/${transformedName}`;
+        completeObjectInventory[objectName] = {
+            type: object.type || '',
+            category: object.category || '',
+            url: {
+                icon: object.icon || '',
+                image: object.icon2 || '',
+                wiki: object.wikiUrl || probableWikiUrl,
+            },
+            labels: object.labels,
+        };
+    }
+    fs.writeFileSync('./src/data2/objects.json', JSON.stringify(completeObjectInventory, null, 2) , 'utf-8');
+    console.log(...types.values());
+}
+
+function fixIconImageUrl() {
+    for(const objectName of Object.keys(newInventory)) {
+        const object = newInventory[objectName];
+        const {icon, image} = object.url || {image: '', icon: ''};
+        const re = /Icon_/;
+
+        if (!object.url) {
+            object.url = {image: '', icon: ''};
+        }
+
+        if (!object.url.icon.match(re) && image.match(re)) {
+            object.url.image = icon;
+            object.url.icon = image;
+        }
+        if ((object.url.image.length === 0 || object.url.image.match(re)) && !icon.match(re)) {
+            object.url.image = icon;
+            object.url.icon = image;
+        }
+    }
+
+    fs.writeFileSync('./src/data2/objects2.json', JSON.stringify(newInventory, null, 4) , 'utf-8');
+}
+
+fixIconImageUrl();
