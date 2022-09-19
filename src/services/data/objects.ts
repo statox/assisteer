@@ -1,10 +1,53 @@
+import * as rawResources from '../../data2/rawResources.json';
 import * as inventory from '../../data2/objects.json';
 
-const getObject = (objectName: string) => {
-    if (!inventory[objectName]) {
-        throw new Error(`Object not found ${objectName}`);
+type ObjectCategory =
+  | "augment"
+  | "automation"
+  | "battery"
+  | "building"
+  | "canister"
+  | "logic"
+  | "oxygen"
+  | "platform"
+  | "power source"
+  | "storage"
+  | "tool"
+  | "trains"
+  | "vehicule"
+  | "vehicule attachments"
+  | "widget";
+
+type BaseObject = {
+    type: "object" | "resource";
+    category: ObjectCategory;
+    url: {
+        icon: string;
+        image: string;
+        wiki: string;
     }
-    return inventory[objectName];
+    labels: {
+        [lang: string]: string
+    }
+};
+
+const objectNames = Object.keys(inventory);
+const resourceNames = Object.keys(rawResources);
+const allNames = objectNames.concat(resourceNames).sort((a, b) => a < b ? -1 : 1);
+
+
+const getObject = (objectName: string): BaseObject => {
+    if (inventory[objectName]) {
+        return inventory[objectName];
+    }
+
+    if (rawResources[objectName]) {
+        return rawResources[objectName];
+    }
+
+    throw new Error(`Object not found ${objectName}`);
 }
 
-export { getObject };
+const getAllObjectsNames = () => allNames;
+
+export { getAllObjectsNames, getObject };

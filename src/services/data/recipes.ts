@@ -64,4 +64,4 @@ const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number):
     return result;
 }
 
-export { getAllRecipesList, getObjectRecipes, getRecipeDependenciesTree };
+export { getAllRecipesList, getObjectDefaultRecipe, getObjectRecipes, getRecipeDependenciesTree };
