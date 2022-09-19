@@ -1,3 +1,4 @@
+import * as rawResources from '../data2/rawResources.json';
 import * as newInventory from '../data2/objects.json';
 import * as recipes from '../data2/recipes.json';
 import * as fs from 'fs';
@@ -148,4 +149,30 @@ function fixIconImageUrl() {
     fs.writeFileSync('./src/data2/objects2.json', JSON.stringify(newInventory, null, 2) , 'utf-8');
 }
 
-fixIconImageUrl();
+
+function reworkRawResources() {
+    const newResources = {};
+    for (const resourceName of Object.keys(rawResources)) {
+        const resource = rawResources[resourceName];
+
+        const transformedName = resourceName.split(' ')
+                                .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+                                .join('_');
+        const probableWikiUrl = `https://astroneer.fandom.com/wiki/${transformedName}`;
+        newResources[resourceName] = {
+            type: 'resource',
+            category: resource.type,
+            url: {
+                icon: resource.icon,
+                image: "",
+                wiki: probableWikiUrl
+            },
+            labels: {
+                en: resourceName
+            }
+        }
+    }
+    fs.writeFileSync('./src/data2/rawResources2.json', JSON.stringify(newResources, null, 4) , 'utf-8');
+}
+
+reworkRawResources();
