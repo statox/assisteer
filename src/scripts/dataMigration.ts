@@ -145,7 +145,7 @@ function fixIconImageUrl() {
         }
     }
 
-    fs.writeFileSync('./src/data2/objects2.json', JSON.stringify(newInventory, null, 4) , 'utf-8');
+    fs.writeFileSync('./src/data2/objects2.json', JSON.stringify(newInventory, null, 2) , 'utf-8');
 }
 
 fixIconImageUrl();

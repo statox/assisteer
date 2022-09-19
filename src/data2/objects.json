@@ -51,8 +51,8 @@
     "type": "object",
     "category": "automation_tool",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/05/Auto_Arm.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/05/Auto_Arm.png",
       "wiki": "https://astroneer.fandom.com/wiki/Auto_Arm"
     },
     "labels": {
@@ -63,8 +63,8 @@
     "type": "object",
     "category": "automation_tool",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/af/Auto_Extractor.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/af/Auto_Extractor.png",
       "wiki": "https://astroneer.fandom.com/wiki/Auto_Extractor"
     },
     "labels": {
@@ -85,8 +85,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b3/Beacon.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/09/Icon_Beacon.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/09/Icon_Beacon.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b3/Beacon.png",
       "wiki": "https://astroneer.fandom.com/wiki/Beacon"
     },
     "labels": {
@@ -97,8 +97,8 @@
     "type": "object",
     "category": "augment",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/cc/Boost_Mod.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/cc/Boost_Mod.png",
       "wiki": "https://astroneer.fandom.com/wiki/Boost_Mod"
     },
     "labels": {
@@ -109,8 +109,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/48/Buggy.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/48/Buggy.png",
       "wiki": "https://astroneer.fandom.com/wiki/Buggy"
     },
     "labels": {
@@ -155,8 +155,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d2/Chemistry_Lab.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d2/Chemistry_Lab.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Chemistry_Lab"
     },
     "labels": {
@@ -189,23 +189,13 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4f/Crane.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4f/Crane.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Crane"
     },
     "labels": {
       "en": "crane"
     }
-  },
-  "default": {
-    "type": "",
-    "category": "",
-    "url": {
-      "icon": "",
-      "image": "",
-      "wiki": "https://astroneer.fandom.com/wiki/Default"
-    },
-    "labels": {}
   },
   "delay repeater": {
     "type": "",
@@ -233,8 +223,8 @@
     "type": "object",
     "category": "augment",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f5/Drill_Mod_1.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f5/Drill_Mod_1.png",
       "wiki": "https://astroneer.fandom.com/wiki/Drill_Mod_1"
     },
     "labels": {
@@ -245,8 +235,8 @@
     "type": "object",
     "category": "augment",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/bd/Drill_Mod_2.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/bd/Drill_Mod_2.png",
       "wiki": "https://astroneer.fandom.com/wiki/Drill_Mod_2"
     },
     "labels": {
@@ -257,8 +247,8 @@
     "type": "object",
     "category": "augment",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/79/Drill_Mod_3.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/79/Drill_Mod_3.png",
       "wiki": "https://astroneer.fandom.com/wiki/Drill_Mod_3"
     },
     "labels": {
@@ -269,8 +259,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/33/Drill_Strength_1.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/56/Icon_Drill.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/56/Icon_Drill.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/33/Drill_Strength_1.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Drill_Strength_1"
     },
     "labels": {
@@ -281,8 +271,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2e/Drill_Strength_2.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/56/Icon_Drill.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/56/Icon_Drill.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2e/Drill_Strength_2.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Drill_Strength_2"
     },
     "labels": {
@@ -293,8 +283,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2a/Drill_Strength_3.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/56/Icon_Drill.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/56/Icon_Drill.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2a/Drill_Strength_3.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Drill_Strength_3"
     },
     "labels": {
@@ -305,8 +295,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/8c/Dynamite_T.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/08/Icon_Dynamite.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/08/Icon_Dynamite.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/8c/Dynamite_T.png",
       "wiki": "https://astroneer.fandom.com/wiki/Dynamite"
     },
     "labels": {
@@ -317,8 +307,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/46/EXO_Request_Platform.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/46/EXO_Request_Platform.png",
       "wiki": "https://astroneer.fandom.com/wiki/Exo_Request_Platform"
     },
     "labels": {
@@ -341,8 +331,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c9/Extender.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c9/Extender.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Extenders"
     },
     "labels": {
@@ -353,8 +343,8 @@
     "type": "object",
     "category": "storage",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/bb/Extra_Large_Storage.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/bb/Extra_Large_Storage.png",
       "wiki": "https://astroneer.fandom.com/wiki/Extra_Large_Active_Storage"
     },
     "labels": {
@@ -365,8 +355,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6a/Extra_Large_Curved_Platform.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6a/Extra_Large_Curved_Platform.png",
       "wiki": "https://astroneer.fandom.com/wiki/Extra_Large_Curved_Platform"
     },
     "labels": {
@@ -377,8 +367,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/5a/XL_Extended_Platform.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/5a/XL_Extended_Platform.png",
       "wiki": "https://astroneer.fandom.com/wiki/Extra_Large_Extended_Platform"
     },
     "labels": {
@@ -459,8 +449,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/16/Extra_Large_Shredder.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/16/Extra_Large_Shredder.png",
       "wiki": "https://astroneer.fandom.com/wiki/Extra_Large_Shredder"
     },
     "labels": {
@@ -491,8 +481,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f6/Field_Shelter.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/23/Icon_Shelter.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/23/Icon_Shelter.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f6/Field_Shelter.png",
       "wiki": "https://astroneer.fandom.com/wiki/Field_Shelter"
     },
     "labels": {
@@ -503,8 +493,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/12/Figurine_Platform.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/12/Figurine_Platform.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Figurine_Platform"
     },
     "labels": {
@@ -515,8 +505,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/67/Fireworks.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d0/Icon_Fireworks.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d0/Icon_Fireworks.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/67/Fireworks.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Fireworks"
     },
     "labels": {
@@ -527,8 +517,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1b/Floodlight.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1b/Floodlight.png",
       "wiki": "https://astroneer.fandom.com/wiki/Floodlight"
     },
     "labels": {
@@ -551,8 +541,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/50/Glowsticks.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d3/Icon_Worklight.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d3/Icon_Worklight.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/50/Glowsticks.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Glowsticks"
     },
     "labels": {
@@ -575,8 +565,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b3/Holographic_Figurine.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/10/Icon_Figurine.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/10/Icon_Figurine.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b3/Holographic_Figurine.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Holographic_Figurine"
     },
     "labels": {
@@ -587,8 +577,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/20/Hoverboard.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/20/Hoverboard.png",
       "wiki": "https://astroneer.fandom.com/wiki/Hoverboard"
     },
     "labels": {
@@ -611,8 +601,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6e/Hydrazine_Jet_Pack.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ea/Icon_Thruster.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ea/Icon_Thruster.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6e/Hydrazine_Jet_Pack.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Hydrazine_Jet_Pack"
     },
     "labels": {
@@ -623,8 +613,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/ca/HydrazineThruster.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ea/Icon_Thruster.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ea/Icon_Thruster.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/ca/HydrazineThruster.png",
       "wiki": "https://astroneer.fandom.com/wiki/Hydrazine_Thruster"
     },
     "labels": {
@@ -635,8 +625,8 @@
     "type": "object",
     "category": "augment",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fc/Inhibitor_Mod.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fc/Inhibitor_Mod.png",
       "wiki": "https://astroneer.fandom.com/wiki/Inhibitor_Mod"
     },
     "labels": {
@@ -659,8 +649,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4f/Landing_Pad.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fb/Icon_Landing_Pad.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fb/Icon_Landing_Pad.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4f/Landing_Pad.png",
       "wiki": "https://astroneer.fandom.com/wiki/Landing_Pad"
     },
     "labels": {
@@ -671,8 +661,8 @@
     "type": "object",
     "category": "storage",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a8/Large_Active_Storage.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a8/Large_Active_Storage.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Active_Storage"
     },
     "labels": {
@@ -683,8 +673,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/94/Large_Curved_Platform.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/94/Large_Curved_Platform.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Curved_Platform"
     },
     "labels": {
@@ -695,8 +685,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/dd/Large_Extended_Platform.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/dd/Large_Extended_Platform.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Extended_Platform"
     },
     "labels": {
@@ -747,8 +737,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7e/Large_Printer.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7e/Large_Printer.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Printer"
     },
     "labels": {
@@ -759,8 +749,8 @@
     "type": "object",
     "category": "canister",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/12/Large_Resource_Canister.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/12/Large_Resource_Canister.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Resource_Canister"
     },
     "labels": {
@@ -771,8 +761,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/76/Large_Rover.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/76/Large_Rover.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Rover"
     },
     "labels": {
@@ -823,8 +813,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3d/Large_shredder.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3d/Large_shredder.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Shredder"
     },
     "labels": {
@@ -835,8 +825,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a5/Large_Shuttle.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a5/Large_Shuttle.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Shuttle"
     },
     "labels": {
@@ -847,8 +837,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/59/Large_Solar_Panel.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/59/Large_Solar_Panel.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Solar_Panel"
     },
     "labels": {
@@ -859,8 +849,8 @@
     "type": "object",
     "category": "storage",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/24/Large_Storage.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/24/Large_Storage.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Storage"
     },
     "labels": {
@@ -871,8 +861,8 @@
     "type": "object",
     "category": "storage",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4d/Large_Storage_Silo_A.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4d/Large_Storage_Silo_A.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Storage_Silo_A"
     },
     "labels": {
@@ -883,8 +873,8 @@
     "type": "object",
     "category": "storage",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2f/Large_Storage_Silo_B.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2f/Large_Storage_Silo_B.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Storage_Silo_B"
     },
     "labels": {
@@ -905,8 +895,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6d/Large_Wind_Turbine.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6d/Large_Wind_Turbine.png",
       "wiki": "https://astroneer.fandom.com/wiki/Large_Wind_Turbine"
     },
     "labels": {
@@ -917,8 +907,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1b/Leveling_Block_T.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4b/Icon_Leveling_Block.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4b/Icon_Leveling_Block.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1b/Leveling_Block_T.png",
       "wiki": "https://astroneer.fandom.com/wiki/Leveling_Block"
     },
     "labels": {
@@ -929,8 +919,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/5c/Medium_T-Platform.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/5c/Medium_T-Platform.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_T_Platform"
     },
     "labels": {
@@ -941,8 +931,8 @@
     "type": "object",
     "category": "power_storage",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/11/Medium_Battery.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/11/Medium_Battery.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Battery"
     },
     "labels": {
@@ -963,8 +953,8 @@
     "type": "object",
     "category": "canister",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4c/Medium_Fluid_%26_Soil_Canister.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4c/Medium_Fluid_%26_Soil_Canister.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Fluid_&_Soil_Canister"
     },
     "labels": {
@@ -975,8 +965,8 @@
     "type": "object",
     "category": "canister",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/ff/Medium_Gas_Canister.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/ff/Medium_Gas_Canister.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Gas_Canister"
     },
     "labels": {
@@ -987,8 +977,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1d/Medium_Generator.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1d/Medium_Generator.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Generator"
     },
     "labels": {
@@ -999,8 +989,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/95/Platform_medium_a.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/95/Platform_medium_a.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Platform_A"
     },
     "labels": {
@@ -1011,8 +1001,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d8/Platform_medium_b.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d8/Platform_medium_b.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Platform_B"
     },
     "labels": {
@@ -1023,8 +1013,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fe/Medium_Platform_C.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fe/Medium_Platform_C.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Platform_C"
     },
     "labels": {
@@ -1035,8 +1025,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/52/Medium_Printer.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/52/Medium_Printer.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Printer"
     },
     "labels": {
@@ -1047,8 +1037,8 @@
     "type": "object",
     "category": "canister",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f4/Medium_Resource_Canister.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f4/Medium_Resource_Canister.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Resource_Canister"
     },
     "labels": {
@@ -1059,8 +1049,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/04/Medium_Rover.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/04/Medium_Rover.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Rover"
     },
     "labels": {
@@ -1081,8 +1071,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/57/Medium_shredder.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/57/Medium_shredder.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Shredder"
     },
     "labels": {
@@ -1093,8 +1083,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7b/Medium_Shuttle.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7b/Medium_Shuttle.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Shuttle"
     },
     "labels": {
@@ -1105,8 +1095,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d4/Medium_Solar_Panel.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d4/Medium_Solar_Panel.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Solar_Panel"
     },
     "labels": {
@@ -1117,8 +1107,8 @@
     "type": "object",
     "category": "storage",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f4/Medium_Storage_Flat.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f4/Medium_Storage_Flat.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Storage"
     },
     "labels": {
@@ -1129,8 +1119,8 @@
     "type": "object",
     "category": "storage",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/aa/Medium_Storage_Silo.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/aa/Medium_Storage_Silo.png",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Storage_Silo"
     },
     "labels": {
@@ -1141,8 +1131,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/9a/Medium_Wind_Turbine.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/9a/Medium_Wind_Turbine.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Medium_Wind_Turbine"
     },
     "labels": {
@@ -1165,8 +1155,8 @@
     "type": "object",
     "category": "augment",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4e/Narrow_Mod.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/4e/Narrow_Mod.png",
       "wiki": "https://astroneer.fandom.com/wiki/Narrow_Mod"
     },
     "labels": {
@@ -1177,8 +1167,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/35/Filter.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/10/Icon_Oxygen_Tank.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/10/Icon_Oxygen_Tank.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/35/Filter.png",
       "wiki": "https://astroneer.fandom.com/wiki/Oxygen_Filters"
     },
     "labels": {
@@ -1189,8 +1179,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b7/SmallTank.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b7/SmallTank.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Oxygen_Tank"
     },
     "labels": {
@@ -1201,8 +1191,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3b/Oxygenator.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ef/Icon_Oxygenator.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ef/Icon_Oxygenator.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3b/Oxygenator.png",
       "wiki": "https://astroneer.fandom.com/wiki/Oxygenator"
     },
     "labels": {
@@ -1213,8 +1203,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c1/Packager.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/e9/Icon_Packager.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/e9/Icon_Packager.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c1/Packager.png",
       "wiki": "https://astroneer.fandom.com/wiki/Packager"
     },
     "labels": {
@@ -1225,8 +1215,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/cd/Paver.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/55/Icon_Paver.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/55/Icon_Paver.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/cd/Paver.png",
       "wiki": "https://astroneer.fandom.com/wiki/Paver"
     },
     "labels": {
@@ -1249,8 +1239,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/35/PortableOxygenator.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/35/PortableOxygenator.png",
       "wiki": "https://astroneer.fandom.com/wiki/Portable_Oxygenator"
     },
     "labels": {
@@ -1261,8 +1251,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d5/Power-cells.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/9b/Icon_Power_Cells.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/9b/Icon_Power_Cells.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d5/Power-cells.png",
       "wiki": "https://astroneer.fandom.com/wiki/Power_Cells"
     },
     "labels": {
@@ -1293,8 +1283,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/84/Probe_Scanner.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/84/Probe_Scanner.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Probe_Scanner"
     },
     "labels": {
@@ -1315,8 +1305,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a9/Rail_Car.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/83/Icon_Rail_Engine.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/83/Icon_Rail_Engine.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a9/Rail_Car.png",
       "wiki": "https://astroneer.fandom.com/wiki/Rail_Car"
     },
     "labels": {
@@ -1327,8 +1317,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2c/Rail_Engine.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/83/Icon_Rail_Engine.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/83/Icon_Rail_Engine.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2c/Rail_Engine.png",
       "wiki": "https://astroneer.fandom.com/wiki/Rail_Engine"
     },
     "labels": {
@@ -1359,8 +1349,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/bb/Rail_Station.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1a/Icon_Rail_Station.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1a/Icon_Rail_Station.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/bb/Rail_Station.png",
       "wiki": "https://astroneer.fandom.com/wiki/Rail_Station"
     },
     "labels": {
@@ -1381,8 +1371,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f9/Research_Chamber.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f9/Research_Chamber.png",
       "wiki": "https://astroneer.fandom.com/wiki/Research_Chamber"
     },
     "labels": {
@@ -1393,8 +1383,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/0f/Astroneer_192.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/70/Icon_Rover_Seat.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/70/Icon_Rover_Seat.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/0f/Astroneer_192.png",
       "wiki": "https://astroneer.fandom.com/wiki/Rover_Seat"
     },
     "labels": {
@@ -1405,8 +1395,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/87/RTG.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/87/RTG.png",
       "wiki": "https://astroneer.fandom.com/wiki/Rtg"
     },
     "labels": {
@@ -1429,8 +1419,8 @@
     "type": "resource",
     "category": "special_resource",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/97/Nugget_Scrap.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/97/Nugget_Scrap.png",
       "wiki": "https://astroneer.fandom.com/wiki/Scrap"
     },
     "labels": {
@@ -1441,8 +1431,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/9d/Exo_Habitat.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/23/Icon_Shelter.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/23/Icon_Shelter.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/9d/Exo_Habitat.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Shelter"
     },
     "labels": {
@@ -1465,8 +1455,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/af/Small_Battery.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/af/Small_Battery.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Small_Battery"
     },
     "labels": {
@@ -1477,8 +1467,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b6/Small_Camera.jpg",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b6/Small_Camera.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Small_Camera"
     },
     "labels": {
@@ -1489,8 +1479,8 @@
     "type": "object",
     "category": "canister",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/15/Small_Canister.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/15/Small_Canister.png",
       "wiki": "https://astroneer.fandom.com/wiki/Small_Canister"
     },
     "labels": {
@@ -1501,8 +1491,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/45/Small_Generator.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/45/Small_Generator.png",
       "wiki": "https://astroneer.fandom.com/wiki/Small_Generator"
     },
     "labels": {
@@ -1513,8 +1503,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6c/Small_Printer.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6c/Small_Printer.png",
       "wiki": "https://astroneer.fandom.com/wiki/Small_Printer"
     },
     "labels": {
@@ -1525,8 +1515,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b9/Small_Shuttle.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b9/Small_Shuttle.png",
       "wiki": "https://astroneer.fandom.com/wiki/Small_Shuttle"
     },
     "labels": {
@@ -1537,8 +1527,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a6/Small_Solar_Panel.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a6/Small_Solar_Panel.png",
       "wiki": "https://astroneer.fandom.com/wiki/Small_Solar_Panel"
     },
     "labels": {
@@ -1549,8 +1539,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fa/Small_Trumpet_Horn.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/11/Icon_Horn.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/11/Icon_Horn.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fa/Small_Trumpet_Horn.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Small_Trumpet_Horn"
     },
     "labels": {
@@ -1561,8 +1551,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ed/Small_Wind_Turbine.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ed/Small_Wind_Turbine.png",
       "wiki": "https://astroneer.fandom.com/wiki/Small_Wind_Turbine"
     },
     "labels": {
@@ -1573,8 +1563,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/79/Smelting_Furnace.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/79/Smelting_Furnace.png",
       "wiki": "https://astroneer.fandom.com/wiki/Smelting_Furnace"
     },
     "labels": {
@@ -1595,8 +1585,8 @@
     "type": "object",
     "category": "power_source",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/98/Solar_Array.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/98/Solar_Array.png",
       "wiki": "https://astroneer.fandom.com/wiki/Solar_Array"
     },
     "labels": {
@@ -1607,8 +1597,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b8/Solid-Fuel_Jump_Jet.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ea/Icon_Thruster.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ea/Icon_Thruster.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b8/Solid-Fuel_Jump_Jet.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Solid-Fuel_Jump_Jet"
     },
     "labels": {
@@ -1619,8 +1609,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/46/Solid_Fuel_Thruster.png",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ea/Icon_Thruster.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/ea/Icon_Thruster.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/46/Solid_Fuel_Thruster.png",
       "wiki": "https://astroneer.fandom.com/wiki/Solid-Fuel_Thruster"
     },
     "labels": {
@@ -1663,8 +1653,8 @@
     "type": "object",
     "category": "platform",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c2/Tall_Platform.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c2/Tall_Platform.png",
       "wiki": "https://astroneer.fandom.com/wiki/Tall_Platform"
     },
     "labels": {
@@ -1685,8 +1675,8 @@
     "type": "object",
     "category": "storage",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b5/Tall_Storage.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b5/Tall_Storage.png",
       "wiki": "https://astroneer.fandom.com/wiki/Tall_Storage"
     },
     "labels": {
@@ -1697,8 +1687,8 @@
     "type": "object",
     "category": "augment",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fa/Terrain_Analyzer.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fa/Terrain_Analyzer.png",
       "wiki": "https://astroneer.fandom.com/wiki/Terrain_Analyzer"
     },
     "labels": {
@@ -1709,8 +1699,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fc/Tethers.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fc/Tethers.png",
       "wiki": "https://astroneer.fandom.com/wiki/Tethers"
     },
     "labels": {
@@ -1745,8 +1735,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7a/Tractor.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7a/Tractor.png",
       "wiki": "https://astroneer.fandom.com/wiki/Tractor"
     },
     "labels": {
@@ -1757,8 +1747,8 @@
     "type": "object",
     "category": "module",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/82/Trade_Platform.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/82/Trade_Platform.png",
       "wiki": "https://astroneer.fandom.com/wiki/Trade_Platform"
     },
     "labels": {
@@ -1769,8 +1759,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/58/Trailer.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/58/Trailer.png",
       "wiki": "https://astroneer.fandom.com/wiki/Trailer"
     },
     "labels": {
@@ -1805,8 +1795,8 @@
     "type": "object",
     "category": "vehicule",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/54/VTOL.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/54/VTOL.png",
       "wiki": "https://astroneer.fandom.com/wiki/Vtol"
     },
     "labels": {
@@ -1817,8 +1807,8 @@
     "type": "object",
     "category": "augment",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/34/Wide_Mod.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/34/Wide_Mod.png",
       "wiki": "https://astroneer.fandom.com/wiki/Wide_Mod"
     },
     "labels": {
@@ -1829,8 +1819,8 @@
     "type": "object",
     "category": "other",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/35/Winch.jpg",
-      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/0e/Icon_Winch.png",
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/0e/Icon_Winch.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/35/Winch.jpg",
       "wiki": "https://astroneer.fandom.com/wiki/Winch"
     },
     "labels": {
@@ -1841,8 +1831,8 @@
     "type": "object",
     "category": "widget",
     "url": {
-      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/33/Worklight.png",
-      "image": "",
+      "icon": "",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/33/Worklight.png",
       "wiki": "https://astroneer.fandom.com/wiki/Worklight"
     },
     "labels": {
