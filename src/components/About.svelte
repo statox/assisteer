@@ -52,4 +52,29 @@
             more complete than this app, has a nice UI and works quite well.
         </p>
     </div>
+    <div>
+        <h2>Changelog</h2>
+        <h3>v 0.1</h3>
+        <p>I'm declaring v 0.1 ready 🎉 </p>
+        <p>Currently I have added all the resources and most of the objects in the game for a total of 160 items including the resources. The basic feature is working: the user
+        can add objects to craft in a project and get the list of required component as well as a graph of the production chain. And the design of the webapp is not perfect 
+        but it is at least not completely raw.</p>
+        <p>But there is still a lot I want to do:</p>
+        <ul>
+            <li>First I want to rework the data model I'm using: For now the description of the resources and objects are deeply coupled with the recipes. And the whole mechanism
+                is deeply coupled to cytoscapeJS the lib I use for the graph. This design was ok to quickly experiment but now it is holding me back. So I intend to rework 
+                the data. Which sould allow me to fix several issues I have:
+            </li>
+            <li>For now it's hard to have a separated tree by object</li>
+            <li>Detecting the level of the nodes will be more convenient so I can show the raw material needed and the material present in each steps of the process.</li>
+            <li>The new tree structure will allow me to explore other libraries than cytoscapeJS which is great because for now I'm not satisfied with the way I display the graph
+                (specifically I can't make the ELK layout extension work and I think that would be the best layout to display this type of tree, it's also a major pita to tweak
+                the graph appearance like the side of the nodes and the way the edges are distributed)
+            </li>
+            <li>Then in the future I should be able to make the most out of the new data model to implement new features like a power analysis of a project (how much power is consumed
+                and produced by the objects in the project) and a count of the bytes necessary to unlock all the objects in the project. And we I dream big I could also imagine a tool
+                which would help the user to plan the layout of their projects in the game.
+            </li>
+        </ul>
+    </div>
 </main>
