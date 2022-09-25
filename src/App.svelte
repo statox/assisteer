@@ -3,11 +3,6 @@ import About from './components/About.svelte';
 import ResourceDepGraph from './components/ResourceDepGraph.svelte';
 import Footer from './components/Footer.svelte';
 
-const pageList = {
-    'project': ResourceDepGraph,
-    'about': About
-}
-
 let page='project';
 </script>
 
