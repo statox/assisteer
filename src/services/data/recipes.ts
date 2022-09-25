@@ -1,11 +1,11 @@
-import * as recipes from '../../data2/recipes.json'
-import * as rawResource from '../../data2/rawResources.json';
+import recipes from '../../data2/recipes.json'
+import rawResource from '../../data2/rawResources.json';
 
 const getAllRecipesList = () => {
-return recipes;
+    return recipes;
 }
 
-type Recipe = {
+export type Recipe = {
     tool: string;
     resources: {
         [resourceName: string]: number;
@@ -14,14 +14,14 @@ type Recipe = {
 
 const getObjectRecipes = (objectName: string): Recipe[] => {
     if (!recipes[objectName]) {
-        throw new Error(`Recipe not found for ${objectName}`);
+        return [];
     }
     return recipes[objectName];
 }
 
 const getObjectDefaultRecipe = (objectName: string): Recipe => {
     if (!recipes[objectName]) {
-        throw new Error(`Recipe not found for ${objectName}`);
+        return;
     }
     return recipes[objectName][0];
 }
@@ -34,14 +34,14 @@ type DepLevel<T> = {
         [objectName: string]: T;
     }
 };
-interface DepTree extends DepLevel<DepTree> { };
+export interface DepTree extends DepLevel<DepTree> { };
 
 const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number): DepTree => {
     const result = {
         tool: recipe.tool,
         quantity: finalObjectQuantity,
         type: 'not_raw',
-        resources:{}
+        resources: {}
     } as DepTree;
 
     for (const resource of Object.keys(recipe.resources)) {
@@ -56,7 +56,7 @@ const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number):
             result.resources[resource] = {
                 type: 'not_raw',
                 quantity: quantity * finalObjectQuantity,
-                ...getRecipeDependenciesTree(subRecipe, quantity*finalObjectQuantity)
+                ...getRecipeDependenciesTree(subRecipe, quantity * finalObjectQuantity)
             }
         }
     }

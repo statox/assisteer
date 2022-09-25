@@ -2,6 +2,7 @@
 import About from './components/About.svelte';
 import ResourceDepGraph from './components/ResourceDepGraph.svelte';
 import Footer from './components/Footer.svelte';
+import ProjectPlanner from './components/projectPlanner/ProjectPlanner.svelte';
 
 let page='project';
 </script>
@@ -34,6 +35,10 @@ let page='project';
         {:else}
             <About/>
         {/if}
+    </div>
+    <br/>
+    <div>
+        <ProjectPlanner/>
     </div>
 </main>
 

@@ -1,24 +1,25 @@
-import * as rawResources from '../../data2/rawResources.json';
-import * as inventory from '../../data2/objects.json';
+import rawResources from '../../data2/rawResources.json';
+import inventory from '../../data2/objects.json';
 
 type ObjectCategory =
-  | "augment"
-  | "automation"
-  | "battery"
-  | "building"
-  | "canister"
-  | "logic"
-  | "oxygen"
-  | "platform"
-  | "power source"
-  | "storage"
-  | "tool"
-  | "trains"
-  | "vehicule"
-  | "vehicule attachments"
-  | "widget";
+    | "augment"
+    | "automation"
+    | "battery"
+    | "building"
+    | "canister"
+    | "logic"
+    | "oxygen"
+    | "platform"
+    | "power source"
+    | "storage"
+    | "tool"
+    | "trains"
+    | "vehicule"
+    | "vehicule attachments"
+    | "widget";
 
-type BaseObject = {
+export type BaseObject = {
+    id: string;
     type: "object" | "resource";
     category: ObjectCategory;
     url: {
@@ -34,7 +35,6 @@ type BaseObject = {
 const objectNames = Object.keys(inventory);
 const resourceNames = Object.keys(rawResources);
 const allNames = objectNames.concat(resourceNames).sort((a, b) => a < b ? -1 : 1);
-
 
 const getObject = (objectName: string): BaseObject => {
     if (inventory[objectName]) {

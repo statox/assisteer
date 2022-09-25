@@ -1,5 +1,6 @@
 {
     "ammonium": {
+        "id": "ammonium",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -12,6 +13,7 @@
         }
     },
     "astronium": {
+        "id": "astronium",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -24,6 +26,7 @@
         }
     },
     "clay": {
+        "id": "clay",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -36,6 +39,7 @@
         }
     },
     "compound": {
+        "id": "compound",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -48,6 +52,7 @@
         }
     },
     "graphite": {
+        "id": "graphite",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -60,6 +65,7 @@
         }
     },
     "hematite": {
+        "id": "hematite",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -72,6 +78,7 @@
         }
     },
     "laterite": {
+        "id": "laterite",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -84,6 +91,7 @@
         }
     },
     "lithium": {
+        "id": "lithium",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -96,6 +104,7 @@
         }
     },
     "malachite": {
+        "id": "malachite",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -108,6 +117,7 @@
         }
     },
     "organic": {
+        "id": "organic",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -120,6 +130,7 @@
         }
     },
     "quartz": {
+        "id": "quartz",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -132,6 +143,7 @@
         }
     },
     "resin": {
+        "id": "resin",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -144,6 +156,7 @@
         }
     },
     "sphalerite": {
+        "id": "sphalerite",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -156,6 +169,7 @@
         }
     },
     "titanite": {
+        "id": "titanite",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -168,6 +182,7 @@
         }
     },
     "wolframite": {
+        "id": "wolframite",
         "type": "resource",
         "category": "natural",
         "url": {
@@ -180,6 +195,7 @@
         }
     },
     "argon": {
+        "id": "argon",
         "type": "resource",
         "category": "atmospheric",
         "url": {
@@ -192,6 +208,7 @@
         }
     },
     "helium": {
+        "id": "helium",
         "type": "resource",
         "category": "atmospheric",
         "url": {
@@ -204,6 +221,7 @@
         }
     },
     "hydrogen": {
+        "id": "hydrogen",
         "type": "resource",
         "category": "atmospheric",
         "url": {
@@ -216,6 +234,7 @@
         }
     },
     "methane": {
+        "id": "methane",
         "type": "resource",
         "category": "atmospheric",
         "url": {
@@ -228,6 +247,7 @@
         }
     },
     "nitrogen": {
+        "id": "nitrogen",
         "type": "resource",
         "category": "atmospheric",
         "url": {
@@ -240,6 +260,7 @@
         }
     },
     "sulfur": {
+        "id": "sulfur",
         "type": "resource",
         "category": "atmospheric",
         "url": {
@@ -252,6 +273,7 @@
         }
     },
     "exo chip": {
+        "id": "exo chip",
         "type": "resource",
         "category": "special_resource",
         "url": {
@@ -264,6 +286,7 @@
         }
     },
     "soil": {
+        "id": "soil",
         "type": "resource",
         "category": "special_resource",
         "url": {

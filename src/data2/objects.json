@@ -1,5 +1,6 @@
 {
   "alignment mod": {
+    "id": "alignment mod",
     "type": "object",
     "category": "augment",
     "url": {
@@ -12,6 +13,7 @@
     }
   },
   "aluminum": {
+    "id": "aluminum",
     "type": "resource",
     "category": "refined",
     "url": {
@@ -24,6 +26,7 @@
     }
   },
   "aluminum alloy": {
+    "id": "aluminum alloy",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -36,6 +39,7 @@
     }
   },
   "atmospheric condenser": {
+    "id": "atmospheric condenser",
     "type": "object",
     "category": "tool",
     "url": {
@@ -48,6 +52,7 @@
     }
   },
   "auto arm": {
+    "id": "auto arm",
     "type": "object",
     "category": "automation",
     "url": {
@@ -60,6 +65,7 @@
     }
   },
   "auto extractor": {
+    "id": "auto extractor",
     "type": "object",
     "category": "automation",
     "url": {
@@ -72,6 +78,7 @@
     }
   },
   "battery sensor": {
+    "id": "battery sensor",
     "type": "object",
     "category": "logic",
     "url": {
@@ -82,6 +89,7 @@
     "labels": {}
   },
   "beacon": {
+    "id": "beacon",
     "type": "object",
     "category": "widget",
     "url": {
@@ -94,6 +102,7 @@
     }
   },
   "boost mod": {
+    "id": "boost mod",
     "type": "object",
     "category": "augment",
     "url": {
@@ -106,6 +115,7 @@
     }
   },
   "buggy": {
+    "id": "buggy",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -118,6 +128,7 @@
     }
   },
   "button repeater": {
+    "id": "button repeater",
     "type": "object",
     "category": "logic",
     "url": {
@@ -128,6 +139,7 @@
     "labels": {}
   },
   "carbon": {
+    "id": "carbon",
     "type": "resource",
     "category": "refined",
     "url": {
@@ -140,6 +152,7 @@
     }
   },
   "ceramic": {
+    "id": "ceramic",
     "type": "resource",
     "category": "refined",
     "url": {
@@ -152,6 +165,7 @@
     }
   },
   "chemistry lab": {
+    "id": "chemistry lab",
     "type": "object",
     "category": "tool",
     "url": {
@@ -164,6 +178,7 @@
     }
   },
   "copper": {
+    "id": "copper",
     "type": "resource",
     "category": "refined",
     "url": {
@@ -176,6 +191,7 @@
     }
   },
   "count repeater": {
+    "id": "count repeater",
     "type": "object",
     "category": "logic",
     "url": {
@@ -188,6 +204,7 @@
     }
   },
   "crane": {
+    "id": "crane",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -200,6 +217,7 @@
     }
   },
   "delay repeater": {
+    "id": "delay repeater",
     "type": "object",
     "category": "logic",
     "url": {
@@ -212,6 +230,7 @@
     }
   },
   "diamond": {
+    "id": "diamond",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -224,6 +243,7 @@
     }
   },
   "drill mod 1": {
+    "id": "drill mod 1",
     "type": "object",
     "category": "augment",
     "url": {
@@ -236,6 +256,7 @@
     }
   },
   "drill mod 2": {
+    "id": "drill mod 2",
     "type": "object",
     "category": "augment",
     "url": {
@@ -248,6 +269,7 @@
     }
   },
   "drill mod 3": {
+    "id": "drill mod 3",
     "type": "object",
     "category": "augment",
     "url": {
@@ -260,6 +282,7 @@
     }
   },
   "drill strength 1": {
+    "id": "drill strength 1",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -272,6 +295,7 @@
     }
   },
   "drill strength 2": {
+    "id": "drill strength 2",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -284,6 +308,7 @@
     }
   },
   "drill strength 3": {
+    "id": "drill strength 3",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -296,6 +321,7 @@
     }
   },
   "dynamite": {
+    "id": "dynamite",
     "type": "object",
     "category": "widget",
     "url": {
@@ -308,6 +334,7 @@
     }
   },
   "exo request platform": {
+    "id": "exo request platform",
     "type": "object",
     "category": "tool",
     "url": {
@@ -320,6 +347,7 @@
     }
   },
   "explosive powder": {
+    "id": "explosive powder",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -332,6 +360,7 @@
     }
   },
   "extenders": {
+    "id": "extenders",
     "type": "object",
     "category": "widget",
     "url": {
@@ -344,6 +373,7 @@
     }
   },
   "extra large curved platform": {
+    "id": "extra large curved platform",
     "type": "object",
     "category": "platform",
     "url": {
@@ -356,6 +386,7 @@
     }
   },
   "extra large extended platform": {
+    "id": "extra large extended platform",
     "type": "object",
     "category": "platform",
     "url": {
@@ -368,6 +399,7 @@
     }
   },
   "extra large platform a": {
+    "id": "extra large platform a",
     "type": "object",
     "category": "platform",
     "url": {
@@ -380,6 +412,7 @@
     }
   },
   "extra large platform b": {
+    "id": "extra large platform b",
     "type": "object",
     "category": "platform",
     "url": {
@@ -392,6 +425,7 @@
     }
   },
   "extra large platform c": {
+    "id": "extra large platform c",
     "type": "object",
     "category": "platform",
     "url": {
@@ -404,6 +438,7 @@
     }
   },
   "extra large sensor arch": {
+    "id": "extra large sensor arch",
     "type": "object",
     "category": "logic",
     "url": {
@@ -416,6 +451,7 @@
     }
   },
   "extra large sensor canopy": {
+    "id": "extra large sensor canopy",
     "type": "object",
     "category": "logic",
     "url": {
@@ -428,6 +464,7 @@
     }
   },
   "extra large sensor hoop a": {
+    "id": "extra large sensor hoop a",
     "type": "object",
     "category": "logic",
     "url": {
@@ -440,6 +477,7 @@
     }
   },
   "extra large sensor hoop b": {
+    "id": "extra large sensor hoop b",
     "type": "object",
     "category": "logic",
     "url": {
@@ -452,6 +490,7 @@
     }
   },
   "extra large shredder": {
+    "id": "extra large shredder",
     "type": "object",
     "category": "tool",
     "url": {
@@ -464,6 +503,7 @@
     }
   },
   "extra large storage": {
+    "id": "extra large storage",
     "type": "object",
     "category": "storage",
     "url": {
@@ -476,6 +516,7 @@
     }
   },
   "extra large wind turbine": {
+    "id": "extra large wind turbine",
     "type": "object",
     "category": "power source",
     "url": {
@@ -488,6 +529,7 @@
     }
   },
   "field shelter": {
+    "id": "field shelter",
     "type": "object",
     "category": "building",
     "url": {
@@ -500,6 +542,7 @@
     }
   },
   "figurine platform": {
+    "id": "figurine platform",
     "type": "object",
     "category": "platform",
     "url": {
@@ -512,6 +555,7 @@
     }
   },
   "fireworks": {
+    "id": "fireworks",
     "type": "object",
     "category": "widget",
     "url": {
@@ -524,6 +568,7 @@
     }
   },
   "floodlight": {
+    "id": "floodlight",
     "type": "object",
     "category": "widget",
     "url": {
@@ -536,6 +581,7 @@
     }
   },
   "glass": {
+    "id": "glass",
     "type": "resource",
     "category": "refined",
     "url": {
@@ -548,6 +594,7 @@
     }
   },
   "glowsticks": {
+    "id": "glowsticks",
     "type": "object",
     "category": "widget",
     "url": {
@@ -560,6 +607,7 @@
     }
   },
   "graphene": {
+    "id": "graphene",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -572,6 +620,7 @@
     }
   },
   "holographic figurine": {
+    "id": "holographic figurine",
     "type": "object",
     "category": "widget",
     "url": {
@@ -584,6 +633,7 @@
     }
   },
   "hoverboard": {
+    "id": "hoverboard",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -596,6 +646,7 @@
     }
   },
   "hydrazine": {
+    "id": "hydrazine",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -608,6 +659,7 @@
     }
   },
   "hydrazine jet pack": {
+    "id": "hydrazine jet pack",
     "type": "object",
     "category": "widget",
     "url": {
@@ -620,6 +672,7 @@
     }
   },
   "hydrazine thruster": {
+    "id": "hydrazine thruster",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -632,6 +685,7 @@
     }
   },
   "inhibitor mod": {
+    "id": "inhibitor mod",
     "type": "object",
     "category": "augment",
     "url": {
@@ -644,6 +698,7 @@
     }
   },
   "iron": {
+    "id": "iron",
     "type": "resource",
     "category": "refined",
     "url": {
@@ -656,6 +711,7 @@
     }
   },
   "landing pad": {
+    "id": "landing pad",
     "type": "object",
     "category": "building",
     "url": {
@@ -668,6 +724,7 @@
     }
   },
   "large active storage": {
+    "id": "large active storage",
     "type": "object",
     "category": "storage",
     "url": {
@@ -680,6 +737,7 @@
     }
   },
   "large curved platform": {
+    "id": "large curved platform",
     "type": "object",
     "category": "platform",
     "url": {
@@ -692,6 +750,7 @@
     }
   },
   "large extended platform": {
+    "id": "large extended platform",
     "type": "object",
     "category": "platform",
     "url": {
@@ -704,6 +763,7 @@
     }
   },
   "large fog horn": {
+    "id": "large fog horn",
     "type": "object",
     "category": "widget",
     "url": {
@@ -716,6 +776,7 @@
     }
   },
   "large platform a": {
+    "id": "large platform a",
     "type": "object",
     "category": "platform",
     "url": {
@@ -728,6 +789,7 @@
     }
   },
   "large platform b": {
+    "id": "large platform b",
     "type": "object",
     "category": "platform",
     "url": {
@@ -740,6 +802,7 @@
     }
   },
   "large platform c": {
+    "id": "large platform c",
     "type": "object",
     "category": "platform",
     "url": {
@@ -752,6 +815,7 @@
     }
   },
   "large printer": {
+    "id": "large printer",
     "type": "object",
     "category": "tool",
     "url": {
@@ -764,6 +828,7 @@
     }
   },
   "large resource canister": {
+    "id": "large resource canister",
     "type": "object",
     "category": "canister",
     "url": {
@@ -776,6 +841,7 @@
     }
   },
   "large rover": {
+    "id": "large rover",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -788,6 +854,7 @@
     }
   },
   "large rover seat": {
+    "id": "large rover seat",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -800,6 +867,7 @@
     }
   },
   "large sensor hoop a": {
+    "id": "large sensor hoop a",
     "type": "object",
     "category": "logic",
     "url": {
@@ -812,6 +880,7 @@
     }
   },
   "large sensor hoop b": {
+    "id": "large sensor hoop b",
     "type": "object",
     "category": "logic",
     "url": {
@@ -824,6 +893,7 @@
     }
   },
   "large sensor ring": {
+    "id": "large sensor ring",
     "type": "object",
     "category": "logic",
     "url": {
@@ -836,6 +906,7 @@
     }
   },
   "large shredder": {
+    "id": "large shredder",
     "type": "object",
     "category": "tool",
     "url": {
@@ -848,6 +919,7 @@
     }
   },
   "large shuttle": {
+    "id": "large shuttle",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -860,6 +932,7 @@
     }
   },
   "large solar panel": {
+    "id": "large solar panel",
     "type": "object",
     "category": "power_source",
     "url": {
@@ -872,6 +945,7 @@
     }
   },
   "large storage": {
+    "id": "large storage",
     "type": "object",
     "category": "storage",
     "url": {
@@ -884,6 +958,7 @@
     }
   },
   "large storage silo a": {
+    "id": "large storage silo a",
     "type": "object",
     "category": "storage",
     "url": {
@@ -896,6 +971,7 @@
     }
   },
   "large storage silo b": {
+    "id": "large storage silo b",
     "type": "object",
     "category": "storage",
     "url": {
@@ -908,6 +984,7 @@
     }
   },
   "large t platform": {
+    "id": "large t platform",
     "type": "object",
     "category": "platform",
     "url": {
@@ -920,6 +997,7 @@
     }
   },
   "large wind turbine": {
+    "id": "large wind turbine",
     "type": "object",
     "category": "power_source",
     "url": {
@@ -932,6 +1010,7 @@
     }
   },
   "leveling block": {
+    "id": "leveling block",
     "type": "object",
     "category": "widget",
     "url": {
@@ -944,6 +1023,7 @@
     }
   },
   "medium T platform": {
+    "id": "medium T platform",
     "type": "object",
     "category": "platform",
     "url": {
@@ -956,6 +1036,7 @@
     }
   },
   "medium battery": {
+    "id": "medium battery",
     "type": "object",
     "category": "battery",
     "url": {
@@ -968,6 +1049,7 @@
     }
   },
   "medium buggy horn": {
+    "id": "medium buggy horn",
     "type": "object",
     "category": "widget",
     "url": {
@@ -980,6 +1062,7 @@
     }
   },
   "medium fluid & soil canister": {
+    "id": "medium fluid & soil canister",
     "type": "object",
     "category": "canister",
     "url": {
@@ -992,6 +1075,7 @@
     }
   },
   "medium gas canister": {
+    "id": "medium gas canister",
     "type": "object",
     "category": "canister",
     "url": {
@@ -1004,6 +1088,7 @@
     }
   },
   "medium generator": {
+    "id": "medium generator",
     "type": "object",
     "category": "power source",
     "url": {
@@ -1016,6 +1101,7 @@
     }
   },
   "medium platform A": {
+    "id": "medium platform A",
     "type": "object",
     "category": "platform",
     "url": {
@@ -1028,6 +1114,7 @@
     }
   },
   "medium platform B": {
+    "id": "medium platform B",
     "type": "object",
     "category": "platform",
     "url": {
@@ -1040,6 +1127,7 @@
     }
   },
   "medium platform C": {
+    "id": "medium platform C",
     "type": "object",
     "category": "platform",
     "url": {
@@ -1052,6 +1140,7 @@
     }
   },
   "medium printer": {
+    "id": "medium printer",
     "type": "object",
     "category": "tool",
     "url": {
@@ -1064,6 +1153,7 @@
     }
   },
   "medium resource canister": {
+    "id": "medium resource canister",
     "type": "object",
     "category": "canister",
     "url": {
@@ -1076,6 +1166,7 @@
     }
   },
   "medium rover": {
+    "id": "medium rover",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -1088,6 +1179,7 @@
     }
   },
   "medium sensor arch": {
+    "id": "medium sensor arch",
     "type": "object",
     "category": "logic",
     "url": {
@@ -1100,6 +1192,7 @@
     }
   },
   "medium shredder": {
+    "id": "medium shredder",
     "type": "object",
     "category": "tool",
     "url": {
@@ -1112,6 +1205,7 @@
     }
   },
   "medium shuttle": {
+    "id": "medium shuttle",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -1124,6 +1218,7 @@
     }
   },
   "medium solar panel": {
+    "id": "medium solar panel",
     "type": "object",
     "category": "power source",
     "url": {
@@ -1136,6 +1231,7 @@
     }
   },
   "medium storage": {
+    "id": "medium storage",
     "type": "object",
     "category": "storage",
     "url": {
@@ -1148,6 +1244,7 @@
     }
   },
   "medium storage silo": {
+    "id": "medium storage silo",
     "type": "object",
     "category": "storage",
     "url": {
@@ -1160,6 +1257,7 @@
     }
   },
   "medium wind turbine": {
+    "id": "medium wind turbine",
     "type": "object",
     "category": "power source",
     "url": {
@@ -1172,6 +1270,7 @@
     }
   },
   "nanocarbon alloy": {
+    "id": "nanocarbon alloy",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -1184,6 +1283,7 @@
     }
   },
   "narrow mod": {
+    "id": "narrow mod",
     "type": "object",
     "category": "augment",
     "url": {
@@ -1196,6 +1296,7 @@
     }
   },
   "oxygen filter": {
+    "id": "oxygen filter",
     "type": "object",
     "category": "oxygen",
     "url": {
@@ -1208,6 +1309,7 @@
     }
   },
   "oxygen tank": {
+    "id": "oxygen tank",
     "type": "object",
     "category": "oxygen",
     "url": {
@@ -1220,6 +1322,7 @@
     }
   },
   "oxygenator": {
+    "id": "oxygenator",
     "type": "object",
     "category": "oxygen",
     "url": {
@@ -1232,6 +1335,7 @@
     }
   },
   "packager": {
+    "id": "packager",
     "type": "object",
     "category": "widget",
     "url": {
@@ -1244,6 +1348,7 @@
     }
   },
   "paver": {
+    "id": "paver",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -1256,6 +1361,7 @@
     }
   },
   "plastic": {
+    "id": "plastic",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -1268,6 +1374,7 @@
     }
   },
   "portable oxygenator": {
+    "id": "portable oxygenator",
     "type": "object",
     "category": "widget",
     "url": {
@@ -1280,6 +1387,7 @@
     }
   },
   "power cells": {
+    "id": "power cells",
     "type": "object",
     "category": "power source",
     "url": {
@@ -1292,6 +1400,7 @@
     }
   },
   "power sensor": {
+    "id": "power sensor",
     "type": "object",
     "category": "logic",
     "url": {
@@ -1304,6 +1413,7 @@
     }
   },
   "power switch": {
+    "id": "power switch",
     "type": "object",
     "category": "logic",
     "url": {
@@ -1316,6 +1426,7 @@
     }
   },
   "probe scanner": {
+    "id": "probe scanner",
     "type": "object",
     "category": "widget",
     "url": {
@@ -1328,6 +1439,7 @@
     }
   },
   "proximity repeater": {
+    "id": "proximity repeater",
     "type": "object",
     "category": "logic",
     "url": {
@@ -1340,6 +1452,7 @@
     }
   },
   "rail car": {
+    "id": "rail car",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -1352,6 +1465,7 @@
     }
   },
   "rail engine": {
+    "id": "rail engine",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -1364,6 +1478,7 @@
     }
   },
   "rail junction bundle": {
+    "id": "rail junction bundle",
     "type": "object",
     "category": "trains",
     "url": {
@@ -1376,6 +1491,7 @@
     }
   },
   "rail post bundle": {
+    "id": "rail post bundle",
     "type": "object",
     "category": "trains",
     "url": {
@@ -1388,6 +1504,7 @@
     }
   },
   "rail station": {
+    "id": "rail station",
     "type": "object",
     "category": "trains",
     "url": {
@@ -1400,6 +1517,7 @@
     }
   },
   "recreational sphere": {
+    "id": "recreational sphere",
     "type": "object",
     "category": "widget",
     "url": {
@@ -1412,6 +1530,7 @@
     }
   },
   "research chamber": {
+    "id": "research chamber",
     "type": "object",
     "category": "tool",
     "url": {
@@ -1424,6 +1543,7 @@
     }
   },
   "rover seat": {
+    "id": "rover seat",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -1436,6 +1556,7 @@
     }
   },
   "rtg": {
+    "id": "rtg",
     "type": "object",
     "category": "power source",
     "url": {
@@ -1448,6 +1569,7 @@
     }
   },
   "rubber": {
+    "id": "rubber",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -1460,6 +1582,7 @@
     }
   },
   "scrap": {
+    "id": "scrap",
     "type": "resource",
     "category": "special_resource",
     "url": {
@@ -1472,6 +1595,7 @@
     }
   },
   "shelter": {
+    "id": "shelter",
     "type": "object",
     "category": "building",
     "url": {
@@ -1484,6 +1608,7 @@
     }
   },
   "silicone": {
+    "id": "silicone",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -1496,6 +1621,7 @@
     }
   },
   "small battery": {
+    "id": "small battery",
     "type": "object",
     "category": "battery",
     "url": {
@@ -1508,6 +1634,7 @@
     }
   },
   "small camera": {
+    "id": "small camera",
     "type": "object",
     "category": "widget",
     "url": {
@@ -1520,6 +1647,7 @@
     }
   },
   "small canister": {
+    "id": "small canister",
     "type": "object",
     "category": "canister",
     "url": {
@@ -1532,6 +1660,7 @@
     }
   },
   "small generator": {
+    "id": "small generator",
     "type": "object",
     "category": "power source",
     "url": {
@@ -1544,6 +1673,7 @@
     }
   },
   "small printer": {
+    "id": "small printer",
     "type": "object",
     "category": "tool",
     "url": {
@@ -1556,6 +1686,7 @@
     }
   },
   "small shuttle": {
+    "id": "small shuttle",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -1568,6 +1699,7 @@
     }
   },
   "small solar panel": {
+    "id": "small solar panel",
     "type": "object",
     "category": "power source",
     "url": {
@@ -1580,6 +1712,7 @@
     }
   },
   "small trumpet horn": {
+    "id": "small trumpet horn",
     "type": "object",
     "category": "widget",
     "url": {
@@ -1592,6 +1725,7 @@
     }
   },
   "small wind turbine": {
+    "id": "small wind turbine",
     "type": "object",
     "category": "power source",
     "url": {
@@ -1604,6 +1738,7 @@
     }
   },
   "smelting furnace": {
+    "id": "smelting furnace",
     "type": "object",
     "category": "tool",
     "url": {
@@ -1616,6 +1751,7 @@
     }
   },
   "soil centrifuge": {
+    "id": "soil centrifuge",
     "type": "object",
     "category": "tool",
     "url": {
@@ -1628,6 +1764,7 @@
     }
   },
   "solar array": {
+    "id": "solar array",
     "type": "object",
     "category": "power source",
     "url": {
@@ -1640,6 +1777,7 @@
     }
   },
   "solid fuel jump jet": {
+    "id": "solid fuel jump jet",
     "type": "object",
     "category": "widget",
     "url": {
@@ -1652,6 +1790,7 @@
     }
   },
   "solid fuel thruster": {
+    "id": "solid fuel thruster",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -1664,6 +1803,7 @@
     }
   },
   "splitter": {
+    "id": "splitter",
     "type": "object",
     "category": "logic",
     "url": {
@@ -1676,6 +1816,7 @@
     }
   },
   "steel": {
+    "id": "steel",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -1688,6 +1829,7 @@
     }
   },
   "storage sensor": {
+    "id": "storage sensor",
     "type": "object",
     "category": "logic",
     "url": {
@@ -1700,6 +1842,7 @@
     }
   },
   "tall platform": {
+    "id": "tall platform",
     "type": "object",
     "category": "platform",
     "url": {
@@ -1712,6 +1855,7 @@
     }
   },
   "tall rail post bundle": {
+    "id": "tall rail post bundle",
     "type": "object",
     "category": "trains",
     "url": {
@@ -1724,6 +1868,7 @@
     }
   },
   "tall storage": {
+    "id": "tall storage",
     "type": "object",
     "category": "storage",
     "url": {
@@ -1736,6 +1881,7 @@
     }
   },
   "terrain analyzer": {
+    "id": "terrain analyzer",
     "type": "object",
     "category": "augment",
     "url": {
@@ -1748,6 +1894,7 @@
     }
   },
   "tethers": {
+    "id": "tethers",
     "type": "object",
     "category": "widget",
     "url": {
@@ -1760,6 +1907,7 @@
     }
   },
   "titanium": {
+    "id": "titanium",
     "type": "resource",
     "category": "refined",
     "url": {
@@ -1772,6 +1920,7 @@
     }
   },
   "titanium alloy": {
+    "id": "titanium alloy",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -1784,6 +1933,7 @@
     }
   },
   "tractor": {
+    "id": "tractor",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -1796,6 +1946,7 @@
     }
   },
   "trade platform": {
+    "id": "trade platform",
     "type": "object",
     "category": "tool",
     "url": {
@@ -1808,6 +1959,7 @@
     }
   },
   "trailer": {
+    "id": "trailer",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -1820,6 +1972,7 @@
     }
   },
   "tungsten": {
+    "id": "tungsten",
     "type": "resource",
     "category": "refined",
     "url": {
@@ -1832,6 +1985,7 @@
     }
   },
   "tungsten carbide": {
+    "id": "tungsten carbide",
     "type": "resource",
     "category": "composite",
     "url": {
@@ -1844,6 +1998,7 @@
     }
   },
   "vtol": {
+    "id": "vtol",
     "type": "object",
     "category": "vehicule",
     "url": {
@@ -1856,6 +2011,7 @@
     }
   },
   "wide mod": {
+    "id": "wide mod",
     "type": "object",
     "category": "augment",
     "url": {
@@ -1868,6 +2024,7 @@
     }
   },
   "winch": {
+    "id": "winch",
     "type": "object",
     "category": "vehicule attachment",
     "url": {
@@ -1880,6 +2037,7 @@
     }
   },
   "worklight": {
+    "id": "worklight",
     "type": "object",
     "category": "widget",
     "url": {
@@ -1892,6 +2050,7 @@
     }
   },
   "zinc": {
+    "id": "zinc",
     "type": "resource",
     "category": "refined",
     "url": {
