@@ -39,34 +39,38 @@
 </script>
 
 <main>
-    <div>
-        <h3 class="content-header">Project inventory</h3>
+    <h3 class="content-header">Project inventory</h3>
+    <div class="container">
         {#if projectData.length}
             {#each projectData as item}
-                <div>
-                    {item.objectName}
-                    <br />
-                    <br />
-                    <button
-                        on:click={() => changeQuantity(item.objectName, "dec")}
-                        >-</button
-                    >
-                    &nbsp{item.quantity}&nbsp
-                    <button
-                        on:click={() => changeQuantity(item.objectName, "inc")}
-                        >+</button
-                    >
-                    <br />
-                    <button
-                        on:click={() =>
-                            changeQuantity(item.objectName, "remove")}
-                        >Remove</button
-                    >
-                    <br />
-                    <img
-                        src={item.object.url.image}
-                        alt={item.object.labels.en}
-                    />
+                <div class="row">
+                    <div class="col-sm-4">
+                        {item.objectName}
+                    </div>
+                    <div class="col-sm-4">
+                        <button
+                            on:click={() =>
+                                changeQuantity(item.objectName, "dec")}
+                            >-</button
+                        >
+                        &nbsp{item.quantity}&nbsp
+                        <button
+                            on:click={() =>
+                                changeQuantity(item.objectName, "inc")}
+                            >+</button
+                        >
+                        <button
+                            on:click={() =>
+                                changeQuantity(item.objectName, "remove")}
+                            >Remove</button
+                        >
+                    </div>
+                    <div class="col-sm-4">
+                        <img
+                            src={item.object.url.image}
+                            alt={item.object.labels.en}
+                        />
+                    </div>
                 </div>
             {/each}
         {/if}

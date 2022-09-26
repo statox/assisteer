@@ -36,14 +36,18 @@
     };
 </script>
 
-<main>
-    <div>
-        <Select
-            placeholder="Project item selection"
-            {items}
-            {groupBy}
-            on:select={handleSelect}
-        />
-        <button on:click={handleAdd}>Add to project</button>
+<main class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <Select
+                placeholder="Project item selection"
+                {items}
+                {groupBy}
+                on:select={handleSelect}
+            />
+        </div>
+        <div class="col-sm-3">
+            <button on:click={handleAdd}>Add to project</button>
+        </div>
     </div>
 </main>
