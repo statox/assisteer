@@ -17,13 +17,17 @@
 </script>
 
 <main>
-    <div>
-        {#if recipe}
-            <h3>Recipe</h3>
-            <p>Tool: {recipe.tool}</p>
-            {#each Object.keys(recipe.resources) as resource}
-                <p>{resource} x{recipe.resources[resource]}</p>
-            {/each}
-        {/if}
-    </div>
+    {#if recipe}
+        <h4 class="content-subheader">Recipe</h4>
+        <p>Tool: {recipe.tool}</p>
+        {#each Object.keys(recipe.resources) as resource}
+            <p>{resource} x{recipe.resources[resource]}</p>
+        {/each}
+    {/if}
 </main>
+
+<style>
+    h4 {
+        margin-top: 0.3em;
+    }
+</style>
