@@ -30,7 +30,7 @@
     };
 
     const whenUpdateQuantity = (event: any) => {
-        const {objectName, op} = event.detail;
+        const { objectName, op } = event.detail;
         if (op === "inc") {
             project[objectName] += 1;
         }
@@ -45,16 +45,27 @@
 </script>
 
 <main>
-    <div class="top-container">
-        <h2>Project planner</h2>
-        <p style="text-align: center;">New version - work in progress</p>
-        <ObjectSelection
-            on:selectObject={whenSelectObject}
-            on:addObject={whenAddToProject}
-        />
-        <ObjectDetails object={selection.object} />
-        <ProjectInventory {project} on:updateQuantity={whenUpdateQuantity} />
-        <ProjectResourcesList {project} />
-        <ProjectGraph {project} />
+    <div>
+        <h2 class="page-header">Project planner</h2>
+        <div class="content-section">
+            <h3 class="content-header">Object selection</h3>
+            <ObjectSelection
+                on:selectObject={whenSelectObject}
+                on:addObject={whenAddToProject}
+            />
+            <ObjectDetails object={selection.object} />
+        </div>
+        <div class="content-section">
+            <ProjectInventory
+                {project}
+                on:updateQuantity={whenUpdateQuantity}
+            />
+        </div>
+        <div class="content-section">
+            <ProjectResourcesList {project} />
+        </div>
+        <div class="content-section">
+            <ProjectGraph {project} />
+        </div>
     </div>
 </main>

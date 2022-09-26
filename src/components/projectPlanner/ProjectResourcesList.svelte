@@ -18,13 +18,15 @@
 </script>
 
 <main>
-    <h3>Resource list</h3>
-    {#each Object.keys(resourcesList) as category}
-        <div>
-            <h4>{category}</h4>
-            {#each Object.keys(resourcesList[category]) as objectName}
-                <p>{objectName} x{resourcesList[category][objectName]}</p>
-            {/each}
-        </div>
-    {/each}
+    <div>
+        <h3 class="content-header">Resource list</h3>
+        {#each Object.keys(resourcesList) as category}
+            <div>
+                <h4>{category}</h4>
+                {#each Object.keys(resourcesList[category]) as objectName}
+                    <p>{objectName} x{resourcesList[category][objectName]}</p>
+                {/each}
+            </div>
+        {/each}
+    </div>
 </main>

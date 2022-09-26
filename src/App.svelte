@@ -7,7 +7,7 @@
 <Header />
 
 <main>
-    <div>
+    <div class="top-container">
         <ProjectPlanner />
     </div>
 </main>

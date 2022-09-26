@@ -35,6 +35,8 @@
 </script>
 
 <main>
-    <h3>Project graph</h3>
-    <div style="height:400px;" id="projectGraphDiv" />
+    <div>
+        <h3 class="content-header">Project graph</h3>
+        <div style="height:400px;" id="projectGraphDiv" />
+    </div>
 </main>

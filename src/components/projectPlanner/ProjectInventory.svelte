@@ -16,7 +16,6 @@
         objectName: string,
         op: "inc" | "dec" | "remove"
     ) => {
-
         dispatch("updateQuantity", { objectName, op });
         updateProjectData();
     };
@@ -41,8 +40,8 @@
 
 <main>
     <div>
+        <h3 class="content-header">Project inventory</h3>
         {#if projectData.length}
-            <h3>Project inventory</h3>
             {#each projectData as item}
                 <div>
                     {item.objectName}
