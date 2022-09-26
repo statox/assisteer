@@ -86,7 +86,9 @@
       "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/64/Battery_Sensor.png",
       "wiki": "https://astroneer.fandom.com/wiki/Battery_Sensor"
     },
-    "labels": {}
+    "labels": {
+        "en": "battery sensor"
+    }
   },
   "backpack": {
     "id": "backpack",
@@ -149,7 +151,9 @@
       "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/e/e7/Button_Repeater.png",
       "wiki": "https://astroneer.fandom.com/wiki/Button_Repeater"
     },
-    "labels": {}
+    "labels": {
+        "en": "button repeater"
+    }
   },
   "carbon": {
     "id": "carbon",
@@ -499,7 +503,7 @@
       "wiki": "https://astroneer.fandom.com/wiki/XL_Sensor_Hoop_B"
     },
     "labels": {
-        "en": "extra large sensor hoop a"
+        "en": "extra large sensor hoop b"
     }
   },
   "extra large shredder": {
@@ -902,7 +906,7 @@
       "wiki": "https://astroneer.fandom.com/wiki/Large_Sensor_Hoop_B"
     },
     "labels": {
-      "en": "large sensor hoop a"
+      "en": "large sensor hoop b"
     }
   },
   "large sensor ring": {
