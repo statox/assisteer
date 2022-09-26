@@ -1,8 +1,10 @@
 :root {
   --main-bg-color: white;
   --main-color: #3a3a3a;
+  --page-header-color: #129af0;
   --content-header-color: #ffcf01;
   --content-header-bg-color: #2d9bf0;
+  --content-subheader-color: white;
   --content-subheader-bg-color: #8ac5f2;
 }
 
@@ -17,9 +19,30 @@ body {
 .top-container {
     background-color: var(--main-bg-color);
     color: var(--main-color);
-    padding: 10px;
-    padding-bottom: 20px;
+    padding: 20px;
     border-radius: 3px;
+}
+
+.content-container {
+    width: 95%;
+    margin: auto;
+}
+
+.content-section {
+    border: 3px solid var(--content-header-bg-color);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.page-header {
+    color: var(--page-header-color);
+    font-weight: bold;
+}
+
+.important-word {
+    color: var(--page-header-color);
+    font-weight: bold;
 }
 
 .content-header {
@@ -28,6 +51,7 @@ body {
     border: none;
     box-shadow: none;
     margin-bottom: 10px;
+    margin-top: 0.2em;
     text-align: center;
     border-radius: 10px;
 }
@@ -40,11 +64,6 @@ body {
     margin-bottom: 7px;
     text-align: center;
     border-radius: 7px;
-}
-
-.content-container {
-    width: 95%;
-    margin: auto;
 }
 
 table {
