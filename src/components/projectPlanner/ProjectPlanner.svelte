@@ -2,7 +2,6 @@
     import ObjectSelection from "./ObjectSelection.svelte";
     import ObjectDetails from "./ObjectDetails.svelte";
     import type { BaseObject } from "../../services/data/objects";
-    import RecipeDetails from "./RecipeDetails.svelte";
     import type { Project } from "../../services/project";
     import ProjectInventory from "./ProjectInventory.svelte";
     import ProjectResourcesList from "./ProjectResourcesList.svelte";
@@ -54,7 +53,6 @@
             on:addObject={whenAddToProject}
         />
         <ObjectDetails object={selection.object} />
-        <RecipeDetails object={selection.object} />
         <ProjectInventory {project} on:updateQuantity={whenUpdateQuantity} />
         <ProjectResourcesList {project} />
         <ProjectGraph {project} />
