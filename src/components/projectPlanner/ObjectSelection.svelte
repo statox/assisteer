@@ -17,15 +17,26 @@
         group: string;
     }
 
-    const items = allObjectNames.map((name): SelectItem => {
-        const o = getObject(name);
-        return {
-            value: o,
-            id: name,
-            label: o.labels.en,
-            group: o.category,
-        };
-    });
+    const items = allObjectNames
+        .map((name): SelectItem => {
+            const o = getObject(name);
+            return {
+                value: o,
+                id: name,
+                label: o.labels.en,
+                group: o.category,
+            };
+        })
+        // Prevent selecting objects without recipes (Should probably use recipes directly instead of allObjectNames
+        .filter(
+            (item) =>
+                ![
+                    "atmospheric",
+                    "natural",
+                    "others",
+                    "special_resource",
+                ].includes(item.group)
+        );
     const groupBy = (item: SelectItem) => item.group;
 
     const handleSelect = (event: any) => {
