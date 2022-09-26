@@ -1,4 +1,4 @@
-import { getObject } from "./data/objects";
+import { BaseObject, getObject } from "./data/objects";
 import { getObjectDefaultRecipe, getRecipeDependenciesTree } from "./data/recipes";
 
 export type Project = {
@@ -11,42 +11,106 @@ export type ResourceList = {
     };
 };
 
-const getProjectResourcesList = (project: Project): ResourceList => {
-    const list = {};
+interface FlatTree {
+    nodes: {
+        id: string;
+        object: BaseObject;
+        quantity: number;
+    }[],
+    edges: {
+        source: string;
+        target: string;
+    }[]
+}
+const projectToFlatTree = (project: Project): FlatTree => {
+    const nodes = {};
+    const edges = {};
 
-    const stack = [];
     for (const objectName of Object.keys(project)) {
-        const quantity = project[objectName];
+        const object = getObject(objectName);
         const recipe = getObjectDefaultRecipe(objectName);
-        const depTree = getRecipeDependenciesTree(recipe, quantity);
+        const quantity = project[objectName];
+        const rootDepTree = getRecipeDependenciesTree(recipe, quantity);
 
-        stack.push(depTree.resources);
-    }
+        nodes[objectName] = {
+            object,
+            quantity
+        }
 
-    while (stack.length) {
-        const deps = stack.shift();
-        for (const resourceName of Object.keys(deps)) {
-            const object = getObject(resourceName);
-            const category = object.category;
-            const quantity = deps[resourceName].quantity;
-            const objectDeps = deps[resourceName].resources;
+        if (!rootDepTree.resources) {
+            return;
+        }
 
-            if (!list[category]) {
-                list[category] = {};
-            }
-            if (!list[category][resourceName]) {
-                list[category][resourceName] = quantity;
+        for (const depName of Object.keys(rootDepTree.resources)) {
+            if (!edges[depName]) {
+                edges[depName] = new Set([objectName]);
             } else {
-                list[category][resourceName] += quantity;
+                edges[depName].add(objectName);
             }
+        }
 
-            if (objectDeps) {
-                stack.push(objectDeps);
+        const stack = [rootDepTree];
+        while (stack.length && stack.length < 30) {
+            const depTree = stack.shift();
+
+            for (const depName of Object.keys(depTree.resources)) {
+                if (!nodes[depName]) {
+                    nodes[depName] = {
+                        object: getObject(depName),
+                        quantity: depTree.resources[depName].quantity
+                    }
+                } else {
+                    nodes[depName].quantity += depTree.resources[depName].quantity
+                }
+
+                if (depTree.resources[depName].resources) {
+                    stack.push(depTree.resources[depName]);
+                }
+
+                if (!edges[depName]) {
+                    edges[depName] = new Set([depTree.object.id]);
+                } else {
+                    edges[depName].add(depTree.object.id);
+                }
             }
         }
     }
-    console.log(list);
+
+    const flatNodes = Object.keys(nodes).map(nodeName => {
+        return {
+            ...nodes[nodeName],
+            id: nodeName
+        }
+    });
+
+    const flatEdges = Object.keys(edges).reduce((flatEdges, source) => {
+        const targets = edges[source];
+        for (const target of targets) {
+            flatEdges.push({ source, target });
+        }
+        return flatEdges
+    }, []);
+    return { nodes: flatNodes, edges: flatEdges };
+};
+
+const getProjectResourcesList = (project: Project): ResourceList => {
+    const list = {};
+
+    const tree = projectToFlatTree(project);
+    for (const node of tree.nodes) {
+        const {object, quantity} = node;
+        const category = object.category;
+
+        if (!list[category]) {
+            list[category] = {};
+        }
+        if (!list[category][object.id]) {
+            list[category][object.id] = quantity;
+        } else {
+            list[category][object.id] += quantity;
+        }
+    }
     return list;
 }
 
-export { getProjectResourcesList };
+export { getProjectResourcesList, projectToFlatTree };

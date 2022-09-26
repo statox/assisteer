@@ -1,11 +1,13 @@
 import recipes from '../../data2/recipes.json'
 import rawResource from '../../data2/rawResources.json';
+import { BaseObject, getObject } from './objects';
 
 const getAllRecipesList = () => {
     return recipes;
 }
 
 export type Recipe = {
+    product: string;
     tool: string;
     resources: {
         [resourceName: string]: number;
@@ -27,6 +29,7 @@ const getObjectDefaultRecipe = (objectName: string): Recipe => {
 }
 
 type DepLevel<T> = {
+    object: BaseObject;
     quantity: number;
     type: 'not_raw' | 'raw';
     tool?: string;
@@ -38,6 +41,7 @@ export interface DepTree extends DepLevel<DepTree> { };
 
 const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number): DepTree => {
     const result = {
+        object: getObject(recipe.product),
         tool: recipe.tool,
         quantity: finalObjectQuantity,
         type: 'not_raw',
@@ -48,12 +52,14 @@ const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number):
         const quantity = recipe.resources[resource];
         if (rawResource[resource]) {
             result.resources[resource] = {
+                object: getObject(resource),
                 quantity: quantity * finalObjectQuantity,
                 type: 'raw'
             }
         } else {
             const subRecipe = getObjectDefaultRecipe(resource);
             result.resources[resource] = {
+                object: getObject(resource),
                 type: 'not_raw',
                 quantity: quantity * finalObjectQuantity,
                 ...getRecipeDependenciesTree(subRecipe, quantity * finalObjectQuantity)

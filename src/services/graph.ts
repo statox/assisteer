@@ -6,9 +6,6 @@ const nodeExists = (cy: cytoscape.Core, id: string) => {
     return cy.getElementById(id).length > 0;
 };
 
-const getCytoscapeElementsFromProject = (project: Project) => {
-};
-
 /*
  * Add a node for a resource only if it doesn't exist already
  * Return the new node or the existing one
@@ -138,6 +135,5 @@ export {
     addPlanetToNodeNode,
     addResourceForToolNode,
     addResourceNode,
-    addToolForResourceNode,
-    getCytoscapeElementsFromProject
+    addToolForResourceNode
 };

@@ -6,6 +6,7 @@
     import type { Project } from "../../services/project";
     import ProjectInventory from "./ProjectInventory.svelte";
     import ProjectResourcesList from "./ProjectResourcesList.svelte";
+    import ProjectGraph from "./ProjectGraph.svelte";
 
     let project: Project = {};
     let selection: {
@@ -56,5 +57,6 @@
         <RecipeDetails object={selection.object} />
         <ProjectInventory {project} on:updateQuantity={whenUpdateQuantity} />
         <ProjectResourcesList {project} />
+        <ProjectGraph {project} />
     </div>
 </main>
