@@ -88,6 +88,19 @@
     },
     "labels": {}
   },
+  "backpack": {
+    "id": "backpack",
+    "type": "tool",
+    "category": "others",
+    "url": {
+      "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/68/Icon_Backpack.png",
+      "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/13/Backpack_2.0.png",
+      "wiki": "https://astroneer.fandom.com/wiki/Backpack"
+    },
+    "labels": {
+      "en": "backpack"
+    }
+  },
   "beacon": {
     "id": "beacon",
     "type": "object",

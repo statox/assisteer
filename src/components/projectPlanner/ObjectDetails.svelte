@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <h4 class="content-subheader">{object.labels.en}</h4>
-                <img src={object.url.image} alt={object.labels.en} />
+                <img class="img-fluid" src={object.url.image} alt={object.labels.en} />
             </div>
             <div class="col-sm-6">
                 <RecipeDetails {object} />
@@ -26,6 +26,7 @@
     img {
         margin-left: auto;
         margin-right: auto;
+        margin:auto;
         display: block;
     }
 </style>
