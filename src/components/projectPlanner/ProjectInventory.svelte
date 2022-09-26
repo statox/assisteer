@@ -43,17 +43,25 @@
     <div class="container">
         {#if projectData.length}
             {#each projectData as item}
-                <div class="row">
-                    <div class="col-sm-4">
-                        {item.objectName}
+                <div class="row align-items-center bottom-separator">
+                    <div class="col-sm-4 important-word">
+                        <span>
+                            {item.objectName}
+                            &nbsp;
+                            <img
+                                class="img-fluid text-sized-image"
+                                src={item.object.url.icon}
+                                alt={item.object.labels.en}
+                            />
+                        </span>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 text-align-center">
                         <button
                             on:click={() =>
                                 changeQuantity(item.objectName, "dec")}
                             >-</button
                         >
-                        &nbsp{item.quantity}&nbsp
+                        &nbsp<b>{item.quantity}</b>&nbsp
                         <button
                             on:click={() =>
                                 changeQuantity(item.objectName, "inc")}
@@ -65,14 +73,32 @@
                             >Remove</button
                         >
                     </div>
-                    <div class="col-sm-4">
-                        <img
-                            src={item.object.url.image}
-                            alt={item.object.labels.en}
-                        />
+                    <div class="col-sm-4 text-align-center">
+                        <span>
+                            <img
+                                class="img-fluid object-image"
+                                src={item.object.url.image}
+                                alt={item.object.labels.en}
+                            />
+                        </span>
                     </div>
                 </div>
             {/each}
         {/if}
     </div>
 </main>
+
+<style>
+    .text-align-center {
+        text-align: center;
+    }
+    .text-sized-image {
+        width: 2em;
+    }
+    .object-image {
+        max-height: 5em;
+    }
+    .bottom-separator {
+        margin-bottom: 1em;
+    }
+</style>
