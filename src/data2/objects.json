@@ -951,7 +951,7 @@
   "large solar panel": {
     "id": "large solar panel",
     "type": "object",
-    "category": "power_source",
+    "category": "power source",
     "url": {
       "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/93/Icon_Solar.png",
       "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/59/Large_Solar_Panel.png",
@@ -1016,7 +1016,7 @@
   "large wind turbine": {
     "id": "large wind turbine",
     "type": "object",
-    "category": "power_source",
+    "category": "power source",
     "url": {
       "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/14/Icon_Wind_Turbine.png",
       "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/6/6d/Large_Wind_Turbine.png",
