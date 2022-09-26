@@ -7,6 +7,19 @@
     .about-content {
         text-align: justify;
     }
+
+    a {
+        color: rgb(0, 100, 200);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    a:visited {
+        color: rgb(0, 80, 160);
+    }
 </style>
 <main>
     <div class="about-content">
