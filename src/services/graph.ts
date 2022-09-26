@@ -3,7 +3,10 @@ import type { Planet } from "../types";
 import type { GenericObject } from "../types/objects.types";
 
 const nodeExists = (cy: cytoscape.Core, id: string) => {
-  return cy.getElementById(id).length > 0;
+    return cy.getElementById(id).length > 0;
+};
+
+const getCytoscapeElementsFromProject = (project: Project) => {
 };
 
 /*
@@ -11,16 +14,16 @@ const nodeExists = (cy: cytoscape.Core, id: string) => {
  * Return the new node or the existing one
  */
 const addResourceNode = (
-  cy: cytoscape.Core,
-  params: { id: string; icon: string }
+    cy: cytoscape.Core,
+    params: { id: string; icon: string }
 ) => {
-  if (nodeExists(cy, params.id)) {
-    return cy.getElementById(params.id);
-  }
-  return cy.add({
-    group: "nodes",
-    data: params,
-  });
+    if (nodeExists(cy, params.id)) {
+        return cy.getElementById(params.id);
+    }
+    return cy.add({
+        group: "nodes",
+        data: params,
+    });
 };
 
 /*
@@ -28,61 +31,61 @@ const addResourceNode = (
  * Return the tool node
  */
 const addToolForResourceNode = (
-  cy: cytoscape.Core,
-  params: {
-    toolName: string;
-    toolIcon: string;
-    resourceName: string;
-  }
+    cy: cytoscape.Core,
+    params: {
+        toolName: string;
+        toolIcon: string;
+        resourceName: string;
+    }
 ) => {
-  const toolId = params.resourceName + params.toolName + uuidv4(); // uuidv4 is a shitty hack until I find a better way to handle duplicate dependencies
-  const node = cy.add({
-    group: "nodes",
-    data: {
-      id: toolId,
-      type: "tool",
-      label: params.toolName,
-      icon: params.toolIcon,
-    },
-  });
+    const toolId = params.resourceName + params.toolName + uuidv4(); // uuidv4 is a shitty hack until I find a better way to handle duplicate dependencies
+    const node = cy.add({
+        group: "nodes",
+        data: {
+            id: toolId,
+            type: "tool",
+            label: params.toolName,
+            icon: params.toolIcon,
+        },
+    });
 
-  cy.add({
-    group: "edges",
-    data: {
-      source: params.resourceName,
-      target: toolId,
-    },
-  });
+    cy.add({
+        group: "edges",
+        data: {
+            source: params.resourceName,
+            target: toolId,
+        },
+    });
 
-  return node;
+    return node;
 };
 
 const addResourceForToolNode = (
-  cy: cytoscape.Core,
-  params: {
-    targetResourceName: string;
-    targetResourceIcon: string;
-    targetResource: GenericObject;
-    sourceNodeId: string;
-    quantity: number;
-  }
+    cy: cytoscape.Core,
+    params: {
+        targetResourceName: string;
+        targetResourceIcon: string;
+        targetResource: GenericObject;
+        sourceNodeId: string;
+        quantity: number;
+    }
 ) => {
-  addResourceNode(cy, {
-    id: params.targetResourceName,
-    icon: params.targetResourceIcon,
-  });
+    addResourceNode(cy, {
+        id: params.targetResourceName,
+        icon: params.targetResourceIcon,
+    });
 
-  cy.add({
-    group: "edges",
-    data: {
-      type: "count",
-      source: params.sourceNodeId,
-      target: params.targetResourceName,
-      label: "x" + params.quantity,
-      targetResource: params.targetResource,
-      count: params.quantity,
-    },
-  });
+    cy.add({
+        group: "edges",
+        data: {
+            type: "count",
+            source: params.sourceNodeId,
+            target: params.targetResourceName,
+            label: "x" + params.quantity,
+            targetResource: params.targetResource,
+            count: params.quantity,
+        },
+    });
 };
 
 /*
@@ -92,48 +95,49 @@ const addResourceForToolNode = (
  ** - Then create the edges from the new nodes to the parent node
  */
 const addPlanetToNodeNode = (
-  cy: cytoscape.Core,
-  params: {
-    parentNodeId: string;
-    mergeUniquePlanets: boolean;
-    planets: "all" | Planet[];
-  }
+    cy: cytoscape.Core,
+    params: {
+        parentNodeId: string;
+        mergeUniquePlanets: boolean;
+        planets: "all" | Planet[];
+    }
 ) => {
-  let planetsList: string[];
-  if (Array.isArray(params.planets)) {
-    if (params.mergeUniquePlanets) {
-      planetsList = [params.planets.toString()];
+    let planetsList: string[];
+    if (Array.isArray(params.planets)) {
+        if (params.mergeUniquePlanets) {
+            planetsList = [params.planets.toString()];
+        } else {
+            planetsList = params.planets;
+        }
     } else {
-      planetsList = params.planets;
-    }
-  } else {
-    planetsList = [params.planets];
-  }
-
-  for (const planet of planetsList) {
-    if (!nodeExists(cy, planet)) {
-      cy.add({
-        group: "nodes",
-        data: {
-          id: planet,
-          type: "planet",
-        },
-      });
+        planetsList = [params.planets];
     }
 
-    cy.add({
-      group: "edges",
-      data: {
-        source: params.parentNodeId,
-        target: planet,
-      },
-    });
-  }
+    for (const planet of planetsList) {
+        if (!nodeExists(cy, planet)) {
+            cy.add({
+                group: "nodes",
+                data: {
+                    id: planet,
+                    type: "planet",
+                },
+            });
+        }
+
+        cy.add({
+            group: "edges",
+            data: {
+                source: params.parentNodeId,
+                target: planet,
+            },
+        });
+    }
 };
 
 export {
-  addPlanetToNodeNode,
-  addResourceForToolNode,
-  addResourceNode,
-  addToolForResourceNode,
+    addPlanetToNodeNode,
+    addResourceForToolNode,
+    addResourceNode,
+    addToolForResourceNode,
+    getCytoscapeElementsFromProject
 };
