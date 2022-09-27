@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
-import type { Project } from "../types/project.types";
+import type { Project } from "../services/project";
 
-const project = writable<Project>([]);
+const project = writable<Project>({});
 
 export { project };

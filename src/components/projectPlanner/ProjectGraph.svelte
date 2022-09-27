@@ -3,9 +3,9 @@
     import cytoscape from "cytoscape";
     import dagre from "cytoscape-dagre";
     import { getCytoscapeInstance } from "../../services/cytoscape/graph";
-    import { Project, projectToFlatTree } from "../../services/project";
+    import { projectToFlatTree } from "../../services/project";
+    import { project } from '../../stores';
 
-    export let project: Project;
     let cy: cytoscape.Core;
     let collapsed = false;
 
@@ -13,7 +13,7 @@
         const cyContainer = document.getElementById("projectGraphDiv");
         cy = getCytoscapeInstance(cyContainer);
 
-        const tree = projectToFlatTree(project);
+        const tree = projectToFlatTree($project);
         cy.add(
             tree.nodes.map((n) => {
                 return { group: "nodes", data: n };

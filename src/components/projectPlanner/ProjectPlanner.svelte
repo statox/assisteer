@@ -2,12 +2,11 @@
     import ObjectSelection from "./ObjectSelection.svelte";
     import ObjectDetails from "./ObjectDetails.svelte";
     import type { BaseObject } from "../../services/data/objects";
-    import type { Project } from "../../services/project";
     import ProjectInventory from "./ProjectInventory.svelte";
     import ProjectResourcesList from "./ProjectResourcesList.svelte";
     import ProjectGraph from "./ProjectGraph.svelte";
+    import { project } from "../../stores";
 
-    let project: Project = {};
     let selection: {
         object: BaseObject;
         quantity: number;
@@ -23,23 +22,23 @@
             return;
         }
         const objectName = selection.object.id;
-        if (!project[objectName]) {
-            project[objectName] = 0;
+        if (!$project[objectName]) {
+            $project[objectName] = 0;
         }
-        project[objectName] += 1;
+        $project[objectName] += 1;
     };
 
     const whenUpdateQuantity = (event: any) => {
         const { objectName, op } = event.detail;
         if (op === "inc") {
-            project[objectName] += 1;
+            $project[objectName] += 1;
         }
         if (op === "dec") {
-            project[objectName] -= 1;
+            $project[objectName] -= 1;
         }
-        if (op === "remove" || project[objectName] <= 0) {
-            project[objectName] = 0;
-            delete project[objectName];
+        if (op === "remove" || $project[objectName] <= 0) {
+            $project[objectName] = 0;
+            delete $project[objectName];
         }
     };
 </script>
@@ -56,16 +55,13 @@
             <ObjectDetails object={selection.object} />
         </div>
         <div class="content-section">
-            <ProjectInventory
-                {project}
-                on:updateQuantity={whenUpdateQuantity}
-            />
+            <ProjectInventory on:updateQuantity={whenUpdateQuantity} />
         </div>
         <div class="content-section">
-            <ProjectResourcesList {project} />
+            <ProjectResourcesList />
         </div>
         <div class="content-section">
-            <ProjectGraph {project} />
+            <ProjectGraph />
         </div>
     </div>
 </main>

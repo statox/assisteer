@@ -1,12 +1,11 @@
 <script lang="ts">
     import { afterUpdate, createEventDispatcher } from "svelte";
     import { BaseObject, getObject } from "../../services/data/objects";
-    import type { Project } from "../../services/project";
+    import { project } from '../../stores';
 
     const dispatch = createEventDispatcher();
     let collapsed = false;
 
-    export let project: Project;
     let projectData: {
         objectName: string;
         object: BaseObject;
@@ -23,16 +22,16 @@
 
     const updateProjectData = () => {
         projectData = [];
-        for (const objectName of Object.keys(project)) {
+        for (const objectName of Object.keys($project)) {
             const object = getObject(objectName);
-            const quantity = project[objectName];
+            const quantity = $project[objectName];
 
             projectData.push({ objectName, object, quantity });
         }
     };
 
     afterUpdate(() => {
-        if (!project) {
+        if (!$project) {
             return;
         }
         updateProjectData();

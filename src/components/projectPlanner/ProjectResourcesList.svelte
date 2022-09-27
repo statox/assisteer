@@ -3,10 +3,9 @@
     import { getObject } from "../../services/data/objects";
     import {
         getProjectItemsByResourceCategoriesAndTiers,
-        Project,
         ResourceList,
     } from "../../services/project";
-    export let project: Project;
+    import { project } from '../../stores';
     let collapsed = false;
 
     const favoriteCategoriesOrder = {
@@ -27,10 +26,10 @@
     const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     afterUpdate(() => {
-        if (!project) {
+        if (!$project) {
             return;
         }
-        resourcesList = getProjectItemsByResourceCategoriesAndTiers(project);
+        resourcesList = getProjectItemsByResourceCategoriesAndTiers($project);
 
         sortedCategories = Object.keys(resourcesList).sort((a, b) => {
             const favOrderA = favoriteCategoriesOrder[a];
