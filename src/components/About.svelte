@@ -67,27 +67,58 @@
     </div>
     <div>
         <h2>Changelog</h2>
-        <h3>v 0.1</h3>
-        <p>I'm declaring v 0.1 ready 🎉 </p>
-        <p>Currently I have added all the resources and most of the objects in the game for a total of 160 items including the resources. The basic feature is working: the user
-        can add objects to craft in a project and get the list of required component as well as a graph of the production chain. And the design of the webapp is not perfect 
-        but it is at least not completely raw.</p>
-        <p>But there is still a lot I want to do:</p>
-        <ul>
-            <li>First I want to rework the data model I'm using: For now the description of the resources and objects are deeply coupled with the recipes. And the whole mechanism
-                is deeply coupled to cytoscapeJS the lib I use for the graph. This design was ok to quickly experiment but now it is holding me back. So I intend to rework 
-                the data. Which sould allow me to fix several issues I have:
-            </li>
-            <li>For now it's hard to have a separated tree by object</li>
-            <li>Detecting the level of the nodes will be more convenient so I can show the raw material needed and the material present in each steps of the process.</li>
-            <li>The new tree structure will allow me to explore other libraries than cytoscapeJS which is great because for now I'm not satisfied with the way I display the graph
-                (specifically I can't make the ELK layout extension work and I think that would be the best layout to display this type of tree, it's also a major pita to tweak
-                the graph appearance like the side of the nodes and the way the edges are distributed)
-            </li>
-            <li>Then in the future I should be able to make the most out of the new data model to implement new features like a power analysis of a project (how much power is consumed
-                and produced by the objects in the project) and a count of the bytes necessary to unlock all the objects in the project. And we I dream big I could also imagine a tool
-                which would help the user to plan the layout of their projects in the game.
-            </li>
-        </ul>
+        <div>
+            <h3>v 0.2</h3>
+            <p>v 0.2 is here</p>
+            <p>The new object structure is here and that allowed to have a much cleaner components system for Svelte</p>
+            <p>I still need to do some clean up because I kept the old components as a reference and I still need them to reimplement some of the graph features. But as soon as
+                I rework the graph I'll be able to remove these old components
+            </p>
+            <p>New features in this version:</p>
+            <ul>
+                <li>Improved objects pickers with <a href="https://github.com/rob-balfre/svelte-select">svelte-select</a> making it easier to search the list of objects.
+                    <b>TODO</b>Add the list selection feature where the user can select a category and scroll through the items of this category.
+                </li>
+                <li>Improved view of the currently selected tool with its name, image and recipe. <b>TODO</b> Allow to select the recipe on objects with multiple recipes</li>
+                <li>The resource list is now sorted by resources and then by object tiers</li>
+                <li>The sections Project inventory, Resource list and Project graph are now collapsable</li>
+            </ul>
+            <p>Next steps</p>
+            <ul>
+                <li><b>Improved graph</b> I broke some of the graph features and I'm not completely satisfied with cytoscape. I need to decide if I want to keep cytoscape, use another 3rd party lib
+                    (for now I haven't found one which suits my needs) or implement the graph visualization from scratch (maybe with p5js but that sounds tedious)</li>
+                <li><b>Power analysis</b> That will probably be the next feature I work on</li>
+                <li><b>Bytes count</b> That should not be too costly to implement</li>
+                <li><b>Storage analysis</b> That might be a bit longer because I'll need to figure out how to differentiate object meant to store others and object meant to be packaged.</li>
+                <li><b>Improved project planner</b> I want to add the ability to mark objects as done so that they still appear in the project inventory but stop impacting the resource
+                    list and the project graph</li>
+                <li><b>Multiple pages</b> For now I have used svelte without digging too much into it, I'll need to figure out how routing works.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>v 0.1</h3>
+            <p>I'm declaring v 0.1 ready 🎉 </p>
+            <p>Currently I have added all the resources and most of the objects in the game for a total of 160 items including the resources. The basic feature is working: the user
+                can add objects to craft in a project and get the list of required component as well as a graph of the production chain. And the design of the webapp is not perfect 
+                but it is at least not completely raw.</p>
+            <p>But there is still a lot I want to do:</p>
+            <ul>
+                <li>First I want to rework the data model I'm using: For now the description of the resources and objects are deeply coupled with the recipes. And the whole mechanism
+                    is deeply coupled to cytoscapeJS the lib I use for the graph. This design was ok to quickly experiment but now it is holding me back. So I intend to rework 
+                    the data. Which sould allow me to fix several issues I have:
+                </li>
+                <li>For now it's hard to have a separated tree by object</li>
+                <li>Detecting the level of the nodes will be more convenient so I can show the raw material needed and the material present in each steps of the process.</li>
+                <li>The new tree structure will allow me to explore other libraries than cytoscapeJS which is great because for now I'm not satisfied with the way I display the graph
+                    (specifically I can't make the ELK layout extension work and I think that would be the best layout to display this type of tree, it's also a major pita to tweak
+                    the graph appearance like the side of the nodes and the way the edges are distributed)
+                </li>
+                <li>Then in the future I should be able to make the most out of the new data model to implement new features like a power analysis of a project (how much power is consumed
+                    and produced by the objects in the project) and a count of the bytes necessary to unlock all the objects in the project. And we I dream big I could also imagine a tool
+                    which would help the user to plan the layout of their projects in the game.
+                </li>
+            </ul>
+        </div>
     </div>
 </main>
