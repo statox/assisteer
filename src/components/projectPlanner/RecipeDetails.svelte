@@ -26,10 +26,20 @@
         <div class="row">
             <div class="col-md-6 text-align-center">
                 <span class="important-word">
-                    <img class="img-fluid tool-icon" src={tool.url.icon} alt={tool.labels.en} />
+                    <img
+                        class="img-fluid tool-icon"
+                        src={tool.url.icon}
+                        alt={tool.labels.en}
+                    />
                     &nbsp;{tool.labels.en}
                 </span>
-                <img class="img-fluid" src={tool.url.image} alt={tool.labels.en} />
+                <div class="top-margin-15">
+                    <img
+                        class="img-fluid tool-image"
+                        src={tool.url.image}
+                        alt={tool.labels.en}
+                    />
+                </div>
             </div>
             <div class="col-md-6">
                 <ul>
@@ -67,5 +77,11 @@
     }
     .tool-icon {
         width: 1.5em;
+    }
+    .tool-image {
+        max-width: 100px;
+    }
+    .top-margin-15 {
+        margin-top: 15px;
     }
 </style>
