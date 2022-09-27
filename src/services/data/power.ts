@@ -47,15 +47,25 @@ type PowerStatsItem = {
 export type ProjectPowerStats = {
     consumer: {
         total: number;
-        items: PowerStatsItem[]
-    }
+        items: PowerStatsItem[];
+    };
     producer: {
         total: number;
-        items: PowerStatsItem[]
-    }
+        items: PowerStatsItem[];
+    };
     storage: {
-        total: number;
-        items: PowerStatsItem[]
+        totalCapacity: number;
+        totalThroughput: number;
+        items: PowerStatsItem[];
+    };
+    exceedingProduction: number;
+    secondsToFillStorage: {
+        withAllToolsOn: number;
+        withAllToolsOff: number;
+    };
+    secondsToEmptyStorage: {
+        withPowerOn: number;
+        withPowerOff: number;
     }
 }
 
@@ -68,7 +78,16 @@ const getProjectPowerStats = (project: Project): ProjectPowerStats => {
             total: 0, items: []
         },
         storage: {
-            total: 0, items: []
+            totalCapacity: 0, totalThroughput: 0, items: []
+        },
+        exceedingProduction: 0,
+        secondsToFillStorage: {
+            withAllToolsOn: 0,
+            withAllToolsOff: 0
+        },
+        secondsToEmptyStorage: {
+            withPowerOn: 0,
+            withPowerOff: 0
         }
     };
     for (const objectName of Object.keys(project)) {
@@ -88,9 +107,26 @@ const getProjectPowerStats = (project: Project): ProjectPowerStats => {
             projectPowerStats[objectType].total += quantity * powerStats.output;
         }
         if (objectType === 'storage') {
-            projectPowerStats[objectType].total += quantity * powerStats.capacity;
+            projectPowerStats[objectType].totalCapacity += quantity * powerStats.capacity;
+            projectPowerStats[objectType].totalThroughput += quantity * powerStats.output;
         }
         projectPowerStats[objectType].items.push({ objectName, object, quantity, powerStats });
+    }
+
+    projectPowerStats.exceedingProduction = projectPowerStats.producer.total - projectPowerStats.consumer.total;
+
+    if (projectPowerStats.producer.total > 0) {
+        projectPowerStats.secondsToFillStorage.withAllToolsOff = projectPowerStats.storage.totalCapacity / Math.min(projectPowerStats.producer.total, projectPowerStats.storage.totalThroughput);
+    }
+    if (projectPowerStats.exceedingProduction > 0) {
+        projectPowerStats.secondsToFillStorage.withAllToolsOn = projectPowerStats.storage.totalCapacity / Math.min(projectPowerStats.exceedingProduction, projectPowerStats.storage.totalThroughput);
+    }
+
+    if (projectPowerStats.consumer.total > 0) {
+        projectPowerStats.secondsToEmptyStorage.withPowerOff = projectPowerStats.storage.totalCapacity / Math.min(projectPowerStats.consumer.total, projectPowerStats.storage.totalThroughput);
+    }
+    if (projectPowerStats.exceedingProduction < 0) {
+        projectPowerStats.secondsToEmptyStorage.withPowerOn = projectPowerStats.storage.totalCapacity / Math.min(-projectPowerStats.exceedingProduction, projectPowerStats.storage.totalThroughput);
     }
 
     return projectPowerStats;
