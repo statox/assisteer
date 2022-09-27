@@ -55,7 +55,7 @@
         </p>
         <h2>But it sucks!</h2>
         <p>
-            I hear you fellow astroneer! This app is missing some objects that I might add in the future.
+            I hear you fellow astroneer! This app might have a few missing objects I forgot to add to the database.
             I also plan on fixing some UI issues at one point and on adding more features like a power consumption
             analysis of your project and a required storage count. But all of that might never happen.
         </p>
