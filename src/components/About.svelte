@@ -93,6 +93,8 @@
                 <li><b>Improved project planner</b> I want to add the ability to mark objects as done so that they still appear in the project inventory but stop impacting the resource
                     list and the project graph</li>
                 <li><b>Multiple pages</b> For now I have used svelte without digging too much into it, I'll need to figure out how routing works.</li>
+                <li><b>Astropedia+</b> The in-game Astropedia is great but I want dedicated pages for resources, objects, planets, etc... so that the user has all information right in the app</li>
+                <li><b>Improved Resource list</b> I want to be able to show what are the raw resources needed and those which are intermediate steps to get the objects</li>
             </ul>
         </div>
 
