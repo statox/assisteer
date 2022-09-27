@@ -1,11 +1,12 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
-    import { getObject } from "../../services/data/objects";
     import {
         getProjectItemsByResourceCategoriesAndTiers,
         ResourceList,
     } from "../../services/project";
-    import { project } from '../../stores';
+    import { project } from "../../stores";
+    import ProjectResourcesListCategory from "./ProjectResourcesListCategory.svelte";
+    import ProjectResourcesListCategoryWithSubCategories from "./ProjectResourcesListCategoryWithSubCategories.svelte";
     let collapsed = false;
 
     const favoriteCategoriesOrder = {
@@ -22,8 +23,6 @@
 
     let resourcesList: ResourceList = {};
     let sortedCategories = [];
-
-    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     afterUpdate(() => {
         if (!$project) {
@@ -54,36 +53,22 @@
 </script>
 
 <main>
-    <h3 class="content-header" on:click="{() => collapsed = !collapsed}">Resource list</h3>
-    <div class:hidden="{collapsed === true}">
+    <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>
+        Resource list
+    </h3>
+    <div class:hidden={collapsed === true}>
         {#each sortedCategories as category}
-            <div>
-                <h4 class="content-subheader">{category}</h4>
-                <ul>
-                    {#each Object.keys(resourcesList[category]).sort(alphaSort) as objectName}
-                        <li>
-                            <span>
-                                <b>{resourcesList[category][objectName]}</b>
-                                &nbsp;<img
-                                    class="resource-icon"
-                                    src={getObject(objectName).url.image}
-                                    alt={getObject(objectName).labels.en}
-                                />
-                                &nbsp;{objectName}
-                            </span>
-                        </li>
-                    {/each}
-                </ul>
-            </div>
+            {#if ["natural", "refined"].includes(category)}
+                <ProjectResourcesListCategoryWithSubCategories
+                    categoryName={category}
+                    categoryItems={resourcesList[category]}
+                />
+            {:else}
+                <ProjectResourcesListCategory
+                    categoryName={category}
+                    categoryItems={resourcesList[category]}
+                />
+            {/if}
         {/each}
     </div>
 </main>
-
-<style>
-    ul {
-        list-style-type: none;
-    }
-    .resource-icon {
-        width: 3em;
-    }
-</style>

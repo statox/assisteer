@@ -1,0 +1,74 @@
+{
+    "ammonium": {
+        "classification": "mineral"
+    },
+    "aluminum": {
+        "classification": "metal"
+    },
+    "astronium": {
+        "classification": "mineral"
+    },
+    "carbon": {
+        "classification": "organic"
+    },
+    "ceramic": {
+        "classification": "organic"
+    },
+    "clay": {
+        "classification": "organic"
+    },
+    "compound": {
+        "classification": "organic"
+    },
+    "copper": {
+        "classification": "metal"
+    },
+    "glass": {
+        "classification": "organic"
+    },
+    "graphite": {
+        "classification": "mineral"
+    },
+    "hematite": {
+        "classification": "ore"
+    },
+    "iron": {
+        "classification": "metal"
+    },
+    "laterite": {
+        "classification": "ore"
+    },
+    "lithium": {
+        "classification": "mineral"
+    },
+    "malachite": {
+        "classification": "ore"
+    },
+    "organic": {
+        "classification": "organic"
+    },
+    "quartz": {
+        "classification": "ore"
+    },
+    "resin": {
+        "classification": "organic"
+    },
+    "sphalerite": {
+        "classification": "ore"
+    },
+    "titanite": {
+        "classification": "ore"
+    },
+    "titanium": {
+        "classification": "metal"
+    },
+    "tungsten": {
+        "classification": "metal"
+    },
+    "wolframite": {
+        "classification": "ore"
+    },
+    "zinc": {
+        "classification": "metal"
+    }
+}
