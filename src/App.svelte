@@ -1,15 +1,50 @@
 <script lang="ts">
+    import { Router, Route, Link } from "svelte-routing";
+    import home from "./routes/home.svelte";
+    import about from "./routes/about.svelte";
     import Header from "./components/Header.svelte";
     import Footer from "./components/Footer.svelte";
-    import ProjectPlanner from "./components/projectPlanner/ProjectPlanner.svelte";
+
+    export let url = "";
 </script>
 
 <Header />
 
-<main>
-    <div class="top-container">
-        <ProjectPlanner />
+<!-- Routing inspired by https://sustainablewww.org/principles/how-to-implement-routes-in-your-svelte-web-application-using-svelte-routing -->
+<Router {url}>
+    <nav>
+        <Link to="/"><span class="nav-item">Home</span></Link>
+        <Link to="/about/"><span class="nav-item">About</span></Link>
+    </nav>
+    <div>
+        <Route path="/" component={home} />
+        <Route path="/about/" component={about} />
     </div>
-</main>
+</Router>
 
 <Footer />
+
+<style>
+    nav {
+        margin-bottom: 10px;
+    }
+
+    .nav-item {
+        color: white;
+        font-weight: bolder;
+        font-size: large;
+        text-transform:uppercase;
+        text-shadow: 2px 2px black;
+    }
+
+    .nav-item:hover {
+        text-decoration: underline;
+        color: white;
+    }
+
+    .nav-item:after {
+        margin-left: 10px;
+        margin-right: 10px;
+        content: "|";
+    }
+</style>

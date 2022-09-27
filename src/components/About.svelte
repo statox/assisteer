@@ -1,9 +1,4 @@
 <style>
-    .about-warning {
-        font-weight: bold;
-        color: red;
-        text-align: center;
-    }
     .about-content {
         text-align: justify;
     }
@@ -23,7 +18,6 @@
 </style>
 <main>
     <div class="about-content">
-        <p class="about-warning">This page is broken! When you click on "Projet planner" you will need to refresh the page</p>
         <h2>Welcome to Assisteer your personal Astroneer Assistant!</h2>
         <p>
             This tool was made to help me plan my projects when I'm playing astroneer.
