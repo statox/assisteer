@@ -1,6 +1,7 @@
 :root {
   --main-bg-color: white;
   --main-color: #3a3a3a;
+  --blue: #129af0;
   --page-header-color: #129af0;
   --content-header-color: #ffcf01;
   --content-header-bg-color: #2d9bf0;
@@ -84,4 +85,11 @@ td {
 }
 tbody > tr:last-child > td {
     border: none;
+}
+
+button {
+    color: var(--blue);
+    background: white;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
 }
