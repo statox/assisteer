@@ -46,13 +46,12 @@
                 <div class="row align-items-center bottom-separator">
                     <div class="col-sm-4 important-word">
                         <span>
-                            {item.objectName}
-                            &nbsp;
                             <img
                                 class="img-fluid text-sized-image"
                                 src={item.object.url.icon}
                                 alt={item.object.labels.en}
                             />
+                            &nbsp;{item.objectName}
                         </span>
                     </div>
                     <div class="col-sm-4 text-align-center">

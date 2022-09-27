@@ -22,6 +22,7 @@ export type BaseObject = {
     id: string;
     type: "object" | "resource";
     category: ObjectCategory;
+    tier: number;
     url: {
         icon: string;
         image: string;

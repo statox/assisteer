@@ -2,29 +2,34 @@
     import { afterUpdate } from "svelte";
     import { getObject } from "../../services/data/objects";
     import {
-        getProjectResourcesList,
+        getProjectItemsByResourceCategoriesAndTiers,
         Project,
         ResourceList,
     } from "../../services/project";
     export let project: Project;
 
     const favoriteCategoriesOrder = {
-        "special_resource": 1,
+        special_resource: 1,
         atmospheric: 2,
         natural: 3,
         refined: 4,
         composite: 5,
+        tier_1: 6,
+        tier_2: 7,
+        tier_3: 8,
+        tier_4: 9,
     };
+
     let resourcesList: ResourceList = {};
     let sortedCategories = [];
 
-    const alphaSort = (a: string, b: string) => a < b ? -1 : 1;
+    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     afterUpdate(() => {
         if (!project) {
             return;
         }
-        resourcesList = getProjectResourcesList(project);
+        resourcesList = getProjectItemsByResourceCategoriesAndTiers(project);
 
         sortedCategories = Object.keys(resourcesList).sort((a, b) => {
             const favOrderA = favoriteCategoriesOrder[a];
@@ -59,12 +64,12 @@
                         <li>
                             <span>
                                 <b>{resourcesList[category][objectName]}</b>
-                                &nbsp;{objectName}
                                 &nbsp;<img
                                     class="resource-icon"
                                     src={getObject(objectName).url.image}
                                     alt={getObject(objectName).labels.en}
                                 />
+                                &nbsp;{objectName}
                             </span>
                         </li>
                     {/each}

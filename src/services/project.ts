@@ -98,7 +98,7 @@ const getProjectResourcesList = (project: Project): ResourceList => {
 
     const tree = projectToFlatTree(project);
     for (const node of tree.nodes) {
-        const {object, quantity} = node;
+        const { object, quantity } = node;
         const category = object.category;
 
         if (!list[category]) {
@@ -113,4 +113,27 @@ const getProjectResourcesList = (project: Project): ResourceList => {
     return list;
 }
 
-export { getProjectResourcesList, projectToFlatTree };
+const getProjectItemsByResourceCategoriesAndTiers = (project: Project): ResourceList => {
+    const list = {};
+    const tree = projectToFlatTree(project);
+    for (const node of tree.nodes) {
+        const { object, quantity } = node;
+        const type = object.type;
+        const category = object.category;
+        const tier = object.tier;
+
+        const categoryToUse = type === 'resource' ? category : "tier " + tier;
+
+        if (!list[categoryToUse]) {
+            list[categoryToUse] = {};
+        }
+        if (!list[categoryToUse][object.id]) {
+            list[categoryToUse][object.id] = quantity;
+        } else {
+            list[categoryToUse][object.id] += quantity;
+        }
+    }
+    return list;
+}
+
+export { getProjectItemsByResourceCategoriesAndTiers, getProjectResourcesList, projectToFlatTree };

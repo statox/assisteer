@@ -25,7 +25,10 @@
         <h4 class="content-subheader">Recipe</h4>
         <div class="row">
             <div class="col-md-6 text-align-center">
-                <p class="important-word">{tool.labels.en}</p>
+                <span class="important-word">
+                    <img class="img-fluid tool-icon" src={tool.url.icon} alt={tool.labels.en} />
+                    &nbsp;{tool.labels.en}
+                </span>
                 <img class="img-fluid" src={tool.url.image} alt={tool.labels.en} />
             </div>
             <div class="col-md-6">
@@ -34,12 +37,12 @@
                         <li>
                             <span>
                                 <b>{recipe.resources[resource]}</b>
-                                &nbsp;{resource}
                                 &nbsp;<img
                                     class="resource-icon"
                                     src={getObject(resource).url.image}
                                     alt={getObject(resource).labels.en}
                                 />
+                                &nbsp;{resource}
                             </span>
                         </li>
                     {/each}
@@ -61,5 +64,8 @@
     }
     .resource-icon {
         width: 3em;
+    }
+    .tool-icon {
+        width: 1.5em;
     }
 </style>
