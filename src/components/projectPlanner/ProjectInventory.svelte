@@ -4,6 +4,7 @@
     import type { Project } from "../../services/project";
 
     const dispatch = createEventDispatcher();
+    let collapsed = false;
 
     export let project: Project;
     let projectData: {
@@ -39,8 +40,8 @@
 </script>
 
 <main>
-    <h3 class="content-header">Project inventory</h3>
-    <div class="container">
+    <h3 class="content-header" on:click="{() => collapsed = !collapsed}">Project inventory</h3>
+    <div class="container" class:hidden="{collapsed === true}">
         {#if projectData.length}
             {#each projectData as item}
                 <div class="row align-items-center bottom-separator">

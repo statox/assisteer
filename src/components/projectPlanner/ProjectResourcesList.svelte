@@ -7,6 +7,7 @@
         ResourceList,
     } from "../../services/project";
     export let project: Project;
+    let collapsed = false;
 
     const favoriteCategoriesOrder = {
         special_resource: 1,
@@ -54,8 +55,8 @@
 </script>
 
 <main>
-    <div>
-        <h3 class="content-header">Resource list</h3>
+    <h3 class="content-header" on:click="{() => collapsed = !collapsed}">Resource list</h3>
+    <div class:hidden="{collapsed === true}">
         {#each sortedCategories as category}
             <div>
                 <h4 class="content-subheader">{category}</h4>

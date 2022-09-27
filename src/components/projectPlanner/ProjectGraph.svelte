@@ -7,6 +7,7 @@
 
     export let project: Project;
     let cy: cytoscape.Core;
+    let collapsed = false;
 
     const updateGraph = () => {
         const cyContainer = document.getElementById("projectGraphDiv");
@@ -35,8 +36,8 @@
 </script>
 
 <main>
-    <div>
-        <h3 class="content-header">Project graph</h3>
+    <h3 class="content-header" on:click="{() => collapsed = !collapsed}">Project graph</h3>
+    <div class:hidden="{collapsed === true}">
         <div style="height:400px;" id="projectGraphDiv" />
     </div>
 </main>
