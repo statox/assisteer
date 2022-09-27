@@ -70,23 +70,6 @@ body {
     margin-bottom: 10px;
 }
 
-table {
-    border: 3px solid var(--content-header-bg-color);
-    border-radius: 10px;
-}
-
-th, td {
-    border: 0px;
-}
-
-/* Not sure why it doesn't work with tr */
-td {
-    border-bottom: 1px solid #d5c7c7;
-}
-tbody > tr:last-child > td {
-    border: none;
-}
-
 button {
     color: var(--blue);
     background: white;

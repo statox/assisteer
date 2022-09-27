@@ -29,62 +29,72 @@
     <div class="container" class:hidden={collapsed === true}>
         {#if projectData}
             {#if projectData["producer"].total > 0 || projectData["consumer"].total > 0 || projectData["storage"].totalCapacity > 0}
-                <div class="row">
-                    <div class="col-md-6">
-                        <div>
-                            Max instant production: {projectData["producer"]
-                                .total} U/s
-                        </div>
-                        <div>
-                            Max instant consumption: {projectData["consumer"]
-                                .total} U/s
-                        </div>
-                        <div>
-                            Exceeding power production: {projectData.exceedingProduction}
-                            U/s
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div>
-                            Total storage capacity: {projectData["storage"]
-                                .totalCapacity} U
-                        </div>
-                        <div>
-                            Max storage throughput: {projectData["storage"]
-                                .totalThroughput} U/s
-                        </div>
-                    </div>
+                <div class="info small-text">
+                    The computations use the reference values for each parameters:
+                    <ul>
+                        <li>The throughput values of the power sources are the ones on Sylva and the variations in daylight and wind conditions are not factored in</li>
+                        <li>The tools are assumed to be working constanstly at full capacity</li>
+                    </ul>
+                    Your in-game experience will probably differ from the computed values, these are just for reference.
+                    <i>You can find the coefficient for each planet in the wiki</i>
                 </div>
                 <div class="row">
-                    <div class="col-md-2">Time to fill storage:</div>
-                    <div class="col">
-                        <div>
-                            All tools on {Math.ceil(
-                                projectData.secondsToFillStorage.withAllToolsOn
-                            )}
-                        </div>
-                        <div>
-                            All tools off {Math.ceil(
-                                projectData.secondsToFillStorage.withAllToolsOff
-                            )}
-                        </div>
+                    <div class="col-md-6">
+                        <h4 class="content-subheader">Max instant</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Max production</td>
+                                    <td><b>{projectData["producer"] .total}</b> U/s</td>
+                                </tr>
+                                <tr>
+                                    <td>Max consumption</td>
+                                    <td><b>{projectData["consumer"].total}</b> U/s</td>
+                                </tr>
+                                <tr>
+                                    <td>Excess production</td>
+                                    <td><b class={projectData.exceedingProduction < 0 ? 'red' : 'green'}>{projectData.exceedingProduction}</b> U/s</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">Time to empty storage</div>
                     <div class="col">
-                        <div>
-                            With power on {Math.floor(
-                                projectData.secondsToEmptyStorage.withPowerOn
-                            )}
-                        </div>
-                        <div>
-                            With power off {Math.floor(
-                                projectData.secondsToEmptyStorage.withPowerOff
-                            )}
-                        </div>
+                        <h4 class="content-subheader">Storage</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Total capacity</td>
+                                    <td><b>{projectData["storage"].totalCapacity}</b> U</td>
+                                </tr>
+                                <tr>
+                                    <td>Max throughput</td>
+                                    <td><b>{projectData["storage"].totalThroughput}</b> U/s</td>
+                                </tr>
+                                <tr>
+                                    <th>Time to fill</th>
+                                </tr>
+                                <tr>
+                                    <td>All tools on</td>
+                                    <td><b>{projectData.secondsToFillStorage.withAllToolsOn}</b> s</td>
+                                </tr>
+                                <tr>
+                                    <td>All tools off</td>
+                                    <td><b>{projectData.secondsToFillStorage.withAllToolsOff}</b> s</td>
+                                </tr>
+                                <tr>
+                                    <th>Time to empty</th>
+                                </tr>
+                                <tr>
+                                    <td>Power on</td>
+                                    <td><b>{projectData.secondsToEmptyStorage.withPowerOn}</b> s</td>
+                                </tr>
+                                <tr>
+                                    <td>Power off</td>
+                                    <td><b>{projectData.secondsToEmptyStorage.withPowerOff}</b> s</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <p />
                 </div>
             {/if}
             {#if projectData["producer"].total > 0}
@@ -176,7 +186,24 @@
     .text-sized-image {
         width: 2em;
     }
+    .red {
+        color: red;
+    }
+    .green {
+        color: lightgreen;
+    }
     .bottom-separator {
         margin-bottom: 1em;
+    }
+    .small-text {
+        font-size: 0.7em;
+    }
+    .info {
+        background: #d6edff;
+        padding: 10px;
+        border: 2px solid var(--blue);
+        margin: 10px;
+        color: var(--blue);
+        border-radius: 5px;
     }
 </style>

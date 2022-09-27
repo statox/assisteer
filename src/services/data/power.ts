@@ -115,18 +115,21 @@ const getProjectPowerStats = (project: Project): ProjectPowerStats => {
 
     projectPowerStats.exceedingProduction = projectPowerStats.producer.total - projectPowerStats.consumer.total;
 
+    const totalStorageCapacity = projectPowerStats.storage.totalCapacity;
+    const totalStorageThroughput = projectPowerStats.storage.totalThroughput;
+    const { min, ceil, floor } = Math;
     if (projectPowerStats.producer.total > 0) {
-        projectPowerStats.secondsToFillStorage.withAllToolsOff = projectPowerStats.storage.totalCapacity / Math.min(projectPowerStats.producer.total, projectPowerStats.storage.totalThroughput);
+        projectPowerStats.secondsToFillStorage.withAllToolsOff = ceil(totalStorageCapacity / min(projectPowerStats.producer.total, totalStorageThroughput));
     }
     if (projectPowerStats.exceedingProduction > 0) {
-        projectPowerStats.secondsToFillStorage.withAllToolsOn = projectPowerStats.storage.totalCapacity / Math.min(projectPowerStats.exceedingProduction, projectPowerStats.storage.totalThroughput);
+        projectPowerStats.secondsToFillStorage.withAllToolsOn = ceil(totalStorageCapacity / min(projectPowerStats.exceedingProduction, totalStorageThroughput));
     }
 
     if (projectPowerStats.consumer.total > 0) {
-        projectPowerStats.secondsToEmptyStorage.withPowerOff = projectPowerStats.storage.totalCapacity / Math.min(projectPowerStats.consumer.total, projectPowerStats.storage.totalThroughput);
+        projectPowerStats.secondsToEmptyStorage.withPowerOff = floor(totalStorageCapacity / min(projectPowerStats.consumer.total, totalStorageThroughput));
     }
     if (projectPowerStats.exceedingProduction < 0) {
-        projectPowerStats.secondsToEmptyStorage.withPowerOn = projectPowerStats.storage.totalCapacity / Math.min(-projectPowerStats.exceedingProduction, projectPowerStats.storage.totalThroughput);
+        projectPowerStats.secondsToEmptyStorage.withPowerOn = floor(totalStorageCapacity / min(-projectPowerStats.exceedingProduction, totalStorageThroughput));
     }
 
     return projectPowerStats;

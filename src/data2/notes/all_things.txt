@@ -1,0 +1,140 @@
+[x] small printer
+[x] packager
+[x] leveling block
+[x] tethers
+[x] oxygen filters
+[x] oxygen tank
+[x] portable oxygenator
+[x] small canister
+[x] beacon
+[x] worklight
+[x] glowsticks
+[x] floodlight
+[x] small generator
+[x] power cells
+[x] small solar panel
+[x] small wind turbine
+[x] small battery
+[x] boost mod
+[x] wide mod
+[x] narrow mod
+[x] inhibitor mod
+[x] alignment mod
+[x] drill mod 1
+[x] drill mod 2
+[x] drill mod 3
+[x] dynamite
+[x] fireworks
+[x] small camera
+[x] small trumpet horn
+[x] holographic figurine
+[x] terrain analyzer
+[x] probe scanner
+[x] solid-fuel jump jet
+[x] hydrazine jump jet
+[x] hoverboard
+
+[x] medium printer
+[x] oxygenator
+[x] medium shredder
+[x] field shelter
+[x] auto arm
+[x] medium resource canister
+[x] medium fluid and soil canister
+[x] medium gas canister
+[ ] power sensor
+[ ] storage sensor
+[ ] battery sensor
+[ ] button repeater
+[ ] proximity repeater
+[ ] delay repeater
+[ ] count repeater
+[x] extenders
+[ ] power switch
+[ ] splitter
+[x] medium generator
+[x] medium solar panel
+[x] medium wind turbine
+[x] medium battery
+[x] rtg
+[x] medium platform A
+[x] medium platform B
+[x] medium platform C
+[x] tall platform
+[x] medium t-platform
+[x] medium storage
+[x] medium storage silo
+[x] tall storage
+[x] rover seat
+[x] tractor
+[x] trailer
+[ ] medium buggy horn
+[x] winch
+[x] paver
+[x] drill strength 1
+[x] drill strength 2
+[x] drill strength 3
+[x] solid-fuel thruster
+[x] hydrazine thruster
+[ ] rail post bundle
+[ ] tall rail post bundle
+[ ] rail junction bundle
+
+[x] large printer
+[x] smelting furnace
+[x] soil centifuge
+[x] chemistry lab
+[x] atmospheric condenser
+[x] research chamber
+[x] exo request platform
+[x] trade platform
+[x] large shredder
+[x] large solar panel
+[x] large wind turbine
+[x] large platform A
+[x] large platform B
+[x] large platform C
+[x] large t-platform
+[x] large curved platform
+[x] large extended platform
+[x] large resource canister
+[x] large storage
+[x] large storage silo A
+[x] large storage silo B
+[x] large active storage
+[x] buggy
+[ ] large rover seat
+[x] medium rover
+[x] vtol
+[ ] crane
+[ ] large fog horn
+[x] rail engine
+[x] rail car
+[ ] recreational sphere
+
+[x] shelter
+[x] auto extractor
+[x] extra large shredder
+[x] solar array
+[x] xl wind turbine
+[ ] medium sensor arch
+[ ] xl sensor arch
+[ ] xl sensor canopy
+[ ] large sensor ring
+[ ] large sensor hoop A
+[ ] large sensor hoop B
+[ ] xl sensor hoop A
+[ ] xl sensor hoop B
+[x] xl platform A
+[x] xl platform B
+[x] xl platform C
+[x] xl curved platform
+[x] xl extended platform
+[x] figurine platform
+[x] xl storage
+[x] large rover
+[x] landing pad
+[x] small shuttle
+[x] medium shuttle
+[x] large shuttle
+[x] rail station

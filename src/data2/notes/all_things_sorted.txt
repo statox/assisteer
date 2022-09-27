@@ -1,0 +1,221 @@
+Tools:
+    Printer:
+        small printer
+        medium printer
+        large printer
+    Shredder:
+        medium shredder
+        large shredder
+        extra large shredder
+    soil centifuge
+    chemistry lab
+    atmospheric condenser
+    smelting furnace
+    research chamber
+    exo request platform
+
+Platforms:
+    medium platform A
+    medium platform B
+    medium platform C
+    tall platform
+    medium t-platform
+    trade platform
+    large platform A
+    large platform B
+    large platform C
+    large t-platform
+    large curved platform
+    large extended platform
+    xl platform A
+    xl platform B
+    xl platform C
+    xl curved platform
+    xl extended platform
+    figurine platform
+
+Vehicules:
+    solid-fuel jump jet
+    hydrazine jump jet
+    hoverboard
+    tractor
+    trailer
+    buggy
+    medium rover
+    vtol
+    large rover
+    small shuttle
+    medium shuttle
+    large shuttle
+    rail engine
+    rail car
+
+Vehicules Attachments:
+    medium buggy horn
+    winch
+    paver
+    drill strength 1
+    drill strength 2
+    drill strength 3
+    rover seat
+    large rover seat
+    crane
+    large fog horn
+
+    solid-fuel thruster
+    hydrazine thruster
+
+Canister:
+    small canister
+    medium resource canister
+    medium fluid and soil canister
+    medium gas canister
+    large resource canister
+
+Power sources:
+    small solar panel
+    small wind turbine
+    small generator
+    extenders
+    power switch
+    splitter
+    medium generator
+    medium solar panel
+    medium wind turbine
+    rtg
+    large solar panel
+    large wind turbine
+    solar array
+    xl wind turbine
+
+Battery:
+    small battery
+    power cells
+    medium battery
+
+Automation:
+    auto arm
+    auto extractor
+
+Logic:
+    power sensor
+    storage sensor
+    battery sensor
+    button repeater
+    proximity repeater
+    delay repeater
+    count repeater
+    medium sensor arch
+    xl sensor arch
+    xl sensor canopy
+    large sensor ring
+    large sensor hoop A
+    large sensor hoop B
+    xl sensor hoop A
+    xl sensor hoop B
+
+Augments:
+    boost mod
+    wide mod
+    narrow mod
+    inhibitor mod
+    alignment mod
+    drill mod 1
+    drill mod 2
+    drill mod 3
+    terrain analyzer
+    probe scanner
+
+Storage:
+    medium storage
+    medium storage silo
+    tall storage
+    large storage
+    large storage silo A
+    large storage silo B
+    large active storage
+    xl storage
+
+Oxygen:
+    tethers
+    oxygen filters
+    oxygen tank
+    portable oxygenator
+    oxygenator
+
+Widget:
+    packager
+    leveling block
+    beacon
+    worklight
+    glowsticks
+    floodlight
+    dynamite
+    fireworks
+    small camera
+    small trumpet horn
+    holographic figurine
+    recreational sphere
+
+Buildings:
+    field shelter
+    shelter
+    landing pad
+    rail post bundle
+    tall rail post bundle
+    rail junction bundle
+    rail station
+
+All:
+    Tier
+    Bytes to research
+    Crafted by
+    Crafted with
+    wikiUrl
+    icon
+    image
+
+Transforming tools:
+    Power consumption
+
+Automation tools:
+    Power consumption
+
+Platforms:
+    Storage capacity
+    Available power plugs
+
+Storage:
+    Storage capacity
+
+Vehicules:
+    Storage capacity
+    Power consumption
+    Power Output
+    Power capacity
+
+Power sources:
+    Power Output
+
+Battery:
+    Power Output
+    Power capacity
+
+Vehicules Attachments:
+    Power consumption
+
+Canister:
+    Resource type
+    Resource storage capacity
+
+Augments:
+    Power consumption
+
+
+Power management:
+Logic:
+Oxygen:
+    To be split
+
+Widget:
+Buildings:
