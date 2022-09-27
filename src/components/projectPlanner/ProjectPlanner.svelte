@@ -6,6 +6,7 @@
     import ProjectResourcesList from "./ProjectResourcesList.svelte";
     import ProjectGraph from "./ProjectGraph.svelte";
     import { project } from "../../stores";
+    import ProjectPowerAnalyser from "./ProjectPowerAnalyser.svelte";
 
     let selection: {
         object: BaseObject;
@@ -62,6 +63,9 @@
         </div>
         <div class="content-section">
             <ProjectGraph />
+        </div>
+        <div class="content-section">
+            <ProjectPowerAnalyser />
         </div>
     </div>
 </main>
