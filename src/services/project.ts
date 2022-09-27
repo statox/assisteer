@@ -83,9 +83,9 @@ const projectToFlatTree = (project: Project): FlatTree => {
         }
     });
 
-    const flatEdges = Object.keys(edges).reduce((flatEdges, source) => {
-        const targets = edges[source];
-        for (const target of targets) {
+    const flatEdges = Object.keys(edges).reduce((flatEdges, target) => {
+        const sources = edges[target];
+        for (const source of sources) {
             flatEdges.push({ source, target });
         }
         return flatEdges

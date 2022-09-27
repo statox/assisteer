@@ -5,6 +5,7 @@
     import { getCytoscapeInstance } from "../../services/cytoscape/graph";
     import { projectToFlatTree } from "../../services/project";
     import { project } from '../../stores';
+    import { makeNodesMoveSubtree, makeNodesShowHideOnTap } from "../../services/cytoscape";
 
     let cy: cytoscape.Core;
     let collapsed = false;
@@ -24,6 +25,8 @@
                 return { group: "edges", data: e };
             })
         );
+        makeNodesShowHideOnTap(cy);
+        makeNodesMoveSubtree(cy);
 
         cytoscape.use(dagre);
         cy.layout({
