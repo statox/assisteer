@@ -68,14 +68,15 @@
                                 </tr>
                                 <tr>
                                     <td>Max throughput</td>
-                                    <td><b>{projectData["storage"].totalThroughput}</b> U/s</td>
+                                    <td><b class={projectData["storage"].totalThroughput >= projectData["consumer"].total ? 'green' : 'red'}>{projectData["storage"].totalThroughput}
+                                    </b> U/s</td>
                                 </tr>
                                 <tr>
                                     <th>Time to fill</th>
                                 </tr>
                                 <tr>
                                     <td>All tools on</td>
-                                    <td><b>{projectData.secondsToFillStorage.withAllToolsOn}</b> s</td>
+                                    <td><b class={projectData.secondsToFillStorage.withAllToolsOn > 0 ? 'green' : 'red'}>{projectData.secondsToFillStorage.withAllToolsOn}</b> s</td>
                                 </tr>
                                 <tr>
                                     <td>All tools off</td>
@@ -86,7 +87,7 @@
                                 </tr>
                                 <tr>
                                     <td>Power on</td>
-                                    <td><b>{projectData.secondsToEmptyStorage.withPowerOn}</b> s</td>
+                                    <td><b class={projectData.secondsToEmptyStorage.withPowerOn === 0 ? 'green' : 'red'}>{projectData.secondsToEmptyStorage.withPowerOn}</b> s</td>
                                 </tr>
                                 <tr>
                                     <td>Power off</td>
@@ -97,91 +98,117 @@
                     </div>
                 </div>
             {/if}
-            {#if projectData["producer"].total > 0}
-                <div>
+            <div class="row">
+                {#if projectData["producer"].total > 0}
                     <h4 class="content-subheader">Power production</h4>
-                    {#each projectData["producer"].items as item}
-                        <div class="row align-items-center bottom-separator">
-                            <div class="col-sm-4">
-                                <span class="important-word">
-                                    <img
-                                        class="img-fluid text-sized-image"
-                                        src={item.object.url.icon}
-                                        alt={item.object.labels.en}
-                                    />
-                                    &nbsp;{item.objectName}
-                                </span>
-                            </div>
-                            <div class="col-sm-4 text-align-center">
-                                {item.quantity} x {item.powerStats.output} U/s
-                            </div>
-                            <div class="col-sm-4 text-align-center">
-                                total: {item.quantity * item.powerStats.output} U/s
-                            </div>
-                        </div>
-                    {/each}
-                </div>
-            {/if}
-
-            {#if projectData["storage"].totalCapacity > 0}
-                <div>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td class="small-header">By object</td>
+                                <td class="small-header">By type</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {#each projectData["producer"].items as item}
+                                <tr>
+                                    <td>
+                                        <span class="important-word">
+                                            <img
+                                                class="img-fluid text-sized-image"
+                                                src={item.object.url.icon}
+                                                alt={item.object.labels.en}
+                                            />
+                                            &nbsp;{item.objectName}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        {item.quantity} x <b>{item.powerStats.output}</b> U/s
+                                    </td>
+                                    <td>
+                                        <b>{item.quantity * item.powerStats.output}</b> U/s
+                                    </td>
+                                </tr>
+                            {/each}
+                        </tbody>
+                    </table>
+                {/if}
+                {#if projectData["storage"].totalCapacity > 0}
                     <h4 class="content-subheader">Power storage</h4>
-                    {#each projectData["storage"].items as item}
-                        <div class="row align-items-center bottom-separator">
-                            <div class="col-sm-4">
-                                <span class="important-word">
-                                    <img
-                                        class="img-fluid text-sized-image"
-                                        src={item.object.url.icon}
-                                        alt={item.object.labels.en}
-                                    />
-                                    &nbsp;{item.objectName}
-                                </span>
-                            </div>
-                            <div class="col-sm-4 text-align-center">
-                                {item.quantity} x {item.powerStats.capacity} U
-                            </div>
-                            <div class="col-sm-4 text-align-center">
-                                total: {item.quantity *
-                                    item.powerStats.capacity} U
-                            </div>
-                        </div>
-                    {/each}
-                </div>
-            {/if}
-
-            {#if projectData["consumer"].total > 0}
-                <div>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td class="small-header">By object</td>
+                                <td class="small-header">By type</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {#each projectData["storage"].items as item}
+                                <tr>
+                                    <td>
+                                        <span class="important-word">
+                                            <img
+                                                class="img-fluid text-sized-image"
+                                                src={item.object.url.icon}
+                                                alt={item.object.labels.en}
+                                            />
+                                            &nbsp;{item.objectName}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        {item.quantity} x <b>{item.powerStats.capacity}</b> U
+                                    </td>
+                                    <td>
+                                        <b>{item.quantity * item.powerStats.capacity}</b> U
+                                    </td>
+                                </tr>
+                            {/each}
+                        </tbody>
+                    </table>
+                {/if}
+                {#if projectData["consumer"].total > 0}
                     <h4 class="content-subheader">Power consumption</h4>
-                    {#each projectData["consumer"].items as item}
-                        <div class="row align-items-center bottom-separator">
-                            <div class="col-sm-4">
-                                <span class="important-word">
-                                    <img
-                                        class="img-fluid text-sized-image"
-                                        src={item.object.url.icon}
-                                        alt={item.object.labels.en}
-                                    />
-                                    &nbsp;{item.objectName}
-                                </span>
-                            </div>
-                            <div class="col-sm-4 text-align-center">
-                                {item.quantity} x {item.powerStats.input} U/s
-                            </div>
-                            <div class="col-sm-4 text-align-center">
-                                total: {item.quantity * item.powerStats.input} U/s
-                            </div>
-                        </div>
-                    {/each}
-                </div>
-            {/if}
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td class="small-header">By object</td>
+                                <td class="small-header">By type</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {#each projectData["consumer"].items as item}
+                                <tr>
+                                    <td>
+                                        <span class="important-word">
+                                            <img
+                                                class="img-fluid text-sized-image"
+                                                src={item.object.url.icon}
+                                                alt={item.object.labels.en}
+                                            />
+                                            &nbsp;{item.objectName}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        {item.quantity} x <b>{item.powerStats.input}</b> U/s
+                                    </td>
+                                    <td>
+                                        <b>{item.quantity * item.powerStats.input}</b> U/s
+                                    </td>
+                                </tr>
+                            {/each}
+                        </tbody>
+                    </table>
+                {/if}
+            </div>
         {/if}
     </div>
 </main>
 
 <style>
-    .text-align-center {
-        text-align: center;
+    .table-borderless tr {
+        border: 0;
     }
     .text-sized-image {
         width: 2em;
@@ -192,10 +219,10 @@
     .green {
         color: lightgreen;
     }
-    .bottom-separator {
-        margin-bottom: 1em;
-    }
     .small-text {
+        font-size: 0.7em;
+    }
+    .small-header {
         font-size: 0.7em;
     }
     .info {
