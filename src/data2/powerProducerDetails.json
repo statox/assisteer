@@ -1,0 +1,49 @@
+{
+    "extra large wind turbine": {
+        "output": 17
+    },
+    "field shelter": {
+        "output": 0.5
+    },
+    "large solar panel": {
+        "output": 8
+    },
+    "large wind turbine": {
+        "output": 10
+    },
+    "medium battery": {
+        "output": 5,
+        "capacity": 512
+    },
+    "medium generator": {
+        "output": 9
+    },
+    "medium solar panel": {
+        "output": 4
+    },
+    "medium wind turbine": {
+        "output": 5
+    },
+    "rtg": {
+        "output": 4
+    },
+    "shelter": {
+        "output": 1
+    },
+    "small generator": {
+        "output": 2
+    },
+    "small solar panel": {
+        "output": 1
+    },
+    "small wind turbine": {
+        "output": 1.5
+    },
+    "small battery": {
+        "output": 1,
+        "capacity": 32
+    },
+    "solar array": {
+        "output": 14
+    }
+}

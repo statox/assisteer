@@ -1,0 +1,71 @@
+{
+    "alignment mod": {
+        "input": 0.5
+    },
+    "atmospheric condenser": {
+        "input": 20
+    },
+    "auto arm": {
+        "input": 1
+    },
+    "auto extractor": {
+        "input": 8
+    },
+    "chemistry lab": {
+        "input": 10
+    },
+    "drill mod 1": {
+        "input": 0.25
+    },
+    "drill mod 2": {
+        "input": 0.5
+    },
+    "drill mod 3": {
+        "input": 0.75
+    },
+    "extra large shredder": {
+        "input": 10
+    },
+    "inhibitor mod": {
+        "input": 0.2
+    },
+    "large printer": {
+        "input": 5
+    },
+    "large shredder": {
+        "input": 7.5
+    },
+    "medium shredder": {
+        "input": 5
+    },
+    "narrow mod": {
+        "input": 0.5
+    },
+    "portable oxygenator": {
+        "input": 1
+    },
+    "rail car": {
+        "input": 1
+    },
+    "rail engine": {
+        "input": 3
+    },
+    "research chamber": {
+        "input": 2
+    },
+    "small printer": {
+        "input": 1
+    },
+    "smelting furnace": {
+        "input": 5
+    },
+    "soil centrifuge": {
+        "input": 6
+    },
+    "terrain analyzer": {
+        "input": 0.5
+    },
+    "wide mod": {
+        "input": 0.5
+    }
+}
