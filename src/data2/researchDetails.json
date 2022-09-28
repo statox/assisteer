@@ -1,0 +1,550 @@
+{
+    "alignment mod": {
+        "id": "alignment mod",
+        "bytesRequired": 1000
+    },
+    "atmospheric condenser": {
+        "id": "atmospheric condenser",
+        "bytesRequired": 2200
+    },
+    "auto arm": {
+        "id": "auto arm",
+        "bytesRequired": 1500
+    },
+    "auto extractor": {
+        "id": "auto extractor",
+        "bytesRequired": 7500
+    },
+    "battery sensor": {
+        "id": "battery sensor",
+        "bytesRequired": 750
+    },
+    "beacon": {
+        "id": "beacon",
+        "bytesRequired": 0
+    },
+    "boost mod": {
+        "id": "boost mod",
+        "bytesRequired": 1000
+    },
+    "buggy": {
+        "id": "buggy",
+        "bytesRequired": 1500
+    },
+    "button repeater": {
+        "id": "button repeater",
+        "bytesRequired": 300
+    },
+    "chemistry lab": {
+        "id": "chemistry lab",
+        "bytesRequired": 1600
+    },
+    "count repeater": {
+        "id": "count repeater",
+        "bytesRequired": 1000
+    },
+    "crane": {
+        "id": "crane",
+        "bytesRequired": 4500
+    },
+    "delay repeater": {
+        "id": "delay repeater",
+        "bytesRequired": 1000
+    },
+    "drill mod 1": {
+        "id": "drill mod 1",
+        "bytesRequired": 1000
+    },
+    "drill mod 2": {
+        "id": "drill mod 2",
+        "bytesRequired": 2500
+    },
+    "drill mod 3": {
+        "id": "drill mod 3",
+        "bytesRequired": 3750
+    },
+    "drill strength 1": {
+        "id": "drill strength 1",
+        "bytesRequired": 2500
+    },
+    "drill strength 2": {
+        "id": "drill strength 2",
+        "bytesRequired": 5000
+    },
+    "drill strength 3": {
+        "id": "drill strength 3",
+        "bytesRequired": 7500
+    },
+    "dynamite": {
+        "id": "dynamite",
+        "bytesRequired": 3750
+    },
+    "exo request platform": {
+        "id": "exo request platform",
+        "bytesRequired": 0
+    },
+    "extenders": {
+        "id": "extenders",
+        "bytesRequired": 500
+    },
+    "extra large curved platform": {
+        "id": "extra large curved platform",
+        "bytesRequired": 2000
+    },
+    "extra large extended platform": {
+        "id": "extra large extended platform",
+        "bytesRequired": 750
+    },
+    "extra large platform a": {
+        "id": "extra large platform a",
+        "bytesRequired": 2000
+    },
+    "extra large platform b": {
+        "id": "extra large platform b",
+        "bytesRequired": 3000
+    },
+    "extra large platform c": {
+        "id": "extra large platform c",
+        "bytesRequired": 2000
+    },
+    "extra large sensor arch": {
+        "id": "extra large sensor arch",
+        "bytesRequired": 1000
+    },
+    "extra large sensor canopy": {
+        "id": "extra large sensor canopy",
+        "bytesRequired": 1000
+    },
+    "extra large sensor hoop a": {
+        "id": "extra large sensor hoop a",
+        "bytesRequired": 750
+    },
+    "extra large sensor hoop b": {
+        "id": "extra large sensor hoop b",
+        "bytesRequired": 1000
+    },
+    "extra large shredder": {
+        "id": "extra large shredder",
+        "bytesRequired": 5000
+    },
+    "extra large storage": {
+        "id": "extra large storage",
+        "bytesRequired": 2000
+    },
+    "extra large wind turbine": {
+        "id": "extra large wind turbine",
+        "bytesRequired": 4500
+    },
+    "field shelter": {
+        "id": "field shelter",
+        "bytesRequired": 8000
+    },
+    "figurine platform": {
+        "id": "figurine platform",
+        "bytesRequired": 3000
+    },
+    "fireworks": {
+        "id": "fireworks",
+        "bytesRequired": 3750
+    },
+    "floodlight": {
+        "id": "floodlight",
+        "bytesRequired": 2000
+    },
+    "glowsticks": {
+        "id": "glowsticks",
+        "bytesRequired": 350
+    },
+    "holographic figurine": {
+        "id": "holographic figurine",
+        "bytesRequired": 3000
+    },
+    "hoverboard": {
+        "id": "hoverboard",
+        "bytesRequired": 0
+    },
+    "hydrazine jet pack": {
+        "id": "hydrazine jet pack",
+        "bytesRequired": 15000
+    },
+    "hydrazine thruster": {
+        "id": "hydrazine thruster",
+        "bytesRequired": 3750
+    },
+    "inhibitor mod": {
+        "id": "inhibitor mod",
+        "bytesRequired": 1000
+    },
+    "landing pad": {
+        "id": "landing pad",
+        "bytesRequired": 750
+    },
+    "large active storage": {
+        "id": "large active storage",
+        "bytesRequired": 2000
+    },
+    "large curved platform": {
+        "id": "large curved platform",
+        "bytesRequired": 1000
+    },
+    "large extended platform": {
+        "id": "large extended platform",
+        "bytesRequired": 500
+    },
+    "large fog horn": {
+        "id": "large fog horn",
+        "bytesRequired": 4000
+    },
+    "large platform a": {
+        "id": "large platform a",
+        "bytesRequired": 0
+    },
+    "large platform b": {
+        "id": "large platform b",
+        "bytesRequired": 500
+    },
+    "large platform c": {
+        "id": "large platform c",
+        "bytesRequired": 1000
+    },
+    "large printer": {
+        "id": "large printer",
+        "bytesRequired": 0
+    },
+    "large resource canister": {
+        "id": "large resource canister",
+        "bytesRequired": 5000
+    },
+    "large rover": {
+        "id": "large rover",
+        "bytesRequired": 5000
+    },
+    "large rover seat": {
+        "id": "large rover seat",
+        "bytesRequired": 2000
+    },
+    "large sensor hoop a": {
+        "id": "large sensor hoop a",
+        "bytesRequired": 750
+    },
+    "large sensor hoop b": {
+        "id": "large sensor hoop b",
+        "bytesRequired": 750
+    },
+    "large sensor ring": {
+        "id": "large sensor ring",
+        "bytesRequired": 500
+    },
+    "large shredder": {
+        "id": "large shredder",
+        "bytesRequired": 2500
+    },
+    "large shuttle": {
+        "id": "large shuttle",
+        "bytesRequired": 5000
+    },
+    "large solar panel": {
+        "id": "large solar panel",
+        "bytesRequired": 4000
+    },
+    "large storage": {
+        "id": "large storage",
+        "bytesRequired": 2000
+    },
+    "large storage silo a": {
+        "id": "large storage silo a",
+        "bytesRequired": 5000
+    },
+    "large storage silo b": {
+        "id": "large storage silo b",
+        "bytesRequired": 7500
+    },
+    "large t platform": {
+        "id": "large t platform",
+        "bytesRequired": 1000
+    },
+    "large wind turbine": {
+        "id": "large wind turbine",
+        "bytesRequired": 3500
+    },
+    "leveling block": {
+        "id": "leveling block",
+        "bytesRequired": 0
+    },
+    "medium T platform": {
+        "id": "medium T platform",
+        "bytesRequired": 400
+    },
+    "medium battery": {
+        "id": "medium battery",
+        "bytesRequired": 3750
+    },
+    "medium buggy horn": {
+        "id": "medium buggy horn",
+        "bytesRequired": 2000
+    },
+    "medium fluid & soil canister": {
+        "id": "medium fluid & soil canister",
+        "bytesRequired": 2500
+    },
+    "medium gas canister": {
+        "id": "medium gas canister",
+        "bytesRequired": 4000
+    },
+    "medium generator": {
+        "id": "medium generator",
+        "bytesRequired": 2000
+    },
+    "medium platform A": {
+        "id": "medium platform A",
+        "bytesRequired": 0
+    },
+    "medium platform B": {
+        "id": "medium platform B",
+        "bytesRequired": 250
+    },
+    "medium platform C": {
+        "id": "medium platform C",
+        "bytesRequired": 400
+    },
+    "medium printer": {
+        "id": "medium printer",
+        "bytesRequired": 0
+    },
+    "medium resource canister": {
+        "id": "medium resource canister",
+        "bytesRequired": 2000
+    },
+    "medium rover": {
+        "id": "medium rover",
+        "bytesRequired": 3750
+    },
+    "medium sensor arch": {
+        "id": "medium sensor arch",
+        "bytesRequired": 500
+    },
+    "medium shredder": {
+        "id": "medium shredder",
+        "bytesRequired": 1250
+    },
+    "medium shuttle": {
+        "id": "medium shuttle",
+        "bytesRequired": 3750
+    },
+    "medium solar panel": {
+        "id": "medium solar panel",
+        "bytesRequired": 2000
+    },
+    "medium storage": {
+        "id": "medium storage",
+        "bytesRequired": 0
+    },
+    "medium storage silo": {
+        "id": "medium storage silo",
+        "bytesRequired": 3000
+    },
+    "medium wind turbine": {
+        "id": "medium wind turbine",
+        "bytesRequired": 2500
+    },
+    "narrow mod": {
+        "id": "narrow mod",
+        "bytesRequired": 1000
+    },
+    "oxygen filter": {
+        "id": "oxygen filter",
+        "bytesRequired": 0
+    },
+    "oxygen tank": {
+        "id": "oxygen tank",
+        "bytesRequired": 2000
+    },
+    "oxygenator": {
+        "id": "oxygenator",
+        "bytesRequired": 1800
+    },
+    "packager": {
+        "id": "packager",
+        "bytesRequired": 1000
+    },
+    "paver": {
+        "id": "paver",
+        "bytesRequired": 5000
+    },
+    "portable oxygenator": {
+        "id": "portable oxygenator",
+        "bytesRequired": 10000
+    },
+    "power cells": {
+        "id": "power cells",
+        "bytesRequired": 800
+    },
+    "power sensor": {
+        "id": "power sensor",
+        "bytesRequired": 500
+    },
+    "power switch": {
+        "id": "power switch",
+        "bytesRequired": 750
+    },
+    "probe scanner": {
+        "id": "probe scanner",
+        "bytesRequired": 4000
+    },
+    "proximity repeater": {
+        "id": "proximity repeater",
+        "bytesRequired": 700
+    },
+    "rail car": {
+        "id": "rail car",
+        "bytesRequired": 0
+    },
+    "rail engine": {
+        "id": "rail engine",
+        "bytesRequired": 1000
+    },
+    "rail junction bundle": {
+        "id": "rail junction bundle",
+        "bytesRequired": 1000
+    },
+    "rail post bundle": {
+        "id": "rail post bundle",
+        "bytesRequired": 750
+    },
+    "rail station": {
+        "id": "rail station",
+        "bytesRequired": 2500
+    },
+    "recreational sphere": {
+        "id": "recreational sphere",
+        "bytesRequired": 4500
+    },
+    "research chamber": {
+        "id": "research chamber",
+        "bytesRequired": 0
+    },
+    "rover seat": {
+        "id": "rover seat",
+        "bytesRequired": 0
+    },
+    "rtg": {
+        "id": "rtg",
+        "bytesRequired": 12500
+    },
+    "shelter": {
+        "id": "shelter",
+        "bytesRequired": 0
+    },
+    "small battery": {
+        "id": "small battery",
+        "bytesRequired": 2000
+    },
+    "small camera": {
+        "id": "small camera",
+        "bytesRequired": 2500
+    },
+    "small canister": {
+        "id": "small canister",
+        "bytesRequired": 0
+    },
+    "small generator": {
+        "id": "small generator",
+        "bytesRequired": 0
+    },
+    "small printer": {
+        "id": "small printer",
+        "bytesRequired": 0
+    },
+    "small shuttle": {
+        "id": "small shuttle",
+        "bytesRequired": 1500
+    },
+    "small solar panel": {
+        "id": "small solar panel",
+        "bytesRequired": 300
+    },
+    "small trumpet horn": {
+        "id": "small trumpet horn",
+        "bytesRequired": 0
+    },
+    "small wind turbine": {
+        "id": "small wind turbine",
+        "bytesRequired": 300
+    },
+    "smelting furnace": {
+        "id": "smelting furnace",
+        "bytesRequired": 250
+    },
+    "soil centrifuge": {
+        "id": "soil centrifuge",
+        "bytesRequired": 750
+    },
+    "solar array": {
+        "id": "solar array",
+        "bytesRequired": 6000
+    },
+    "solid fuel jump jet": {
+        "id": "solid fuel jump jet",
+        "bytesRequired": 5000
+    },
+    "solid fuel thruster": {
+        "id": "solid fuel thruster",
+        "bytesRequired": 500
+    },
+    "splitter": {
+        "id": "splitter",
+        "bytesRequired": 1000
+    },
+    "storage sensor": {
+        "id": "storage sensor",
+        "bytesRequired": 750
+    },
+    "tall platform": {
+        "id": "tall platform",
+        "bytesRequired": 750
+    },
+    "tall rail post bundle": {
+        "id": "tall rail post bundle",
+        "bytesRequired": 750
+    },
+    "tall storage": {
+        "id": "tall storage",
+        "bytesRequired": 400
+    },
+    "terrain analyzer": {
+        "id": "terrain analyzer",
+        "bytesRequired": 2000
+    },
+    "tethers": {
+        "id": "tethers",
+        "bytesRequired": 0
+    },
+    "tractor": {
+        "id": "tractor",
+        "bytesRequired": 1000
+    },
+    "trade platform": {
+        "id": "trade platform",
+        "bytesRequired": 2500
+    },
+    "trailer": {
+        "id": "trailer",
+        "bytesRequired": 1500
+    },
+    "vtol": {
+        "id": "vtol",
+        "bytesRequired": 0
+    },
+    "wide mod": {
+        "id": "wide mod",
+        "bytesRequired": 1000
+    },
+    "winch": {
+        "id": "winch",
+        "bytesRequired": 3750
+    },
+    "worklight": {
+        "id": "worklight",
+        "bytesRequired": 0
+    }
+}

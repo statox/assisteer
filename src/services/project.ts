@@ -1,4 +1,4 @@
-import { BaseObject, getObject } from "./data/objects";
+import { BaseObject, getObject, getObjectUnlockCost } from "./data/objects";
 import { getObjectDefaultRecipe, getRecipeDependenciesTree } from "./data/recipes";
 
 export type Project = {
@@ -136,4 +136,12 @@ const getProjectItemsByResourceCategoriesAndTiers = (project: Project): Resource
     return list;
 }
 
-export { getProjectItemsByResourceCategoriesAndTiers, getProjectResourcesList, projectToFlatTree };
+const getProjectTotalUnlockCost = (project: Project) => {
+    let projectTotalUnlockCost = 0;
+    for (const objectName of Object.keys(project)) {
+        projectTotalUnlockCost += getObjectUnlockCost(objectName);
+    }
+    return projectTotalUnlockCost;
+}
+
+export { getProjectItemsByResourceCategoriesAndTiers, getProjectResourcesList, getProjectTotalUnlockCost, projectToFlatTree };

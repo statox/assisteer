@@ -19,11 +19,19 @@
                         &nbsp;{object.labels.en}
                     </span>
                 </h4>
-                <img
-                    class="img-fluid"
-                    src={object.url.image}
-                    alt={object.labels.en}
-                />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img
+                            class="col img-fluid"
+                            src={object.url.image}
+                            alt={object.labels.en}
+                        />
+                    </div>
+                    <div class="col">
+                        <span class="important-word">Unlock cost&nbsp;</span
+                        >&nbsp;<b>{object.bytesRequired}</b> bytes
+                    </div>
+                </div>
             </div>
             <div class="col-sm-6">
                 <RecipeDetails {object} />
