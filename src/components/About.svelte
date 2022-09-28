@@ -50,13 +50,16 @@
         <h2>But it sucks!</h2>
         <p>
             I hear you fellow astroneer! This app might have a few missing objects I forgot to add to the database.
-            I also plan on fixing some UI issues at one point and on adding more features like a power consumption
-            analysis of your project and a required storage count. But all of that might never happen.
+            I also plan on fixing some UI issues at one point and on adding more features.
+        </p>
+        <p>
+            If you actually use the app and are bothered by something you are welcome to open an issue <a href="https://github.com/statox/assisteer/issues">here</a>.
+            I'll have a look but there is no guarantee I'll fix the issue.
         </p>
         <p>
             In the meantime I strongly encourage you to check <a href="https://astroneer.projects.matco.name/">this other
-                astroneer companion app</a> made by <a href="https://github.com/matco">Matthieu Corageoud</a> it is
-            more complete than this app, has a nice UI and works quite well.
+                astroneer companion app</a> made by <a href="https://github.com/matco">Matthieu Corageoud</a>. It doesn't have the same features as this app but
+            the graph visualization works pretty well and the UI is quite enjoyable.
         </p>
         <h2>About tracking</h2>
         <p>This app doesn't send any personal data to a server. The only tracking in place uses <a href="https://www.goatcounter.com/">GoatCounter</a>
@@ -102,12 +105,12 @@
             <h3>v 0.1</h3>
             <p>I'm declaring v 0.1 ready 🎉 </p>
             <p>Currently I have added all the resources and most of the objects in the game for a total of 160 items including the resources. The basic feature is working: the user
-                can add objects to craft in a project and get the list of required component as well as a graph of the production chain. And the design of the webapp is not perfect 
+                can add objects to craft in a project and get the list of required component as well as a graph of the production chain. And the design of the webapp is not perfect
                 but it is at least not completely raw.</p>
             <p>But there is still a lot I want to do:</p>
             <ul>
                 <li>First I want to rework the data model I'm using: For now the description of the resources and objects are deeply coupled with the recipes. And the whole mechanism
-                    is deeply coupled to cytoscapeJS the lib I use for the graph. This design was ok to quickly experiment but now it is holding me back. So I intend to rework 
+                    is deeply coupled to cytoscapeJS the lib I use for the graph. This design was ok to quickly experiment but now it is holding me back. So I intend to rework
                     the data. Which sould allow me to fix several issues I have:
                 </li>
                 <li>For now it's hard to have a separated tree by object</li>
