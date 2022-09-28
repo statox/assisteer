@@ -2,6 +2,7 @@
   --main-bg-color: white;
   --main-color: #3a3a3a;
   --blue: #129af0;
+  --red: #ff6c6c;
   --page-header-color: #129af0;
   --content-header-color: #ffcf01;
   --content-header-bg-color: #2d9bf0;
@@ -75,4 +76,9 @@ button {
     background: white;
     border: 1px solid var(--blue);
     border-radius: 5px;
+}
+
+.btn-danger {
+    color: var(--red);
+    border: 1px solid var(--red);
 }

@@ -12,10 +12,11 @@
         quantity: number;
     }[] = [];
 
-    const changeQuantity = (
-        objectName: string,
-        op: "inc" | "dec" | "remove"
-    ) => {
+    const changeQuantity = ( params: {
+        op: "inc" | "dec" | "remove" | "reset",
+        objectName?: string,
+    }) => {
+        const { objectName, op} = params;
         dispatch("updateQuantity", { objectName, op });
         updateProjectData();
     };
@@ -42,6 +43,9 @@
     <h3 class="content-header" on:click="{() => collapsed = !collapsed}">Project inventory</h3>
     <div class="container" class:hidden="{collapsed === true}">
         {#if projectData.length}
+            <div class="row align-items-center bottom-separator">
+                <button class="col-sm-4 btn-danger" on:click={() => changeQuantity({op: "reset"})}>Reset project</button>
+            </div>
             {#each projectData as item}
                 <div class="row align-items-center bottom-separator">
                     <div class="col-sm-4 important-word">
@@ -57,18 +61,19 @@
                     <div class="col-sm-4 text-align-center">
                         <button
                             on:click={() =>
-                                changeQuantity(item.objectName, "dec")}
+                                changeQuantity({objectName: item.objectName, op: "dec"})}
                             >-</button
                         >
                         &nbsp<b>{item.quantity}</b>&nbsp
                         <button
                             on:click={() =>
-                                changeQuantity(item.objectName, "inc")}
+                                changeQuantity({objectName: item.objectName, op: "inc"})}
                             >+</button
                         >
                         <button
+                            class="btn-danger"
                             on:click={() =>
-                                changeQuantity(item.objectName, "remove")}
+                                changeQuantity({objectName: item.objectName, op: "remove"})}
                             >Remove</button
                         >
                     </div>

@@ -41,6 +41,9 @@
             $project[objectName] = 0;
             delete $project[objectName];
         }
+        if (op === "reset") {
+            $project = {};
+        }
     };
 </script>
 

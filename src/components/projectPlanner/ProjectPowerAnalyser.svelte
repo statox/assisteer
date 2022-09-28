@@ -214,7 +214,7 @@
         width: 2em;
     }
     .red {
-        color: red;
+        color: var(--red);
     }
     .green {
         color: lightgreen;
