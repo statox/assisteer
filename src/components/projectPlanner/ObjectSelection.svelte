@@ -9,6 +9,14 @@
 
     const dispatch = createEventDispatcher();
     const allObjectNames = getAllObjectsNames();
+    let selectedCategory = { value: "all" };
+    const categories = new Set(["all"]);
+    const hiddenCategories = [
+        "atmospheric",
+        "natural",
+        "others",
+        "special_resource",
+    ];
 
     interface SelectItem {
         id: string;
@@ -17,14 +25,23 @@
         group: string;
     }
 
+    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
+
     const items = allObjectNames
         .map((name): SelectItem => {
             const o = getObject(name);
+            let group: string = o.category;
+            if (["composite", "refined"].includes(o.category)) {
+                group = "resource " + o.category;
+            }
+            if (!hiddenCategories.includes(o.category)) {
+                categories.add(group);
+            }
             return {
                 value: o,
                 id: name,
                 label: o.labels.en,
-                group: o.category,
+                group: group,
             };
         })
         // Prevent selecting objects without recipes (Should probably use recipes directly instead of allObjectNames
@@ -37,8 +54,28 @@
                     "special_resource",
                 ].includes(item.group)
         );
-    const groupBy = (item: SelectItem) => item.group;
 
+    const orderedCategories = [...categories.values()]
+        .map((category: string) => {
+            return { value: category, label: category.toUpperCase() };
+        })
+        .sort((a, b) => (a.value < b.value ? -1 : 1));
+
+    const groupBy = (item: SelectItem) => item.group;
+    const objectGroupsFilter = (groups: any) => {
+        return groups
+            .filter((group: any) => {
+                if (selectedCategory.value === "all") {
+                    return true;
+                }
+                return group.match(selectedCategory.value);
+            })
+            .sort(alphaSort);
+    };
+
+    const handleSelectCategory = (event: any) => {
+        selectedCategory = event.detail;
+    };
     const handleSelect = (event: any) => {
         dispatch("selectObject", { object: event.detail });
     };
@@ -51,11 +88,21 @@
     <div class="row">
         <div class="col-sm-9">
             <Select
-                placeholder="Project item selection"
-                {items}
-                {groupBy}
-                on:select={handleSelect}
+                placeholder="Filter category"
+                items={orderedCategories}
+                on:select={handleSelectCategory}
             />
+            <!-- The key block is used to reload the list when the category changes -->
+            <!-- https://svelte.dev/docs#template-syntax-key -->
+            {#key selectedCategory}
+                <Select
+                    placeholder="Project item selection"
+                    {items}
+                    {groupBy}
+                    groupFilter={objectGroupsFilter}
+                    on:select={handleSelect}
+                />
+            {/key}
         </div>
         <div class="col-sm-3">
             <button on:click={handleAdd}>Add to project</button>
