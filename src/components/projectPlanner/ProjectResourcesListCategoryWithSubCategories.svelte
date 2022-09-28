@@ -7,6 +7,7 @@
     export let categoryItems: any;
     export let pictureType: "icon" | "image" = "image";
     let sortedItems: any = {};
+    let totalResourcesInCategory = 0;
 
     const favoriteSubCategoriesOrder = ["organic", "mineral", "ore", "metal"];
 
@@ -17,23 +18,24 @@
 
     afterUpdate(() => {
         sortedItems = {};
+        totalResourcesInCategory = 0;
         for (const objectName of Object.keys(categoryItems)) {
             const details = getResourceDetails(objectName);
             if (!details || !details.classification) {
-                console.error("can t find details of " + objectName);
-                console.error(details);
             }
             if (!sortedItems[details.classification]) {
                 sortedItems[details.classification] = {};
             }
             sortedItems[details.classification][objectName] =
                 categoryItems[objectName];
+
+            totalResourcesInCategory += categoryItems[objectName];
         }
     });
 </script>
 
 <main>
-    <h4 class="content-subheader">{categoryName}</h4>
+    <h4 class="content-subheader">{categoryName} ({totalResourcesInCategory})</h4>
     <div class="container row">
         {#each Object.keys(sortedItems).sort(subCatSort) as classification}
             <div class="col">
