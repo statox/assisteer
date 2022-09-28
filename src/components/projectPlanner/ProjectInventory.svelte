@@ -1,17 +1,16 @@
 <script lang="ts">
     import { afterUpdate, createEventDispatcher } from "svelte";
-    import { BaseObject, getObject } from "../../services/data/objects";
-    import { getProjectTotalUnlockCost } from "../../services/project";
+    import { getObject } from "../../services/data/objects";
+    import { getProjectObjectsByCategory, getProjectObjectsByTier, getProjectTotalUnlockCost, ProjectObject, ProjectObjectsByCategory } from "../../services/project";
     import { project } from "../../stores";
 
     const dispatch = createEventDispatcher();
     let collapsed = false;
+    let sortType: "category" | "tier" = "category";
 
-    let projectObjects: {
-        objectName: string;
-        object: BaseObject;
-        quantity: number;
-    }[] = [];
+    let projectObjects: ProjectObject[] = [];
+    let objectsByCategory: ProjectObjectsByCategory = {};
+
     let projectTotalUnlockCost = 0;
 
     const changeQuantity = (params: {
@@ -23,8 +22,16 @@
         updateProjectData();
     };
 
+    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
+
     const updateProjectData = () => {
         projectObjects = [];
+        if (sortType === "category") {
+            objectsByCategory = getProjectObjectsByCategory($project);
+        }
+        if (sortType === "tier") {
+            objectsByCategory = getProjectObjectsByTier($project);
+        }
         for (const objectName of Object.keys($project)) {
             const object = getObject(objectName);
             const quantity = $project[objectName];
@@ -33,6 +40,11 @@
         }
         projectTotalUnlockCost = getProjectTotalUnlockCost($project);
     };
+
+    const changeSortType = (value: "category" | "tier") => {
+        sortType = value;
+        updateProjectData();
+    }
 
     afterUpdate(() => {
         if (!$project) {
@@ -58,54 +70,84 @@
                     on:click={() => changeQuantity({ op: "reset" })}
                     >Reset project</button
                 >
-            </div>
-            {#each projectObjects as item}
-                <div class="row align-items-center bottom-separator">
-                    <div class="col-sm-4 important-word">
-                        <span>
-                            <img
-                                class="img-fluid text-sized-image"
-                                src={item.object.url.icon}
-                                alt={item.object.labels.en}
-                            />
-                            &nbsp;{item.objectName}
-                        </span>
+
+                <div class="col-sm-4">
+                    <span>Sort items by&nbsp</span>
+                    <div class="form-check form-check-inline">
+                        <input
+                            checked={sortType === "category"}
+                            on:click={() => changeSortType("category")}
+                            class="form-check-input"
+                            type="radio"
+                            id="pictureImage"
+                            value="image"
+                        />
+                        <label class="form-check-label" for="pictureImage">category</label>
                     </div>
-                    <div class="col-sm-4 text-align-center">
-                        <button
-                            on:click={() =>
-                                changeQuantity({
-                                    objectName: item.objectName,
-                                    op: "dec",
-                                })}>-</button
-                        >
-                        &nbsp<b>{item.quantity}</b>&nbsp
-                        <button
-                            on:click={() =>
-                                changeQuantity({
-                                    objectName: item.objectName,
-                                    op: "inc",
-                                })}>+</button
-                        >
-                        <button
-                            class="btn-danger"
-                            on:click={() =>
-                                changeQuantity({
-                                    objectName: item.objectName,
-                                    op: "remove",
-                                })}>Remove</button
-                        >
-                    </div>
-                    <div class="col-sm-4 text-align-center">
-                        <span>
-                            <img
-                                class="img-fluid object-image"
-                                src={item.object.url.image}
-                                alt={item.object.labels.en}
-                            />
-                        </span>
+                    <div class="form-check form-check-inline">
+                        <input
+                            checked={sortType === "tier"}
+                            on:click={() => changeSortType("tier")}
+                            class="form-check-input"
+                            type="radio"
+                            id="pictureIcon"
+                            value="icon"
+                        />
+                        <label class="form-check-label" for="pictureIcon">tier</label>
                     </div>
                 </div>
+            </div>
+
+            {#each Object.keys(objectsByCategory).sort(alphaSort) as category}
+                <h4 class="content-subheader">{category}</h4>
+                {#each objectsByCategory[category] as item}
+                    <div class="row align-items-center bottom-separator">
+                        <div class="col-sm-4 important-word">
+                            <span>
+                                <img
+                                    class="img-fluid text-sized-image"
+                                    src={item.object.url.icon}
+                                    alt={item.object.labels.en}
+                                />
+                                &nbsp;{item.objectName}
+                            </span>
+                        </div>
+                        <div class="col-sm-4 text-align-center">
+                            <button
+                                on:click={() =>
+                                    changeQuantity({
+                                        objectName: item.objectName,
+                                        op: "dec",
+                                    })}>-</button
+                            >
+                            &nbsp<b>{item.quantity}</b>&nbsp
+                            <button
+                                on:click={() =>
+                                    changeQuantity({
+                                        objectName: item.objectName,
+                                        op: "inc",
+                                    })}>+</button
+                            >
+                            <button
+                                class="btn-danger"
+                                on:click={() =>
+                                    changeQuantity({
+                                        objectName: item.objectName,
+                                        op: "remove",
+                                    })}>Remove</button
+                            >
+                        </div>
+                        <div class="col-sm-4 text-align-center">
+                            <span>
+                                <img
+                                    class="img-fluid object-image"
+                                    src={item.object.url.image}
+                                    alt={item.object.labels.en}
+                                />
+                            </span>
+                        </div>
+                    </div>
+                {/each}
             {/each}
         {/if}
     </div>

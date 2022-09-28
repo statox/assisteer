@@ -136,6 +136,50 @@ const getProjectItemsByResourceCategoriesAndTiers = (project: Project): Resource
     return list;
 }
 
+type ProjectObject = {
+    objectName: string;
+    object: BaseObject;
+    quantity: number;
+};
+
+type ProjectObjectsByCategory = {
+    [category: string]: ProjectObject[];
+};
+
+const getProjectObjectsByCategory = (project: Project): ProjectObjectsByCategory => {
+    const objectsByCategory: ProjectObjectsByCategory = {};
+
+    for (const objectName of Object.keys(project)) {
+        const object = getObject(objectName);
+        const quantity = project[objectName];
+        const category = object.category;
+
+        if (!objectsByCategory[category]) {
+            objectsByCategory[category] = [];
+        }
+        objectsByCategory[category].push({ objectName, object, quantity });
+    }
+
+    return objectsByCategory;
+}
+
+const getProjectObjectsByTier = (project: Project): ProjectObjectsByCategory => {
+    const objectsByTier: ProjectObjectsByCategory = {};
+
+    for (const objectName of Object.keys(project)) {
+        const object = getObject(objectName);
+        const quantity = project[objectName];
+        const tier = 'tier ' + object.tier;
+
+        if (!objectsByTier[tier]) {
+            objectsByTier[tier] = [];
+        }
+        objectsByTier[tier].push({ objectName, object, quantity });
+    }
+
+    return objectsByTier;
+}
+
 const getProjectTotalUnlockCost = (project: Project) => {
     let projectTotalUnlockCost = 0;
     for (const objectName of Object.keys(project)) {
@@ -144,4 +188,13 @@ const getProjectTotalUnlockCost = (project: Project) => {
     return projectTotalUnlockCost;
 }
 
-export { getProjectItemsByResourceCategoriesAndTiers, getProjectResourcesList, getProjectTotalUnlockCost, projectToFlatTree };
+export {
+    getProjectItemsByResourceCategoriesAndTiers,
+    getProjectObjectsByCategory,
+    getProjectObjectsByTier,
+    getProjectResourcesList,
+    getProjectTotalUnlockCost,
+    projectToFlatTree,
+    ProjectObjectsByCategory,
+    ProjectObject
+};
