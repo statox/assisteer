@@ -1,14 +1,12 @@
 <script lang="ts">
     import { afterUpdate, createEventDispatcher } from "svelte";
-    import { getObject } from "../../services/data/objects";
-    import { getProjectObjectsByCategory, getProjectObjectsByTier, getProjectTotalUnlockCost, ProjectObject, ProjectObjectsByCategory } from "../../services/project";
+    import { getProjectObjectsByCategory, getProjectObjectsByTier, getProjectTotalUnlockCost, ProjectObjectsByCategory } from "../../services/project";
     import { project } from "../../stores";
 
     const dispatch = createEventDispatcher();
     let collapsed = false;
     let sortType: "category" | "tier" = "category";
 
-    let projectObjects: ProjectObject[] = [];
     let objectsByCategory: ProjectObjectsByCategory = {};
 
     let projectTotalUnlockCost = 0;
@@ -25,18 +23,11 @@
     const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     const updateProjectData = () => {
-        projectObjects = [];
         if (sortType === "category") {
             objectsByCategory = getProjectObjectsByCategory($project);
         }
         if (sortType === "tier") {
             objectsByCategory = getProjectObjectsByTier($project);
-        }
-        for (const objectName of Object.keys($project)) {
-            const object = getObject(objectName);
-            const quantity = $project[objectName];
-
-            projectObjects.push({ objectName, object, quantity });
         }
         projectTotalUnlockCost = getProjectTotalUnlockCost($project);
     };
@@ -59,7 +50,7 @@
         Project inventory
     </h3>
     <div class="container" class:hidden={collapsed === true}>
-        {#if projectObjects.length}
+        {#if Object.keys($project).length !== 0}
             <div class="row align-items-center bottom-separator">
                 <div class="col-sm-4">
                     <span class="important-word">Total unlock cost</span

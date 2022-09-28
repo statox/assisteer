@@ -93,26 +93,6 @@ const projectToFlatTree = (project: Project): FlatTree => {
     return { nodes: flatNodes, edges: flatEdges };
 };
 
-const getProjectResourcesList = (project: Project): ResourceList => {
-    const list = {};
-
-    const tree = projectToFlatTree(project);
-    for (const node of tree.nodes) {
-        const { object, quantity } = node;
-        const category = object.category;
-
-        if (!list[category]) {
-            list[category] = {};
-        }
-        if (!list[category][object.id]) {
-            list[category][object.id] = quantity;
-        } else {
-            list[category][object.id] += quantity;
-        }
-    }
-    return list;
-}
-
 type ProjectLightResource = {
     objectName: string;
     quantity: number;
@@ -201,7 +181,6 @@ export {
     getProjectObjectsByCategory,
     getProjectObjectsByTier,
     getProjectResourcesByCategories,
-    getProjectResourcesList,
     getProjectTotalUnlockCost,
     projectToFlatTree,
     ProjectLightResourcesByCategory,
