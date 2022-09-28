@@ -1,8 +1,8 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
     import {
-        getProjectItemsByResourceCategoriesAndTiers,
-        ResourceList,
+        getProjectResourcesByCategories,
+        ProjectLightResourcesByCategory,
     } from "../../services/project";
     import { project } from "../../stores";
     import ProjectResourcesListCategory from "./ProjectResourcesListCategory.svelte";
@@ -17,20 +17,16 @@
         natural: 3,
         refined: 4,
         composite: 5,
-        tier_1: 6,
-        tier_2: 7,
-        tier_3: 8,
-        tier_4: 9,
     };
 
-    let resourcesList: ResourceList = {};
+    let resourcesList: ProjectLightResourcesByCategory = {};
     let sortedCategories = [];
 
     afterUpdate(() => {
         if (!$project) {
             return;
         }
-        resourcesList = getProjectItemsByResourceCategoriesAndTiers($project);
+        resourcesList = getProjectResourcesByCategories($project);
 
         sortedCategories = Object.keys(resourcesList).sort((a, b) => {
             const favOrderA = favoriteCategoriesOrder[a];

@@ -113,24 +113,33 @@ const getProjectResourcesList = (project: Project): ResourceList => {
     return list;
 }
 
-const getProjectItemsByResourceCategoriesAndTiers = (project: Project): ResourceList => {
+type ProjectLightResource = {
+    objectName: string;
+    quantity: number;
+};
+
+type ProjectLightResourcesByCategory = {
+    [category: string]: ProjectLightResource[];
+};
+
+const getProjectResourcesByCategories = (project: Project): ProjectLightResourcesByCategory => {
     const list = {};
     const tree = projectToFlatTree(project);
     for (const node of tree.nodes) {
         const { object, quantity } = node;
         const type = object.type;
-        const category = object.category;
-        const tier = object.tier;
-
-        const categoryToUse = type === 'resource' ? category : "tier " + tier;
-
-        if (!list[categoryToUse]) {
-            list[categoryToUse] = {};
+        if (type !== 'resource') {
+            continue;
         }
-        if (!list[categoryToUse][object.id]) {
-            list[categoryToUse][object.id] = quantity;
+        const category = object.category;
+
+        if (!list[category]) {
+            list[category] = {};
+        }
+        if (!list[category][object.id]) {
+            list[category][object.id] = quantity;
         } else {
-            list[categoryToUse][object.id] += quantity;
+            list[category][object.id] += quantity;
         }
     }
     return list;
@@ -189,12 +198,13 @@ const getProjectTotalUnlockCost = (project: Project) => {
 }
 
 export {
-    getProjectItemsByResourceCategoriesAndTiers,
     getProjectObjectsByCategory,
     getProjectObjectsByTier,
+    getProjectResourcesByCategories,
     getProjectResourcesList,
     getProjectTotalUnlockCost,
     projectToFlatTree,
+    ProjectLightResourcesByCategory,
     ProjectObjectsByCategory,
     ProjectObject
 };
