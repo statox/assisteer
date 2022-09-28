@@ -58,6 +58,12 @@
                 astroneer companion app</a> made by <a href="https://github.com/matco">Matthieu Corageoud</a> it is
             more complete than this app, has a nice UI and works quite well.
         </p>
+        <h2>About tracking</h2>
+        <p>This app doesn't send any personal data to a server. The only tracking in place uses <a href="https://www.goatcounter.com/">GoatCounter</a>
+            a free and open source web analytics tool which respects the user's private data.
+        </p>
+        <p>I use it only to monitor the volume of traffic on the page so that I can stroke my ego and adapt my hosting solution if the app became popular.</p>
+        <p>So no cookie for you here 🍪! However the app does use your browser's local storage to remember the objects you put in your project.</p>
     </div>
     <div>
         <h2>Changelog</h2>
