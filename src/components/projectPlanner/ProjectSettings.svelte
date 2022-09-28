@@ -2,7 +2,7 @@
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
     export let pictureType: "icon" | "image" = "image";
-    let collapsed = true;
+    let collapsed = false;
 
     const changeSetting = (value: "icon" | "image") => {
         pictureType = value;
@@ -10,12 +10,12 @@
     };
 </script>
 
-<main>
+<main class="container">
     <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>
         Settings
     </h3>
     <div class:hidden={collapsed === true}>
-        <span>Type of picture to show:&nbsp</span>
+        <span class="important-word">Type of picture to show&nbsp</span>
         <div class="form-check form-check-inline">
             <input
                 checked={pictureType === "image"}

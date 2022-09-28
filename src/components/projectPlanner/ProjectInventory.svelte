@@ -72,7 +72,7 @@
                 >
 
                 <div class="col-sm-4">
-                    <span>Sort items by&nbsp</span>
+                    <span class="important-word">Sort items by&nbsp</span>
                     <div class="form-check form-check-inline">
                         <input
                             checked={sortType === "category"}
