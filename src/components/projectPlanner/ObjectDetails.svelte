@@ -9,8 +9,21 @@
     {#if object}
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="content-subheader">{object.labels.en}</h4>
-                <img class="img-fluid" src={object.url.image} alt={object.labels.en} />
+                <h4 class="content-subheader">
+                    <span class="display-inline-flex">
+                        <img
+                            class="img-fluid small-image"
+                            src={object.url.icon}
+                            alt={object.labels.en}
+                        />
+                        &nbsp;{object.labels.en}
+                    </span>
+                </h4>
+                <img
+                    class="img-fluid"
+                    src={object.url.image}
+                    alt={object.labels.en}
+                />
             </div>
             <div class="col-sm-6">
                 <RecipeDetails {object} />
@@ -26,7 +39,14 @@
     img {
         margin-left: auto;
         margin-right: auto;
-        margin:auto;
+        margin: auto;
         display: block;
+    }
+    .small-image {
+        height: 1em;
+    }
+    /* Not sure why this works but allows the icon to be aligned with the text */
+    .display-inline-flex {
+        display: inline-flex;
     }
 </style>
