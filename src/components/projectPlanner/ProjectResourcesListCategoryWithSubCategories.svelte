@@ -38,7 +38,7 @@
     <h4 class="content-subheader">{categoryName} ({totalResourcesInCategory})</h4>
     <div class="container row">
         {#each Object.keys(sortedItems).sort(subCatSort) as classification}
-            <div class="col">
+            <div class="col text-align-center">
                 <ul>
                     {#each Object.keys(sortedItems[classification]).sort(alphaSort) as objectName}
                         <li>
@@ -62,8 +62,13 @@
 <style>
     ul {
         list-style-type: none;
+        text-align: left;
+        display: inline-block;
     }
     .resource-icon {
-        width: 3em;
+        width: 2em;
+    }
+    .text-align-center {
+        text-align: center;
     }
 </style>
