@@ -1,6 +1,7 @@
 import cytoscape from 'cytoscape';
 
-const getCytoscapeInstance = (container: HTMLElement) => {
+const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "icon" | "image"}) => {
+    const { pictureType } = params;
     return cytoscape({
         container: container, // container to render in
         elements: [],
@@ -17,7 +18,7 @@ const getCytoscapeInstance = (container: HTMLElement) => {
                         return qty + node.data('id');
                     },
                     'background-image': (node: any) => {
-                        return node.data('object')?.url?.image || 'https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Scrap.png';
+                        return node.data('object')?.url[pictureType] || 'https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Scrap.png';
                     },
                     'background-fit': 'cover',
                     'background-color': 'white'

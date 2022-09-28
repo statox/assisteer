@@ -1,7 +1,7 @@
 <script lang="ts">
     import { getObject } from "../../services/data/objects";
 
-
+    export let pictureType: "icon" | "image" = "image";
     export let categoryName: string;
     export let categoryItems: any;
 
@@ -18,7 +18,7 @@
                         <b>{categoryItems[objectName]}</b>
                         &nbsp;<img
                             class="resource-icon"
-                            src={getObject(objectName).url.image}
+                            src={getObject(objectName).url[pictureType]}
                             alt={getObject(objectName).labels.en}
                         />
                         &nbsp;{objectName}

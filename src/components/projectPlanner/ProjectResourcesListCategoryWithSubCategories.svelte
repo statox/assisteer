@@ -5,6 +5,7 @@
 
     export let categoryName: string;
     export let categoryItems: any;
+    export let pictureType: "icon" | "image" = "image";
     let sortedItems: any = {};
 
     const favoriteSubCategoriesOrder = ["organic", "mineral", "ore", "metal"];
@@ -43,7 +44,7 @@
                                 <b>{categoryItems[objectName]}</b>
                                 &nbsp;<img
                                     class="resource-icon"
-                                    src={getObject(objectName).url.image}
+                                    src={getObject(objectName).url[pictureType]}
                                     alt={getObject(objectName).labels.en}
                                 />
                                 &nbsp;{objectName}

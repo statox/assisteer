@@ -7,12 +7,13 @@
     import { project } from '../../stores';
     import { makeNodesMoveSubtree, makeNodesShowHideOnTap } from "../../services/cytoscape";
 
+    export let pictureType: "icon" | "image" = "image";
     let cy: cytoscape.Core;
     let collapsed = false;
 
     const updateGraph = () => {
         const cyContainer = document.getElementById("projectGraphDiv");
-        cy = getCytoscapeInstance(cyContainer);
+        cy = getCytoscapeInstance(cyContainer, { pictureType });
 
         const tree = projectToFlatTree($project);
         cy.add(
