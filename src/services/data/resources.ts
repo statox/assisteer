@@ -12,44 +12,70 @@ export type NaturalResourceLocation = {
     }
 };
 
+export type AtmosphericResourceLocation = {
+    planet: Planet,
+    density: number
+}[];
+
 export type ResourceDetails = {
     classification: "mineral" | "organic" | "ore";
 };
 
-const resourcesLocation: {
+const atmosphericResourcesLocation: {
+    [resouceName: string]: AtmosphericResourceLocation;
+} = {};
+
+const naturalResourcesLocation: {
     [resouceName: string]: NaturalResourceLocation;
-}= {};
+} = {};
 
 const planets = getAllPlanets();
 
 for (const planet of planets) {
     if (planet.resources) {
         const { id: idPrimary, description: descriptionPrimary } = planet.resources.primary;
-        if (!resourcesLocation[idPrimary]) {
-            resourcesLocation[idPrimary] = {} as NaturalResourceLocation;
+        if (!naturalResourcesLocation[idPrimary]) {
+            naturalResourcesLocation[idPrimary] = {} as NaturalResourceLocation;
         }
-        resourcesLocation[idPrimary].primary = {
+        naturalResourcesLocation[idPrimary].primary = {
             planet,
             description: descriptionPrimary
         }
 
         const { id: idSecondary, description: descriptionSecondary } = planet.resources.secondary;
-        if (!resourcesLocation[idSecondary]) {
-            resourcesLocation[idSecondary] = {} as NaturalResourceLocation;
+        if (!naturalResourcesLocation[idSecondary]) {
+            naturalResourcesLocation[idSecondary] = {} as NaturalResourceLocation;
         }
-        resourcesLocation[idSecondary].secondary = {
+        naturalResourcesLocation[idSecondary].secondary = {
             planet,
             description: descriptionSecondary
+        }
+    }
+
+    if (planet.gases) {
+        for (const gasName of Object.keys(planet.gases)) {
+            if (!atmosphericResourcesLocation[gasName]) {
+                atmosphericResourcesLocation[gasName] = []
+            }
+
+            atmosphericResourcesLocation[gasName].push({
+                planet,
+                density: planet.gases[gasName]
+            });
         }
     }
 }
 
 const getNaturalResourceLocation = (resourceName: string): NaturalResourceLocation => {
-    return resourcesLocation[resourceName];
+    return naturalResourcesLocation[resourceName];
+};
+
+const getAlmosphericResourceLocation = (resourceName: string) => {
+    return atmosphericResourcesLocation[resourceName];
 };
 
 const getResourceDetails = (resourceName: string): ResourceDetails => {
     return resourcesDetails[resourceName];
 };
 
-export {getNaturalResourceLocation, getResourceDetails };
+export { getAlmosphericResourceLocation, getNaturalResourceLocation, getResourceDetails };
