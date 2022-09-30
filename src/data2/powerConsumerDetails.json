@@ -11,6 +11,9 @@
     "auto extractor": {
         "input": 8
     },
+    "boost mod": {
+        "input": 0.75
+    },
     "chemistry lab": {
         "input": 10
     },
