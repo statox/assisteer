@@ -1,8 +1,9 @@
 <script lang="ts">
     import type { BaseObject } from "../../../services/data/objects";
+    import NaturalResourceLocationDetails from "./NaturalResourceLocationDetails.svelte";
+    import AtmosphericResourceLocationDetails from "./AtmosphericResourceLocationDetails.svelte";
     import PowerStatsDetails from "./PowerStatsDetails.svelte";
     import RecipeDetails from "./RecipeDetails.svelte";
-    import ResourceLocationDetails from "./ResourceLocationDetails.svelte";
 
     export let object: BaseObject;
 </script>
@@ -54,10 +55,12 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                {#if !["natural", "atmospheric"].includes(object.category)}
-                    <RecipeDetails {object} />
+                {#if "natural" === object.category}
+                    <NaturalResourceLocationDetails resource={object} />
+                {:else if "atmospheric" === object.category}
+                    <AtmosphericResourceLocationDetails resource={object} />
                 {:else}
-                    <ResourceLocationDetails resource={object} />
+                    <RecipeDetails {object} />
                 {/if}
             </div>
         </div>
