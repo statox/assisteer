@@ -1,0 +1,233 @@
+{
+    "sylva": {
+        "id": "sylva",
+        "type": "terran",
+        "resources": {
+            "primary": {
+                "id": "sphalerite",
+                "description": "cave layers"
+            },
+            "secondary": {
+                "id": "malachite",
+                "description": "gray mountains and mantle layers"
+            }
+        },
+        "gases": {
+            "hydrogen": 75,
+            "nitrogen": 100
+        },
+        "difficulty": "easy",
+        "power": {
+            "dayNightCycleSeconds": 720,
+            "sun": "medium",
+            "wind": "medium"
+        },
+        "gatewayNetwork": {
+            "gatewayPower": 5,
+            "coreMaterial": "quartz"
+        },
+        "url": {
+            "wiki": "https://astroneer.fandom.com/wiki/Sylva",
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d2/Icon_Sylva.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f1/Sylva.png",
+            "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Gateway_Sylva.png"
+        }
+    },
+    "desolo": {
+        "id": "desolo",
+        "type": "terran moon",
+        "resources": {
+            "primary": {
+                "id": "wolframite",
+                "description": "cave layers"
+            },
+            "secondary": {
+                "id": "sphalerite",
+                "description": "orange capped mountains and mantle layers"
+            }
+        },
+        "gases": {},
+        "difficulty": "easy",
+        "power": {
+            "dayNightCycleSeconds": 115,
+            "sun": "high",
+            "wind": "low"
+        },
+        "gatewayNetwork": {
+            "gatewayPower": 8,
+            "coreMaterial": "zinc"
+        },
+        "url": {
+            "wiki": "https://astroneer.fandom.com/wiki/Desolo",
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/0e/Icon_Desolo.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a8/Desolo.png",
+            "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/95/Icon_Gateway_Desolo.png"
+        }
+    },
+    "calidor": {
+        "id": "calidor",
+        "type": "arid",
+        "resources": {
+            "primary": {
+                "id": "malachite",
+                "description": "cave layers"
+            },
+            "secondary": {
+                "id": "wolframite",
+                "description": "mountainous biome and mantle layers"
+            }
+        },
+        "gases": {
+            "hydrogen": 50,
+            "sulfur": 100
+        },
+        "difficulty": "medium",
+        "power": {
+            "dayNightCycleSeconds": 810,
+            "sun": "very high",
+            "wind": "low"
+        },
+        "gatewayNetwork": {
+            "gatewayPower": 12,
+            "coreMaterial": "explosive power"
+        },
+        "url": {
+            "wiki": "https://astroneer.fandom.com/wiki/Calidor",
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f6/Icon_Calidor.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3a/Calidor.png",
+            "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3f/Icon_Gateway_Calidor.png"
+        }
+    },
+    "vesania": {
+        "id": "vesania",
+        "type": "exotic",
+        "resources": {
+            "primary": {
+                "id": "lithium",
+                "description": "cave layers"
+            },
+            "secondary": {
+                "id": "titanite",
+                "description": "mountainous biome and mantle layers"
+            }
+        },
+        "gases": {
+            "hydrogen": 100,
+            "nitrogen": 75,
+            "argon": 50
+        },
+        "difficulty": "medium",
+        "power": {
+            "dayNightCycleSeconds": 810,
+            "sun": "low",
+            "wind": "high"
+        },
+        "gatewayNetwork": {
+            "gatewayPower": 16,
+            "coreMaterial": "graphene"
+        },
+        "url": {
+            "wiki": "https://astroneer.fandom.com/wiki/Vesania",
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fd/Icon_Vesania.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b6/Vesania.png",
+            "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c6/Icon_Gateway_Vesania.png"
+        }
+    },
+    "novus": {
+        "id": "novus",
+        "type": "exotic moon",
+        "resources": {
+            "primary": {
+                "id": "hematite",
+                "description": "cave layers"
+            },
+            "secondary": {
+                "id": "lithium",
+                "description": "mountainous biomes and mantle layers"
+            }
+        },
+        "gases": {
+            "hydrogen": 25,
+            "methane": 75
+        },
+        "difficulty": "medium",
+        "power": {
+            "dayNightCycleSeconds": 210,
+            "sun": "high",
+            "wind": "high"
+        },
+        "gatewayNetwork": {
+            "gatewayPower": 21,
+            "coreMaterial": "silicone"
+        },
+        "url": {
+            "wiki": "https://astroneer.fandom.com/wiki/Novus",
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1c/Icon_Novus.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/49/Novus.png",
+            "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3a/Icon_Gateway_Novus.png"
+        }
+    },
+    "glacio": {
+        "id": "glacio",
+        "type": "tundra",
+        "resources": {
+            "primary": {
+                "id": "titanite",
+                "description": "cave layers"
+            },
+            "secondary": {
+                "id": "hematite",
+                "description": "ice dunes and mantle layers"
+            }
+        },
+        "gases": {
+            "argon": 100
+        },
+        "difficulty": "hard",
+        "power": {
+            "dayNightCycleSeconds": 1200,
+            "sun": "very low",
+            "wind": "very high"
+        },
+        "gatewayNetwork": {
+            "gatewayPower": 26,
+            "coreMaterial": "diamond"
+        },
+        "url": {
+            "wiki": "https://astroneer.fandom.com/wiki/Glacio",
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/dc/Icon_Glacio.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2e/Glacio.png",
+            "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b5/Icon_Gateway_Glacio.png"
+        }
+    },
+    "atrox": {
+        "id": "atrox",
+        "type": "radiated",
+        "resources": {
+            "primary": "",
+            "secondary": ""
+        },
+        "gases": {
+            "helium": 25,
+            "methane": 100,
+            "nitrogen": 50,
+            "sulfur": 75
+        },
+        "difficulty": "very hard",
+        "power": {
+            "dayNightCycleSeconds": 1200,
+            "sun": "low",
+            "wind": "low"
+        },
+        "gatewayNetwork": {
+            "gatewayPower": 30,
+            "coreMaterial": "hydrogen"
+        },
+        "url": {
+            "wiki": "https://astroneer.fandom.com/wiki/Atrox",
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/dc/Icon_Glacio.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2e/Glacio.png",
+            "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a3/Icon_Gateway_Atrox.png"
+        }
+    }
+}
