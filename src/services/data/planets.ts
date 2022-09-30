@@ -49,4 +49,6 @@ const getAllPlanets = (): Planet[] => {
     return allPlanets;
 };
 
-export { getAllPlanets, getPlanet };
+const getAllPlanetsMap = () => planets;
+
+export { getAllPlanets, getAllPlanetsMap, getPlanet };

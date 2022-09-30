@@ -39,7 +39,7 @@
                         {#if getObject(objectName).category === "atmospheric"}
                             <span>
                                 {#each getAlmosphericResourceLocation(objectName) || [] as location}
-                                    &nbsp;<img
+                                    <img
                                         class="planet-icon rounded-circle"
                                         src={location.planet.url[pictureType]}
                                         alt={location.planet.labels.en}
