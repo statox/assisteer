@@ -3,6 +3,7 @@
   --main-color: #3a3a3a;
   --blue: #129af0;
   --red: #ff6c6c;
+  --grey: #9b9797;
   --page-header-color: #129af0;
   --content-header-color: #ffcf01;
   --content-header-bg-color: #2d9bf0;
@@ -75,6 +76,13 @@ button {
     color: var(--blue);
     background: white;
     border: 1px solid var(--blue);
+    border-radius: 5px;
+}
+
+button:disabled {
+    color: var(--grey);
+    background: white;
+    border: 1px solid var(--grey);
     border-radius: 5px;
 }
 
