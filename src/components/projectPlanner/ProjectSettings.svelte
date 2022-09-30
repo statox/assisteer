@@ -10,11 +10,11 @@
     };
 </script>
 
-<main class="container">
+<main>
     <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>
         Settings
     </h3>
-    <div class:hidden={collapsed === true}>
+    <div class="container" class:hidden={collapsed === true}>
         <span class="important-word">Type of picture to show&nbsp</span>
         <div class="form-check form-check-inline">
             <input
