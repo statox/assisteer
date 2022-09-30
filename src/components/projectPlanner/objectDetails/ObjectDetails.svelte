@@ -2,6 +2,7 @@
     import type { BaseObject } from "../../../services/data/objects";
     import PowerStatsDetails from "./PowerStatsDetails.svelte";
     import RecipeDetails from "./RecipeDetails.svelte";
+    import ResourceLocationDetails from "./ResourceLocationDetails.svelte";
 
     export let object: BaseObject;
 </script>
@@ -31,22 +32,33 @@
                     <div class="col">
                         <div>
                             <span class="important-word">Wiki</span>
-                            <a class="wiki-link" href="{object.url.wiki}" target="_blank">Link</a>
+                            <a
+                                class="wiki-link"
+                                href={object.url.wiki}
+                                target="_blank">Link</a
+                            >
                         </div>
-                        <div>
-                            <span class="important-word">Unlock cost&nbsp;</span
-                            >&nbsp;<b>{object.bytesRequired}</b> bytes
-                        </div>
-                        <div>
-                            <span class="important-word">Tier</span>
-                            {object.tier}
-                        </div>
-                        <PowerStatsDetails {object} />
+                        {#if !["natural", "atmospheric"].includes(object.category)}
+                            <div>
+                                <span class="important-word"
+                                    >Unlock cost&nbsp;</span
+                                >&nbsp;<b>{object.bytesRequired}</b> bytes
+                            </div>
+                            <div>
+                                <span class="important-word">Tier</span>
+                                {object.tier}
+                            </div>
+                            <PowerStatsDetails {object} />
+                        {/if}
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
-                <RecipeDetails {object} />
+                {#if !["natural", "atmospheric"].includes(object.category)}
+                    <RecipeDetails {object} />
+                {:else}
+                    <ResourceLocationDetails resource={object} />
+                {/if}
             </div>
         </div>
     {/if}

@@ -10,13 +10,9 @@
     const dispatch = createEventDispatcher();
     const allObjectNames = getAllObjectsNames();
     let selectedCategory = { value: "all" };
+    let selectedObject: BaseObject;
     const categories = new Set(["all"]);
-    const hiddenCategories = [
-        "atmospheric",
-        "natural",
-        "others",
-        "special_resource",
-    ];
+    const hiddenCategories = ["others", "special_resource"];
 
     interface SelectItem {
         id: string;
@@ -26,12 +22,14 @@
     }
 
     const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
+    const canAddToProject = (object: BaseObject) =>
+        object && !["atmospheric", "natural"].includes(object.category);
 
     const items = allObjectNames
         .map((name): SelectItem => {
             const o = getObject(name);
             let group: string = o.category;
-            if (["composite", "refined"].includes(o.category)) {
+            if (o.type === "resource") {
                 group = "resource " + o.category;
             }
             if (!hiddenCategories.includes(o.category)) {
@@ -45,15 +43,7 @@
             };
         })
         // Prevent selecting objects without recipes (Should probably use recipes directly instead of allObjectNames
-        .filter(
-            (item) =>
-                ![
-                    "atmospheric",
-                    "natural",
-                    "others",
-                    "special_resource",
-                ].includes(item.group)
-        );
+        .filter((item) => !hiddenCategories.includes(item.group));
 
     const orderedCategories = [...categories.values()]
         .map((category: string) => {
@@ -77,6 +67,7 @@
         selectedCategory = event.detail;
     };
     const handleSelect = (event: any) => {
+        selectedObject = getObject(event.detail.id);
         dispatch("selectObject", { object: event.detail });
     };
     const handleAdd = () => {
@@ -105,7 +96,10 @@
             {/key}
         </div>
         <div class="col-sm-3">
-            <button on:click={handleAdd}>Add to project</button>
+            <button
+                disabled={!canAddToProject(selectedObject)}
+                on:click={handleAdd}>Add to project</button
+            >
         </div>
     </div>
 </main>
