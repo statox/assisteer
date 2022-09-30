@@ -1,52 +1,55 @@
 import resourcesDetails from '../../data2/resourcesDetails.json';
-// import planets from '../../data2/planets.json';
 import { getAllPlanets, Planet } from './planets';
 
-export type ResourceLocationDetails = {
+export type NaturalResourceLocation = {
     primary: {
-        planet: string,
+        planet: Planet,
         description: string
     };
     secondary: {
-        planet: string,
+        planet: Planet,
         description: string
     }
 };
 
 export type ResourceDetails = {
     classification: "mineral" | "organic" | "ore";
-    location: ResourceLocationDetails
 };
 
-const aggregatedDetails = { ...resourcesDetails };
+const resourcesLocation: {
+    [resouceName: string]: NaturalResourceLocation;
+}= {};
 
 const planets = getAllPlanets();
 
 for (const planet of planets) {
     if (planet.resources) {
-        const { id, description } = planet.resources.primary;
-        if (!aggregatedDetails[id].location) {
-            aggregatedDetails[id].location = {};
+        const { id: idPrimary, description: descriptionPrimary } = planet.resources.primary;
+        if (!resourcesLocation[idPrimary]) {
+            resourcesLocation[idPrimary] = {} as NaturalResourceLocation;
         }
-        aggregatedDetails[id].location.primary = {
-            planet: planet.id,
-            description
+        resourcesLocation[idPrimary].primary = {
+            planet,
+            description: descriptionPrimary
         }
-    }
-    if (planet.resources) {
-        const { id, description } = planet.resources.secondary;
-        if (!aggregatedDetails[id].location) {
-            aggregatedDetails[id].location = {};
+
+        const { id: idSecondary, description: descriptionSecondary } = planet.resources.secondary;
+        if (!resourcesLocation[idSecondary]) {
+            resourcesLocation[idSecondary] = {} as NaturalResourceLocation;
         }
-        aggregatedDetails[id].location.secondary = {
-            planet: planet.id,
-            description
+        resourcesLocation[idSecondary].secondary = {
+            planet,
+            description: descriptionSecondary
         }
     }
 }
 
-const getResourceDetails = (resourceName: string): ResourceDetails => {
-    return aggregatedDetails[resourceName];
+const getNaturalResourceLocation = (resourceName: string): NaturalResourceLocation => {
+    return resourcesLocation[resourceName];
 };
 
-export { getResourceDetails };
+const getResourceDetails = (resourceName: string): ResourceDetails => {
+    return resourcesDetails[resourceName];
+};
+
+export {getNaturalResourceLocation, getResourceDetails };
