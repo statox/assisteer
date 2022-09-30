@@ -1,15 +1,15 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
-    import { BaseObject, getObject } from "../../services/data/objects";
+    import { BaseObject, getObject } from "../../../services/data/objects";
     import {
         getObjectDefaultRecipe,
         Recipe,
-    } from "../../services/data/recipes";
+    } from "../../../services/data/recipes";
     export let object: BaseObject;
     let recipe: Recipe;
     let tool: BaseObject;
 
-    const alphaSort = (a, b) => a - b;
+    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     afterUpdate(() => {
         if (!object) {
