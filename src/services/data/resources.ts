@@ -12,7 +12,7 @@ export type NaturalResourceLocation = {
     }
 };
 
-export type AtmosphericResourceLocation = {
+export type AtmosphericResourceLocations = {
     planet: Planet,
     density: number
 }[];
@@ -22,7 +22,7 @@ export type ResourceDetails = {
 };
 
 const atmosphericResourcesLocation: {
-    [resouceName: string]: AtmosphericResourceLocation;
+    [resouceName: string]: AtmosphericResourceLocations;
 } = {};
 
 const naturalResourcesLocation: {
@@ -70,7 +70,7 @@ const getNaturalResourceLocation = (resourceName: string): NaturalResourceLocati
     return naturalResourcesLocation[resourceName];
 };
 
-const getAlmosphericResourceLocation = (resourceName: string) => {
+const getAlmosphericResourceLocation = (resourceName: string): AtmosphericResourceLocations => {
     return atmosphericResourcesLocation[resourceName];
 };
 

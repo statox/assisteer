@@ -1,6 +1,7 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
     import { getObject } from "../../services/data/objects";
+    import { getAlmosphericResourceLocation } from "../../services/data/resources";
 
     export let pictureType: "icon" | "image" = "image";
     export let categoryName: string;
@@ -18,7 +19,9 @@
 </script>
 
 <main>
-    <h4 class="content-subheader">{categoryName} ({totalResourcesInCategory})</h4>
+    <h4 class="content-subheader">
+        {categoryName} ({totalResourcesInCategory})
+    </h4>
     <div class="container row">
         <div class="col text-align-center">
             <ul>
@@ -33,6 +36,17 @@
                             />
                             &nbsp;{objectName}
                         </span>
+                        {#if getObject(objectName).category === "atmospheric"}
+                            <span>
+                                {#each getAlmosphericResourceLocation(objectName) || [] as location}
+                                    &nbsp;<img
+                                        class="planet-icon rounded-circle"
+                                        src={location.planet.url[pictureType]}
+                                        alt={location.planet.labels.en}
+                                    />
+                                {/each}
+                            </span>
+                        {/if}
                     </li>
                 {/each}
             </ul>
@@ -48,6 +62,9 @@
     }
     .resource-icon {
         width: 2em;
+    }
+    .planet-icon {
+        width: 1.3em;
     }
     .text-align-center {
         text-align: center;
