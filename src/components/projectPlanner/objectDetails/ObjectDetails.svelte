@@ -29,13 +29,17 @@
                         />
                     </div>
                     <div class="col">
-                        <div> 
+                        <div>
                             <span class="important-word">Wiki</span>
                             <a class="wiki-link" href="{object.url.wiki}" target="_blank">Link</a>
                         </div>
                         <div>
                             <span class="important-word">Unlock cost&nbsp;</span
                             >&nbsp;<b>{object.bytesRequired}</b> bytes
+                        </div>
+                        <div>
+                            <span class="important-word">Tier</span>
+                            {object.tier}
                         </div>
                         <PowerStatsDetails {object} />
                     </div>
