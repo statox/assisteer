@@ -1,8 +1,30 @@
 <script lang="ts">
     import type { BaseObject } from "../../services/data/objects";
+    import { getObjectPowerStats, ObjectPowerStats } from "../../services/data/power";
     import RecipeDetails from "./RecipeDetails.svelte";
 
     export let object: BaseObject;
+    let objectAdditionalData: ObjectAdditionalData;
+
+
+    type ObjectAdditionalData = {
+        power: ObjectPowerStats;
+    }
+    const getObjectAdditionalData = (objectName: string) => {
+        return {
+            power: getObjectPowerStats(objectName),
+        }
+    }
+
+    // Reactive declaration: The code runs on props change
+    $: {
+        (() => {
+            if (!object) {
+                return;
+            }
+            objectAdditionalData = getObjectAdditionalData(object.id);
+        })();
+    }
 </script>
 
 <main class="container">
@@ -28,8 +50,46 @@
                         />
                     </div>
                     <div class="col">
-                        <span class="important-word">Unlock cost&nbsp;</span
-                        >&nbsp;<b>{object.bytesRequired}</b> bytes
+                        <div> 
+                            <span class="important-word">Wiki</span>
+                            <a class="wiki-link" href="{object.url.wiki}" target="_blank">Link</a>
+                        </div>
+                        <div>
+                            <span class="important-word">Unlock cost&nbsp;</span
+                            >&nbsp;<b>{object.bytesRequired}</b> bytes
+                        </div>
+                        {#if objectAdditionalData.power}
+                            {#if objectAdditionalData.power.type === "producer"}
+                                <div>
+                                    <span class="important-word">
+                                        Power production&nbsp;
+                                    </span>
+                                    <b>{objectAdditionalData.power.output}</b>&nbsp;U/s
+                                </div>
+                            {/if}
+                            {#if objectAdditionalData.power.type === "storage"}
+                                <div>
+                                    <span class="important-word">
+                                        Power production&nbsp;
+                                    </span>
+                                    <b>{objectAdditionalData.power.output}</b>&nbsp;U/s
+                                </div>
+                                <div>
+                                    <span class="important-word">
+                                        Power capacity&nbsp;
+                                    </span>
+                                    <b>{objectAdditionalData.power.capacity}</b>&nbsp;U
+                                </div>
+                            {/if}
+                            {#if objectAdditionalData.power.type === "consumer"}
+                                <div>
+                                    <span class="important-word">
+                                        Power drain&nbsp;
+                                    </span>
+                                    <b>{objectAdditionalData.power.input}</b>&nbsp;U/s
+                                </div>
+                            {/if}
+                        {/if}
                     </div>
                 </div>
             </div>
@@ -56,5 +116,9 @@
     /* Not sure why this works but allows the icon to be aligned with the text */
     .display-inline-flex {
         display: inline-flex;
+    }
+    .wiki-link {
+        color: black;
+        text-decoration: underline;
     }
 </style>
