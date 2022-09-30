@@ -31,6 +31,9 @@
             "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d2/Icon_Sylva.png",
             "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f1/Sylva.png",
             "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Gateway_Sylva.png"
+        },
+        "labels": {
+            "en": "sylva"
         }
     },
     "desolo": {
@@ -62,6 +65,9 @@
             "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/0e/Icon_Desolo.png",
             "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a8/Desolo.png",
             "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/95/Icon_Gateway_Desolo.png"
+        },
+        "labels": {
+            "en": "desolo"
         }
     },
     "calidor": {
@@ -96,6 +102,9 @@
             "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f6/Icon_Calidor.png",
             "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3a/Calidor.png",
             "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3f/Icon_Gateway_Calidor.png"
+        },
+        "labels": {
+            "en": "calidor"
         }
     },
     "vesania": {
@@ -131,6 +140,9 @@
             "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/fd/Icon_Vesania.png",
             "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b6/Vesania.png",
             "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c6/Icon_Gateway_Vesania.png"
+        },
+        "labels": {
+            "en": "vesania"
         }
     },
     "novus": {
@@ -165,6 +177,9 @@
             "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1c/Icon_Novus.png",
             "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/49/Novus.png",
             "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/3/3a/Icon_Gateway_Novus.png"
+        },
+        "labels": {
+            "en": "novus"
         }
     },
     "glacio": {
@@ -198,15 +213,14 @@
             "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/dc/Icon_Glacio.png",
             "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2e/Glacio.png",
             "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b5/Icon_Gateway_Glacio.png"
+        },
+        "labels": {
+            "en": "glacio"
         }
     },
     "atrox": {
         "id": "atrox",
         "type": "radiated",
-        "resources": {
-            "primary": "",
-            "secondary": ""
-        },
         "gases": {
             "helium": 25,
             "methane": 100,
@@ -228,6 +242,9 @@
             "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/dc/Icon_Glacio.png",
             "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/2e/Glacio.png",
             "gateway_icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/a3/Icon_Gateway_Atrox.png"
+        },
+        "labels": {
+            "en": "atrox"
         }
     }
 }
