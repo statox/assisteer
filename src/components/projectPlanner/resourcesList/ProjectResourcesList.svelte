@@ -3,8 +3,8 @@
     import {
         getProjectResourcesByCategories,
         ProjectLightResourcesByCategory,
-    } from "../../services/project";
-    import { project } from "../../stores";
+    } from "../../../services/project";
+    import { project } from "../../../stores";
     import ProjectResourcesListCategory from "./ProjectResourcesListCategory.svelte";
     import ProjectResourcesListCategoryWithSubCategories from "./ProjectResourcesListCategoryWithSubCategories.svelte";
     export let pictureType: "icon" | "image" = "image";

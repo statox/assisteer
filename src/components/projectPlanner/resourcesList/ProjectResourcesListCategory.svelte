@@ -1,7 +1,7 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
-    import { getObject } from "../../services/data/objects";
-    import { getAlmosphericResourceLocation } from "../../services/data/resources";
+    import { getObject } from "../../../services/data/objects";
+    import { getAlmosphericResourceLocation } from "../../../services/data/resources";
 
     export let pictureType: "icon" | "image" = "image";
     export let categoryName: string;

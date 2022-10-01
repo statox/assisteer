@@ -3,7 +3,7 @@
     import ObjectDetails from "./objectDetails/ObjectDetails.svelte";
     import type { BaseObject } from "../../services/data/objects";
     import ProjectInventory from "./ProjectInventory.svelte";
-    import ProjectResourcesList from "./ProjectResourcesList.svelte";
+    import ProjectResourcesList from "./resourcesList/ProjectResourcesList.svelte";
     import ProjectGraph from "./ProjectGraph.svelte";
     import { project } from "../../stores";
     import ProjectPowerAnalyser from "./ProjectPowerAnalyser.svelte";

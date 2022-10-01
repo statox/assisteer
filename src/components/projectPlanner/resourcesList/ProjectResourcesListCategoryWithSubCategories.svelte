@@ -1,17 +1,15 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
-    import { getObject } from "../../services/data/objects";
-    import { getAllPlanetsMap } from "../../services/data/planets";
+    import { getObject } from "../../../services/data/objects";
     import {
         getNaturalResourceLocation,
         getResourceDetails,
         NaturalResourceLocation,
-    } from "../../services/data/resources";
+    } from "../../../services/data/resources";
 
     export let categoryName: string;
     export let categoryItems: any;
     export let pictureType: "icon" | "image" = "image";
-    const planets = getAllPlanetsMap();
     let sortedItems: any = {};
     let totalResourcesInCategory = 0;
     let locations: {
