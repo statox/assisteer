@@ -59,6 +59,29 @@
                         </select>
                     </span>
                 </div>
+                <div class="col-sm-4">
+                    <span class="important-word">Split tree by object</span>
+                    <div class="form-check form-check-inline">
+                        <input
+                            checked={$settings.treeSplitByObject}
+                            on:click={() => $settings.treeSplitByObject = true}
+                            class="form-check-input"
+                            type="radio"
+                            id="treeSplit"
+                        />
+                        <label class="form-check-label" for="treeSplit">yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input
+                            checked={!$settings.treeSplitByObject}
+                            on:click={() => $settings.treeSplitByObject = false}
+                            class="form-check-input"
+                            type="radio"
+                            id="treeNoSplit"
+                        />
+                        <label class="form-check-label" for="treeNoSplit">no</label>
+                    </div>
+                </div>
             </div>
             <hr/>
             <div style="height: 33vw;" id="projectGraphDiv" />
