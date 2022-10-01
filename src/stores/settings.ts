@@ -5,7 +5,7 @@ type Settings = {
 }
 
 const defaultSettings: Settings = {
-    pictureType: "image"
+    pictureType: "icon"
 }
 
 const settings = writable<Settings>(defaultSettings);

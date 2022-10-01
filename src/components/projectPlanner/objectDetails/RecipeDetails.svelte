@@ -1,5 +1,6 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
+    import { settings } from "../../../stores";
     import { BaseObject, getObject } from "../../../services/data/objects";
     import {
         getObjectDefaultRecipe,
@@ -49,7 +50,7 @@
                                 <b>{recipe.resources[resource]}</b>
                                 &nbsp;<img
                                     class="resource-icon"
-                                    src={getObject(resource).url.image}
+                                    src={getObject(resource).url[$settings.pictureType]}
                                     alt={getObject(resource).labels.en}
                                 />
                                 &nbsp;{resource}
@@ -73,7 +74,7 @@
         text-align: center;
     }
     .resource-icon {
-        width: 3em;
+        width: 1.5em;
     }
     .tool-icon {
         width: 1.5em;

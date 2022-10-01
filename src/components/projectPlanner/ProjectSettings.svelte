@@ -1,12 +1,9 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
-    const dispatch = createEventDispatcher();
-    export let pictureType: "icon" | "image" = "image";
+    import { settings } from "../../stores";
     let collapsed = false;
 
     const changeSetting = (value: "icon" | "image") => {
-        pictureType = value;
-        dispatch("changeSetting", pictureType);
+        $settings.pictureType = value;
     };
 </script>
 
@@ -18,7 +15,7 @@
         <span class="important-word">Type of picture to show&nbsp</span>
         <div class="form-check form-check-inline">
             <input
-                checked={pictureType === "image"}
+                checked={$settings.pictureType === "image"}
                 on:click={() => changeSetting("image")}
                 class="form-check-input"
                 type="radio"
@@ -29,7 +26,7 @@
         </div>
         <div class="form-check form-check-inline">
             <input
-                checked={pictureType === "icon"}
+                checked={$settings.pictureType === "icon"}
                 on:click={() => changeSetting("icon")}
                 class="form-check-input"
                 type="radio"

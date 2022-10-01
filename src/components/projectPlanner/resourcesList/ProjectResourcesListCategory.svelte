@@ -2,8 +2,8 @@
     import { afterUpdate } from "svelte";
     import { getObject } from "../../../services/data/objects";
     import { getAlmosphericResourceLocation } from "../../../services/data/resources";
+    import { settings } from "../../../stores";
 
-    export let pictureType: "icon" | "image" = "image";
     export let categoryName: string;
     export let categoryItems: any;
     let totalResourcesInCategory = 0;
@@ -32,7 +32,7 @@
                                 <b>{categoryItems[objectName]}</b>
                                 &nbsp;<img
                                     class="resource-icon"
-                                    src={getObject(objectName).url[pictureType]}
+                                    src={getObject(objectName).url[$settings.pictureType]}
                                     alt={getObject(objectName).labels.en}
                                 />
                                 &nbsp;{objectName}
@@ -43,7 +43,7 @@
                                         <img
                                             class="planet-icon rounded-circle"
                                             src={location.planet.url[
-                                                pictureType
+                                                $settings.pictureType
                                             ]}
                                             alt={location.planet.labels.en}
                                         />

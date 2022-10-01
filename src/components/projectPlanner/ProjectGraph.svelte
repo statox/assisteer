@@ -4,16 +4,15 @@
     import dagre from "cytoscape-dagre";
     import { getCytoscapeInstance } from "../../services/cytoscape/graph";
     import { projectToFlatTree } from "../../services/project";
-    import { project } from '../../stores';
+    import { project, settings } from '../../stores';
     import { makeNodesMoveSubtree, makeNodesShowHideOnTap } from "../../services/cytoscape";
 
-    export let pictureType: "icon" | "image" = "image";
     let cy: cytoscape.Core;
     let collapsed = false;
 
     const updateGraph = () => {
         const cyContainer = document.getElementById("projectGraphDiv");
-        cy = getCytoscapeInstance(cyContainer, { pictureType });
+        cy = getCytoscapeInstance(cyContainer, { pictureType: $settings.pictureType });
 
         const tree = projectToFlatTree($project);
         cy.add(

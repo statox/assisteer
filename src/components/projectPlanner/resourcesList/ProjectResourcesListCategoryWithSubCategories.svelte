@@ -6,10 +6,10 @@
         getResourceDetails,
         NaturalResourceLocation,
     } from "../../../services/data/resources";
+    import { settings } from "../../../stores";
 
     export let categoryName: string;
     export let categoryItems: any;
-    export let pictureType: "icon" | "image" = "image";
     let sortedItems: any = {};
     let totalResourcesInCategory = 0;
     let locations: {
@@ -59,7 +59,7 @@
                                     &nbsp;<img
                                         class="resource-icon"
                                         src={getObject(objectName).url[
-                                            pictureType
+                                            $settings.pictureType
                                         ]}
                                         alt={getObject(objectName).labels.en}
                                     />
@@ -70,14 +70,14 @@
                                         <img
                                             class="planet-icon rounded-circle"
                                             src={locations[objectName].primary
-                                                .planet.url[pictureType]}
+                                                .planet.url[$settings.pictureType]}
                                             alt={locations[objectName].primary
                                                 .planet.labels.en}
                                         />
                                         <img
                                             class="planet-icon rounded-circle"
                                             src={locations[objectName].secondary
-                                                .planet.url[pictureType]}
+                                                .planet.url[$settings.pictureType]}
                                             alt={locations[objectName].secondary
                                                 .planet.labels.en}
                                         />

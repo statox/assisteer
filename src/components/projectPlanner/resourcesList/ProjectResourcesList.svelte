@@ -7,7 +7,6 @@
     import { project } from "../../../stores";
     import ProjectResourcesListCategory from "./ProjectResourcesListCategory.svelte";
     import ProjectResourcesListCategoryWithSubCategories from "./ProjectResourcesListCategoryWithSubCategories.svelte";
-    export let pictureType: "icon" | "image" = "image";
 
     let collapsed = false;
 
@@ -58,13 +57,11 @@
         {#each sortedCategories as category}
             {#if ["natural", "refined"].includes(category)}
                 <ProjectResourcesListCategoryWithSubCategories
-                    {pictureType}
                     categoryName={category}
                     categoryItems={resourcesList[category]}
                 />
             {:else}
                 <ProjectResourcesListCategory
-                    {pictureType}
                     categoryName={category}
                     categoryItems={resourcesList[category]}
                 />

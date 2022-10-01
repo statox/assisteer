@@ -9,7 +9,6 @@
     import ProjectPowerAnalyser from "./ProjectPowerAnalyser.svelte";
     import ProjectSettings from "./ProjectSettings.svelte";
 
-    let pictureType: "icon" | "image" = "image";
     let selection: {
         object: BaseObject;
         quantity: number;
@@ -47,10 +46,6 @@
             $project = {};
         }
     };
-
-    const whenSettingChange = (event: any) => {
-        pictureType = event.detail;
-    }
 </script>
 
 <main>
@@ -68,13 +63,13 @@
             <ProjectInventory on:updateQuantity={whenUpdateQuantity} />
         </div>
         <div class="content-section">
-            <ProjectSettings {pictureType} on:changeSetting={whenSettingChange} />
+            <ProjectSettings />
         </div>
         <div class="content-section">
-            <ProjectResourcesList {pictureType} />
+            <ProjectResourcesList />
         </div>
         <div class="content-section">
-            <ProjectGraph {pictureType} />
+            <ProjectGraph />
         </div>
         <div class="content-section">
             <ProjectPowerAnalyser />
