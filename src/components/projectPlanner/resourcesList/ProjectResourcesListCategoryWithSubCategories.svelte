@@ -47,44 +47,48 @@
     <h4 class="content-subheader">
         {categoryName} ({totalResourcesInCategory})
     </h4>
-    <div class="container row">
-        {#each Object.keys(sortedItems).sort(subCatSort) as classification}
-            <div class="col text-align-center">
-                <ul>
-                    {#each Object.keys(sortedItems[classification]).sort(alphaSort) as objectName}
-                        <li>
-                            <span>
-                                <b>{categoryItems[objectName]}</b>
-                                &nbsp;<img
-                                    class="resource-icon"
-                                    src={getObject(objectName).url[pictureType]}
-                                    alt={getObject(objectName).labels.en}
-                                />
-                                &nbsp;{objectName}
-                            </span>
-                            {#if locations[objectName]}
+    <div class="container">
+        <div class="row">
+            {#each Object.keys(sortedItems).sort(subCatSort) as classification}
+                <div class="col text-align-center">
+                    <ul>
+                        {#each Object.keys(sortedItems[classification]).sort(alphaSort) as objectName}
+                            <li>
                                 <span>
-                                    <img
-                                        class="planet-icon rounded-circle"
-                                        src={locations[objectName].primary
-                                        .planet.url[pictureType]}
-                                        alt={locations[objectName].primary
-                                        .planet.labels.en}
+                                    <b>{categoryItems[objectName]}</b>
+                                    &nbsp;<img
+                                        class="resource-icon"
+                                        src={getObject(objectName).url[
+                                            pictureType
+                                        ]}
+                                        alt={getObject(objectName).labels.en}
                                     />
-                                    <img
-                                        class="planet-icon rounded-circle"
-                                        src={locations[objectName].secondary
-                                        .planet.url[pictureType]}
-                                        alt={locations[objectName].secondary
-                                        .planet.labels.en}
-                                    />
+                                    &nbsp;{objectName}
                                 </span>
-                            {/if}
-                        </li>
-                    {/each}
-                </ul>
-            </div>
-        {/each}
+                                {#if locations[objectName]}
+                                    <span>
+                                        <img
+                                            class="planet-icon rounded-circle"
+                                            src={locations[objectName].primary
+                                                .planet.url[pictureType]}
+                                            alt={locations[objectName].primary
+                                                .planet.labels.en}
+                                        />
+                                        <img
+                                            class="planet-icon rounded-circle"
+                                            src={locations[objectName].secondary
+                                                .planet.url[pictureType]}
+                                            alt={locations[objectName].secondary
+                                                .planet.labels.en}
+                                        />
+                                    </span>
+                                {/if}
+                            </li>
+                        {/each}
+                    </ul>
+                </div>
+            {/each}
+        </div>
     </div>
 </main>
 

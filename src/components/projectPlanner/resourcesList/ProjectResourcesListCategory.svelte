@@ -22,34 +22,38 @@
     <h4 class="content-subheader">
         {categoryName} ({totalResourcesInCategory})
     </h4>
-    <div class="container row">
-        <div class="col text-align-center">
-            <ul>
-                {#each Object.keys(categoryItems).sort(alphaSort) as objectName}
-                    <li>
-                        <span>
-                            <b>{categoryItems[objectName]}</b>
-                            &nbsp;<img
-                                class="resource-icon"
-                                src={getObject(objectName).url[pictureType]}
-                                alt={getObject(objectName).labels.en}
-                            />
-                            &nbsp;{objectName}
-                        </span>
-                        {#if getObject(objectName).category === "atmospheric"}
+    <div class="container">
+        <div class="row">
+            <div class="col text-align-center">
+                <ul>
+                    {#each Object.keys(categoryItems).sort(alphaSort) as objectName}
+                        <li>
                             <span>
-                                {#each getAlmosphericResourceLocation(objectName) || [] as location}
-                                    <img
-                                        class="planet-icon rounded-circle"
-                                        src={location.planet.url[pictureType]}
-                                        alt={location.planet.labels.en}
-                                    />
-                                {/each}
+                                <b>{categoryItems[objectName]}</b>
+                                &nbsp;<img
+                                    class="resource-icon"
+                                    src={getObject(objectName).url[pictureType]}
+                                    alt={getObject(objectName).labels.en}
+                                />
+                                &nbsp;{objectName}
                             </span>
-                        {/if}
-                    </li>
-                {/each}
-            </ul>
+                            {#if getObject(objectName).category === "atmospheric"}
+                                <span>
+                                    {#each getAlmosphericResourceLocation(objectName) || [] as location}
+                                        <img
+                                            class="planet-icon rounded-circle"
+                                            src={location.planet.url[
+                                                pictureType
+                                            ]}
+                                            alt={location.planet.labels.en}
+                                        />
+                                    {/each}
+                                </span>
+                            {/if}
+                        </li>
+                    {/each}
+                </ul>
+            </div>
         </div>
     </div>
 </main>
