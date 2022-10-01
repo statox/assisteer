@@ -2,7 +2,7 @@
     import ObjectSelection from "./ObjectSelection.svelte";
     import ObjectDetails from "./objectDetails/ObjectDetails.svelte";
     import type { BaseObject } from "../../services/data/objects";
-    import ProjectInventory from "./ProjectInventory.svelte";
+    import ProjectObjectsList from "./ProjectObjectsList.svelte";
     import ProjectResourcesList from "./resourcesList/ProjectResourcesList.svelte";
     import ProjectGraph from "./ProjectGraph.svelte";
     import { project } from "../../stores";
@@ -82,7 +82,7 @@
                 />
                 <ObjectDetails object={selection.object} />
             </div>
-            <ProjectInventory on:updateQuantity={whenUpdateQuantity} />
+            <ProjectObjectsList on:updateQuantity={whenUpdateQuantity} />
         {/if}
         {#if activeSection === "resources"}
             <ProjectResourcesList />
