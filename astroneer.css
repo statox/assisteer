@@ -11,12 +11,33 @@
   --content-subheader-bg-color: #8ac5f2;
 }
 
+/* fonts.css */
+
+@font-face {
+    font-family: 'rubik-medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/rubik/Rubik-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'rubik';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/rubik/Rubik-Regular.ttf');
+}
+
 body {
     background-image: url('Site-background-light.webp');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     padding: 4%;
+    font-family: rubik;
+}
+
+b {
+    font-family: rubik-medium;
 }
 
 .top-container {
