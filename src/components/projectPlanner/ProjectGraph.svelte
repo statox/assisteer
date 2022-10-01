@@ -1,13 +1,14 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
-    import cytoscape from "cytoscape";
-    import dagre from "cytoscape-dagre";
     import { addElementsFromProject, addElementsFromProjectSeparatedTrees, getCytoscapeInstance } from "../../services/cytoscape/graph";
     import { project, settings } from '../../stores';
     import { makeNodesMoveSubtree, makeNodesShowHideOnTap } from "../../services/cytoscape";
+    import { layouts, runCytoscapeLayout } from "../../services/cytoscape/layouts";
 
     let cy: cytoscape.Core;
     let collapsed = false;
+
+    let selectedLayout = layouts[0];
 
     const updateGraph = () => {
         const cyContainer = document.getElementById("projectGraphDiv");
@@ -21,11 +22,8 @@
         makeNodesShowHideOnTap(cy);
         makeNodesMoveSubtree(cy);
 
-        cytoscape.use(dagre);
-        cy.layout({
-            name: "dagre",
-            nodeDimensionsIncludeLabels: true, // whether labels should be included in determining the space used by a node
-        } as dagre.DagreLayoutOptions).run();
+        runCytoscapeLayout(cy, selectedLayout.id);
+        cy.fit();
     };
 
     afterUpdate(updateGraph);
@@ -35,7 +33,24 @@
     <div class="content-section">
         <h3 class="content-header" on:click="{() => collapsed = !collapsed}">Project graph</h3>
         <div class:hidden="{collapsed === true}">
-            <div style="height:400px;" id="projectGraphDiv" />
+            <div class="row">
+                <div class="col-sm-4">
+                    <span class="important-word">
+                        <label class="form-check-label" for="layoutSelect">Layout</label>
+                    </span>
+                    <div class="form-check form-check-inline">
+                        <select bind:value={selectedLayout} on:change={updateGraph}>
+                            {#each layouts as layout}
+                                <option value={layout}>
+                                    {layout.label}
+                                </option>
+                            {/each}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div style="height: 33vw;" id="projectGraphDiv" />
         </div>
     </div>
 </main>

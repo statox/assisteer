@@ -2,7 +2,7 @@ import cytoscape from 'cytoscape';
 import { getObject } from '../data/objects';
 import { Project, projectToFlatTree } from '../project';
 
-const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "icon" | "image"}) => {
+const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "icon" | "image" }) => {
     const { pictureType } = params;
     return cytoscape({
         container: container, // container to render in
@@ -85,4 +85,8 @@ const addElementsFromProjectSeparatedTrees = (cy: cytoscape.Core, project: Proje
     }
 }
 
-export { addElementsFromProject, addElementsFromProjectSeparatedTrees, getCytoscapeInstance };
+export {
+    addElementsFromProject,
+    addElementsFromProjectSeparatedTrees,
+    getCytoscapeInstance,
+};
