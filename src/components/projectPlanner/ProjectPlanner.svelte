@@ -82,9 +82,7 @@
                 />
                 <ObjectDetails object={selection.object} />
             </div>
-            <div class="content-section">
-                <ProjectInventory on:updateQuantity={whenUpdateQuantity} />
-            </div>
+            <ProjectInventory on:updateQuantity={whenUpdateQuantity} />
         {/if}
         {#if activeSection === "resources"}
             <ProjectResourcesList />
