@@ -32,7 +32,7 @@
     .nav-item {
         color: white;
         font-weight: bolder;
-        font-size: large;
+        font-size: x-large;
         text-transform:uppercase;
         text-shadow: 2px 2px black;
     }

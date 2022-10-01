@@ -8,7 +8,8 @@
     h1 {
         font-weight: bolder;
         color: white;
-        text-shadow: 2px 2px black;
-        font-size: xx-large;
+        /* TODO There is probably a better way to make text-shadow responsive */
+        text-shadow: 0.5vw 0.5vw black;
+        font-size: 8vw;
     }
 </style>
