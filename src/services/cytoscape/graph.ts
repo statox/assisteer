@@ -2,8 +2,17 @@ import cytoscape from 'cytoscape';
 import { getObject } from '../data/objects';
 import { Project, projectToFlatTree } from '../project';
 
-const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "icon" | "image" }) => {
-    const { pictureType } = params;
+export type EdgeStyle = "bezier" | "haystack" | "straight" | "taxi";
+
+export const edgeStyles: {id: EdgeStyle, label: string}[] = [
+    {id: "bezier", label: "Bezier"},
+    {id: "taxi", label: "Taxi"},
+    {id: "straight", label: "Straight"},
+    {id: "haystack", label: "Haystack"}
+];
+
+const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "icon" | "image", edgeStyle: EdgeStyle }) => {
+    const { pictureType, edgeStyle } = params;
     return cytoscape({
         container: container, // container to render in
         elements: [],
@@ -29,7 +38,7 @@ const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "ic
             {
                 selector: 'edge',
                 style: {
-                    'curve-style': 'bezier'
+                    'curve-style': edgeStyle
                 }
             }
         ]

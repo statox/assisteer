@@ -1,6 +1,6 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
-    import { addElementsFromProject, addElementsFromProjectSeparatedTrees, getCytoscapeInstance } from "../../services/cytoscape/graph";
+    import { addElementsFromProject, addElementsFromProjectSeparatedTrees, edgeStyles, getCytoscapeInstance } from "../../services/cytoscape/graph";
     import { project, settings } from '../../stores';
     import { makeNodesMoveSubtree, makeNodesShowHideOnTap } from "../../services/cytoscape";
     import { layouts, runCytoscapeLayout } from "../../services/cytoscape/layouts";
@@ -9,10 +9,11 @@
     let collapsed = false;
 
     let selectedLayout = layouts[0];
+    let selectedEdgeStyle = edgeStyles[0];
 
     const updateGraph = () => {
         const cyContainer = document.getElementById("projectGraphDiv");
-        cy = getCytoscapeInstance(cyContainer, { pictureType: $settings.pictureType });
+        cy = getCytoscapeInstance(cyContainer, { pictureType: $settings.pictureType, edgeStyle: selectedEdgeStyle.id });
 
         if ($settings.treeSplitByObject) {
             addElementsFromProjectSeparatedTrees(cy, $project);
@@ -37,8 +38,6 @@
                 <div class="col-sm-4">
                     <span class="important-word">
                         <label class="form-check-label" for="layoutSelect">Layout</label>
-                    </span>
-                    <div class="form-check form-check-inline">
                         <select bind:value={selectedLayout} on:change={updateGraph}>
                             {#each layouts as layout}
                                 <option value={layout}>
@@ -46,7 +45,19 @@
                                 </option>
                             {/each}
                         </select>
-                    </div>
+                    </span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="important-word">
+                        <label class="form-check-label" for="layoutSelect">Edges</label>
+                        <select bind:value={selectedEdgeStyle} on:change={updateGraph}>
+                            {#each edgeStyles as edgeStyle}
+                                <option value={edgeStyle}>
+                                    {edgeStyle.label}
+                                </option>
+                            {/each}
+                        </select>
+                    </span>
                 </div>
             </div>
             <hr/>
