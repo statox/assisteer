@@ -5,7 +5,7 @@
     import Header from "./components/Header.svelte";
     import Footer from "./components/Footer.svelte";
 
-    export let url = "";
+    let url = "";
 </script>
 
 <Header />

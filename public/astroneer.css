@@ -1,14 +1,17 @@
 :root {
-  --main-bg-color: white;
-  --main-color: #3a3a3a;
+  --white: white;
   --blue: #129af0;
+  --dark-blue: #0e7cc1;
   --red: #ff6c6c;
   --grey: #9b9797;
   --green: #2de162;
+  --yellow: #ffcf01;
+  --main-bg-color: var(--white);
+  --main-color: #3a3a3a;
   --page-header-color: #129af0;
-  --content-header-color: #ffcf01;
+  --content-header-color: var(--yellow);
   --content-header-bg-color: #2d9bf0;
-  --content-subheader-color: white;
+  --content-subheader-color: var(--white);
   --content-subheader-bg-color: #8ac5f2;
 }
 

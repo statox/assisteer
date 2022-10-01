@@ -9,6 +9,7 @@
     import ProjectPowerAnalyser from "./ProjectPowerAnalyser.svelte";
     import ProjectSettings from "./ProjectSettings.svelte";
 
+    let activeSection = "inventory";
     let selection: {
         object: BaseObject;
         quantity: number;
@@ -50,29 +51,74 @@
 
 <main>
     <div>
-        <h2 class="page-header">Project planner</h2>
-        <div class="content-section">
-            <h3 class="content-header">Object selection</h3>
-            <ObjectSelection
-                on:selectObject={whenSelectObject}
-                on:addObject={whenAddToProject}
-            />
-            <ObjectDetails object={selection.object} />
+        <div class="content-section row nav-menu">
+            <span
+                class="col nav-item h4"
+                class:selected={activeSection === "inventory"}
+                on:click={() => (activeSection = "inventory")}>Inventory</span
+            >
+            <span
+                class="col nav-item h4"
+                class:selected={activeSection === "resources"}
+                on:click={() => (activeSection = "resources")}>Resources</span
+            >
+            <span
+                class="col nav-item h4"
+                class:selected={activeSection === "power"}
+                on:click={() => (activeSection = "power")}>Power</span
+            >
+            <span
+                class="col nav-item h4"
+                class:selected={activeSection === "settings"}
+                on:click={() => (activeSection = "settings")}>Settings</span
+            >
         </div>
-        <div class="content-section">
-            <ProjectInventory on:updateQuantity={whenUpdateQuantity} />
-        </div>
-        <div class="content-section">
-            <ProjectSettings />
-        </div>
-        <div class="content-section">
-            <ProjectResourcesList />
-        </div>
-        <div class="content-section">
-            <ProjectGraph />
-        </div>
-        <div class="content-section">
-            <ProjectPowerAnalyser />
-        </div>
+
+        {#if activeSection === "inventory"}
+            <div class="content-section">
+                <h3 class="content-header">Object selection</h3>
+                <ObjectSelection
+                    on:selectObject={whenSelectObject}
+                    on:addObject={whenAddToProject}
+                />
+                <ObjectDetails object={selection.object} />
+            </div>
+            <div class="content-section">
+                <ProjectInventory on:updateQuantity={whenUpdateQuantity} />
+            </div>
+        {/if}
+        {#if activeSection === "resources"}
+            <div class="content-section">
+                <ProjectResourcesList />
+            </div>
+            <div class="content-section">
+                <ProjectGraph />
+            </div>
+        {/if}
+        {#if activeSection === "settings"}
+            <div class="content-section">
+                <ProjectSettings />
+            </div>
+        {/if}
+        {#if activeSection === "power"}
+            <div class="content-section">
+                <ProjectPowerAnalyser />
+            </div>
+        {/if}
     </div>
 </main>
+
+<style>
+    .nav-menu {
+        text-align: center;
+        background: var(--blue);
+        padding: 5px;
+    }
+    .nav-item {
+        color: var(--white);
+        font-family: astroneer-bold;
+    }
+    .nav-item.selected {
+        color: var(--yellow);
+    }
+</style>
