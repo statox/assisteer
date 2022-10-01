@@ -1,4 +1,4 @@
-import type { GenericObject, ResearchableObject, Tier } from "./objects.types";
+import type { ResearchableObject, Tier } from "./objects.types";
 import type { ResourceType } from "./resources.types";
 
 type StorageCapacity = {
