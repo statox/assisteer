@@ -1,12 +1,12 @@
 <script lang="ts">
     import type { BaseObject } from "../../../services/data/objects";
     import {
-        AtmosphericResourceLocation,
+        AtmosphericResourceLocations,
         getAlmosphericResourceLocation,
     } from "../../../services/data/resources";
 
     export let resource: BaseObject;
-    let locations: AtmosphericResourceLocation;
+    let locations: AtmosphericResourceLocations;
 
     // Reactive declaration: The code runs on props change
     $: {
