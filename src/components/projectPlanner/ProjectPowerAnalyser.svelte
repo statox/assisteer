@@ -130,12 +130,15 @@
                                                 &nbsp;{item.objectName}
                                             </span>
                                         </td>
-                                        <td>
-                                            {item.quantity} x <b>{item.powerStats.output}</b> U/s
-                                        </td>
-                                        <td>
-                                            <b>{item.quantity * item.powerStats.output}</b> U/s
-                                        </td>
+                                        <!-- if is here for typeguard -->
+                                        {#if item.powerStats.type === "producer"}
+                                            <td>
+                                                {item.quantity} x <b>{item.powerStats.output}</b> U/s
+                                            </td>
+                                            <td>
+                                                <b>{item.quantity * item.powerStats.output}</b> U/s
+                                            </td>
+                                        {/if}
                                     </tr>
                                 {/each}
                             </tbody>
@@ -164,12 +167,15 @@
                                                 &nbsp;{item.objectName}
                                             </span>
                                         </td>
-                                        <td>
-                                            {item.quantity} x <b>{item.powerStats.capacity}</b> U
-                                        </td>
-                                        <td>
-                                            <b>{item.quantity * item.powerStats.capacity}</b> U
-                                        </td>
+                                        <!-- if is here for typeguard -->
+                                        {#if item.powerStats.type === "storage"}
+                                            <td>
+                                                {item.quantity} x <b>{item.powerStats.capacity}</b> U
+                                            </td>
+                                            <td>
+                                                <b>{item.quantity * item.powerStats.capacity}</b> U
+                                            </td>
+                                        {/if}
                                     </tr>
                                 {/each}
                             </tbody>
@@ -198,12 +204,15 @@
                                                 &nbsp;{item.objectName}
                                             </span>
                                         </td>
-                                        <td>
-                                            {item.quantity} x <b>{item.powerStats.input}</b> U/s
-                                        </td>
-                                        <td>
-                                            <b>{item.quantity * item.powerStats.input}</b> U/s
-                                        </td>
+                                        <!-- if is here for typeguard -->
+                                        {#if item.powerStats.type === "consumer"}
+                                            <td>
+                                                {item.quantity} x <b>{item.powerStats.input}</b> U/s
+                                            </td>
+                                            <td>
+                                                <b>{item.quantity * item.powerStats.input}</b> U/s
+                                            </td>
+                                        {/if}
                                     </tr>
                                 {/each}
                             </tbody>
