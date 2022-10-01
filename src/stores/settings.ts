@@ -2,10 +2,12 @@ import { writable } from "svelte/store";
 
 type Settings = {
     pictureType: "image" | "icon";
+    treeSplitByObject: boolean;
 }
 
 const defaultSettings: Settings = {
-    pictureType: "icon"
+    pictureType: "icon",
+    treeSplitByObject: true
 }
 
 const settings = writable<Settings>(defaultSettings);

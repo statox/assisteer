@@ -2,8 +2,7 @@
     import { afterUpdate } from "svelte";
     import cytoscape from "cytoscape";
     import dagre from "cytoscape-dagre";
-    import { getCytoscapeInstance } from "../../services/cytoscape/graph";
-    import { projectToFlatTree } from "../../services/project";
+    import { addElementsFromProject, addElementsFromProjectSeparatedTrees, getCytoscapeInstance } from "../../services/cytoscape/graph";
     import { project, settings } from '../../stores';
     import { makeNodesMoveSubtree, makeNodesShowHideOnTap } from "../../services/cytoscape";
 
@@ -14,17 +13,11 @@
         const cyContainer = document.getElementById("projectGraphDiv");
         cy = getCytoscapeInstance(cyContainer, { pictureType: $settings.pictureType });
 
-        const tree = projectToFlatTree($project);
-        cy.add(
-            tree.nodes.map((n) => {
-                return { group: "nodes", data: n };
-            })
-        );
-        cy.add(
-            tree.edges.map((e) => {
-                return { group: "edges", data: e };
-            })
-        );
+        if ($settings.treeSplitByObject) {
+            addElementsFromProjectSeparatedTrees(cy, $project);
+        } else {
+            addElementsFromProject(cy, $project);
+        }
         makeNodesShowHideOnTap(cy);
         makeNodesMoveSubtree(cy);
 

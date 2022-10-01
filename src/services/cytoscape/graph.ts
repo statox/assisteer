@@ -1,4 +1,6 @@
 import cytoscape from 'cytoscape';
+import { getObject } from '../data/objects';
+import { Project, projectToFlatTree } from '../project';
 
 const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "icon" | "image"}) => {
     const { pictureType } = params;
@@ -34,4 +36,53 @@ const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "ic
     });
 }
 
-export { getCytoscapeInstance };
+const addElementsFromProject = (cy: cytoscape.Core, project: Project) => {
+    const tree = projectToFlatTree(project);
+    cy.add(
+        tree.nodes.map((n) => {
+            const object = getObject(n.id);
+            return {
+                group: "nodes",
+                data: {
+                    ...n,
+                    label: object.labels.en
+                }
+            };
+        })
+    );
+    cy.add(
+        tree.edges.map((e) => {
+            return { group: "edges", data: e };
+        })
+    );
+}
+
+const addElementsFromProjectSeparatedTrees = (cy: cytoscape.Core, project: Project) => {
+    for (const objectName of Object.keys(project)) {
+        const subProject: Project = {};
+        subProject[objectName] = project[objectName];
+        const tree = projectToFlatTree(subProject);
+        cy.add(
+            tree.nodes.map((n) => {
+                const object = getObject(n.id);
+                n.id = `${objectName}#${n.id}`;
+                return {
+                    group: "nodes",
+                    data: {
+                        ...n,
+                        label: object.labels.en
+                    }
+                };
+            })
+        );
+        cy.add(
+            tree.edges.map((e) => {
+                e.source = `${objectName}#${e.source}`;
+                e.target = `${objectName}#${e.target}`;
+                return { group: "edges", data: e };
+            })
+        );
+    }
+}
+
+export { addElementsFromProject, addElementsFromProjectSeparatedTrees, getCytoscapeInstance };
