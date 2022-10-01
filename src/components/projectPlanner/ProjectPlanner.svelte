@@ -76,7 +76,6 @@
 
         {#if activeSection === "inventory"}
             <div class="content-section">
-                <h3 class="content-header">Object selection</h3>
                 <ObjectSelection
                     on:selectObject={whenSelectObject}
                     on:addObject={whenAddToProject}
@@ -88,22 +87,14 @@
             </div>
         {/if}
         {#if activeSection === "resources"}
-            <div class="content-section">
-                <ProjectResourcesList />
-            </div>
-            <div class="content-section">
-                <ProjectGraph />
-            </div>
+            <ProjectResourcesList />
+            <ProjectGraph />
         {/if}
         {#if activeSection === "settings"}
-            <div class="content-section">
-                <ProjectSettings />
-            </div>
+            <ProjectSettings />
         {/if}
         {#if activeSection === "power"}
-            <div class="content-section">
-                <ProjectPowerAnalyser />
-            </div>
+            <ProjectPowerAnalyser />
         {/if}
     </div>
 </main>

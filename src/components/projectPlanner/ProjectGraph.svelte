@@ -32,8 +32,10 @@
 </script>
 
 <main>
-    <h3 class="content-header" on:click="{() => collapsed = !collapsed}">Project graph</h3>
-    <div class:hidden="{collapsed === true}">
-        <div style="height:400px;" id="projectGraphDiv" />
+    <div class="content-section">
+        <h3 class="content-header" on:click="{() => collapsed = !collapsed}">Project graph</h3>
+        <div class:hidden="{collapsed === true}">
+            <div style="height:400px;" id="projectGraphDiv" />
+        </div>
     </div>
 </main>

@@ -50,22 +50,24 @@
 </script>
 
 <main>
-    <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>
-        Resource list
-    </h3>
-    <div class:hidden={collapsed === true}>
-        {#each sortedCategories as category}
-            {#if ["natural", "refined"].includes(category)}
-                <ProjectResourcesListCategoryWithSubCategories
-                    categoryName={category}
-                    categoryItems={resourcesList[category]}
-                />
-            {:else}
-                <ProjectResourcesListCategory
-                    categoryName={category}
-                    categoryItems={resourcesList[category]}
-                />
-            {/if}
-        {/each}
+    <div class="content-section">
+        <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>
+            Resource list
+        </h3>
+        <div class:hidden={collapsed === true}>
+            {#each sortedCategories as category}
+                {#if ["natural", "refined"].includes(category)}
+                    <ProjectResourcesListCategoryWithSubCategories
+                        categoryName={category}
+                        categoryItems={resourcesList[category]}
+                    />
+                {:else}
+                    <ProjectResourcesListCategory
+                        categoryName={category}
+                        categoryItems={resourcesList[category]}
+                    />
+                {/if}
+            {/each}
+        </div>
     </div>
 </main>

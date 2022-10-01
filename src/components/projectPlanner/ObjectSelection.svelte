@@ -76,6 +76,7 @@
 </script>
 
 <main class="container">
+    <h3 class="content-header">Object selection</h3>
     <div class="row">
         <div class="col-sm-9">
             <Select
