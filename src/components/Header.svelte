@@ -6,6 +6,7 @@
 
 <style>
     h1 {
+        font-weight: bolder;
         color: white;
         text-shadow: 2px 2px black;
         font-size: xx-large;

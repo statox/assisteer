@@ -27,17 +27,31 @@
     src: url('/fonts/rubik/Rubik-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'astroneer-bold';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/astroneer/NDAstroneer-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'astroneer';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/astroneer/NDAstroneer-Regular.ttf');
+}
+
 body {
     background-image: url('Site-background-light.webp');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     padding: 4%;
-    font-family: rubik;
+    font-family: astroneer;
 }
 
 b {
-    font-family: rubik-medium;
+    font-family: astroneer-bold;
 }
 
 .top-container {
@@ -70,6 +84,7 @@ b {
 }
 
 .content-header {
+    font-family: astroneer-bold;
     color: var(--content-header-color);
     background-color: var(--content-header-bg-color);
     border: none;
@@ -81,6 +96,7 @@ b {
 }
 
 .content-subheader {
+    font-family: astroneer-bold;
     color: white;
     background-color: var(--content-subheader-bg-color);
     border: none;
