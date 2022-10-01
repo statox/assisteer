@@ -46,6 +46,7 @@
                                                 $settings.pictureType
                                             ]}
                                             alt={location.planet.labels.en}
+                                            data-toggle="tooltip" data-placement="top" title={location.planet.labels.en}
                                         />
                                     {/each}
                                 </span>

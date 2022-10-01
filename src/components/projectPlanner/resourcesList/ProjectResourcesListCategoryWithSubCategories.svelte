@@ -73,6 +73,9 @@
                                                 .planet.url[$settings.pictureType]}
                                             alt={locations[objectName].primary
                                                 .planet.labels.en}
+                                            data-toggle="tooltip"
+                                            data-placement="top"
+                                            title={locations[objectName].primary.planet.labels.en}
                                         />
                                         <img
                                             class="planet-icon rounded-circle"
@@ -80,6 +83,9 @@
                                                 .planet.url[$settings.pictureType]}
                                             alt={locations[objectName].secondary
                                                 .planet.labels.en}
+                                            data-toggle="tooltip"
+                                            data-placement="top"
+                                            title={locations[objectName].secondary.planet.labels.en}
                                         />
                                     </span>
                                 {/if}
