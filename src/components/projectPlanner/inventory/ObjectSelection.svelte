@@ -5,7 +5,7 @@
         BaseObject,
         getAllObjectsNames,
         getObject,
-    } from "../../services/data/objects";
+    } from "../../../services/data/objects";
 
     const dispatch = createEventDispatcher();
     const allObjectNames = getAllObjectsNames();
