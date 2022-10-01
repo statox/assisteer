@@ -103,3 +103,19 @@
         </div>
     </div>
 </main>
+
+<style>
+button:active {
+    color: var(--green);
+    background: white;
+    border: 1px solid var(--green);
+    border-radius: 5px;
+    transition: color 0.1s;
+    transition-duration: 1;
+}
+button:active:after {
+    color: var(--green);
+    background: white;
+    content: " ✓";
+}
+</style>
