@@ -7,11 +7,15 @@
     import { project } from "../../stores";
 
     let collapsed = false;
+    let hasDataToShow = false;
 
     let projectData: ProjectPowerStats;
 
     const updateProjectData = () => {
         projectData = getProjectPowerStats($project);
+        hasDataToShow = projectData.storage.totalCapacity > 0 ||
+            projectData.consumer.total > 0 ||
+            projectData.producer.total > 0;
     };
 
     afterUpdate(() => {
@@ -28,6 +32,9 @@
             Power analyser
         </h3>
         <div class="container" class:hidden={collapsed === true}>
+            {#if !hasDataToShow}
+                <p>Nothing to show. Add objects using power to the project in the Inventory section.</p>
+            {/if}
             {#if projectData}
                 {#if projectData["producer"].total > 0 || projectData["consumer"].total > 0 || projectData["storage"].totalCapacity > 0}
                     <div class="info small-text">

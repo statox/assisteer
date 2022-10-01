@@ -52,7 +52,10 @@
         <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>
             Project inventory
         </h3>
-        <div class="container" class:hidden={collapsed === true}>
+        <div class="container" class:hidden={collapsed || !$project}>
+            {#if Object.keys($project).length === 0}
+                <p>Nothing to show. Add objects to the project in the Inventory section.</p>
+            {/if}
             {#if Object.keys($project).length !== 0}
                 <div class="row align-items-center bottom-separator">
                     <div class="col-sm-4">

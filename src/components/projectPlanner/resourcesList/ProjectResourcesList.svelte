@@ -55,6 +55,9 @@
             Resource list
         </h3>
         <div class:hidden={collapsed === true}>
+            {#if sortedCategories.length === 0}
+                <p>Nothing to show. Add objects to the project in the Inventory section.</p>
+            {/if}
             {#each sortedCategories as category}
                 {#if ["natural", "refined"].includes(category)}
                     <ProjectResourcesListCategoryWithSubCategories
