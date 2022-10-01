@@ -35,41 +35,94 @@
         </p>
         <h2>How it's made</h2>
         <p>
-            To list the existing objects in the game I manually parsed <a href="https://astroneer.fandom.com/wiki/Astroneer_Wiki">the wiki</a>
+            To list the existing objects in the game I manually parsed <a target="blank" href="https://astroneer.fandom.com/wiki/Astroneer_Wiki">the wiki</a>
             and turned the information into typescript files.
         </p>
         <p>
             None of the images on this app belong to me, they are actually hosted by the wiki and were created
-            either by <a href="https://astroneer.space/">System Era Softwork</a> or the wiki users.
+            either by <a target="blank" href="https://astroneer.space/">System Era Softwork</a> or the wiki users.
             I also took some inspiration for the design from the wiki.
         </p>
         <p>
-            Everything else is my own work and the source code is available <a href="https://github.com/statox/assisteer">on Github</a>.
-            The graph part is made with <a href="https://js.cytoscape.org/">CytoscapeJS</a>.
+            Everything else is my own work and the source code is available <a target="blank" href="https://github.com/statox/assisteer">on Github</a>.
+            The graph part is made with <a target="blank" href="https://js.cytoscape.org/">CytoscapeJS</a>.
         </p>
         <h2>But it sucks!</h2>
         <p>
-            I hear you fellow astroneer! This app might have a few missing objects I forgot to add to the database.
-            I also plan on fixing some UI issues at one point and on adding more features.
+            I hear you fellow astroneer! This app might have a few missing objects I forgot to add to the database. It is still a work in progress so it is very
+            likely that it has a few bugs I haven't noticed yet. The UI is also a work in progress and web design is not the area where I shine. I also plan to
+            add a few more features as shown in the TODO section below.
         </p>
         <p>
-            If you actually use the app and are bothered by something you are welcome to open an issue <a href="https://github.com/statox/assisteer/issues">here</a>.
+            If you actually use the app and are bothered by something you are welcome to open an issue <a target="blank" href="https://github.com/statox/assisteer/issues">here</a>.
             I'll have a look but there is no guarantee I'll fix the issue.
         </p>
         <p>
-            In the meantime I strongly encourage you to check <a href="https://astroneer.projects.matco.name/">this other
-                astroneer companion app</a> made by <a href="https://github.com/matco">Matthieu Corageoud</a>. It doesn't have the same features as this app but
+            In the meantime I strongly encourage you to check <a target="blank" href="https://astroneer.projects.matco.name/">this other
+                astroneer companion app</a> made by <a target="blank" href="https://github.com/matco">Matthieu Corageoud</a>. It doesn't have the same features as this app but
             the graph visualization works pretty well and the UI is quite enjoyable.
         </p>
         <h2>About tracking</h2>
-        <p>This app doesn't send any personal data to a server. The only tracking in place uses <a href="https://www.goatcounter.com/">GoatCounter</a>
+        <p>This app doesn't send any personal data to a server. The only tracking in place uses <a target="blank" href="https://www.goatcounter.com/">GoatCounter</a>
             a free and open source web analytics tool which respects the user's private data.
         </p>
         <p>I use it only to monitor the volume of traffic on the page so that I can stroke my ego and adapt my hosting solution if the app became popular.</p>
         <p>So no cookie for you here 🍪! However the app does use your browser's local storage to remember the objects you put in your project.</p>
     </div>
+    <div> 
+        <h2>TODO</h2>
+        <ul>
+            <li><b>Graph visualization</b> Reintroduce the tools in the graph. Support more layouts. Maybe reintroduce planets.</li>
+            <li><b>Storage analysis</b> Compute the number of platforms needed to store the objects in the project.</li>
+            <li><b>Exclude objects from Resource section</b> Allow objects to be marked as done so that then are not included in Resource List and Project Graph</li>
+            <li><b>Research</b> Show the bytes provided by different objects and resources.</li>
+            <li><b>Soil centrifuge</b> Add soil centrifuge mechanism to resource list</li>
+            <li><b>Trade platform</b> Add trade platform mechanism to resource list</li>
+            <li><b>Astropedia+ - objects</b> Allow each object to redirect to its own information page in the app</li>
+            <li><b>Astropedia+ - planets</b> Create a page to show the detailed informations of the planets (gases, gateway system infos, ...)</li>
+            <li><b>Astropedia+ - flora</b> Create a page to show the detailed informations of the flora</li>
+            <li><b>Project notes</b> Attach notes to projects to let the user keep track of where they put their resources, where are their project, etc...</li>
+            <li><b>Project saves</b> Allow the user to save multiple projects</li>
+        </ul>
+        <ul>
+            <li><b>Better use of component system</b> Create small components to show the objects names, quantities, icons and to show values and unities.</li>
+            <li><b>Markdown component</b> Find a way to process markdown files with svelte (particularly for the about page)</li>
+            <li><b>Object selection tweak</b> Improve the selection experience on mobile. Maybe revamp the UI completely to have the lists shown completely.</li>
+            <li><b>Graph refacto</b> Find another library than cytoscape</li>
+        </ul>
+    </div>
     <div>
         <h2>Changelog</h2>
+        <div>
+            <h3>v 0.3</h3>
+            <p>I've done a lot of clean up most of the code of v0.1 has been removed, this leaner code and new object structure allowed me to make progress much faster!</p>
+            <p>
+                The big improvement of this version is the new Power Analyser section! It looks at the objects in the project which produce, consume or store some power.
+                Based on these properties the section shows the production and consumption stats and compute the time it would approximatively take to fill or empty the batteries
+                with the different tools in the project. I think these stats will be pretty useful when planning a new project, I still need to test it on a full scale in-game project.
+                I will also have to add the coefficient depending on each planets sun and wind powers. The data is already there I have to implement the computations.
+            </p>
+            <p> 
+                The other big improvement of this version is how the UI has been strongly revamped. Now the different sections are shown in a tabbed interface to reduce the scrolling.
+                I also worked hard to add some CSS, I wanted to give an astroneer vibe but front end design really isn't my strong suit. Althought I'm now using the same font has
+                the official Astroneer website, I'm not sure I'm completely allowed to do it but it does look much better!
+            </p>
+            <p>New features in this version:</p>
+            <ul>
+                <li>The new Power Analyser section is here!</li>
+                <li>The different sections of the project planner are now shown in individual tabs</li>
+                <li>The details of the objects now show their byte cost, their power stats, tier and a link to the wiki.</li>
+                <li>The natural and atmospheric resources are now selectable in the inventory and the details show their availability on the planets.</li>
+                <li>Project inventory now shows the number of objects in the project and their corresponding unlock cost</li>
+                <li>The resource list now shows the planets for resources which are not available every where.</li>
+                <li>The user can now choose if the common resources in the graph should be split by final object or put in common for all</li>
+                <li>The user can choose between showing the icons or the in game images of in the resource list</li>
+                <li>These settings are now in a svelte store allowing to use them more easily</li>
+                <li>Introduced routing to the app so that the about page doesn't break the project planner anymore</li>
+                <li>Added a todo list in the about page to keep track of the next steps</li>
+            </ul>
+        </div>
+
         <div>
             <h3>v 0.2</h3>
             <p>v 0.2 is here</p>
@@ -79,7 +132,7 @@
             </p>
             <p>New features in this version:</p>
             <ul>
-                <li>Improved objects pickers with <a href="https://github.com/rob-balfre/svelte-select">svelte-select</a> making it easier to search the list of objects.
+                <li>Improved objects pickers with <a target="blank" href="https://github.com/rob-balfre/svelte-select">svelte-select</a> making it easier to search the list of objects.
                     <b>TODO</b>Add the list selection feature where the user can select a category and scroll through the items of this category.
                 </li>
                 <li>Improved view of the currently selected tool with its name, image and recipe. <b>TODO</b> Allow to select the recipe on objects with multiple recipes</li>
