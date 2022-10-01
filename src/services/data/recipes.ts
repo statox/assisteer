@@ -1,5 +1,5 @@
-import recipes from '../../data2/recipes.json'
-import rawResource from '../../data2/rawResources.json';
+import recipes from '../../data/recipes.json'
+import rawResource from '../../data/rawResources.json';
 import { BaseObject, getObject } from './objects';
 
 const getAllRecipesList = () => {

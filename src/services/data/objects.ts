@@ -1,6 +1,6 @@
-import rawResources from '../../data2/rawResources.json';
-import inventory from '../../data2/objects.json';
-import researchDetails from '../../data2/researchDetails.json';
+import rawResources from '../../data/rawResources.json';
+import inventory from '../../data/objects.json';
+import researchDetails from '../../data/researchDetails.json';
 
 type ObjectCategory =
     "natural" | "atmospheric" | "composite" | "refined"

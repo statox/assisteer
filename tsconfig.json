@@ -6,9 +6,7 @@
     "exclude": [
         "node_modules/*",
         "__sapper__/*",
-        "public/*",
-        "src/data2/notes/types_preparation.ts"
-
+        "public/*"
     ],
     "compilerOptions": {
         "isolatedModules": false,

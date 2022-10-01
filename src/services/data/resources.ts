@@ -1,4 +1,4 @@
-import resourcesDetails from '../../data2/resourcesDetails.json';
+import resourcesDetails from '../../data/resourcesDetails.json';
 import { getAllPlanets, Planet } from './planets';
 
 export type NaturalResourceLocation = {

@@ -1,4 +1,4 @@
-import planets from '../../data2/planets.json';
+import planets from '../../data/planets.json';
 
 type PlanetLocationDetails = {
     id: string;

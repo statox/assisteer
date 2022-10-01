@@ -1,5 +1,5 @@
-import producers from '../../data2/powerProducerDetails.json';
-import consumers from '../../data2/powerConsumerDetails.json';
+import producers from '../../data/powerProducerDetails.json';
+import consumers from '../../data/powerConsumerDetails.json';
 import type { Project } from '../project';
 import { BaseObject, getObject } from './objects';
 
