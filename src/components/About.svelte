@@ -83,11 +83,12 @@
             <li><b>Astropedia+ - flora</b> Create a page to show the detailed informations of the flora</li>
             <li><b>Project notes</b> Attach notes to projects to let the user keep track of where they put their resources, where are their project, etc...</li>
             <li><b>Project saves</b> Allow the user to save multiple projects</li>
+            <li><b>User guide</b> Add notice about potential spoilers and user guide explaining how to use each section</li>
         </ul>
         <ul>
             <li><b>Better use of component system</b> Create small components to show the objects names, quantities, icons and to show values and unities.</li>
             <li><b>Markdown component</b> Find a way to process markdown files with svelte (particularly for the about page)</li>
-            <li><b>Object selection tweak</b> Improve the selection experience on mobile. Maybe revamp the UI completely to have the lists shown completely.</li>
+            <li><b>Object selection tweak</b> Improve the selection experience on mobile. Sort by tier. Maybe revamp the UI completely to have the lists shown completely.</li>
             <li><b>Graph refacto</b> Find another library than cytoscape</li>
         </ul>
     </div>
