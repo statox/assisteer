@@ -9,6 +9,7 @@
 
     let objectsByCategory: ProjectObjectsByCategory = {};
 
+    let projectTotalObjectsCount = 0;
     let projectTotalUnlockCost = 0;
 
     const changeQuantity = (params: {
@@ -30,6 +31,7 @@
             objectsByCategory = getProjectObjectsByTier($project);
         }
         projectTotalUnlockCost = getProjectTotalUnlockCost($project);
+        projectTotalObjectsCount = Object.values($project).reduce((a, b) => a+b, 0);
     };
 
     const changeSortType = (value: "category" | "tier") => {
@@ -53,8 +55,11 @@
         {#if Object.keys($project).length !== 0}
             <div class="row align-items-center bottom-separator">
                 <div class="col-sm-4">
-                    <span class="important-word">Total unlock cost</span
-                    >&nbsp;<b>{projectTotalUnlockCost}</b>&nbsp;bytes
+                    <span class="important-word">Total objects count</span>
+                    &nbsp;<b>{projectTotalObjectsCount}</b>
+                    <br/>
+                    <span class="important-word">Total unlock cost</span>
+                    &nbsp;<b>{projectTotalUnlockCost}</b>&nbsp;bytes
                 </div>
                 <button
                     class="col-sm-4 btn-danger"
