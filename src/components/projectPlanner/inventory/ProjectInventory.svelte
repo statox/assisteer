@@ -3,7 +3,7 @@
     import type { BaseObject } from "../../../services/data/objects";
     import ObjectSelection from "./ObjectSelection.svelte";
     import ObjectDetails from "../objectDetails/ObjectDetails.svelte";
-    import ProjectObjectsList from "../ProjectObjectsList.svelte";
+    import ProjectObjectsList from "./ProjectObjectsList.svelte";
 
 
     let selection: {

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { afterUpdate, createEventDispatcher } from "svelte";
-    import { getProjectObjectsByCategory, getProjectObjectsByTier, getProjectTotalUnlockCost, ProjectObjectsByCategory } from "../../services/project";
-    import { project } from "../../stores";
+    import { getProjectObjectsByCategory, getProjectObjectsByTier, getProjectTotalUnlockCost, ProjectObjectsByCategory } from "../../../services/project";
+    import { project } from "../../../stores";
 
     const dispatch = createEventDispatcher();
     let collapsed = false;
