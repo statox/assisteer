@@ -59,10 +59,10 @@
                 <div class="row align-items-center bottom-separator">
                     <div class="col-sm-4">
                         <span class="important-word">Total objects count</span>
-                        &nbsp;<b>{projectTotalObjectsCount}</b>
+                        &nbsp;{projectTotalObjectsCount}
                         <br/>
                         <span class="important-word">Total unlock cost</span>
-                        &nbsp;<b>{projectTotalUnlockCost}</b>&nbsp;bytes
+                        &nbsp;{projectTotalUnlockCost}&nbsp;bytes
                     </div>
                     <button
                         class="col-sm-4 btn-danger"
@@ -119,7 +119,7 @@
                                             op: "dec",
                                         })}>-</button
                                 >
-                                &nbsp<b>{item.quantity}</b>&nbsp
+                                &nbsp{item.quantity}&nbsp
                                 <button
                                     on:click={() =>
                                         changeQuantity({

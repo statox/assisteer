@@ -116,15 +116,15 @@
                                 <tbody>
                                     <tr>
                                         <td>Max production</td>
-                                        <td><b>{projectData["producer"] .total}</b> U/s</td>
+                                        <td>{projectData["producer"].total} U/s</td>
                                     </tr>
                                     <tr>
                                         <td>Max consumption</td>
-                                        <td><b>{projectData["consumer"].total}</b> U/s</td>
+                                        <td>{projectData["consumer"].total} U/s</td>
                                     </tr>
                                     <tr>
                                         <td>Excess production</td>
-                                        <td><b class={projectData.exceedingProduction < 0 ? 'red' : 'green'}>{projectData.exceedingProduction}</b> U/s</td>
+                                        <td><span class={projectData.exceedingProduction < 0 ? 'red' : 'green'}>{projectData.exceedingProduction}</span> U/s</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -135,34 +135,36 @@
                                 <tbody>
                                     <tr>
                                         <td>Total capacity</td>
-                                        <td><b>{projectData["storage"].totalCapacity}</b> U</td>
+                                        <td>{projectData["storage"].totalCapacity} U</td>
                                     </tr>
                                     <tr>
                                         <td>Max throughput</td>
-                                        <td><b class={projectData["storage"].totalThroughput >= projectData["consumer"].total ? 'green' : 'red'}>{projectData["storage"].totalThroughput}
-                                        </b> U/s</td>
+                                        <td>
+                                            <span class={projectData["storage"].totalThroughput >= projectData["consumer"].total ? 'green' : 'red'}>{projectData["storage"].totalThroughput}</span>
+                                            U/s
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Time to fill</th>
                                     </tr>
                                     <tr>
                                         <td>All tools on</td>
-                                        <td><b class={projectData.secondsToFillStorage.withAllToolsOn > 0 ? 'green' : 'red'}>{projectData.secondsToFillStorage.withAllToolsOn}</b> s</td>
+                                        <td><span class={projectData.secondsToFillStorage.withAllToolsOn > 0 ? 'green' : 'red'}>{projectData.secondsToFillStorage.withAllToolsOn}</span> s</td>
                                     </tr>
                                     <tr>
                                         <td>All tools off</td>
-                                        <td><b>{projectData.secondsToFillStorage.withAllToolsOff}</b> s</td>
+                                        <td>{projectData.secondsToFillStorage.withAllToolsOff} s</td>
                                     </tr>
                                     <tr>
                                         <th>Time to empty</th>
                                     </tr>
                                     <tr>
                                         <td>Power on</td>
-                                        <td><b class={projectData.secondsToEmptyStorage.withPowerOn === 0 ? 'green' : 'red'}>{projectData.secondsToEmptyStorage.withPowerOn}</b> s</td>
+                                        <td><span class={projectData.secondsToEmptyStorage.withPowerOn === 0 ? 'green' : 'red'}>{projectData.secondsToEmptyStorage.withPowerOn}</span> s</td>
                                     </tr>
                                     <tr>
                                         <td>Power off</td>
-                                        <td><b>{projectData.secondsToEmptyStorage.withPowerOff}</b> s</td>
+                                        <td>{projectData.secondsToEmptyStorage.withPowerOff} s</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -196,10 +198,10 @@
                                         <!-- if is here for typeguard -->
                                         {#if item.powerStats.type === "producer"}
                                             <td>
-                                                {item.quantity} x <b>{item.powerStats.output}</b> U/s
+                                                {item.quantity} x {item.powerStats.output} U/s
                                             </td>
                                             <td>
-                                                <b>{item.quantity * item.powerStats.output}</b> U/s
+                                                {item.quantity * item.powerStats.output} U/s
                                             </td>
                                         {/if}
                                     </tr>
@@ -233,10 +235,10 @@
                                         <!-- if is here for typeguard -->
                                         {#if item.powerStats.type === "storage"}
                                             <td>
-                                                {item.quantity} x <b>{item.powerStats.capacity}</b> U
+                                                {item.quantity} x {item.powerStats.capacity} U
                                             </td>
                                             <td>
-                                                <b>{item.quantity * item.powerStats.capacity}</b> U
+                                                {item.quantity * item.powerStats.capacity} U
                                             </td>
                                         {/if}
                                     </tr>
@@ -270,10 +272,10 @@
                                         <!-- if is here for typeguard -->
                                         {#if item.powerStats.type === "consumer"}
                                             <td>
-                                                {item.quantity} x <b>{item.powerStats.input}</b> U/s
+                                                {item.quantity} x {item.powerStats.input} U/s
                                             </td>
                                             <td>
-                                                <b>{item.quantity * item.powerStats.input}</b> U/s
+                                                {item.quantity * item.powerStats.input} U/s
                                             </td>
                                         {/if}
                                     </tr>

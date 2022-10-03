@@ -43,7 +43,7 @@
                             <div>
                                 <span class="important-word"
                                     >Unlock cost&nbsp;</span
-                                >&nbsp;<b>{object.bytesRequired}</b> bytes
+                                >&nbsp;{object.bytesRequired} bytes
                             </div>
                             <div>
                                 <span class="important-word">Tier</span>

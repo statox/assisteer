@@ -36,7 +36,7 @@
                         alt={location.planet.labels.en}
                     />
 
-                    <b>{location.density}</b>&nbsp;ppm
+                    {location.density}&nbsp;ppm
                 </div>
             {/each}
         {/if}

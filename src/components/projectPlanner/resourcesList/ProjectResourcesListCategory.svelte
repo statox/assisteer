@@ -28,7 +28,7 @@
                     {#each Object.keys(categoryItems).sort(alphaSort) as objectName}
                         <li>
                             <span>
-                                <b>{categoryItems[objectName]}</b>
+                                {categoryItems[objectName]}
                                 &nbsp;<img
                                     class="resource-icon"
                                     src={getObject(objectName).url[$settings.pictureType]}

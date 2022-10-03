@@ -23,7 +23,7 @@
                 <span class="important-word">
                     Power production&nbsp;
                 </span>
-                <b>{objectPowerStats.output}</b>&nbsp;U/s
+                {objectPowerStats.output}&nbsp;U/s
             </div>
         {/if}
         {#if objectPowerStats.type === "storage"}
@@ -31,13 +31,13 @@
                 <span class="important-word">
                     Power production&nbsp;
                 </span>
-                <b>{objectPowerStats.output}</b>&nbsp;U/s
+                {objectPowerStats.output}&nbsp;U/s
             </div>
             <div>
                 <span class="important-word">
                     Power capacity&nbsp;
                 </span>
-                <b>{objectPowerStats.capacity}</b>&nbsp;U
+                {objectPowerStats.capacity}&nbsp;U
             </div>
         {/if}
         {#if objectPowerStats.type === "consumer"}
@@ -45,7 +45,7 @@
                 <span class="important-word">
                     Power drain&nbsp;
                 </span>
-                <b>{objectPowerStats.input}</b>&nbsp;U/s
+                {objectPowerStats.input}&nbsp;U/s
             </div>
         {/if}
     {/if}

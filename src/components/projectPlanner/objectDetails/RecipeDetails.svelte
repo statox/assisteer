@@ -46,7 +46,7 @@
                     {#each Object.keys(recipe.resources).sort(alphaSort) as resource}
                         <li>
                             <span>
-                                <b>{recipe.resources[resource]}</b>
+                                {recipe.resources[resource]}
                                 &nbsp;<img
                                     class="resource-icon"
                                     src={getObject(resource).url[$settings.pictureType]}

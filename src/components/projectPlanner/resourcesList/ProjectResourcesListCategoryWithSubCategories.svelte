@@ -55,7 +55,7 @@
                         {#each Object.keys(sortedItems[classification]).sort(alphaSort) as objectName}
                             <li>
                                 <span>
-                                    <b>{categoryItems[objectName]}</b>
+                                    {categoryItems[objectName]}
                                     &nbsp;<img
                                         class="resource-icon"
                                         src={getObject(objectName).url[
