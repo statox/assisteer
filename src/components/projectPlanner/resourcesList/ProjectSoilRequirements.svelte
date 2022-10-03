@@ -17,7 +17,7 @@
 
 <main class:hidden={!soilRequirements || soilRequirements.total === 0}>
     <div class="row" class:hidden={collapsed === true}>
-        <div class="col">
+        <div class="col-xs-12 col-sm-6">
             <h4 class="content-subheader">
                 Soil requirements
             </h4>

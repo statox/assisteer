@@ -61,19 +61,48 @@
             {:else}
                 <ProjectSoilRequirements {resourcesList} />
             {/if}
-            {#each sortedCategories as category}
-                {#if ["natural", "refined"].includes(category)}
-                    <ProjectResourcesListCategoryWithSubCategories
-                        categoryName={category}
-                        categoryItems={resourcesList[category]}
-                    />
-                {:else}
-                    <ProjectResourcesListCategory
-                        categoryName={category}
-                        categoryItems={resourcesList[category]}
-                    />
+            <div class="row">
+                {#if sortedCategories.includes("special_resource")}
+                    <div class="col-sm-12 col-md-6">
+                        <ProjectResourcesListCategory
+                            categoryName={"special_resource"}
+                            categoryItems={resourcesList.special_resource}
+                        />
+                    </div>
                 {/if}
-            {/each}
+                {#if sortedCategories.includes("atmospheric")}
+                    <div class="col-sm-12 col-md-6">
+                        <ProjectResourcesListCategory
+                            categoryName={"atmospheric"}
+                            categoryItems={resourcesList.atmospheric}
+                        />
+                    </div>
+                {/if}
+                {#if sortedCategories.includes("natural")}
+                    <div class="col-xs-12">
+                        <ProjectResourcesListCategoryWithSubCategories
+                            categoryName={"natural"}
+                            categoryItems={resourcesList.natural}
+                        />
+                    </div>
+                {/if}
+                {#if sortedCategories.includes("refined")}
+                    <div class="col-sm-12 col-md-6">
+                        <ProjectResourcesListCategoryWithSubCategories
+                            categoryName={"refined"}
+                            categoryItems={resourcesList.refined}
+                        />
+                    </div>
+                {/if}
+                {#if sortedCategories.includes("composite")}
+                    <div class="col-sm-12 col-md-6">
+                        <ProjectResourcesListCategory
+                            categoryName={"composite"}
+                            categoryItems={resourcesList.composite}
+                        />
+                    </div>
+                {/if}
+            </div>
         </div>
     </div>
 </main>
