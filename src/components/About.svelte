@@ -84,6 +84,10 @@
             <li><b>Project notes</b> Attach notes to projects to let the user keep track of where they put their resources, where are their project, etc...</li>
             <li><b>Project saves</b> Allow the user to save multiple projects</li>
             <li><b>User guide</b> Add notice about potential spoilers and user guide explaining how to use each section</li>
+            <li><b>Scrap production planner</b> Think how to help automate scrap farms based on the scrap value of objects when shredded</li>
+            <li><b>Add object modal</b> Asses how to move the Object Selection in a modal window so that use can add objects to project from any tab. Also the
+                modal could also show the Astropedia+ entry when it exists.
+            </li>
         </ul>
         <ul>
             <li><b>Better use of component system</b> Create small components to show the objects names, quantities, icons and to show values and unities.</li>
