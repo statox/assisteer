@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Router, Route, Link } from "svelte-routing";
-    import home from "./routes/home.svelte";
-    import about from "./routes/about.svelte";
+    import Home from "./routes/home.svelte";
+    import About from "./routes/about.svelte";
     import Header from "./components/Header.svelte";
     import Footer from "./components/Footer.svelte";
 
@@ -17,8 +17,8 @@
         <Link to="/about/"><span class="nav-item">About</span></Link>
     </nav>
     <div>
-        <Route path="/" component={home} />
-        <Route path="/about/" component={about} />
+        <Route path="/"><Home /></Route>
+        <Route path="/about/"><About /></Route>
     </div>
 </Router>
 
