@@ -17,6 +17,8 @@
         const storedSelectedPlanetId = localStorage.getItem('selectedPlanet');
         if (storedSelectedPlanetId !== null) {
             selectedPlanet = planets.find(p => p.id === storedSelectedPlanetId) || planets[0];
+        } else {
+            selectedPlanet = planets[0];
         }
     } catch (e) {
         selectedPlanet = planets[0];
