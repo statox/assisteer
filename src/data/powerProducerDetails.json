@@ -1,49 +1,62 @@
 {
     "extra large wind turbine": {
-        "output": 17
+        "output": 17,
+        "category": "wind"
     },
     "field shelter": {
-        "output": 0.5
+        "output": 0.5,
+        "category": "other"
     },
     "large solar panel": {
-        "output": 8
+        "output": 8,
+        "category": "solar"
     },
     "large wind turbine": {
-        "output": 10
+        "output": 10,
+        "category": "wind"
     },
     "medium battery": {
         "output": 5,
         "capacity": 512
     },
     "medium generator": {
-        "output": 9
+        "output": 9,
+        "category": "organic"
     },
     "medium solar panel": {
-        "output": 4
+        "output": 4,
+        "category": "solar"
     },
     "medium wind turbine": {
-        "output": 5
+        "output": 5,
+        "category": "wind"
     },
     "rtg": {
-        "output": 4
+        "output": 4,
+        "category": "other"
     },
     "shelter": {
-        "output": 1
+        "output": 1,
+        "category": "other"
     },
     "small generator": {
-        "output": 2
+        "output": 2,
+        "category": "organic"
     },
     "small solar panel": {
-        "output": 1
+        "output": 1,
+        "category": "solar"
     },
     "small wind turbine": {
-        "output": 1.5
+        "output": 1.5,
+        "category": "wind"
     },
     "small battery": {
         "output": 1,
         "capacity": 32
     },
     "solar array": {
-        "output": 14
+        "output": 14,
+        "category": "solar"
     }
 }

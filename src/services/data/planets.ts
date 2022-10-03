@@ -21,6 +21,7 @@ export type Planet = {
         dayNightCycleSeconds: number,
         sun: "very low" | "low" | "medium" | "high" | "very high";
         wind: "very low" | "low" | "medium" | "high" | "very high";
+        wikiWindCoefficient: number; // The wiki says the wind coeffients are not related to the planets wind power category
     };
     gatewayNetwork: {
         gatewayPower: number;

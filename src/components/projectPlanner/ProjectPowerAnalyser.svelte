@@ -1,29 +1,33 @@
 <script lang="ts">
-    import { afterUpdate } from "svelte";
+    import { getAllPlanets } from "../../services/data/planets";
     import {
         getProjectPowerStats,
         ProjectPowerStats,
     } from "../../services/data/power";
     import { project } from "../../stores";
 
+    const planets = getAllPlanets();
     let collapsed = false;
     let hasDataToShow = false;
+    let selectedPlanet = planets[0];
 
     let projectData: ProjectPowerStats;
 
     const updateProjectData = () => {
-        projectData = getProjectPowerStats($project);
+        projectData = getProjectPowerStats($project, selectedPlanet);
         hasDataToShow = projectData.storage.totalCapacity > 0 ||
             projectData.consumer.total > 0 ||
             projectData.producer.total > 0;
     };
 
-    afterUpdate(() => {
-        if (!$project) {
-            return;
-        }
-        updateProjectData();
-    });
+    $: {
+        (() => {
+            if (!$project || !selectedPlanet) {
+                return;
+            }
+            updateProjectData();
+        })();
+    }
 </script>
 
 <main>
@@ -38,13 +42,53 @@
             {#if projectData}
                 {#if projectData["producer"].total > 0 || projectData["consumer"].total > 0 || projectData["storage"].totalCapacity > 0}
                     <div class="info small-text">
-                        The computations use the reference values for each parameters:
+                        Select the planet you want to host your project, the tool will compute your power needs using several factors:
                         <ul>
-                            <li>The throughput values of the power sources are the ones on Sylva and the variations in daylight and wind conditions are not factored in</li>
+                            <li>The solar panels efficiency is factored with the <a target="blank" href="https://astroneer.fandom.com/wiki/Solar_Panels">coefficients from the wiki</a></li>
+                            <li>The length of the daylight cycle is not factored, all values are for day light time.</li>
+                            <li>
+                                The wind turbines active time is factored with the <a target="blank" href="https://astroneer.fandom.com/wiki/Wind_Turbines">coefficients from the wiki</a>.
+                                Note that these coefficients might differ even in planets showing the same wind power in Astropedia.
                             <li>The tools are assumed to be working constanstly at full capacity</li>
                         </ul>
-                        Your in-game experience will probably differ from the computed values, these are just for reference.
-                        <i>You can find the coefficient for each planet in the wiki</i>
+                        Your in-game experience might differ from the computed values, these are just for reference.
+                    </div>
+                    <div class="row row-cols-auto">
+                        <h4 class="content-subheader">Planet to setup the project</h4>
+                        {#each planets as planet}
+                            <div
+                                class="col planet-div"
+                                class:selected={planet.id === selectedPlanet.id}
+                                on:click={() => selectedPlanet = planet}
+                            >
+                                <span class="important-word">
+                                    <b class="planet-name">{planet.id}</b>
+                                    &nbsp;
+                                    <img class="img-fluid text-sized-image"
+                                        src={planet.url.icon}
+                                        alt={planet.id}
+                                    />
+                                </span>
+                                <div>
+                                    <img class="img-fluid planet-img rounded-circle"
+                                        src={planet.url.image}
+                                        alt={planet.id}
+                                    />
+                                </div>
+                                <div>
+                                    <span class="important-word">Solar </span>{planet.power.sun}
+                                </div>
+                                <div>
+                                    <span class="important-word">Wind </span>{planet.power.wind}
+                                </div>
+                                <div>
+                                    <span class="important-word">Wind turbines avg. active time </span>{Math.round(planet.power.wikiWindCoefficient * 100)}%
+                                </div>
+                                <div>
+                                    <span class="important-word">Daylight cycle </span>{planet.power.dayNightCycleSeconds} s
+                                </div>
+                            </div>
+                        {/each}
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -225,6 +269,22 @@
 </main>
 
 <style>
+    .planet-name {
+        font-size: 1.2em;
+    }
+    .planet-img {
+        max-width: 5vw;
+    }
+    .planet-div {
+        margin: 1vw;
+        border: 3px solid transparent;
+        border-radius: 5px;
+    }
+    .planet-div.selected {
+        background: #d6edff;
+        border: 3px solid var(--blue);
+        border-radius: 5px;
+    }
     .table-borderless tr {
         border: 0;
     }
@@ -238,7 +298,7 @@
         color: lightgreen;
     }
     .small-text {
-        font-size: 0.7em;
+        font-size: 0.9em;
     }
     .small-header {
         font-size: 0.7em;

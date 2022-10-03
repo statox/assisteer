@@ -2,9 +2,11 @@ import producers from '../../data/powerProducerDetails.json';
 import consumers from '../../data/powerConsumerDetails.json';
 import type { Project } from '../project';
 import { BaseObject, getObject } from './objects';
+import type { Planet } from './planets';
 
 type PowerProducer = {
     type: "producer"
+    category: "wind" | "solar" | "organic" | "other";
     output: number;
 };
 
@@ -20,6 +22,15 @@ type PowerStorage = {
 }
 
 export type ObjectPowerStats = PowerProducer | PowerConsumer | PowerStorage;
+
+// https://astroneer.fandom.com/wiki/Power
+const solarCoefficientsByName = {
+    "very low": 0.25,
+    "low": 0.5,
+    "medium": 1,
+    "high": 1.5,
+    "very high": 1.75
+}
 
 const getObjectPowerStats = (objectName: string): ObjectPowerStats => {
     if (producers[objectName]) {
@@ -69,7 +80,7 @@ export type ProjectPowerStats = {
     }
 }
 
-const getProjectPowerStats = (project: Project): ProjectPowerStats => {
+const getProjectPowerStats = (project: Project, planet: Planet): ProjectPowerStats => {
     const projectPowerStats: ProjectPowerStats = {
         consumer: {
             total: 0, items: []
@@ -104,7 +115,14 @@ const getProjectPowerStats = (project: Project): ProjectPowerStats => {
             projectPowerStats[objectType].total += quantity * powerStats.input;
         }
         if (objectType === 'producer') {
-            projectPowerStats[objectType].total += quantity * powerStats.output;
+            let planetCoefficient = 1;
+            if (powerStats.category === 'solar') {
+                planetCoefficient = solarCoefficientsByName[planet.power.sun];
+            }
+            if (powerStats.category === 'wind') {
+                planetCoefficient = planet.power.wikiWindCoefficient;
+            }
+            projectPowerStats[objectType].total += quantity * powerStats.output * planetCoefficient;
         }
         if (objectType === 'storage') {
             projectPowerStats[objectType].totalCapacity += quantity * powerStats.capacity;
