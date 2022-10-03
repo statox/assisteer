@@ -76,8 +76,8 @@
             <li><b>Storage analysis</b> Compute the number of platforms needed to store the objects in the project.</li>
             <li><b>Exclude objects from Resource section</b> Allow objects to be marked as done so that then are not included in Resource List and Project Graph</li>
             <li><b>Research</b> Show the bytes provided by different objects and resources.</li>
-            <li><b>Soil centrifuge</b> Add soil centrifuge mechanism to resource list</li>
-            <li><b>Trade platform</b> Add trade platform mechanism to resource list</li>
+            <li><s><b>Soil centrifuge</b> Add soil centrifuge mechanism to resource list</s></li>
+            <li><s><b>Trade platform</b> Add trade platform mechanism to resource list</s></li>
             <li><b>Astropedia+ - objects</b> Allow each object to redirect to its own information page in the app</li>
             <li><b>Astropedia+ - planets</b> Create a page to show the detailed informations of the planets (gases, gateway system infos, ...)</li>
             <li><b>Astropedia+ - flora</b> Create a page to show the detailed informations of the flora</li>
