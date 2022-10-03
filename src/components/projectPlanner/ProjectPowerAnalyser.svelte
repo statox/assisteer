@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getAllPlanets } from "../../services/data/planets";
+    import { getAllPlanets, Planet } from "../../services/data/planets";
     import {
         getProjectPowerStats,
         ProjectPowerStats,
@@ -9,9 +9,20 @@
     const planets = getAllPlanets();
     let collapsed = false;
     let hasDataToShow = false;
-    let selectedPlanet = planets[0];
-
     let projectData: ProjectPowerStats;
+
+    // TODO store the selected planet as part of the project
+    let selectedPlanet: Planet;
+    try {
+        const storedSelectedPlanetId = localStorage.getItem('selectedPlanet');
+        if (storedSelectedPlanetId !== null) {
+            selectedPlanet = planets.find(p => p.id === storedSelectedPlanetId) || planets[0];
+        }
+    } catch (e) {
+        selectedPlanet = planets[0];
+        console.error("Could not retrieve the selected planet from local storage");
+        console.error(e);
+    }
 
     const updateProjectData = () => {
         projectData = getProjectPowerStats($project, selectedPlanet);
@@ -26,6 +37,12 @@
                 return;
             }
             updateProjectData();
+            try {
+                localStorage.setItem('selectedPlanet', selectedPlanet.id);
+            } catch (e) {
+                console.error("Could not store the selected planet in local storage");
+                console.error(e);
+            }
         })();
     }
 </script>
