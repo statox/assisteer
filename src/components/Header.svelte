@@ -1,6 +1,12 @@
 <main>
     <header>
-        <h1 class="main-title">ASSISTEER</h1>
+        <h1 class="main-title">
+            <img class="img-fluid title-img"
+                src="./icon.png"
+                alt="assisteer logo"
+            />
+            ASSISTEER
+        </h1>
     </header>
 </main>
 
@@ -10,6 +16,9 @@
         color: white;
         /* TODO There is probably a better way to make text-shadow responsive */
         text-shadow: 0.5vw 0.5vw black;
-        font-size: 8vw;
+        font-size: max(8vw, 50px);
+    }
+    .title-img {
+        height: min(1em, 130px);
     }
 </style>
