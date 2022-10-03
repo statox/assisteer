@@ -1,3 +1,4 @@
+import soilCentrifuge from "../data/soilCentrifuge.json";
 import { BaseObject, getObject, getObjectUnlockCost } from "./data/objects";
 import { getObjectDefaultRecipe, getRecipeDependenciesTree } from "./data/recipes";
 
@@ -125,6 +126,50 @@ const getProjectResourcesByCategories = (project: Project): ProjectLightResource
     return list;
 }
 
+// Number of resources produced with 1 soild canister
+export type SoilRequirements = {
+    total: number,
+    byResource: {
+        [resourceName: string]: {
+            soilRequired: number,
+            quantityProduced: number,
+            surplus: number
+        }
+    }
+}
+const getResourcesSoilRequirements = (projectResources: ProjectLightResourcesByCategory): SoilRequirements => {
+    const soilRequirements = {
+        total: 0,
+        byResource: {}
+    };
+
+    if (!projectResources || !projectResources['natural']) {
+        return soilRequirements;
+    }
+
+    const { soilProduction } = soilCentrifuge;
+
+    for (const resourceName of Object.keys(projectResources['natural'])) {
+        const quantity = projectResources['natural'][resourceName];
+        if (!soilProduction[resourceName]) {
+            continue;
+        }
+        const requiredSoilForResource = Math.ceil(quantity / soilProduction[resourceName]);
+        soilRequirements.total += requiredSoilForResource;
+
+        const soilRequired = requiredSoilForResource;
+        const quantityProduced = requiredSoilForResource * soilProduction[resourceName];
+        const surplus = quantityProduced - quantity;
+
+        soilRequirements.byResource[resourceName] = {
+            soilRequired,
+            quantityProduced,
+            surplus
+        }
+    }
+    return soilRequirements;
+}
+
 type ProjectObject = {
     objectName: string;
     object: BaseObject;
@@ -182,6 +227,7 @@ export {
     getProjectObjectsByTier,
     getProjectResourcesByCategories,
     getProjectTotalUnlockCost,
+    getResourcesSoilRequirements,
     projectToFlatTree,
     ProjectLightResourcesByCategory,
     ProjectObjectsByCategory,

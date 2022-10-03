@@ -1,0 +1,11 @@
+{
+    "soilProduction": {
+        "compound": 4,
+        "resin": 4,
+        "organic": 4,
+        "clay": 3,
+        "quartz": 2,
+        "graphite": 1,
+        "ammonium": 0.5
+    }
+}

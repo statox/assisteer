@@ -7,6 +7,7 @@
     import { project } from "../../../stores";
     import ProjectResourcesListCategory from "./ProjectResourcesListCategory.svelte";
     import ProjectResourcesListCategoryWithSubCategories from "./ProjectResourcesListCategoryWithSubCategories.svelte";
+    import ProjectSoilRequirements from "./ProjectSoilRequirements.svelte";
 
     let collapsed = false;
 
@@ -18,7 +19,7 @@
         composite: 5,
     };
 
-    let resourcesList: ProjectLightResourcesByCategory = {};
+    let resourcesList: ProjectLightResourcesByCategory;
     let sortedCategories = [];
 
     afterUpdate(() => {
@@ -57,6 +58,8 @@
         <div class:hidden={collapsed === true}>
             {#if sortedCategories.length === 0}
                 <p>Nothing to show. Add objects to the project in the Inventory section.</p>
+            {:else}
+                <ProjectSoilRequirements {resourcesList} />
             {/if}
             {#each sortedCategories as category}
                 {#if ["natural", "refined"].includes(category)}
