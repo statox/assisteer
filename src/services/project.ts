@@ -1,4 +1,4 @@
-import soilCentrifuge from "../data/soilCentrifuge.json";
+import exchangeRates from "../data/exchangeRates.json";
 import { BaseObject, getObject, getObjectUnlockCost } from "./data/objects";
 import { getObjectDefaultRecipe, getRecipeDependenciesTree } from "./data/recipes";
 
@@ -126,7 +126,6 @@ const getProjectResourcesByCategories = (project: Project): ProjectLightResource
     return list;
 }
 
-// Number of resources produced with 1 soild canister
 export type SoilRequirements = {
     total: number,
     byResource: {
@@ -147,7 +146,7 @@ const getResourcesSoilRequirements = (projectResources: ProjectLightResourcesByC
         return soilRequirements;
     }
 
-    const { soilProduction } = soilCentrifuge;
+    const soilProduction = exchangeRates.soilCentrifuge;
 
     for (const resourceName of Object.keys(projectResources['natural'])) {
         const quantity = projectResources['natural'][resourceName];
@@ -168,6 +167,51 @@ const getResourcesSoilRequirements = (projectResources: ProjectLightResourcesByC
         }
     }
     return soilRequirements;
+}
+
+export type ScrapRequirements = {
+    total: number,
+    byResource: {
+        [resourceName: string]: {
+            scrapRequired: number,
+            quantityProduced: number,
+            surplus: number
+        }
+    }
+}
+const getResourcesScrapRequirement = (projectResources: ProjectLightResourcesByCategory): ScrapRequirements => {
+    const scrapRequirements = {
+        total: 0,
+        byResource: {}
+    };
+
+    if (!projectResources || !projectResources['natural']) {
+        return scrapRequirements;
+    }
+
+    const scrapProduction = exchangeRates.tradePlatformScrap;
+
+    for (const resourceName of Object.keys(projectResources['natural'])) {
+        const quantity = projectResources['natural'][resourceName];
+        if (!scrapProduction[resourceName]) {
+            continue;
+        }
+
+        const requiredScrapBundlesForResource = Math.ceil(quantity / scrapProduction[resourceName].item);
+        const requiredScrapForResource = requiredScrapBundlesForResource * scrapProduction[resourceName].scrap;
+        const quantityProduced = requiredScrapBundlesForResource * scrapProduction[resourceName].item;
+        const surplus = quantityProduced - quantity;
+
+        scrapRequirements.total += requiredScrapForResource;
+
+        scrapRequirements.byResource[resourceName] = {
+            scrapRequired: requiredScrapForResource,
+            quantityProduced,
+            surplus
+        }
+    }
+
+    return scrapRequirements;
 }
 
 type ProjectObject = {
@@ -227,6 +271,7 @@ export {
     getProjectObjectsByTier,
     getProjectResourcesByCategories,
     getProjectTotalUnlockCost,
+    getResourcesScrapRequirement,
     getResourcesSoilRequirements,
     projectToFlatTree,
     ProjectLightResourcesByCategory,

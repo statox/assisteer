@@ -1,0 +1,69 @@
+{
+    "soilCentrifuge": {
+        "compound": 4,
+        "resin": 4,
+        "organic": 4,
+        "clay": 3,
+        "quartz": 2,
+        "graphite": 1,
+        "ammonium": 0.5
+    },
+    "tradePlatformScrap": {
+        "compound": {
+            "scrap": 1,
+            "item": 2
+        },
+        "resin": {
+            "scrap": 1,
+            "item": 2
+        },
+        "organic": {
+            "scrap": 1,
+            "item": 2
+        },
+        "clay": {
+            "scrap": 1,
+            "item": 2
+        },
+        "quartz": {
+            "scrap": 1,
+            "item": 2
+        },
+        "graphite": {
+            "scrap": 1,
+            "item": 2
+        },
+        "sphalerite": {
+            "scrap": 1,
+            "item": 2
+        },
+        "ammonium": {
+            "scrap": 1,
+            "item": 1
+        },
+        "laterite": {
+            "scrap": 1,
+            "item": 1
+        },
+        "malachite": {
+            "scrap": 1,
+            "item": 1
+        },
+        "wolframite": {
+            "scrap": 3,
+            "item": 2
+        },
+        "hematite": {
+            "scrap": 3,
+            "item": 2
+        },
+        "titanite": {
+            "scrap": 2,
+            "item": 1
+        },
+        "lithium": {
+            "scrap": 4,
+            "item": 1
+        }
+    }
+}
