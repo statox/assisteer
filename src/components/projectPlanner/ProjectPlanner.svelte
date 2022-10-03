@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { activeSection } from "../../stores";
     import ProjectResourcesList from "./resourcesList/ProjectResourcesList.svelte";
     import ProjectGraph from "./ProjectGraph.svelte";
     import ProjectPowerAnalyser from "./ProjectPowerAnalyser.svelte";
@@ -11,31 +12,32 @@
         "power": "Power",
         "settings": "Settings"
     }
-    let activeSection = "inventory";
 </script>
 
 <main>
         <div class="content-section row nav-menu">
             {#each ["inventory", "resources", "power", "settings"] as section}
-                <span
-                    class="col nav-item h4"
-                    class:selected={activeSection === section}
-                    on:click={() => (activeSection = section)}>{sectionsNames[section]}</span
-                >
+                <div class="col-xs-1 col-sm-3">
+                    <span
+                        class="nav-item h4"
+                        class:selected={$activeSection === section}
+                        on:click={() => ($activeSection = section)}>{sectionsNames[section]}
+                    </span>
+                </div>
             {/each}
         </div>
 
-        {#if activeSection === "inventory"}
+        {#if $activeSection === "inventory"}
             <ProjectInventory />
         {/if}
-        {#if activeSection === "resources"}
+        {#if $activeSection === "resources"}
             <ProjectResourcesList />
             <ProjectGraph />
         {/if}
-        {#if activeSection === "settings"}
+        {#if $activeSection === "settings"}
             <ProjectSettings />
         {/if}
-        {#if activeSection === "power"}
+        {#if $activeSection === "power"}
             <ProjectPowerAnalyser />
         {/if}
 </main>
