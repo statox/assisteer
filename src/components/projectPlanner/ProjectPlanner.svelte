@@ -3,6 +3,7 @@
     import ProjectResourcesList from "./resourcesList/ProjectResourcesList.svelte";
     import ProjectGraph from "./ProjectGraph.svelte";
     import ProjectPowerAnalyser from "./ProjectPowerAnalyser.svelte";
+    import ProjectStorageAnalyser from "./ProjectStorageAnalyser.svelte";
     import ProjectSettings from "./ProjectSettings.svelte";
     import ProjectInventory from "./inventory/ProjectInventory.svelte";
 
@@ -10,14 +11,15 @@
         "inventory": "Inventory",
         "resources": "Resources",
         "power": "Power",
+        "storage": "Storage",
         "settings": "Settings"
     }
 </script>
 
 <main>
         <div class="content-section row nav-menu">
-            {#each ["inventory", "resources", "power", "settings"] as section}
-                <div class="col-xs-1 col-sm-3">
+            {#each ["inventory", "resources", "power", "storage", "settings"] as section}
+                <div class="col-xs-1 col-sm-2">
                     <span
                         class="nav-item h4"
                         class:selected={$activeSection === section}
@@ -33,6 +35,9 @@
         {#if $activeSection === "resources"}
             <ProjectResourcesList />
             <ProjectGraph />
+        {/if}
+        {#if $activeSection === "storage"}
+            <ProjectStorageAnalyser />
         {/if}
         {#if $activeSection === "settings"}
             <ProjectSettings />
