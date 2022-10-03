@@ -1,6 +1,7 @@
 <script lang="ts">
     import { afterUpdate, createEventDispatcher } from "svelte";
     import { getProjectObjectsByCategory, getProjectObjectsByTier, getProjectTotalUnlockCost, ProjectObjectsByCategory } from "../../../services/project";
+    import { alphaSort } from "../../../services/utils";
     import { project } from "../../../stores";
 
     const dispatch = createEventDispatcher();
@@ -20,8 +21,6 @@
         dispatch("updateQuantity", { objectName, op });
         updateProjectData();
     };
-
-    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     const updateProjectData = () => {
         if (sortType === "category") {

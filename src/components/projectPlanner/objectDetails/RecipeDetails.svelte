@@ -6,11 +6,10 @@
         getObjectDefaultRecipe,
         Recipe,
     } from "../../../services/data/recipes";
+    import { alphaSort } from "../../../services/utils";
     export let object: BaseObject;
     let recipe: Recipe;
     let tool: BaseObject;
-
-    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     afterUpdate(() => {
         if (!object) {

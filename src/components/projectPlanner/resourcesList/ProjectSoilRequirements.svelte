@@ -2,12 +2,11 @@
     import { settings } from "../../../stores";
     import { getObject } from "../../../services/data/objects";
     import { getResourcesSoilRequirements, ProjectLightResourcesByCategory, SoilRequirements } from "../../../services/project";
+    import { alphaSort } from "../../../services/utils";
 
     export let resourcesList: ProjectLightResourcesByCategory;
     let soilRequirements: SoilRequirements;
     let collapsed = false;
-
-    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     $: {
         soilRequirements = getResourcesSoilRequirements(resourcesList);

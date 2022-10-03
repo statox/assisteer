@@ -6,6 +6,7 @@
         getAllObjectsNames,
         getObject,
     } from "../../../services/data/objects";
+    import { alphaSort } from "../../../services/utils";
 
     const dispatch = createEventDispatcher();
     const allObjectNames = getAllObjectsNames();
@@ -21,7 +22,6 @@
         group: string;
     }
 
-    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
     const canAddToProject = (object: BaseObject) =>
         object && !["atmospheric", "natural"].includes(object.category);
 

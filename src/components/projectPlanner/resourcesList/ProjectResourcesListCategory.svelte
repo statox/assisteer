@@ -2,13 +2,12 @@
     import { afterUpdate } from "svelte";
     import { getObject } from "../../../services/data/objects";
     import { getAlmosphericResourceLocation } from "../../../services/data/resources";
+    import { alphaSort } from "../../../services/utils";
     import { settings } from "../../../stores";
 
     export let categoryName: string;
     export let categoryItems: any;
     let totalResourcesInCategory = 0;
-
-    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     afterUpdate(() => {
         totalResourcesInCategory = 0;

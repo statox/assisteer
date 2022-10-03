@@ -6,6 +6,7 @@
         getResourceDetails,
         NaturalResourceLocation,
     } from "../../../services/data/resources";
+    import { alphaSort } from "../../../services/utils";
     import { settings } from "../../../stores";
 
     export let categoryName: string;
@@ -21,7 +22,6 @@
     const subCatSort = (a: string, b: string) =>
         favoriteSubCategoriesOrder.indexOf(a) -
         favoriteSubCategoriesOrder.indexOf(b);
-    const alphaSort = (a: string, b: string) => (a < b ? -1 : 1);
 
     afterUpdate(() => {
         sortedItems = {};
