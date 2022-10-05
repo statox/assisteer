@@ -17,14 +17,14 @@
 </script>
 
 <main>
-        <div class="content-section row nav-menu">
+        <div class="nav-menu d-flex flex-row flex-wrap justify-content-evenly">
             {#each ["inventory", "resources", "power", "storage", "settings"] as section}
-                <div class="col-xs-1 col-sm-2">
-                    <span
-                        class="nav-item h4"
+                <div class="mx-1" class:ms-sm-auto={section === "settings"}>
+                    <button
+                        class="nav-item"
                         class:selected={$activeSection === section}
                         on:click={() => ($activeSection = section)}>{sectionsNames[section]}
-                    </span>
+                    </button>
                 </div>
             {/each}
         </div>
@@ -50,11 +50,12 @@
 <style>
     .nav-menu {
         text-align: center;
-        background: var(--blue);
-        padding: 5px;
+
+        padding: 10px;
+        margin: 10px;
     }
     .nav-item {
-        color: var(--white);
+        color: var(--blue);
         font-family: astroneer-bold;
     }
     .nav-item.selected {
