@@ -20,7 +20,23 @@
             Storage analyser
         </h3>
         <div>
-            {JSON.stringify(storageStats, null, 4)}
+            Count by tier: {storageStats.countByTier}
+        </div>
+        <div>
+            Total object count: {storageStats.objectTotalCount}
+        </div>
+        <div>
+            Canister storage:
+            {#each Object.keys(storageStats.canistersCapacitybyType) as type}
+                <div>
+                {type}
+                    {#each Object.keys(storageStats.canistersCapacitybyType[type]) as canister}
+                    <div>
+                    {JSON.stringify(storageStats.canistersCapacitybyType[type][canister])}
+                    </div>
+                    {/each}
+                </div>
+            {/each}
         </div>
     </div>
 </main>

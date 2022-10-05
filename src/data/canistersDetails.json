@@ -1,0 +1,22 @@
+{
+    "large resource canister": {
+        "holds": "resources",
+        "capacity": 400
+    },
+    "medium fluid & soil canister": {
+        "holds": "fluid_soil",
+        "capacity": 24
+    },
+    "medium gas canister": {
+        "holds": "gases",
+        "capacity": 160
+    },
+    "medium resource canister": {
+        "holds": "resources",
+        "capacity": 32
+    },
+    "small canister": {
+        "holds": "fluid_soil",
+        "capacity": 1
+    }
+}
