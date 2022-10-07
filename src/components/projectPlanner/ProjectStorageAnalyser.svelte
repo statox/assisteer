@@ -20,7 +20,7 @@
             Storage analyser
         </h3>
         <div>
-            Count by tier: {storageStats.countByTier}
+            Count by tier: {storageStats.objectsCountByTier}
         </div>
         <div>
             Total object count: {storageStats.objectTotalCount}
