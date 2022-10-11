@@ -129,7 +129,7 @@
                     <h4 class="content-subheader">Storages capacity</h4>
                     {#each ["small", "medium", "large", "extra large"] as tier, index}
                         <div>
-                            <span class="important-word">Tier {tier}</span> {storageStats.storagesCapacityByTier[index]}
+                            <span class="important-word">{tier} tier slots</span> {storageStats.storagesCapacityByTier[index]}
                         </div>
                     {/each}
                 </div>
