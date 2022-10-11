@@ -28,13 +28,14 @@ export type ProjectStorageStats = {
     storagesCapacityByTier: [number, number, number, number];
 };
 
-const getProjectStorageStats = (
-    project: Project,
-    params: {
-        includeCanisters: boolean,
-        includePlatforms: boolean,
-        includeStorages: boolean
-    }): ProjectStorageStats => {
+export type StorageStatsSettings = {
+    includeCanisters: boolean;
+    includePlatforms: boolean;
+    includeStorages: boolean;
+    includeResources: boolean;
+}
+
+const getProjectStorageStats = (project: Project, params: StorageStatsSettings): ProjectStorageStats => {
     const objectsCountByTier: [ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier] = [
         { tier: 1, total: 0, objects: [] },
         { tier: 2, total: 0, objects: [] },
@@ -73,6 +74,7 @@ const getProjectStorageStats = (
             (!params.includeCanisters && object.category === 'canister')
             || (!params.includeStorages && object.category === 'storage')
             || (!params.includePlatforms && object.category === 'platform')
+            || (!params.includeResources && object.type === 'resource')
         ) {
             continue;
         }

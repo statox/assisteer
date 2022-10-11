@@ -1,13 +1,14 @@
 <script lang="ts">
-    import { getProjectStorageStats, ProjectStorageStats } from "../../services/data/storage";
+    import { getProjectStorageStats, ProjectStorageStats, StorageStatsSettings } from "../../services/data/storage";
     import { project } from "../../stores";
     let collapsed = false;
     let storageStats: ProjectStorageStats;
 
-    const settings = {
+    const settings: StorageStatsSettings = {
         includeStorages: true,
         includeCanisters: true,
-        includePlatforms: true
+        includePlatforms: true,
+        includeResources: true
     };
 
     $: {
@@ -27,7 +28,7 @@
         </h3>
 
         <div>
-            <span class="important-word">Exclude from count</span>
+            <span class="important-word">Include in count</span>
 
             <div class="form-check form-check-inline">
                 <input
@@ -57,6 +58,16 @@
                     id="includePlatformsCheck"
                 />
                 <label class="form-check-label" for="includePlatformsCheck">platforms</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input
+                    bind:checked={settings.includeResources}
+                    class="form-check-input"
+                    type="checkbox"
+                    id="includeResourcesCheck"
+                />
+                <label class="form-check-label" for="includeResourcesCheck">resources</label>
             </div>
         </div>
 
