@@ -3,14 +3,28 @@
     import { project } from "../../stores";
     let collapsed = false;
     let storageStats: ProjectStorageStats;
+    let settings: StorageStatsSettings;
 
-    const settings: StorageStatsSettings = {
-        includeStorages: true,
+    const defaultSettings: StorageStatsSettings = {
+        includeStorages: false,
         includeCanisters: true,
-        includePlatforms: true,
+        includePlatforms: false,
         includeResources: true,
         includeOthers: true
     };
+
+    try {
+        const storedSettings = localStorage.getItem('storageAnalyserSettings');
+        if (storedSettings !== null) {
+            settings = JSON.parse(storedSettings);
+        } else {
+            settings = defaultSettings;
+        }
+    } catch (e) {
+        settings = defaultSettings;
+        console.error("Could not retrieve the storage analyser settings from local storage");
+        console.error(e);
+    }
 
     $: {
         (() => {
@@ -18,6 +32,12 @@
                 return;
             }
             storageStats = getProjectStorageStats($project, settings);
+            try {
+                localStorage.setItem('storageAnalyserSettings', JSON.stringify(settings));
+            } catch (e) {
+                console.error("Could not store the storage analyser settings in local storage");
+                console.error(e);
+            }
         })();
     };
 </script>
@@ -33,22 +53,32 @@
 
             <div class="form-check form-check-inline">
                 <input
-                    bind:checked={settings.includeStorages}
-                    class="form-check-input"
-                    type="checkbox"
-                    id="includeStoragesCheck"
-                />
-                <label class="form-check-label" for="includeStoragesCheck">storages</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-                <input
                     bind:checked={settings.includeCanisters}
                     class="form-check-input"
                     type="checkbox"
                     id="includeCanistersCheck"
                 />
                 <label class="form-check-label" for="includeCanistersCheck">canisters</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input
+                    bind:checked={settings.includeOthers}
+                    class="form-check-input"
+                    type="checkbox"
+                    id="includeOthersCheck"
+                />
+                <label class="form-check-label" for="includeOthersCheck">other objects</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input
+                    bind:checked={settings.includeStorages}
+                    class="form-check-input"
+                    type="checkbox"
+                    id="includeStoragesCheck"
+                />
+                <label class="form-check-label" for="includeStoragesCheck">storages</label>
             </div>
 
             <div class="form-check form-check-inline">
@@ -70,21 +100,11 @@
                 />
                 <label class="form-check-label" for="includeResourcesCheck">resources</label>
             </div>
-
-            <div class="form-check form-check-inline">
-                <input
-                    bind:checked={settings.includeOthers}
-                    class="form-check-input"
-                    type="checkbox"
-                    id="includeOthersCheck"
-                />
-                <label class="form-check-label" for="includeOthersCheck">other objects</label>
-            </div>
         </div>
 
 
         <div class="row">
-            <div class="col">
+            <div class="col-md-6">
                 <h4 class="content-subheader">Storage requirements</h4>
                 <div>
                     <span class="important-word">Total objects count</span> {storageStats.objectTotalCount}
@@ -104,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col-md-6">
                 <h4 class="content-subheader">Storages capacity</h4>
                 {#each ["small", "medium", "large", "extra large"] as tier, index}
                     <div>
