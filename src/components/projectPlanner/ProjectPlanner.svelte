@@ -60,5 +60,6 @@
     }
     .nav-item.selected {
         color: var(--yellow);
+        background-color: var(--blue);
     }
 </style>

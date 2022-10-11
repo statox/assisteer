@@ -62,7 +62,7 @@ b {
     background-color: var(--main-bg-color);
     color: var(--main-color);
     padding: 20px;
-    border-radius: 3px;
+    border-radius: 30px;
 }
 
 .content-container {
