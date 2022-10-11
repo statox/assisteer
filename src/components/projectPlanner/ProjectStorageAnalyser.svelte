@@ -83,21 +83,32 @@
         </div>
 
 
-        <div>
-            <h4 class="content-subheader">Storage requirements</h4>
-            <div>
-                <span class="important-word">Total objects count</span> {storageStats.objectTotalCount}
+        <div class="row">
+            <div class="col">
+                <h4 class="content-subheader">Storage requirements</h4>
+                <div>
+                    <span class="important-word">Total objects count</span> {storageStats.objectTotalCount}
+                </div>
+
+                <div>
+                    {#each ["small", "medium", "large", "extra large"] as tier, index}
+                        <div>
+                            <span class="important-word">Tier {tier}</span> {storageStats.objectsCountByTier[index].total}
+                            <ul>
+                                {#each storageStats.objectsCountByTier[index].objects as object}
+                                    <li>{object.quantity} * {object.id}</li>
+                                {/each}
+                            </ul>
+                        </div>
+                    {/each}
+                </div>
             </div>
 
-            <div>
+            <div class="col">
+                <h4 class="content-subheader">Storages capacity</h4>
                 {#each ["small", "medium", "large", "extra large"] as tier, index}
                     <div>
-                        <span class="important-word">Tier {tier}</span> {storageStats.objectsCountByTier[index].total}
-                        <ul>
-                            {#each storageStats.objectsCountByTier[index].objects as object}
-                                <li>{object.quantity} * {object.id}</li>
-                            {/each}
-                        </ul>
+                        <span class="important-word">Tier {tier}</span> {storageStats.storagesCapacityByTier[index]}
                     </div>
                 {/each}
             </div>
@@ -113,15 +124,6 @@
                     {JSON.stringify(storageStats.canistersCapacitybyType[type][canister])}
                     </div>
                     {/each}
-                </div>
-            {/each}
-        </div>
-
-        <div>
-            <h4 class="content-subheader">Storages capacity</h4>
-            {#each ["small", "medium", "large", "extra large"] as tier, index}
-                <div>
-                <span class="important-word">Tier {tier}</span> {storageStats.storagesCapacityByTier[index]}
                 </div>
             {/each}
         </div>
