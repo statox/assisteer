@@ -8,8 +8,17 @@ type CanisterTypeStorageDetails = {
     totalCapacity: number;
     quantity: number;
 }
+
+type ObjectsCountByTier = {
+    tier: number;
+    total: number;
+    objects: {
+        id: string;
+        quantity: number;
+    }[];
+}
 export type ProjectStorageStats = {
-    objectsCountByTier: [number, number, number, number]; // Quantity of object of each tier. Tiers are indexes of the array
+    objectsCountByTier: [ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier];
     objectTotalCount: number;
     canistersCapacitybyType: {
         resources?: CanisterTypeStorageDetails;
@@ -19,8 +28,19 @@ export type ProjectStorageStats = {
     storagesCapacityByTier: [number, number, number, number];
 };
 
-const getProjectStorageStats = (project: Project): ProjectStorageStats => {
-    const objectsCountByTier: [number, number, number, number] = [0, 0, 0, 0];
+const getProjectStorageStats = (
+    project: Project,
+    params: {
+        includeCanisters: boolean,
+        includePlatforms: boolean,
+        includeStorages: boolean
+    }): ProjectStorageStats => {
+    const objectsCountByTier: [ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier] = [
+        { tier: 1, total: 0, objects: [] },
+        { tier: 2, total: 0, objects: [] },
+        { tier: 3, total: 0, objects: [] },
+        { tier: 4, total: 0, objects: [] }
+    ];
     const canistersCapacitybyType = {}
     const storagesCapacityByTier: [number, number, number, number] = [0, 0, 0, 0];
     let objectTotalCount = 0;
@@ -44,12 +64,24 @@ const getProjectStorageStats = (project: Project): ProjectStorageStats => {
 
         if (storages[objectName]) {
             const storage = storages[objectName]
-            for (let tier=1; tier<=4; tier++) {
-                storagesCapacityByTier[tier-1] += storage.slotsByTier[tier] * objectQuantity;
+            for (let tier = 1; tier <= 4; tier++) {
+                storagesCapacityByTier[tier - 1] += storage.slotsByTier[tier] * objectQuantity;
             }
         }
 
-        objectsCountByTier[object.tier-1] += objectQuantity
+        if (
+            (!params.includeCanisters && object.category === 'canister')
+            || (!params.includeStorages && object.category === 'storage')
+            || (!params.includePlatforms && object.category === 'platform')
+        ) {
+            continue;
+        }
+        objectTotalCount += objectQuantity;
+        objectsCountByTier[object.tier - 1].total += objectQuantity
+        objectsCountByTier[object.tier - 1].objects.push({
+            id: objectName,
+            quantity: objectQuantity
+        });
     }
 
     return {

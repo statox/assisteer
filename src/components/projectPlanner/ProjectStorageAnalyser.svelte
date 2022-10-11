@@ -4,12 +4,18 @@
     let collapsed = false;
     let storageStats: ProjectStorageStats;
 
+    const settings = {
+        includeStorages: true,
+        includeCanisters: true,
+        includePlatforms: true
+    };
+
     $: {
         (() => {
             if (!$project) {
                 return;
             }
-            storageStats = getProjectStorageStats($project);
+            storageStats = getProjectStorageStats($project, settings);
         })();
     };
 </script>
@@ -19,11 +25,57 @@
         <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>
             Storage analyser
         </h3>
+
         <div>
-            Count by tier: {storageStats.objectsCountByTier}
+            <span class="important-word">Exclude from count</span>
+
+            <div class="form-check form-check-inline">
+                <input
+                    bind:checked={settings.includeStorages}
+                    class="form-check-input"
+                    type="checkbox"
+                    id="includeStoragesCheck"
+                />
+                <label class="form-check-label" for="includeStoragesCheck">storages</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input
+                    bind:checked={settings.includeCanisters}
+                    class="form-check-input"
+                    type="checkbox"
+                    id="includeCanistersCheck"
+                />
+                <label class="form-check-label" for="includeCanistersCheck">canisters</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input
+                    bind:checked={settings.includePlatforms}
+                    class="form-check-input"
+                    type="checkbox"
+                    id="includePlatformsCheck"
+                />
+                <label class="form-check-label" for="includePlatformsCheck">platforms</label>
+            </div>
         </div>
+
+
         <div>
-            Total object count: {storageStats.objectTotalCount}
+            <span class="important-word">Total objects count</span> {storageStats.objectTotalCount}
+        </div>
+
+        <div>
+            {#each ["small", "medium", "large", "extra large"] as tier, index}
+                <div>
+                    <span class="important-word">Tier {tier}</span> {storageStats.objectsCountByTier[index].total}
+                    <ul>
+                        {#each storageStats.objectsCountByTier[index].objects as object}
+                        <li>{object.quantity} * {object.id}</li>
+                        {/each}
+                    </ul>
+                </div>
+            {/each}
         </div>
         <div>
             <h4 class="content-subheader">Canisters capcity</h4>
