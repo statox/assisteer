@@ -26,7 +26,7 @@
             Total object count: {storageStats.objectTotalCount}
         </div>
         <div>
-            Canister storage:
+            <h4 class="content-subheader">Canisters capcity</h4>
             {#each Object.keys(storageStats.canistersCapacitybyType) as type}
                 <div>
                 {type}
@@ -35,6 +35,14 @@
                     {JSON.stringify(storageStats.canistersCapacitybyType[type][canister])}
                     </div>
                     {/each}
+                </div>
+            {/each}
+        </div>
+        <div>
+            <h4 class="content-subheader">Storages capacity</h4>
+            {#each ["small", "medium", "large", "extra large"] as tier, index}
+                <div>
+                <span class="important-word">Tier {tier}</span> {storageStats.storagesCapacityByTier[index]}
                 </div>
             {/each}
         </div>
