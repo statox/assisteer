@@ -125,12 +125,23 @@
             </div>
 
             <div class="col-md-6">
-                <h4 class="content-subheader">Storages capacity</h4>
-                {#each ["small", "medium", "large", "extra large"] as tier, index}
-                    <div>
-                        <span class="important-word">Tier {tier}</span> {storageStats.storagesCapacityByTier[index]}
-                    </div>
-                {/each}
+                <div>
+                    <h4 class="content-subheader">Storages capacity</h4>
+                    {#each ["small", "medium", "large", "extra large"] as tier, index}
+                        <div>
+                            <span class="important-word">Tier {tier}</span> {storageStats.storagesCapacityByTier[index]}
+                        </div>
+                    {/each}
+                </div>
+
+                <div>
+                    <h4 class="content-subheader">Storages objects</h4>
+                    <ul>
+                        {#each storageStats.storageObjects as object}
+                            <li>{object.quantity} * {object.id}</li>
+                        {/each}
+                    </ul>
+                </div>
             </div>
         </div>
 
