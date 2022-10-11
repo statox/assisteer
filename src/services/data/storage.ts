@@ -71,18 +71,26 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
             }
         }
 
-        if (
-            (!params.includeCanisters && object.category === 'canister')
-            || (!params.includeStorages && object.category === 'storage')
-            || (!params.includePlatforms && object.category === 'platform')
-            || (!params.includeResources && object.type === 'resource')
-        ) {
-            continue;
+        // Wanna know how bad and unreadable can I make my code? Check this out!
+        // This is to accomodate the different settings
+        let excludeObjectFromCount = false;
+        if (!params.includeCanisters && object.category === 'canister') {
+            excludeObjectFromCount = true;
         }
-        if (!params.includeOthers && (
-            !['canister', 'storage', 'platform'].includes(object.category)
-            || object.type === 'resource'
-        ) ) {
+        if (!params.includePlatforms && object.category === 'platform') {
+            excludeObjectFromCount = true;
+        }
+        if (!params.includeStorages && object.category === 'storage') {
+            excludeObjectFromCount = true;
+        }
+
+        if (!params.includeResources && object.type === 'resource') {
+            excludeObjectFromCount = true;
+        }
+        if (!params.includeOthers && object.type === 'object' && !['canister', 'platform', 'storage'].includes(object.category)) {
+            excludeObjectFromCount = true;
+        }
+        if (excludeObjectFromCount) {
             continue;
         }
         objectTotalCount += objectQuantity;
