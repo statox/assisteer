@@ -33,6 +33,7 @@ export type StorageStatsSettings = {
     includePlatforms: boolean;
     includeStorages: boolean;
     includeResources: boolean;
+    includeOthers: boolean;
 }
 
 const getProjectStorageStats = (project: Project, params: StorageStatsSettings): ProjectStorageStats => {
@@ -76,6 +77,12 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
             || (!params.includePlatforms && object.category === 'platform')
             || (!params.includeResources && object.type === 'resource')
         ) {
+            continue;
+        }
+        if (!params.includeOthers && (
+            !['canister', 'storage', 'platform'].includes(object.category)
+            || object.type === 'resource'
+        ) ) {
             continue;
         }
         objectTotalCount += objectQuantity;

@@ -8,7 +8,8 @@
         includeStorages: true,
         includeCanisters: true,
         includePlatforms: true,
-        includeResources: true
+        includeResources: true,
+        includeOthers: true
     };
 
     $: {
@@ -68,6 +69,16 @@
                     id="includeResourcesCheck"
                 />
                 <label class="form-check-label" for="includeResourcesCheck">resources</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input
+                    bind:checked={settings.includeOthers}
+                    class="form-check-input"
+                    type="checkbox"
+                    id="includeOthersCheck"
+                />
+                <label class="form-check-label" for="includeOthersCheck">other objects</label>
             </div>
         </div>
 
