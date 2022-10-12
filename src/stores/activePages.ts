@@ -2,10 +2,12 @@ import { Writable, writable } from "svelte/store";
 
 type ActivePages = {
     planner: string;
+    astropedia: string;
 }
 
 const defaultActivePages = {
-    planner: "inventory"
+    planner: "inventory",
+    astropedia: "research"
 }
 
 const storedActivePagesStr = localStorage.getItem("activeSection");

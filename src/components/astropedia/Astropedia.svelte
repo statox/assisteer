@@ -1,9 +1,8 @@
 <script lang="ts">
+    import { activePages } from "../../stores";
     import Planets from "./Planets.svelte";
-
     import Research from "./Research.svelte";
 
-    let activeSection = 'research';
     const sectionsNames = {
         research: "Research",
         planets: "Planets"
@@ -16,18 +15,18 @@
             <div class="mx-1" class:me-sm-auto={section === "planets"}>
                 <button
                     class="nav-item"
-                    class:selected={activeSection === section}
-                    on:click={() => (activeSection = section)}
+                    class:selected={$activePages.astropedia === section}
+                    on:click={() => ($activePages.astropedia = section)}
                     >{sectionsNames[section]}
                 </button>
             </div>
         {/each}
     </div>
 
-    {#if activeSection === "research"}
+    {#if $activePages.astropedia === "research"}
         <Research />
     {/if}
-    {#if activeSection === "planets"}
+    {#if $activePages.astropedia === "planets"}
         <Planets />
     {/if}
 </main>
