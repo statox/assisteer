@@ -86,6 +86,9 @@
                         <br />
                         <span class="important-word">Sun</span>
                         {planet.power.sun}
+                        <br />
+                        <span class="important-word">Wind turbines avg. active time</span>
+                        {planet.power.wikiWindCoefficient*100}%
                     </div>
 
                     <div>
