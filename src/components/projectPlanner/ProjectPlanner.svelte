@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { activeSection } from "../../stores";
+    import { activePages } from "../../stores";
     import ProjectResourcesList from "./resourcesList/ProjectResourcesList.svelte";
     import ProjectGraph from "./ProjectGraph.svelte";
     import ProjectPowerAnalyser from "./ProjectPowerAnalyser.svelte";
@@ -22,28 +22,28 @@
             <div class="mx-1" class:ms-sm-auto={section === "settings"}>
                 <button
                     class="nav-item"
-                    class:selected={$activeSection === section}
-                    on:click={() => ($activeSection = section)}
+                    class:selected={$activePages.planner === section}
+                    on:click={() => ($activePages.planner = section)}
                     >{sectionsNames[section]}
                 </button>
             </div>
         {/each}
     </div>
 
-    {#if $activeSection === "inventory"}
+    {#if $activePages.planner === "inventory"}
         <ProjectInventory />
     {/if}
-    {#if $activeSection === "resources"}
+    {#if $activePages.planner === "resources"}
         <ProjectResourcesList />
         <ProjectGraph />
     {/if}
-    {#if $activeSection === "storage"}
+    {#if $activePages.planner === "storage"}
         <ProjectStorageAnalyser />
     {/if}
-    {#if $activeSection === "settings"}
+    {#if $activePages.planner === "settings"}
         <ProjectSettings />
     {/if}
-    {#if $activeSection === "power"}
+    {#if $activePages.planner === "power"}
         <ProjectPowerAnalyser />
     {/if}
 </main>

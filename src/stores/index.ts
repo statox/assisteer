@@ -1,5 +1,5 @@
-import { activeSection } from "./activeSection";
+import { activePages } from "./activePages";
 import { project } from "./project";
 import { settings } from "./settings";
 
-export { activeSection, project, settings };
+export { activePages, project, settings };
