@@ -1,0 +1,178 @@
+{
+    "ammonium": {
+        "byteValue": 75,
+        "bytesPerMinute": 30
+    },
+    "aluminum": {
+        "byteValue": 125,
+        "bytesPerMinute": 50
+    },
+    "aluminum alloy": {
+        "byteValue": 450,
+        "bytesPerMinute": 180
+    },
+    "astronium": {
+        "byteValue": 500,
+        "bytesPerMinute": 200
+    },
+    "carbon": {
+        "byteValue": 75,
+        "bytesPerMinute": 30
+    },
+    "ceramic": {
+        "byteValue": 125,
+        "bytesPerMinute": 50
+    },
+    "clay": {
+        "byteValue": 75,
+        "bytesPerMinute": 30
+    },
+    "compound": {
+        "byteValue": 50,
+        "bytesPerMinute": 20
+    },
+    "copper": {
+        "byteValue": 200,
+        "bytesPerMinute": 80
+    },
+    "diamond": {
+        "byteValue": 850,
+        "bytesPerMinute": 340
+    },
+    "explosive powder": {
+        "byteValue": 600,
+        "bytesPerMinute": 240
+    },
+    "glass": {
+        "byteValue": 125,
+        "bytesPerMinute": 50
+    },
+    "graphite": {
+        "byteValue": 75,
+        "bytesPerMinute": 30
+    },
+    "graphene": {
+        "byteValue": 350,
+        "bytesPerMinute": 140
+    },
+    "hematite": {
+        "byteValue": 200,
+        "bytesPerMinute": 80
+    },
+    "iron": {
+        "byteValue": 250,
+        "bytesPerMinute": 100
+    },
+    "laterite": {
+        "byteValue": 75,
+        "bytesPerMinute": 30
+    },
+    "lithium": {
+        "byteValue": 200,
+        "bytesPerMinute": 80
+    },
+    "malachite": {
+        "byteValue": 100,
+        "bytesPerMinute": 40
+    },
+    "nanocarbon alloy": {
+        "byteValue": 1000,
+        "bytesPerMinute": 400
+    },
+    "organic": {
+        "byteValue": 50,
+        "bytesPerMinute": 20
+    },
+    "plastic": {
+        "byteValue": 250,
+        "bytesPerMinute": 100
+    },
+    "quartz": {
+        "byteValue": 75,
+        "bytesPerMinute": 30
+    },
+    "resin": {
+        "byteValue": 50,
+        "bytesPerMinute": 20
+    },
+    "rubber": {
+        "byteValue": 150,
+        "bytesPerMinute": 60
+    },
+    "scrap": {
+        "byteValue": 300,
+        "bytesPerMinute": 120
+    },
+    "silicone": {
+        "byteValue": 600,
+        "bytesPerMinute": 240
+    },
+    "sphalerite": {
+        "byteValue": 100,
+        "bytesPerMinute": 40
+    },
+    "steel": {
+        "byteValue": 700,
+        "bytesPerMinute": 280
+    },
+    "titanite": {
+        "byteValue": 200,
+        "bytesPerMinute": 80
+    },
+    "titanium": {
+        "byteValue": 250,
+        "bytesPerMinute": 100
+    },
+    "titanium alloy": {
+        "byteValue": 850,
+        "bytesPerMinute": 340
+    },
+    "tungsten": {
+        "byteValue": 200,
+        "bytesPerMinute": 80
+    },
+    "tungsten carbide": {
+        "byteValue": 350,
+        "bytesPerMinute": 140
+    },
+    "wolframite": {
+        "byteValue": 100,
+        "bytesPerMinute": 40
+    },
+    "zinc": {
+        "byteValue": 200,
+        "bytesPerMinute": 80
+    },
+    "argon": {
+        "byteValue": 300,
+        "bytesPerMinute": 120
+    },
+    "helium": {
+        "byteValue": 500,
+        "bytesPerMinute": 200
+    },
+    "hydrogen": {
+        "byteValue": 100,
+        "bytesPerMinute": 40
+    },
+    "methane": {
+        "byteValue": 400,
+        "bytesPerMinute": 160
+    },
+    "nitrogen": {
+        "byteValue": 200,
+        "bytesPerMinute": 80
+    },
+    "sulfur": {
+        "byteValue": 300,
+        "bytesPerMinute": 120
+    },
+    "exo chip": {
+        "byteValue": 500,
+        "bytesPerMinute": 200
+    },
+    "soil": {
+        "byteValue": 100,
+        "bytesPerMinute": -1
+    }
+}
