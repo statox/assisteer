@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { Toast } from 'bootstrap'
+    import { onMount } from 'svelte';
     import { createEventDispatcher } from "svelte";
     import Select from "svelte-select";
     import {
@@ -73,6 +75,19 @@
     const handleAdd = () => {
         dispatch("addObject", {});
     };
+
+    onMount(async () => {
+        const toastTrigger = document.getElementById('addToProjectBtn')
+        var toastElement = document.getElementById('liveToast')
+        if (toastTrigger) {
+            toastTrigger.addEventListener('click', function () {
+                console.log('trigger toast');
+                var toast = new Toast(toastElement)
+                toast.show()
+            })
+        }
+    });
+
 </script>
 
 <main>
@@ -100,25 +115,28 @@
         </div>
         <div class="col">
             <button
+                id="addToProjectBtn"
                 disabled={!canAddToProject(selectedObject)}
                 on:click={handleAdd}>Add to project</button
             >
         </div>
     </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto green">Added to the project ✓</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {selectedObject?.labels?.en || ''}
+            </div>
+        </div>
+    </div>
 </main>
 
 <style>
-button:active {
+.green {
     color: var(--green);
-    background: white;
-    border: 1px solid var(--green);
-    border-radius: 5px;
-    transition: color 0.1s;
-    transition-duration: 1;
-}
-button:active:after {
-    color: var(--green);
-    background: white;
-    content: " ✓";
 }
 </style>
