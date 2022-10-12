@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Router, Route, Link } from "svelte-routing";
-    import Home from "./routes/home.svelte";
+    import ProjectPlanner from "./routes/projectPlanner.svelte";
     import About from "./routes/about.svelte";
     import Header from "./components/Header.svelte";
     import Footer from "./components/Footer.svelte";
@@ -14,12 +14,12 @@
 <!-- Routing inspired by https://sustainablewww.org/principles/how-to-implement-routes-in-your-svelte-web-application-using-svelte-routing -->
 <Router {url}>
     <nav>
-        <Link to="/"><span class="nav-item">Home</span></Link>
+        <Link to="/"><span class="nav-item">Planner</span></Link>
         <Link to="/astropedia/"><span class="nav-item">Astropedia+</span></Link>
         <Link to="/about/"><span class="nav-item">About</span></Link>
     </nav>
     <div>
-        <Route path="/"><Home /></Route>
+        <Route path="/"><ProjectPlanner /></Route>
         <Route path="/astropedia"><Astropedia /></Route>
         <Route path="/about/"><About /></Route>
     </div>
