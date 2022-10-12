@@ -4,9 +4,11 @@ import type { Project } from "../project";
 import { getObject } from "./objects";
 
 type CanisterTypeStorageDetails = {
+    storageType: string;
     individualCapacity: number;
     totalCapacity: number;
     quantity: number;
+    id: string;
 }
 
 type ObjectsCountByTier = {
@@ -62,7 +64,8 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
                 storageType: canister.holds,
                 individualCapacity: canister.capacity,
                 quantity: objectQuantity,
-                totalCapacity: canister.capacity * objectQuantity
+                totalCapacity: canister.capacity * objectQuantity,
+                id: objectName
             }
         }
 
