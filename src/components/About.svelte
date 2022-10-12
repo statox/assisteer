@@ -95,6 +95,7 @@
             </li>
         </ul>
         <ul>
+            <li><b>Hosting - Pictures</b> For now all images are served from the wiki. Make sure their ToS allow that and maybe download all the images to serve them myself.</li>
             <li><b>Routing - Improve reloading</b> Study the possibility to use a server.js file to avoid 404 when navigating directly to a page.</li>
             <li><b>Component System</b> Create small components to show the objects names, quantities, icons and to show values and unities.</li>
             <li><b>Markdown component</b> Find a way to process markdown files with svelte (particularly for the about page)</li>
