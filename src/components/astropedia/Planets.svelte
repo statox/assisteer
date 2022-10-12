@@ -18,8 +18,9 @@
                     >wiki page about planets</a
                 > for more details about the planet types.
             </div>
+            <div class="d-flex flex-wrap row">
             {#each planets as planet}
-                <div class="content-section">
+                <div class="col-sm-12 col-md-6 col-lg-3">
                     <h4 class="content-subheader">
                         <span>
                             <img
@@ -31,7 +32,7 @@
                         </span>
                     </h4>
 
-                    <div>
+                    <div class="text-center">
                         <img
                             class="img-fluid planet-img"
                             src={planet.url.image}
@@ -98,6 +99,7 @@
 
                 </div>
             {/each}
+            </div>
         </div>
     </div>
 </main>
@@ -108,6 +110,7 @@
     }
     .planet-img {
         max-width: 15vw;
+        margin-bottom: 2vh;
     }
     .warning {
         background: var(--pale-red);
