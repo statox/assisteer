@@ -43,33 +43,35 @@
     <div class="content-section">
         <h3 class="content-header">Research</h3>
         <div class="container">
-            <p>
-                Objects can be researched with <a
-                    target="none"
-                    href="https://astroneer.fandom.com/wiki/Research_Chamber"
+            <div class="info">
+                <p>
+                    Objects can be researched with <a
+                        target="none"
+                        href="https://astroneer.fandom.com/wiki/Research_Chamber"
                     >the Research Chamber</a
-                >.
-            </p>
-            <p>
-                The wiki has a reference of <a
-                    target="none"
-                    href="https://astroneer.fandom.com/wiki/Research_Items"
+                    >.
+                </p>
+                <p>
+                    The wiki has a reference of <a
+                        target="none"
+                        href="https://astroneer.fandom.com/wiki/Research_Items"
                     >all the research items by planet</a
-                >
-                and their research information. But I haven't found the same kind
-                of list for
-                <a
-                    target="none"
-                    href="https://astroneer.fandom.com/wiki/Research_Sample"
+                    >
+                    and their research information. But I haven't found the same kind
+                    of list for
+                    <a
+                        target="none"
+                        href="https://astroneer.fandom.com/wiki/Research_Sample"
                     >the research samples</a
-                >.
-            </p>
-            <p>
-                You can also use resources in the research chamber with the
-                following values. <b
+                    >.
+                </p>
+                <p>
+                    You can also use resources in the research chamber with the
+                    following values. <b
                     >All the resources take 2.5 minutes to be researched.</b
-                >
-            </p>
+                    >
+                </p>
+            </div>
             <div class="table-responsive">
                 <table class="table">
                     <thead>

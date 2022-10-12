@@ -324,12 +324,4 @@
     .small-header {
         font-size: 0.7em;
     }
-    .info {
-        background: #d6edff;
-        padding: 10px;
-        border: 2px solid var(--blue);
-        margin: 10px;
-        color: var(--blue);
-        border-radius: 5px;
-    }
 </style>

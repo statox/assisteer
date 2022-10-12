@@ -11,7 +11,7 @@
             <div class="warning">
                 Warning: This page contains spoilers about the game.
             </div>
-            <div>
+            <div class="info">
                 See the <a
                     target="none"
                     href="https://astroneer.fandom.com/wiki/Planets"
@@ -88,7 +88,7 @@
                         {planet.power.sun}
                         <br />
                         <span class="important-word">Wind turbines avg. active time</span>
-                        {planet.power.wikiWindCoefficient*100}%
+                        {Math.floor(planet.power.wikiWindCoefficient*100)}%
                     </div>
 
                     <div>
@@ -114,13 +114,5 @@
     .planet-img {
         max-width: 15vw;
         margin-bottom: 2vh;
-    }
-    .warning {
-        background: var(--pale-red);
-        padding: 10px;
-        border: 2px solid var(--red);
-        margin: 10px;
-        color: var(--red);
-        border-radius: 5px;
     }
 </style>
