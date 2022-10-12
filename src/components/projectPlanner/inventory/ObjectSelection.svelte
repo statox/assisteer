@@ -75,28 +75,30 @@
     };
 </script>
 
-<main class="container">
+<main>
     <h3 class="content-header">Object selection</h3>
-    <div class="row">
-        <div class="col-sm-9">
+    <div class="container row">
+        <div class="col-md-4">
             <Select
                 placeholder="Filter category"
                 items={orderedCategories}
                 on:select={handleSelectCategory}
             />
+        </div>
+        <div class="col-md-5">
             <!-- The key block is used to reload the list when the category changes -->
             <!-- https://svelte.dev/docs#template-syntax-key -->
             {#key selectedCategory}
-                <Select
-                    placeholder="Project item selection"
-                    {items}
-                    {groupBy}
-                    groupFilter={objectGroupsFilter}
-                    on:select={handleSelect}
-                />
+            <Select
+                placeholder="Project item selection"
+                {items}
+                {groupBy}
+                groupFilter={objectGroupsFilter}
+                on:select={handleSelect}
+            />
             {/key}
         </div>
-        <div class="col-sm-3">
+        <div class="col">
             <button
                 disabled={!canAddToProject(selectedObject)}
                 on:click={handleAdd}>Add to project</button
