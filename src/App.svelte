@@ -4,6 +4,7 @@
     import About from "./routes/about.svelte";
     import Header from "./components/Header.svelte";
     import Footer from "./components/Footer.svelte";
+    import Astropedia from "./routes/astropedia.svelte";
 
     let url = "";
 </script>
@@ -14,10 +15,12 @@
 <Router {url}>
     <nav>
         <Link to="/"><span class="nav-item">Home</span></Link>
+        <Link to="/astropedia/"><span class="nav-item">Astropedia+</span></Link>
         <Link to="/about/"><span class="nav-item">About</span></Link>
     </nav>
     <div>
         <Route path="/"><Home /></Route>
+        <Route path="/astropedia"><Astropedia /></Route>
         <Route path="/about/"><About /></Route>
     </div>
 </Router>
