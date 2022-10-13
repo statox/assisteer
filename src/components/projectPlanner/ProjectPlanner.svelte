@@ -14,13 +14,14 @@
         power: "Power",
         storage: "Storage",
         settings: "Settings",
-        trading: "Trading"
+        trading: "Trading",
+        graph: "Production Graph"
     };
 </script>
 
 <main>
     <div class="nav-menu d-flex flex-row flex-wrap justify-content-evenly">
-        {#each ["inventory", "resources", "trading", "power", "storage", "settings"] as section}
+        {#each ["inventory", "graph", "resources", "trading", "power", "storage", "settings"] as section}
             <div class="mx-1" class:ms-sm-auto={section === "settings"}>
                 <button
                     class="nav-item"
@@ -37,6 +38,8 @@
     {/if}
     {#if $activePages.planner === "resources"}
         <ProjectResourcesList />
+    {/if}
+    {#if $activePages.planner === "graph"}
         <ProjectGraph />
     {/if}
     {#if $activePages.planner === "trading"}
