@@ -126,6 +126,63 @@ const getProjectResourcesByCategories = (project: Project): ProjectLightResource
     return list;
 }
 
+interface PossibleTrades {
+    resourceId: string;
+    soil?: {
+        currencyRequired: number;
+        resourcesProduced: number;
+        surplus: number;
+    }
+    scrap?: {
+        currencyRequired: number;
+        resourcesProduced: number;
+        surplus: number;
+    }
+}
+export interface TradingStats {
+    totalSoil: number;
+    totalScrap: number;
+    possibleTrades: PossibleTrades[];
+}
+const getProjectTradingStats = (project: Project) => {
+    const resourcesList = getProjectResourcesByCategories(project);
+    const soilRequirements = getResourcesSoilRequirements(resourcesList);
+    const scrapRequirements = getResourcesScrapRequirement(resourcesList);
+
+    const result: TradingStats = {
+        totalSoil: soilRequirements.total,
+        totalScrap: scrapRequirements.total,
+        possibleTrades: []
+    }
+
+    const tradableResources = new Set([
+        ...Object.keys(soilRequirements.byResource),
+        ...Object.keys(scrapRequirements.byResource)
+    ]);
+
+    for (const resource of tradableResources) {
+        const possibleTrades: PossibleTrades = {
+            resourceId: resource,
+        }
+        if (soilRequirements.byResource[resource]) {
+            possibleTrades.soil = {
+                currencyRequired: soilRequirements.byResource[resource].soilRequired,
+                resourcesProduced: soilRequirements.byResource[resource].quantityProduced,
+                surplus: soilRequirements.byResource[resource].surplus
+            }
+        }
+        if (scrapRequirements.byResource[resource]) {
+            possibleTrades.scrap = {
+                currencyRequired: scrapRequirements.byResource[resource].scrapRequired,
+                resourcesProduced: scrapRequirements.byResource[resource].quantityProduced,
+                surplus: scrapRequirements.byResource[resource].surplus
+            }
+        }
+        result.possibleTrades.push(possibleTrades);
+    }
+    return result;
+}
+
 export type SoilRequirements = {
     total: number,
     byResource: {
@@ -271,6 +328,7 @@ export {
     getProjectObjectsByTier,
     getProjectResourcesByCategories,
     getProjectTotalUnlockCost,
+    getProjectTradingStats,
     getResourcesScrapRequirement,
     getResourcesSoilRequirements,
     projectToFlatTree,
