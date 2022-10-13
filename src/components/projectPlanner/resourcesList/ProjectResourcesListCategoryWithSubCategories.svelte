@@ -48,9 +48,9 @@
         {categoryName} ({totalResourcesInCategory})
     </h4>
     <div class="container">
-        <div class="row">
+        <div class="d-flex flex-sm-row flex-column justify-content-evenly">
             {#each Object.keys(sortedItems).sort(subCatSort) as classification}
-                <div class="col text-align-center">
+                <div class="flex-column text-align-center">
                     <ul>
                         {#each Object.keys(sortedItems[classification]).sort(alphaSort) as objectName}
                             <li>
