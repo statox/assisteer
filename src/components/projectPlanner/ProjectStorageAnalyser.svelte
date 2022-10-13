@@ -1,10 +1,12 @@
 <script lang="ts">
-    import {
+    import { getObject } from "../../services/data/objects";
+import {
         getProjectStorageStats,
         ProjectStorageStats,
         StorageStatsSettings,
     } from "../../services/data/storage";
     import { project } from "../../stores";
+    import ObjectName from "../utils/ObjectName.svelte";
     let collapsed = false;
     let storageStats: ProjectStorageStats;
     let settings: StorageStatsSettings;
@@ -144,7 +146,7 @@
                                 {storageStats.objectsCountByTier[index].total}
                                 <ul>
                                     {#each storageStats.objectsCountByTier[index].objects as object}
-                                        <li>{object.quantity} x {object.id}</li>
+                                        <li><ObjectName object={getObject(object.id)} quantity={object.quantity} pictureType='icon' />
                                     {/each}
                                 </ul>
                             </div>
@@ -168,7 +170,7 @@
                         <h4 class="content-subheader">Storages objects</h4>
                         <ul>
                             {#each storageStats.storageObjects as object}
-                                <li>{object.quantity} x {object.id}</li>
+                                <li><ObjectName object={getObject(object.id)} quantity={object.quantity} pictureType='icon' />
                             {/each}
                         </ul>
                     </div>

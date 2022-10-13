@@ -3,6 +3,7 @@
     import { getProjectObjectsByCategory, getProjectObjectsByTier, getProjectTotalUnlockCost, ProjectObjectsByCategory } from "../../../services/project";
     import { alphaSort } from "../../../services/utils";
     import { project } from "../../../stores";
+    import ObjectName from "../../utils/ObjectName.svelte";
 
     const dispatch = createEventDispatcher();
     let collapsed = false;
@@ -101,15 +102,8 @@
                     <h4 class="content-subheader">{category}</h4>
                     {#each objectsByCategory[category] as item}
                         <div class="row align-items-center bottom-separator">
-                            <div class="col-sm-4 important-word">
-                                <span>
-                                    <img
-                                        class="img-fluid text-sized-image"
-                                        src={item.object.url.icon}
-                                        alt={item.object.labels.en}
-                                    />
-                                    &nbsp;{item.objectName}
-                                </span>
+                            <div class="col-sm-4">
+                                <ObjectName pictureType="icon" object={item.object} importantWord={true} largerIcon={true} />
                             </div>
                             <div class="col-sm-4 text-align-center">
                                 <button
@@ -156,9 +150,6 @@
 <style>
     .text-align-center {
         text-align: center;
-    }
-    .text-sized-image {
-        width: 2em;
     }
     .object-image {
         max-height: 5em;

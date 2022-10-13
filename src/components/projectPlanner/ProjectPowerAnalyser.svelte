@@ -5,6 +5,7 @@
         ProjectPowerStats,
     } from "../../services/data/power";
     import { project } from "../../stores";
+    import ObjectName from "../utils/ObjectName.svelte";
 
     const planets = getAllPlanets();
     let collapsed = false;
@@ -190,16 +191,9 @@
                                 {#each projectData["producer"].items as item}
                                     <tr>
                                         <td>
-                                            <span class="important-word">
-                                                <img
-                                                    class="img-fluid text-sized-image"
-                                                    src={item.object.url.icon}
-                                                    alt={item.object.labels.en}
-                                                />
-                                                &nbsp;{item.objectName}
-                                            </span>
+                                            <ObjectName object={item.object} pictureType='icon' importantWord={true} />
                                         </td>
-                                        <!-- if is here for typeguard -->
+                                        <!-- this is here for typeguard -->
                                         {#if item.powerStats.type === "producer"}
                                             <td>
                                                 {item.quantity} x {item.powerStats.output} U/s
@@ -227,16 +221,9 @@
                                 {#each projectData["storage"].items as item}
                                     <tr>
                                         <td>
-                                            <span class="important-word">
-                                                <img
-                                                    class="img-fluid text-sized-image"
-                                                    src={item.object.url.icon}
-                                                    alt={item.object.labels.en}
-                                                />
-                                                &nbsp;{item.objectName}
-                                            </span>
+                                            <ObjectName object={item.object} pictureType='icon' importantWord={true} />
                                         </td>
-                                        <!-- if is here for typeguard -->
+                                        <!-- this is here for typeguard -->
                                         {#if item.powerStats.type === "storage"}
                                             <td>
                                                 {item.quantity} x {item.powerStats.capacity} U
@@ -264,16 +251,9 @@
                                 {#each projectData["consumer"].items as item}
                                     <tr>
                                         <td>
-                                            <span class="important-word">
-                                                <img
-                                                    class="img-fluid text-sized-image"
-                                                    src={item.object.url.icon}
-                                                    alt={item.object.labels.en}
-                                                />
-                                                &nbsp;{item.objectName}
-                                            </span>
+                                            <ObjectName object={item.object} pictureType='icon' importantWord={true} />
                                         </td>
-                                        <!-- if is here for typeguard -->
+                                        <!-- this is here for typeguard -->
                                         {#if item.powerStats.type === "consumer"}
                                             <td>
                                                 {item.quantity} x {item.powerStats.input} U/s

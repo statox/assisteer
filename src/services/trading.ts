@@ -31,10 +31,10 @@ const getProjectTradingStats = (project: Project) => {
         possibleTrades: []
     };
 
-    const tradableResources = new Set([
+    const tradableResources = Array.from(new Set<string>([
         ...Object.keys(soilRequirements.byResource),
         ...Object.keys(scrapRequirements.byResource)
-    ]);
+    ]));
 
     for (const resource of tradableResources) {
         const possibleTrades: PossibleTrades = {

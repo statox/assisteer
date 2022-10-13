@@ -2,6 +2,7 @@
     import { settings, project } from "../../stores";
     import { getObject } from "../../services/data/objects";
     import { getProjectTradingStats, TradingStats } from "../../services/trading";
+    import ObjectName from "../utils/ObjectName.svelte";
 
     let collapsed = false;
     let tradeStats: TradingStats;
@@ -27,20 +28,10 @@
                             <td>Resource</td>
                             <td>Required Quantity</td>
                             <td>
-                                Soil
-                                <img
-                                    class="resource-icon"
-                                    src={getObject('soil').url[$settings.pictureType]}
-                                    alt={getObject('soil').labels.en}
-                                />
+                                <ObjectName object={getObject('soil')} pictureType={$settings.pictureType} largerIcon={true}/>
                             </td>
                             <td>
-                                Scrap
-                                <img
-                                    class="resource-icon"
-                                    src={getObject('scrap').url[$settings.pictureType]}
-                                    alt={getObject('scrap').labels.en}
-                                />
+                                <ObjectName object={getObject('scrap')} pictureType={$settings.pictureType} largerIcon={true}/>
                             </td>
                         </tr>
                     </thead>
@@ -51,14 +42,10 @@
                             <td>{tradeStats.totalScrap}</td>
                         </tr>
                         {#each tradeStats.possibleTrades as trade}
+                            {@const object = getObject(trade.resourceId)}
                             <tr>
                                 <td>
-                                    <img
-                                        class="resource-icon"
-                                        src={getObject(trade.resourceId).url[$settings.pictureType]}
-                                        alt={getObject(trade.resourceId).labels.en}
-                                    />
-                                    &nbsp;{getObject(trade.resourceId).labels.en}
+                                    <ObjectName {object} pictureType={$settings.pictureType} largerIcon={true}/>
                                 </td>
 
                                 <td>
@@ -70,24 +57,17 @@
                                 </td>
 
                                 {#each ['soil', 'scrap'] as currency}
+                                    {@const currencyObject = getObject(currency)}
                                     <td>
                                         {#if trade[currency]}
-                                            {trade[currency].currencyRequired}
-                                            <img
-                                                class="resource-icon"
-                                                src={getObject(currency).url[$settings.pictureType]}
-                                                alt={getObject(currency).labels.en}
-                                            />
-                                            for
-                                            {trade[currency].resourcesProduced}
-                                            <img
-                                                class="resource-icon"
-                                                src={getObject(trade.resourceId).url[$settings.pictureType]}
-                                                alt={getObject(trade.resourceId).labels.en}
-                                            />
+                                            <div>
+                                            <ObjectName object={currencyObject} hideName={true} largerIcon={true} quantity={trade[currency].currencyRequired} pictureType={$settings.pictureType} />
+                                            :
+                                            <ObjectName {object} hideName={true} largerIcon={true} quantity={trade[currency].resourcesProduced} pictureType={$settings.pictureType} />
                                             {#if trade[currency].surplus}
                                                 (Surplus: {trade[currency].surplus})
                                             {/if}
+                                            </div>
                                         {/if}
                                     </td>
                                 {/each}

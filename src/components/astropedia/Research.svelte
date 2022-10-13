@@ -3,6 +3,7 @@
         getAllResearchDetails,
         ObjectResearchDetails,
     } from "../../services/data/research";
+    import ObjectName from "../utils/ObjectName.svelte";
 
     let researchDetails = getAllResearchDetails();
 
@@ -115,16 +116,7 @@
                     <tbody>
                         {#each researchDetails as object}
                             <tr>
-                                <td>
-                                    <span>
-                                        <img
-                                            class="img-fluid text-sized-image"
-                                            src={object.url.icon}
-                                            alt={object.labels.en}
-                                        />
-                                        &nbsp;{object.labels.en}
-                                    </span></td
-                                >
+                                <td><ObjectName pictureType='icon' largerIcon={true} {object} /></td>
                                 <td>{object.byteValue}</td>
                                 <td>{object.bytesPerMinute}</td>
                                 <td>{object.category}</td>
@@ -138,9 +130,6 @@
 </main>
 
 <style>
-    .text-sized-image {
-        width: 2em;
-    }
     th.sortedAscending:before {
         content: "↑";
         font-weight: 900;
