@@ -22,13 +22,14 @@
             {#each planets as planet}
                 <div class="col-sm-12 col-md-6 col-lg-3">
                     <h4 class="content-subheader">
-                        <span>
+                        <span class="planet-name">
+                            {planet.labels.en}
+                                &nbsp;
                             <img
                                 class="img-fluid text-sized-image"
                                 src={planet.url.icon}
                                 alt={planet.labels.en}
                             />
-                            &nbsp;{planet.labels.en}
                         </span>
                     </h4>
 
@@ -40,7 +41,7 @@
                         />
                     </div>
 
-                    <div>
+                    <div class="info-section">
                         <h5 class="content-subheader">Info</h5>
                         <span class="important-word">Type</span>
                         {planet.type}
@@ -52,31 +53,7 @@
                         <a target="none" href={planet.url.wiki}>Link</a>
                     </div>
 
-                    {#if planet.resources}
-                        <div>
-                            <h5 class="content-subheader">Notable Resources</h5>
-                            <span class="important-word">Primary</span>
-                            {planet.resources.primary.id} - {planet.resources
-                                .primary.description}
-                            <br />
-                            <span class="important-word">Secondary</span>
-                            {planet.resources.secondary.id} - {planet.resources
-                                .secondary.description}
-                        </div>
-                    {/if}
-
-                    {#if Object.keys(planet.gases).length}
-                    <div>
-                        <h5 class="content-subheader">Gases</h5>
-                        {#each Object.keys(planet.gases) as gas}
-                            <span class="important-word">{gas}</span>
-                            {planet.gases[gas]} ppm
-                            <br />
-                        {/each}
-                    </div>
-                    {/if}
-
-                    <div>
+                    <div class="info-section">
                         <h5 class="content-subheader">Power</h5>
                         <span class="important-word">Day/Night cycle</span>
                         {planet.power.dayNightCycleSeconds} s
@@ -91,7 +68,7 @@
                         {Math.floor(planet.power.wikiWindCoefficient*100)}%
                     </div>
 
-                    <div>
+                    <div class="info-section">
                         <h5 class="content-subheader">Gateway network</h5>
                         <span class="important-word">Power by gateway</span>
                         {planet.gatewayNetwork.gatewayPower} s
@@ -99,6 +76,30 @@
                         <span class="important-word">Core material</span>
                         {planet.gatewayNetwork.coreMaterial}
                     </div>
+
+                    {#if planet.resources}
+                        <div class="info-section">
+                            <h5 class="content-subheader">Notable Resources</h5>
+                            <span class="important-word">Primary</span>
+                            {planet.resources.primary.id} - {planet.resources
+                                .primary.description}
+                            <br />
+                            <span class="important-word">Secondary</span>
+                            {planet.resources.secondary.id} - {planet.resources
+                                .secondary.description}
+                        </div>
+                    {/if}
+
+                    {#if Object.keys(planet.gases).length}
+                        <div class="info-section">
+                            <h5 class="content-subheader">Gases</h5>
+                            {#each Object.keys(planet.gases) as gas}
+                                <span class="important-word">{gas}</span>
+                                {planet.gases[gas]} ppm
+                                <br />
+                            {/each}
+                        </div>
+                    {/if}
 
                 </div>
             {/each}
@@ -109,10 +110,20 @@
 
 <style>
     .text-sized-image {
-        width: 2em;
+        width: 1em;
     }
     .planet-img {
         max-width: 15vw;
+        /* max-height shouldn't be needed for the wiki serves Sylva image slightly bigger
+        than the other ones. This is the work around I've found for now */
+        max-height: 189px;
         margin-bottom: 2vh;
+    }
+    .info-section {
+        margin-bottom: 3em;
+    }
+    .planet-name {
+        text-transform: uppercase;
+        font-size: large;
     }
 </style>
