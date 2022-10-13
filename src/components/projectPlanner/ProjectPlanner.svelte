@@ -59,6 +59,8 @@
 
         padding: 10px;
         margin: 10px;
+        margin-top: 0;
+        margin-left: 0;
     }
     .nav-item {
         color: var(--blue);
