@@ -53,39 +53,37 @@
                 <div class="flex-column text-align-center">
                     <ul>
                         {#each Object.keys(sortedItems[classification]).sort(alphaSort) as objectName}
+                            {@const object = getObject(objectName)}
                             <li>
                                 <span>
                                     {categoryItems[objectName]}
                                     &nbsp;<img
                                         class="resource-icon"
-                                        src={getObject(objectName).url[
-                                            $settings.pictureType
-                                        ]}
-                                        alt={getObject(objectName).labels.en}
+                                        src={object.url[$settings.pictureType]}
+                                        alt={object.labels.en}
                                     />
                                     &nbsp;{objectName}
                                 </span>
                                 {#if locations[objectName]}
+                                    {@const location = locations[objectName]}
+                                    {@const primaryPlanet = location.primary.planet}
+                                    {@const secondaryPlanet = location.secondary.planet}
                                     <span>
                                         <img
                                             class="planet-icon rounded-circle"
-                                            src={locations[objectName].primary
-                                                .planet.url[$settings.pictureType]}
-                                            alt={locations[objectName].primary
-                                                .planet.labels.en}
+                                            src={primaryPlanet.url[$settings.pictureType]}
+                                            alt={primaryPlanet.labels.en}
                                             data-toggle="tooltip"
                                             data-placement="top"
-                                            title={locations[objectName].primary.planet.labels.en}
+                                            title={primaryPlanet.labels.en}
                                         />
                                         <img
                                             class="planet-icon rounded-circle"
-                                            src={locations[objectName].secondary
-                                                .planet.url[$settings.pictureType]}
-                                            alt={locations[objectName].secondary
-                                                .planet.labels.en}
+                                            src={secondaryPlanet.url[$settings.pictureType]}
+                                            alt={secondaryPlanet.labels.en}
                                             data-toggle="tooltip"
                                             data-placement="top"
-                                            title={locations[objectName].secondary.planet.labels.en}
+                                            title={secondaryPlanet.labels.en}
                                         />
                                     </span>
                                 {/if}

@@ -26,17 +26,18 @@
             <div class="col text-align-center">
                 <ul>
                     {#each Object.keys(categoryItems).sort(alphaSort) as objectName}
+                        {@const object = getObject(objectName)}
                         <li>
                             <span>
                                 {categoryItems[objectName]}
                                 &nbsp;<img
                                     class="resource-icon"
-                                    src={getObject(objectName).url[$settings.pictureType]}
-                                    alt={getObject(objectName).labels.en}
+                                    src={object.url[$settings.pictureType]}
+                                    alt={object.labels.en}
                                 />
                                 &nbsp;{objectName}
                             </span>
-                            {#if getObject(objectName).category === "atmospheric"}
+                            {#if object.category === "atmospheric"}
                                 <span>
                                     {#each getAlmosphericResourceLocation(objectName) || [] as location}
                                         <img
