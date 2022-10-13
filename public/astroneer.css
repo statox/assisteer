@@ -48,12 +48,30 @@
 }
 
 body {
+    padding: 2%;
+    font-family: astroneer;
+    position: relative;
+}
+
+/* The background image is setup with before so that we can control its opacity */
+body:before {
+    content: ' ';
+    display: block;
+
     background-image: url('Site-background-light.webp');
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
     background-size: cover;
-    padding: 4%;
-    font-family: astroneer;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+    opacity: 0.6;
 }
 
 b {
