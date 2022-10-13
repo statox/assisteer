@@ -114,6 +114,22 @@
     <div>
         <h2>Changelog</h2>
         <div>
+            <h3>v 0.4</h3>
+            <p>The first version of storage analyser and Astropedia are here!</p>
+            <p>New features in this version:</p>
+            <ul>
+                <li>Some graph settings are back. Still not optimal tho.</li>
+                <li>Added scrap and soil to the resource list.</li>
+                <li>Different UI tweaks. Logo, some pages reworked to simplify the user actions.</li>
+                <li>Add the first version of Storage Analyser. The basic building blocks are here, a lot of UI work is still required but I don't want to touch it before
+                    I rework the UI of the whole app and make better use of the component system.
+                </li>
+                <li>The first Astropedia+ pages are here too: The scrap values of the resources and some information about the planets.</li>
+            </ul>
+            <p>The next steps will focus on cleaning up the code and making it more consistent between the different components to ease the addition of new features and Astropedia+ pages</p>
+        </div>
+
+        <div>
             <h3>v 0.3</h3>
             <p>I've done a lot of clean up most of the code of v0.1 has been removed, this leaner code and new object structure allowed me to make progress much faster!</p>
             <p>
