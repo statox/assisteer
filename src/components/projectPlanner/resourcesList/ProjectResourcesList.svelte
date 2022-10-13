@@ -54,7 +54,7 @@
         <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>
             Resource list
         </h3>
-        <div class:hidden={collapsed === true}>
+        <div class="container" class:hidden={collapsed === true}>
             {#if sortedCategories.length === 0}
                 <p>Nothing to show. Add objects to the project in the Inventory section.</p>
             {/if}

@@ -92,44 +92,46 @@
 
 <main>
     <h3 class="content-header">Object selection</h3>
-    <div class="container row">
-        <div class="col-md-4">
-            <Select
-                placeholder="Filter category"
-                items={orderedCategories}
-                on:select={handleSelectCategory}
-            />
-        </div>
-        <div class="col-md-5">
-            <!-- The key block is used to reload the list when the category changes -->
-            <!-- https://svelte.dev/docs#template-syntax-key -->
-            {#key selectedCategory}
-            <Select
-                placeholder="Project item selection"
-                {items}
-                {groupBy}
-                groupFilter={objectGroupsFilter}
-                on:select={handleSelect}
-            />
-            {/key}
-        </div>
-        <div class="col">
-            <button
-                id="addToProjectBtn"
-                disabled={!canAddToProject(selectedObject)}
-                on:click={handleAdd}>Add to project</button
-            >
-        </div>
-    </div>
-
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <strong class="me-auto green">Added to the project ✓</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <Select
+                    placeholder="Filter category"
+                    items={orderedCategories}
+                    on:select={handleSelectCategory}
+                />
             </div>
-            <div class="toast-body">
-                {selectedObject?.labels?.en || ''}
+            <div class="col-md-5">
+                <!-- The key block is used to reload the list when the category changes -->
+                <!-- https://svelte.dev/docs#template-syntax-key -->
+                {#key selectedCategory}
+                <Select
+                    placeholder="Project item selection"
+                    {items}
+                    {groupBy}
+                    groupFilter={objectGroupsFilter}
+                    on:select={handleSelect}
+                />
+                {/key}
+            </div>
+            <div class="col">
+                <button
+                    id="addToProjectBtn"
+                    disabled={!canAddToProject(selectedObject)}
+                    on:click={handleAdd}>Add to project</button
+                >
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto green">Added to the project ✓</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    {selectedObject?.labels?.en || ''}
+                </div>
             </div>
         </div>
     </div>
