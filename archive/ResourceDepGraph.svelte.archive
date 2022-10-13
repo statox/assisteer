@@ -324,3 +324,10 @@ document.addEventListener("DOMContentLoaded", function() {
     <br/>
     <GraphControls updateGraph={updateGraph} resetCytoscape={resetCytoscape}/>
 </main>
+
+<style>
+.content-container {
+        width: 95%;
+            margin: auto;
+}
+</style>
