@@ -9,7 +9,7 @@
         <h3 class="content-header">Planets</h3>
         <div class="container">
             <div class="warning">
-                Warning: This page contains spoilers about the game.
+                Warning: This page contains spoilers about the game mechanisms.
             </div>
             <div class="info">
                 See the <a
@@ -43,50 +43,69 @@
 
                     <div class="info-section">
                         <h5 class="content-subheader">Info</h5>
-                        <span class="important-word">Type</span>
-                        {planet.type}
-                        <br />
-                        <span class="important-word">Difficulty</span>
-                        {planet.difficulty}
-                        <br />
-                        <span class="important-word">Wiki</span>
-                        <a target="none" href={planet.url.wiki}>Link</a>
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Type</span>
+                                <span>{planet.type}</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Difficulty</span>
+                                {planet.difficulty}
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Wiki</span>
+                                <a target="none" href={planet.url.wiki}>Link</a>
+                            </div>
                     </div>
 
                     <div class="info-section">
                         <h5 class="content-subheader">Power</h5>
-                        <span class="important-word">Day/Night cycle</span>
-                        {planet.power.dayNightCycleSeconds} s
-                        <br />
-                        <span class="important-word">Wind</span>
-                        {planet.power.wind}
-                        <br />
-                        <span class="important-word">Sun</span>
-                        {planet.power.sun}
-                        <br />
-                        <span class="important-word">Wind turbines avg. active time</span>
-                        {Math.floor(planet.power.wikiWindCoefficient*100)}%
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Day/Night cycle</span>
+                                {planet.power.dayNightCycleSeconds} s
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Wind</span>
+                                {planet.power.wind}
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Sun</span>
+                                {planet.power.sun}
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Wind activity</span>
+                                {Math.floor(planet.power.wikiWindCoefficient*100)}%
+                            </div>
                     </div>
 
                     <div class="info-section">
                         <h5 class="content-subheader">Gateway network</h5>
-                        <span class="important-word">Power by gateway</span>
-                        {planet.gatewayNetwork.gatewayPower} s
-                        <br />
-                        <span class="important-word">Core material</span>
-                        {planet.gatewayNetwork.coreMaterial}
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Power by gateway</span>
+                                {planet.gatewayNetwork.gatewayPower} s
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Core material</span>
+                                {planet.gatewayNetwork.coreMaterial}
+                            </div>
                     </div>
 
                     {#if planet.resources}
                         <div class="info-section">
                             <h5 class="content-subheader">Notable Resources</h5>
-                            <span class="important-word">Primary</span>
-                            {planet.resources.primary.id} - {planet.resources
-                                .primary.description}
-                            <br />
-                            <span class="important-word">Secondary</span>
-                            {planet.resources.secondary.id} - {planet.resources
-                                .secondary.description}
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Primary</span>
+                                {planet.resources.primary.id}
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                {planet.resources.primary.description}
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Secondary</span>
+                                {planet.resources.secondary.id}
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                {planet.resources.secondary.description}
+                            </div>
                         </div>
                     {/if}
 
@@ -94,9 +113,10 @@
                         <div class="info-section">
                             <h5 class="content-subheader">Gases</h5>
                             {#each Object.keys(planet.gases) as gas}
-                                <span class="important-word">{gas}</span>
-                                {planet.gases[gas]} ppm
-                                <br />
+                                <div class="d-flex justify-content-between">
+                                    <span class="important-word">{gas}</span>
+                                    {planet.gases[gas]} ppm
+                                </div>
                             {/each}
                         </div>
                     {/if}
