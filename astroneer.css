@@ -51,6 +51,7 @@ body {
     padding: 2%;
     font-family: astroneer;
     position: relative;
+    min-height: 100vh;
 }
 
 /* The background image is setup with before so that we can control its opacity */
