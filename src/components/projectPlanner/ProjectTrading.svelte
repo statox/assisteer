@@ -24,6 +24,7 @@
                 <thead>
                     <tr>
                         <td>Resource</td>
+                        <td>Required Quantity</td>
                         <td>
                             Soil
                             <img
@@ -44,7 +45,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>All resources in project</td>
+                        <td colspan="2">All resources in project</td>
                         <td>{tradeStats.totalSoil}</td>
                         <td>{tradeStats.totalScrap}</td>
                     </tr>
@@ -58,6 +59,15 @@
                                 />
                                 &nbsp;{getObject(trade.resourceId).labels.en}
                             </td>
+
+                            <td>
+                                {#if trade.soil}
+                                    {trade.soil.resourcesProduced - trade.soil.surplus}
+                                {:else}
+                                    {trade.scrap.resourcesProduced - trade.scrap.surplus}
+                                {/if}
+                            </td>
+
                             {#each ['soil', 'scrap'] as currency}
                                 <td>
                                     {#if trade[currency]}
