@@ -8,6 +8,7 @@
   --grey: #9b9797;
   --green: #2de162;
   --yellow: #ffcf01;
+  --dark-yellow: #e8bc02;
   --main-bg-color: #f1f3f7;
   --main-color: #3a3a3a;
   --page-header-color: #129af0;
@@ -82,7 +83,7 @@ b {
 .top-container {
     background-color: var(--main-bg-color);
     color: var(--main-color);
-    padding: 20px;
+    padding: 10px;
 }
 
 .content-section {
@@ -113,7 +114,7 @@ b {
     font-family: astroneer-bold;
     text-transform: capitalize;
     color: var(--blue);
-    border-bottom: 1px solid var(--yellow);
+    border-bottom: 1px solid var(--dark-yellow);
     text-align: center;
     margin-left: auto;
     margin-right: auto;
