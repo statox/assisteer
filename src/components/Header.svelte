@@ -5,17 +5,16 @@
                 src="./icon.png"
                 alt="assisteer logo"
             />
-            ASSISTEER
+            <img class="img-fluid title-img"
+                src="./name.png"
+                alt="assisteer logo"
+            />
         </h1>
     </header>
 </main>
 
 <style>
     h1 {
-        font-weight: bolder;
-        color: white;
-        /* TODO There is probably a better way to make text-shadow responsive */
-        text-shadow: 0.5vw 0.5vw black;
         font-size: max(8vw, 50px);
     }
     .title-img {

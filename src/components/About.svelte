@@ -80,7 +80,6 @@
             <li><b>Astropedia+ - research</b> Add the ability to select a number of objects/resources and compute the time required to research them all and
                 the resulting number of bytes
             </li>
-            <li><b>Astropedia+ - remember section</b> Reuse mechanism from Project Planner to store the current section in Astropedia+</li>
             <li><b>Astropedia+ - objects</b> Allow each object to redirect to its own information page in the app</li>
             <li><b>Astropedia+ - planets</b> Improve UI.</li>
             <li><b>Astropedia+ - flora</b> Create a page to show the detailed informations of the flora</li>
@@ -107,6 +106,7 @@
             <li><s><b>Storage Analyser - v1</b> Show the number of objects by tier in the project, the number of available slots and the canisters capacity.</s></li>
             <li><s><b>Resource List - Soil centrifuge</b> Add soil centrifuge mechanism to resource list</s></li>
             <li><s><b>Resource List - Trade platform</b> Add trade platform mechanism to resource list</s></li>
+            <li><s><b>Astropedia+ - remember section</b> Reuse mechanism from Project Planner to store the current section in Astropedia+</s></li>
             <li><s><b>Astropedia+ - research</b> Show the bytes provided by different resources.</s></li>
             <li><s><b>Astropedia+ - planets</b> Create a page to show the detailed informations of the planets (gases, gateway system infos, ...)</s></li>
         </ul>
