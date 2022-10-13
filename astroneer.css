@@ -100,9 +100,8 @@ b {
 
 .content-header {
     font-family: astroneer-bold;
-    text-transform: capitalize;
+    text-transform: uppercase;
     color: var(--blue);
-    /* background-color: var(--content-header-bg-color); */
     border-bottom: 1px solid var(--blue);
     text-align: center;
     margin-bottom: 10px;
