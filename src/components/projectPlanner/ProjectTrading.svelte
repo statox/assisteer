@@ -1,7 +1,7 @@
 <script lang="ts">
     import { settings, project } from "../../stores";
     import { getObject } from "../../services/data/objects";
-    import { getProjectTradingStats, TradingStats } from "../../services/project";
+    import { getProjectTradingStats, TradingStats } from "../../services/trading";
 
     let collapsed = false;
     let tradeStats: TradingStats;
