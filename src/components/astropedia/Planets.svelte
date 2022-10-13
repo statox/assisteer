@@ -113,11 +113,12 @@
         width: 1em;
     }
     .planet-img {
-        max-width: 15vw;
+        max-width: 50%;
         /* max-height shouldn't be needed for the wiki serves Sylva image slightly bigger
         than the other ones. This is the work around I've found for now */
         max-height: 189px;
         margin-bottom: 2vh;
+        border-radius: 5px;
     }
     .info-section {
         margin-bottom: 3em;

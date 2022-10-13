@@ -72,8 +72,8 @@
                         </ul>
                         Your in-game experience might differ from the computed values, these are just for reference.
                     </div>
+                    <h4 class="content-subheader">Planet to setup the project</h4>
                     <div class="row row-cols-auto">
-                        <h4 class="content-subheader">Planet to setup the project</h4>
                         {#each planets as planet}
                             <div
                                 class="col planet-div"
@@ -88,20 +88,24 @@
                                         alt={planet.id}
                                     />
                                 </span>
-                                <div>
-                                    <img class="img-fluid planet-img rounded-circle"
-                                        src={planet.url.image}
-                                        alt={planet.id}
-                                    />
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img class="img-fluid planet-img rounded-circle"
+                                            src={planet.url.image}
+                                            alt={planet.id}
+                                        />
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <span class="important-word">Solar </span>{planet.power.sun}
+                                        </div>
+                                        <div>
+                                            <span class="important-word">Wind </span>{planet.power.wind}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
-                                    <span class="important-word">Solar </span>{planet.power.sun}
-                                </div>
-                                <div>
-                                    <span class="important-word">Wind </span>{planet.power.wind}
-                                </div>
-                                <div>
-                                    <span class="important-word">Wind turbines avg. active time </span>{Math.round(planet.power.wikiWindCoefficient * 100)}%
+                                    <span class="important-word">Wind activity </span>{Math.round(planet.power.wikiWindCoefficient * 100)}%
                                 </div>
                                 <div>
                                     <span class="important-word">Daylight cycle </span>{planet.power.dayNightCycleSeconds} s
@@ -293,9 +297,6 @@
     .planet-name {
         font-size: 1.2em;
     }
-    .planet-img {
-        max-width: 5vw;
-    }
     .planet-div {
         margin: 1vw;
         border: 3px solid transparent;
@@ -303,8 +304,8 @@
     }
     .planet-div.selected {
         background: #d6edff;
-        border: 3px solid var(--blue);
-        border-radius: 5px;
+        /* border: 3px solid var(--blue); */
+        /* border-radius: 5px; */
     }
     .table-borderless tr {
         border: 0;
