@@ -5,18 +5,18 @@ import { BaseObject, getObject } from './objects';
 import type { Planet } from './planets';
 
 type PowerProducer = {
-    type: "producer"
-    category: "wind" | "solar" | "organic" | "other";
+    type: 'producer'
+    category: 'wind' | 'solar' | 'organic' | 'other';
     output: number;
 };
 
 type PowerConsumer = {
-    type: "consumer"
+    type: 'consumer'
     input: number;
 };
 
 type PowerStorage = {
-    type: "storage"
+    type: 'storage'
     output: number;
     capacity: number;
 }
@@ -25,29 +25,29 @@ export type ObjectPowerStats = PowerProducer | PowerConsumer | PowerStorage;
 
 // https://astroneer.fandom.com/wiki/Power
 const solarCoefficientsByName = {
-    "very low": 0.25,
-    "low": 0.5,
-    "medium": 1,
-    "high": 1.5,
-    "very high": 1.75
-}
+    'very low': 0.25,
+    'low': 0.5,
+    'medium': 1,
+    'high': 1.5,
+    'very high': 1.75
+};
 
 const getObjectPowerStats = (objectName: string): ObjectPowerStats => {
     if (producers[objectName]) {
         const stats = producers[objectName];
         return {
-            type: stats.capacity ? "storage" : "producer",
+            type: stats.capacity ? 'storage' : 'producer',
             ...stats
-        }
+        };
     }
     if (consumers[objectName]) {
         const stats = consumers[objectName];
         return {
-            type: "consumer",
+            type: 'consumer',
             ...stats
-        }
+        };
     }
-}
+};
 type PowerStatsItem = {
     objectName: string;
     object: BaseObject;

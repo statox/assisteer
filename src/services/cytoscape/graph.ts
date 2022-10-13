@@ -2,16 +2,16 @@ import cytoscape from 'cytoscape';
 import { getObject } from '../data/objects';
 import { Project, projectToFlatTree } from '../project';
 
-export type EdgeStyle = "bezier" | "haystack" | "straight" | "taxi";
+export type EdgeStyle = 'bezier' | 'haystack' | 'straight' | 'taxi';
 
 export const edgeStyles: {id: EdgeStyle, label: string}[] = [
-    {id: "bezier", label: "Bezier"},
-    {id: "taxi", label: "Taxi"},
-    {id: "straight", label: "Straight"},
-    {id: "haystack", label: "Haystack"}
+    {id: 'bezier', label: 'Bezier'},
+    {id: 'taxi', label: 'Taxi'},
+    {id: 'straight', label: 'Straight'},
+    {id: 'haystack', label: 'Haystack'}
 ];
 
-const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "icon" | "image", edgeStyle: EdgeStyle }) => {
+const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: 'icon' | 'image', edgeStyle: EdgeStyle }) => {
     const { pictureType, edgeStyle } = params;
     return cytoscape({
         container: container, // container to render in
@@ -22,7 +22,7 @@ const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "ic
                 style: {
                     // TODO The doc advises to memoize the functions
                     'label': (node: any) => {
-                        const qty = (node.data('quantity') || "?") + "x ";
+                        const qty = (node.data('quantity') || '?') + 'x ';
                         if (node.data('label')) {
                             return qty + node.data('label');
                         }
@@ -43,7 +43,7 @@ const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: "ic
             }
         ]
     });
-}
+};
 
 const addElementsFromProject = (cy: cytoscape.Core, project: Project) => {
     const tree = projectToFlatTree(project);
@@ -51,7 +51,7 @@ const addElementsFromProject = (cy: cytoscape.Core, project: Project) => {
         tree.nodes.map((n) => {
             const object = getObject(n.id);
             return {
-                group: "nodes",
+                group: 'nodes',
                 data: {
                     ...n,
                     label: object.labels.en
@@ -61,10 +61,10 @@ const addElementsFromProject = (cy: cytoscape.Core, project: Project) => {
     );
     cy.add(
         tree.edges.map((e) => {
-            return { group: "edges", data: e };
+            return { group: 'edges', data: e };
         })
     );
-}
+};
 
 const addElementsFromProjectSeparatedTrees = (cy: cytoscape.Core, project: Project) => {
     for (const objectName of Object.keys(project)) {
@@ -76,7 +76,7 @@ const addElementsFromProjectSeparatedTrees = (cy: cytoscape.Core, project: Proje
                 const object = getObject(n.id);
                 n.id = `${objectName}#${n.id}`;
                 return {
-                    group: "nodes",
+                    group: 'nodes',
                     data: {
                         ...n,
                         label: object.labels.en
@@ -88,11 +88,11 @@ const addElementsFromProjectSeparatedTrees = (cy: cytoscape.Core, project: Proje
             tree.edges.map((e) => {
                 e.source = `${objectName}#${e.source}`;
                 e.target = `${objectName}#${e.target}`;
-                return { group: "edges", data: e };
+                return { group: 'edges', data: e };
             })
         );
     }
-}
+};
 
 export {
     addElementsFromProject,

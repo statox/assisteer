@@ -1,7 +1,7 @@
-import { Writable, writable } from "svelte/store";
-import type { Project } from "../services/project";
+import { Writable, writable } from 'svelte/store';
+import type { Project } from '../services/project';
 
-const storedProjectStr = localStorage.getItem("project");
+const storedProjectStr = localStorage.getItem('project');
 
 let project: Writable<Project>;
 if (storedProjectStr !== null) {
@@ -16,7 +16,7 @@ if (storedProjectStr !== null) {
 }
 
 project.subscribe((value) => {
-    localStorage.setItem("project", JSON.stringify(value));
+    localStorage.setItem('project', JSON.stringify(value));
 });
 
 export { project };

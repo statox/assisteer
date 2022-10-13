@@ -1,4 +1,4 @@
-import research from '../../data/researchValues.json'
+import research from '../../data/researchValues.json';
 import { BaseObject, getObject } from './objects';
 
 export interface ObjectResearchDetails extends BaseObject {

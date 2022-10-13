@@ -1,10 +1,10 @@
-import recipes from '../../data/recipes.json'
+import recipes from '../../data/recipes.json';
 import rawResource from '../../data/rawResources.json';
 import { BaseObject, getObject } from './objects';
 
 const getAllRecipesList = () => {
     return recipes;
-}
+};
 
 export type Recipe = {
     product: string;
@@ -19,14 +19,14 @@ const getObjectRecipes = (objectName: string): Recipe[] => {
         return [];
     }
     return recipes[objectName];
-}
+};
 
 const getObjectDefaultRecipe = (objectName: string): Recipe => {
     if (!recipes[objectName]) {
         return;
     }
     return recipes[objectName][0];
-}
+};
 
 type DepLevel<T> = {
     object: BaseObject;
@@ -37,7 +37,8 @@ type DepLevel<T> = {
         [objectName: string]: T;
     }
 };
-export interface DepTree extends DepLevel<DepTree> { };
+
+export interface DepTree extends DepLevel<DepTree> { } // eslint-disable-line @typescript-eslint/no-empty-interface
 
 const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number): DepTree => {
     const result = {
@@ -55,7 +56,7 @@ const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number):
                 object: getObject(resource),
                 quantity: quantity * finalObjectQuantity,
                 type: 'raw'
-            }
+            };
         } else {
             const subRecipe = getObjectDefaultRecipe(resource);
             result.resources[resource] = {
@@ -63,11 +64,11 @@ const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number):
                 type: 'not_raw',
                 quantity: quantity * finalObjectQuantity,
                 ...getRecipeDependenciesTree(subRecipe, quantity * finalObjectQuantity)
-            }
+            };
         }
     }
 
     return result;
-}
+};
 
 export { getAllRecipesList, getObjectDefaultRecipe, getObjectRecipes, getRecipeDependenciesTree };

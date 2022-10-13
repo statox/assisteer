@@ -1,7 +1,7 @@
 import canisters from '../../data/canistersDetails.json';
 import storages from '../../data/storageDetails.json';
-import type { Project } from "../project";
-import { getObject } from "./objects";
+import type { Project } from '../project';
+import { getObject } from './objects';
 
 type CanisterTypeStorageDetails = {
     storageType: string;
@@ -46,7 +46,7 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
         { tier: 3, total: 0, objects: [] },
         { tier: 4, total: 0, objects: [] }
     ];
-    const canistersCapacitybyType = {}
+    const canistersCapacitybyType = {};
     const storagesCapacityByTier: [number, number, number, number] = [0, 0, 0, 0];
     const storageObjects = [];
     let objectTotalCount = 0;
@@ -56,7 +56,7 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
         const object = getObject(objectName);
 
         if (canisters[objectName]) {
-            const canister = canisters[objectName]
+            const canister = canisters[objectName];
             if (!canistersCapacitybyType[canister.holds]) {
                 canistersCapacitybyType[canister.holds] = {};
             }
@@ -66,11 +66,11 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
                 quantity: objectQuantity,
                 totalCapacity: canister.capacity * objectQuantity,
                 id: objectName
-            }
+            };
         }
 
         if (storages[objectName]) {
-            const storage = storages[objectName]
+            const storage = storages[objectName];
             for (let tier = 1; tier <= 4; tier++) {
                 storagesCapacityByTier[tier - 1] += storage.slotsByTier[tier] * objectQuantity;
             }
@@ -100,7 +100,7 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
             continue;
         }
         objectTotalCount += objectQuantity;
-        objectsCountByTier[object.tier - 1].total += objectQuantity
+        objectsCountByTier[object.tier - 1].total += objectQuantity;
         objectsCountByTier[object.tier - 1].objects.push({
             id: objectName,
             quantity: objectQuantity
@@ -113,7 +113,7 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
         canistersCapacitybyType,
         storagesCapacityByTier,
         storageObjects
-    }
-}
+    };
+};
 
 export { getProjectStorageStats };

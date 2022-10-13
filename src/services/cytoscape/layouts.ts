@@ -1,19 +1,19 @@
 import cytoscape from 'cytoscape';
-import avsdf from "cytoscape-avsdf";
+import avsdf from 'cytoscape-avsdf';
 import cola from 'cytoscape-cola';
-import dagre from "cytoscape-dagre";
+import dagre from 'cytoscape-dagre';
 import evenParent from 'cytoscape-even-parent';
 
-export type LayoutName = "avsdf" | "breadthfirst" | "circle" | "cola" | "concentric" | "dagre" | "evenparent";
+export type LayoutName = 'avsdf' | 'breadthfirst' | 'circle' | 'cola' | 'concentric' | 'dagre' | 'evenparent';
 
 const layouts: {id: LayoutName, label: string}[] = [
-    {id: "dagre", label: "Dagre"},
-    {id: "breadthfirst", label: "Breadth first"},
-    {id: "evenparent", label: "Even Parent"},
-    {id: "cola", label: "Cola"},
-    {id: "circle", label: "Circle"},
-    {id: "concentric", label: "Concentric"},
-    {id: "avsdf", label: "AVSDF"},
+    {id: 'dagre', label: 'Dagre'},
+    {id: 'breadthfirst', label: 'Breadth first'},
+    {id: 'evenparent', label: 'Even Parent'},
+    {id: 'cola', label: 'Cola'},
+    {id: 'circle', label: 'Circle'},
+    {id: 'concentric', label: 'Concentric'},
+    {id: 'avsdf', label: 'AVSDF'},
 ];
 
 const runCytoscapeLayout = (cy: cytoscape.Core, layout: LayoutName) => {
@@ -57,7 +57,7 @@ const runCytoscapeLayout = (cy: cytoscape.Core, layout: LayoutName) => {
     if (layout === 'dagre') {
         cytoscape.use(dagre);
         cy.layout({
-            name: "dagre",
+            name: 'dagre',
             nodeDimensionsIncludeLabels: true, // whether labels should be included in determining the space used by a node
         } as dagre.DagreLayoutOptions).run();
     }
@@ -71,6 +71,6 @@ const runCytoscapeLayout = (cy: cytoscape.Core, layout: LayoutName) => {
             horizontalSpread: false
         } as any).run();
     }
-}
+};
 
 export { runCytoscapeLayout, layouts };

@@ -16,11 +16,11 @@ export type Planet = {
     gases: {
         [gasId: string]: number;
     };
-    difficulty: "easy" | "medium" | "hard" | "very hard";
+    difficulty: 'easy' | 'medium' | 'hard' | 'very hard';
     power: {
         dayNightCycleSeconds: number,
-        sun: "very low" | "low" | "medium" | "high" | "very high";
-        wind: "very low" | "low" | "medium" | "high" | "very high";
+        sun: 'very low' | 'low' | 'medium' | 'high' | 'very high';
+        wind: 'very low' | 'low' | 'medium' | 'high' | 'very high';
         wikiWindCoefficient: number; // The wiki says the wind coeffients are not related to the planets wind power category
     };
     gatewayNetwork: {
@@ -40,7 +40,7 @@ export type Planet = {
 
 const getPlanet = (planetId: string): Planet => {
     return planets[planetId];
-}
+};
 
 const allPlanets = [];
 for (const planet of Object.values(planets)) {

@@ -1,3 +1,3 @@
-import { makeNodesMoveSubtree, makeNodesShowHideOnTap } from "./ui";
+import { makeNodesMoveSubtree, makeNodesShowHideOnTap } from './ui';
 
 export { makeNodesMoveSubtree, makeNodesShowHideOnTap };

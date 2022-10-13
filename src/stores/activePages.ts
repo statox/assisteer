@@ -1,4 +1,4 @@
-import { Writable, writable } from "svelte/store";
+import { Writable, writable } from 'svelte/store';
 
 type ActivePages = {
     planner: string;
@@ -6,11 +6,11 @@ type ActivePages = {
 }
 
 const defaultActivePages = {
-    planner: "inventory",
-    astropedia: "research"
-}
+    planner: 'inventory',
+    astropedia: 'research'
+};
 
-const storedActivePagesStr = localStorage.getItem("activeSection");
+const storedActivePagesStr = localStorage.getItem('activeSection');
 
 let activePages: Writable<ActivePages>;
 if (storedActivePagesStr) {
@@ -25,7 +25,7 @@ if (storedActivePagesStr) {
 }
 
 activePages.subscribe((value) => {
-    localStorage.setItem("activeSection", JSON.stringify(value));
-})
+    localStorage.setItem('activeSection', JSON.stringify(value));
+});
 
 export { activePages };

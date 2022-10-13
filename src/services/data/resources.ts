@@ -18,7 +18,7 @@ export type AtmosphericResourceLocations = {
 }[];
 
 export type ResourceDetails = {
-    classification: "mineral" | "organic" | "ore";
+    classification: 'mineral' | 'organic' | 'ore';
 };
 
 const atmosphericResourcesLocation: {
@@ -40,7 +40,7 @@ for (const planet of planets) {
         naturalResourcesLocation[idPrimary].primary = {
             planet,
             description: descriptionPrimary
-        }
+        };
 
         const { id: idSecondary, description: descriptionSecondary } = planet.resources.secondary;
         if (!naturalResourcesLocation[idSecondary]) {
@@ -49,13 +49,13 @@ for (const planet of planets) {
         naturalResourcesLocation[idSecondary].secondary = {
             planet,
             description: descriptionSecondary
-        }
+        };
     }
 
     if (planet.gases) {
         for (const gasName of Object.keys(planet.gases)) {
             if (!atmosphericResourcesLocation[gasName]) {
-                atmosphericResourcesLocation[gasName] = []
+                atmosphericResourcesLocation[gasName] = [];
             }
 
             atmosphericResourcesLocation[gasName].push({

@@ -1,6 +1,6 @@
-import exchangeRates from "../data/exchangeRates.json";
-import { getObject } from "./data/objects";
-import { getProjectResourcesByCategories, Project, ProjectLightResourcesByCategory } from "./project";
+import exchangeRates from '../data/exchangeRates.json';
+import { getObject } from './data/objects';
+import { getProjectResourcesByCategories, Project, ProjectLightResourcesByCategory } from './project';
 
 interface PossibleTrades {
     resourceId: string;
@@ -29,7 +29,7 @@ const getProjectTradingStats = (project: Project) => {
         totalSoil: soilRequirements.total,
         totalScrap: scrapRequirements.total,
         possibleTrades: []
-    }
+    };
 
     const tradableResources = new Set([
         ...Object.keys(soilRequirements.byResource),
@@ -39,20 +39,20 @@ const getProjectTradingStats = (project: Project) => {
     for (const resource of tradableResources) {
         const possibleTrades: PossibleTrades = {
             resourceId: resource,
-        }
+        };
         if (soilRequirements.byResource[resource]) {
             possibleTrades.soil = {
                 currencyRequired: soilRequirements.byResource[resource].soilRequired,
                 resourcesProduced: soilRequirements.byResource[resource].quantityProduced,
                 surplus: soilRequirements.byResource[resource].surplus
-            }
+            };
         }
         if (scrapRequirements.byResource[resource]) {
             possibleTrades.scrap = {
                 currencyRequired: scrapRequirements.byResource[resource].scrapRequired,
                 resourcesProduced: scrapRequirements.byResource[resource].quantityProduced,
                 surplus: scrapRequirements.byResource[resource].surplus
-            }
+            };
         }
         result.possibleTrades.push(possibleTrades);
     }
@@ -62,7 +62,7 @@ const getProjectTradingStats = (project: Project) => {
         return objectA.labels.en < objectB.labels.en ? -1 : 1;
     });
     return result;
-}
+};
 
 export type SoilRequirements = {
     total: number,
@@ -102,10 +102,10 @@ const getResourcesSoilRequirements = (projectResources: ProjectLightResourcesByC
             soilRequired,
             quantityProduced,
             surplus
-        }
+        };
     }
     return soilRequirements;
-}
+};
 
 export type ScrapRequirements = {
     total: number,
@@ -146,12 +146,12 @@ const getResourcesScrapRequirement = (projectResources: ProjectLightResourcesByC
             scrapRequired: requiredScrapForResource,
             quantityProduced,
             surplus
-        }
+        };
     }
 
     return scrapRequirements;
-}
+};
 
 export {
     getProjectTradingStats,
-}
+};

@@ -1,5 +1,5 @@
-import { BaseObject, getObject, getObjectUnlockCost } from "./data/objects";
-import { getObjectDefaultRecipe, getRecipeDependenciesTree } from "./data/recipes";
+import { BaseObject, getObject, getObjectUnlockCost } from './data/objects';
+import { getObjectDefaultRecipe, getRecipeDependenciesTree } from './data/recipes';
 
 export type Project = {
     [objectName: string]: number;
@@ -35,7 +35,7 @@ const projectToFlatTree = (project: Project): FlatTree => {
         nodes[objectName] = {
             object,
             quantity
-        }
+        };
 
         if (!rootDepTree.resources) {
             return;
@@ -58,9 +58,9 @@ const projectToFlatTree = (project: Project): FlatTree => {
                     nodes[depName] = {
                         object: getObject(depName),
                         quantity: depTree.resources[depName].quantity
-                    }
+                    };
                 } else {
-                    nodes[depName].quantity += depTree.resources[depName].quantity
+                    nodes[depName].quantity += depTree.resources[depName].quantity;
                 }
 
                 if (depTree.resources[depName].resources) {
@@ -80,7 +80,7 @@ const projectToFlatTree = (project: Project): FlatTree => {
         return {
             ...nodes[nodeName],
             id: nodeName
-        }
+        };
     });
 
     const flatEdges = Object.keys(edges).reduce((flatEdges, target) => {
@@ -88,7 +88,7 @@ const projectToFlatTree = (project: Project): FlatTree => {
         for (const source of sources) {
             flatEdges.push({ source, target });
         }
-        return flatEdges
+        return flatEdges;
     }, []);
     return { nodes: flatNodes, edges: flatEdges };
 };
@@ -123,7 +123,7 @@ const getProjectResourcesByCategories = (project: Project): ProjectLightResource
         }
     }
     return list;
-}
+};
 
 type ProjectObject = {
     objectName: string;
@@ -150,7 +150,7 @@ const getProjectObjectsByCategory = (project: Project): ProjectObjectsByCategory
     }
 
     return objectsByCategory;
-}
+};
 
 const getProjectObjectsByTier = (project: Project): ProjectObjectsByCategory => {
     const objectsByTier: ProjectObjectsByCategory = {};
@@ -167,7 +167,7 @@ const getProjectObjectsByTier = (project: Project): ProjectObjectsByCategory => 
     }
 
     return objectsByTier;
-}
+};
 
 const getProjectTotalUnlockCost = (project: Project) => {
     let projectTotalUnlockCost = 0;
@@ -175,7 +175,7 @@ const getProjectTotalUnlockCost = (project: Project) => {
         projectTotalUnlockCost += getObjectUnlockCost(objectName);
     }
     return projectTotalUnlockCost;
-}
+};
 
 export {
     getProjectObjectsByCategory,
