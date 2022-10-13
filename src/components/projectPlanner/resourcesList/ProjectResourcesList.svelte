@@ -7,7 +7,6 @@
     import { project } from "../../../stores";
     import ProjectResourcesListCategory from "./ProjectResourcesListCategory.svelte";
     import ProjectResourcesListCategoryWithSubCategories from "./ProjectResourcesListCategoryWithSubCategories.svelte";
-    import ProjectSoilRequirements from "./ProjectSoilRequirements.svelte";
 
     let collapsed = false;
 
@@ -58,8 +57,6 @@
         <div class:hidden={collapsed === true}>
             {#if sortedCategories.length === 0}
                 <p>Nothing to show. Add objects to the project in the Inventory section.</p>
-            {:else}
-                <ProjectSoilRequirements {resourcesList} />
             {/if}
             <div class="row">
                 {#if sortedCategories.includes("special_resource")}

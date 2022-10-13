@@ -6,6 +6,7 @@
     import ProjectStorageAnalyser from "./ProjectStorageAnalyser.svelte";
     import ProjectSettings from "./ProjectSettings.svelte";
     import ProjectInventory from "./inventory/ProjectInventory.svelte";
+    import ProjectTrading from "./ProjectTrading.svelte";
 
     const sectionsNames = {
         inventory: "Inventory",
@@ -13,12 +14,13 @@
         power: "Power",
         storage: "Storage",
         settings: "Settings",
+        trading: "Trading"
     };
 </script>
 
 <main>
     <div class="nav-menu d-flex flex-row flex-wrap justify-content-evenly">
-        {#each ["inventory", "resources", "power", "storage", "settings"] as section}
+        {#each ["inventory", "resources", "trading", "power", "storage", "settings"] as section}
             <div class="mx-1" class:ms-sm-auto={section === "settings"}>
                 <button
                     class="nav-item"
@@ -36,6 +38,9 @@
     {#if $activePages.planner === "resources"}
         <ProjectResourcesList />
         <ProjectGraph />
+    {/if}
+    {#if $activePages.planner === "trading"}
+        <ProjectTrading />
     {/if}
     {#if $activePages.planner === "storage"}
         <ProjectStorageAnalyser />
