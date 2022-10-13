@@ -14,9 +14,17 @@
 <!-- Routing inspired by https://sustainablewww.org/principles/how-to-implement-routes-in-your-svelte-web-application-using-svelte-routing -->
 <Router {url}>
     <nav>
-        <Link to="/"><span class="nav-item">Planner</span></Link>
-        <Link to="/astropedia/"><span class="nav-item">Astropedia+</span></Link>
-        <Link to="/about/"><span class="nav-item">About</span></Link>
+        <Link to="/">
+            <span class="nav-item">Planner</span>
+            <span class="nav-item-separator" />
+        </Link>
+        <Link to="/astropedia/">
+            <span class="nav-item">Astropedia+</span>
+            <span class="nav-item-separator" />
+        </Link>
+        <Link to="/about/">
+            <span class="nav-item">About</span>
+        </Link>
     </nav>
     <div>
         <Route path="/"><ProjectPlanner /></Route>
@@ -29,14 +37,17 @@
 
 <style>
     nav {
-        margin-bottom: 10px;
+        margin-top: 30px;
+        margin-bottom: 0;
+        background-color: #13a5ec;
+        padding-left: 10px;
     }
 
     .nav-item {
         color: white;
         font-weight: bolder;
         font-size: x-large;
-        text-transform:uppercase;
+        text-transform: uppercase;
         text-shadow: 2px 2px black;
     }
 
@@ -45,9 +56,14 @@
         color: white;
     }
 
-    .nav-item:after {
+    .nav-item-separator {
+        color: white;
+        font-weight: bolder;
+        font-size: x-large;
         margin-left: 10px;
         margin-right: 10px;
+    }
+    .nav-item-separator:after {
         content: "|";
     }
 </style>
