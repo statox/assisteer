@@ -1,12 +1,13 @@
 <script lang="ts">
     import { getObject } from "../../services/data/objects";
-import {
+    import {
         getProjectStorageStats,
         ProjectStorageStats,
         StorageStatsSettings,
     } from "../../services/data/storage";
     import { project } from "../../stores";
     import ObjectName from "../utils/ObjectName.svelte";
+
     let collapsed = false;
     let storageStats: ProjectStorageStats;
     let settings: StorageStatsSettings;
@@ -141,9 +142,12 @@ import {
 
                     <div>
                         {#each ["small", "medium", "large", "extra large"] as tier, index}
-                            <div>
+                            <div class="tier-header">
                                 <span class="important-word">Tier {tier}</span>
+                                &nbsp;
                                 {storageStats.objectsCountByTier[index].total}
+                            </div>
+                            <div>
                                 <ul>
                                     {#each storageStats.objectsCountByTier[index].objects as object}
                                         <li><ObjectName object={getObject(object.id)} quantity={object.quantity} pictureType='icon' />
@@ -180,37 +184,26 @@ import {
             <div class="row">
                 <h4 class="content-subheader">Canisters capacity</h4>
                 {#each Object.keys(storageStats.canistersCapacitybyType) as type}
+                    {@const typeCapacity = storageStats.canistersCapacitybyType[type]}
                     <div class="col-md-4">
                         <h5 class="content-subheader">
                             {canisterTypesLabels[type].en}
                         </h5>
 
                         <span class="important-word">Total capacity</span>
-                        {Object.keys(
-                            storageStats.canistersCapacitybyType[type]
-                        ).reduce(
+                        {Object.keys(typeCapacity).reduce(
                             (total, canister) =>
-                                total +
-                                storageStats.canistersCapacitybyType[type][canister]
-                                    .totalCapacity,
+                                total + typeCapacity[canister].totalCapacity,
                             0
                         )}
                         {#each Object.keys(storageStats.canistersCapacitybyType[type]) as canister}
+                            {@const canisterCapacity = storageStats.canistersCapacitybyType[type][canister]}
+                            {@const object = getObject(canisterCapacity.id)}
                             <div>
-                                <span class="important-word"
-                                    >{storageStats.canistersCapacitybyType[type][
-                                        canister
-                                    ].id}</span
-                                >
-                                {storageStats.canistersCapacitybyType[type][
-                                    canister
-                                ].quantity} x {storageStats.canistersCapacitybyType[
-                                    type
-                                ][canister].individualCapacity}
+                                <ObjectName {object} pictureType='icon' importantWord={true} />
+                                {canisterCapacity.quantity} x {canisterCapacity.individualCapacity}
                                 =
-                                {storageStats.canistersCapacitybyType[type][
-                                    canister
-                                ].totalCapacity}
+                                {canisterCapacity.totalCapacity}
                             </div>
                         {/each}
                     </div>
@@ -223,5 +216,9 @@ import {
 <style>
     ul {
         list-style-type: none;
+    }
+    .tier-header {
+        text-align: center;
+        border-bottom: 1px solid var(--dark-yellow);
     }
 </style>
