@@ -1,6 +1,7 @@
 import cytoscape from 'cytoscape';
 import { getObject } from '../data/objects';
 import { Project, projectToFlatTree } from '../project';
+import { titleCase } from '../utils';
 
 export type EdgeStyle = 'bezier' | 'haystack' | 'straight' | 'taxi';
 
@@ -22,9 +23,9 @@ const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: 'ic
                 style: {
                     // TODO The doc advises to memoize the functions
                     'label': (node: any) => {
-                        const qty = (node.data('quantity') || '?') + 'x ';
+                        const qty = (node.data('quantity') || '?') + ' ';
                         if (node.data('label')) {
-                            return qty + node.data('label');
+                            return titleCase(qty + node.data('label'));
                         }
                         return qty + node.data('id');
                     },
@@ -32,7 +33,8 @@ const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: 'ic
                         return node.data('object')?.url[pictureType] || 'https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Scrap.png';
                     },
                     'background-fit': 'cover',
-                    'background-color': 'white'
+                    'background-color': 'white',
+                    'font-family': 'astroneer'
                 }
             },
             {
