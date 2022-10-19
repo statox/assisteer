@@ -2,7 +2,7 @@ import exchangeRates from '../data/exchangeRates.json';
 import { getObject } from './data/objects';
 import { getProjectResourcesByCategories, Project, ProjectLightResourcesByCategory } from './project';
 
-interface PossibleTrades {
+export interface PossibleTrades {
     resourceId: string;
     soil?: {
         currencyRequired: number;
@@ -20,6 +20,38 @@ export interface TradingStats {
     totalScrap: number;
     possibleTrades: PossibleTrades[];
 }
+
+const getObjectTradingStats = (objectName: string): PossibleTrades => {
+    const scrap = exchangeRates.tradePlatformScrap[objectName];
+    const soil = exchangeRates.soilCentrifuge[objectName];
+
+    if (!scrap && !soil) {
+        return;
+    }
+
+    const result: PossibleTrades = {
+        resourceId: objectName,
+    };
+
+    if (scrap) {
+        result.scrap = {
+            currencyRequired: scrap.scrap,
+            resourcesProduced: scrap.item,
+            surplus: 0
+        };
+    }
+
+    if (soil) {
+        result.soil = {
+            currencyRequired: 1,
+            resourcesProduced: soil,
+            surplus: 0
+        };
+    }
+
+    return result;
+};
+
 const getProjectTradingStats = (project: Project) => {
     const resourcesList = getProjectResourcesByCategories(project);
     const soilRequirements = getResourcesSoilRequirements(resourcesList);
@@ -153,5 +185,6 @@ const getResourcesScrapRequirement = (projectResources: ProjectLightResourcesByC
 };
 
 export {
+    getObjectTradingStats,
     getProjectTradingStats,
 };

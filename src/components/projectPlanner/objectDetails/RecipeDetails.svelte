@@ -1,12 +1,9 @@
 <script lang="ts">
-    import { afterUpdate } from "svelte";
-    import { settings } from "../../../stores";
-    import { BaseObject, getObject } from "../../../services/data/objects";
-    import {
-        getObjectDefaultRecipe,
-        Recipe,
-    } from "../../../services/data/recipes";
-    import { alphaSort } from "../../../services/utils";
+    import { afterUpdate } from 'svelte';
+    import { settings } from '../../../stores';
+    import { BaseObject, getObject } from '../../../services/data/objects';
+    import { getObjectDefaultRecipe, Recipe } from '../../../services/data/recipes';
+    import { alphaSort } from '../../../services/utils';
     export let object: BaseObject;
     let recipe: Recipe;
     let tool: BaseObject;
@@ -15,8 +12,13 @@
         if (!object) {
             return;
         }
-        recipe = getObjectDefaultRecipe(object?.id || "");
-        tool = getObject(recipe.tool);
+        recipe = getObjectDefaultRecipe(object?.id || '');
+        try {
+            tool = getObject(recipe.tool);
+        } catch (e) {
+            // Edge case for exo chips and scrap
+            console.log('couldnt get tool for object', object.id);
+        }
     });
 </script>
 
@@ -25,34 +27,29 @@
         <h4 class="content-subheader">Recipe</h4>
         <div class="row">
             <div class="col-md-6 text-align-center">
-                <span class="important-word">
-                    <img
-                        class="img-fluid tool-icon"
-                        src={tool.url.icon}
-                        alt={tool.labels.en}
-                    />
-                    &nbsp;{tool.labels.en}
-                </span>
-                <div class="top-margin-15">
-                    <img
-                        class="img-fluid tool-image"
-                        src={tool.url.image}
-                        alt={tool.labels.en}
-                    />
-                </div>
+                {#if tool}
+                    <span class="important-word">
+                        <img class="img-fluid tool-icon" src={tool.url.icon} alt={tool.labels.en} />
+                        &nbsp;{tool.labels.en}
+                    </span>
+                    <div class="top-margin-15">
+                        <img class="img-fluid tool-image" src={tool.url.image} alt={tool.labels.en} />
+                    </div>
+                {/if}
             </div>
             <div class="col-md-6">
                 <ul>
-                    {#each Object.keys(recipe.resources).sort(alphaSort) as resource}
+                    {#each Object.keys(recipe.resources).sort(alphaSort) as resourceName}
+                        {@const resource = getObject(resourceName)}
                         <li>
                             <span>
-                                {recipe.resources[resource]}
+                                {recipe.resources[resourceName]}
                                 &nbsp;<img
                                     class="resource-icon"
-                                    src={getObject(resource).url[$settings.pictureType]}
-                                    alt={getObject(resource).labels.en}
+                                    src={resource.url[$settings.pictureType]}
+                                    alt={resource.labels.en}
                                 />
-                                &nbsp;{resource}
+                                &nbsp;{resource.labels.en}
                             </span>
                         </li>
                     {/each}

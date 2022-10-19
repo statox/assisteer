@@ -3,6 +3,20 @@ import storages from '../../data/storageDetails.json';
 import type { Project } from '../project';
 import { getObject } from './objects';
 
+export type StorageDetails = {
+    slotsByTier: {
+        1: number;
+        2: number;
+        3: number;
+        4: number;
+    }
+}
+
+export type CanisterDetails = {
+    holds: 'resources' | 'fluid_soil' | 'gases';
+    capacity: number;
+}
+
 type CanisterTypeStorageDetails = {
     storageType: string;
     individualCapacity: number;
@@ -28,7 +42,7 @@ export type ProjectStorageStats = {
         gases?: CanisterTypeStorageDetails;
     }
     storagesCapacityByTier: [number, number, number, number];
-    storageObjects: { id: string, quantity: number}[];
+    storageObjects: { id: string, quantity: number }[];
 };
 
 export type StorageStatsSettings = {
@@ -38,6 +52,9 @@ export type StorageStatsSettings = {
     includeResources: boolean;
     includeOthers: boolean;
 }
+
+const getObjectCanisterDetails = (objectName: string): CanisterDetails => canisters[objectName];
+const getObjectStorageDetails = (objectName: string): StorageDetails => storages[objectName];
 
 const getProjectStorageStats = (project: Project, params: StorageStatsSettings): ProjectStorageStats => {
     const objectsCountByTier: [ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier] = [
@@ -74,7 +91,7 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
             for (let tier = 1; tier <= 4; tier++) {
                 storagesCapacityByTier[tier - 1] += storage.slotsByTier[tier] * objectQuantity;
             }
-            storageObjects.push({ id: objectName, quantity: objectQuantity});
+            storageObjects.push({ id: objectName, quantity: objectQuantity });
         }
 
         // Wanna know how bad and unreadable can I make my code? Check this out!
@@ -116,4 +133,4 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
     };
 };
 
-export { getProjectStorageStats };
+export { getObjectCanisterDetails, getObjectStorageDetails, getProjectStorageStats };
