@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { settings, project } from "../../stores";
-    import { getObject } from "../../services/data/objects";
-    import { getProjectTradingStats, TradingStats } from "../../services/trading";
-    import ObjectName from "../utils/ObjectName.svelte";
+    import { settings, project } from '../../stores';
+    import { getObject } from '../../services/data/objects';
+    import { getProjectTradingStats, TradingStats } from '../../services/trading';
+    import ObjectName from '../utils/ObjectName.svelte';
 
     let collapsed = false;
     let tradeStats: TradingStats;
@@ -14,24 +14,33 @@
 
 <main>
     <div class="content-section">
-        <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>
-            Scrap & Soil Requirements
-        </h3>
+        <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>Scrap & Soil Requirements</h3>
         <div class="row" class:hidden={collapsed === true || tradeStats.totalSoil !== 0 || tradeStats.totalScrap !== 0}>
-            <p>Nothing to show. Add objects to the project in the Inventory section.
+            <p>Nothing to show. Add objects to the project in the Inventory section.</p>
         </div>
         <div class="container">
-            <div class="table-responsive" class:hidden={collapsed === true || (tradeStats.totalSoil === 0 && tradeStats.totalScrap === 0)}>
+            <div
+                class="table-responsive"
+                class:hidden={collapsed === true || (tradeStats.totalSoil === 0 && tradeStats.totalScrap === 0)}
+            >
                 <table class="table">
                     <thead>
                         <tr>
                             <td>Resource</td>
                             <td>Required Quantity</td>
                             <td>
-                                <ObjectName object={getObject('soil')} pictureType={$settings.pictureType} largerIcon={true}/>
+                                <ObjectName
+                                    object={getObject('soil')}
+                                    pictureType={$settings.pictureType}
+                                    largerIcon={true}
+                                />
                             </td>
                             <td>
-                                <ObjectName object={getObject('scrap')} pictureType={$settings.pictureType} largerIcon={true}/>
+                                <ObjectName
+                                    object={getObject('scrap')}
+                                    pictureType={$settings.pictureType}
+                                    largerIcon={true}
+                                />
                             </td>
                         </tr>
                     </thead>
@@ -45,7 +54,7 @@
                             {@const object = getObject(trade.resourceId)}
                             <tr>
                                 <td>
-                                    <ObjectName {object} pictureType={$settings.pictureType} largerIcon={true}/>
+                                    <ObjectName {object} pictureType={$settings.pictureType} largerIcon={true} />
                                 </td>
 
                                 <td>
@@ -61,27 +70,33 @@
                                     <td>
                                         {#if trade[currency]}
                                             <div>
-                                            <ObjectName object={currencyObject} hideName={true} largerIcon={true} quantity={trade[currency].currencyRequired} pictureType={$settings.pictureType} />
-                                            :
-                                            <ObjectName {object} hideName={true} largerIcon={true} quantity={trade[currency].resourcesProduced} pictureType={$settings.pictureType} />
-                                            {#if trade[currency].surplus}
-                                                (Surplus: {trade[currency].surplus})
-                                            {/if}
+                                                <ObjectName
+                                                    object={currencyObject}
+                                                    hideName={true}
+                                                    largerIcon={true}
+                                                    quantity={trade[currency].currencyRequired}
+                                                    pictureType={$settings.pictureType}
+                                                />
+                                                :
+                                                <ObjectName
+                                                    {object}
+                                                    hideName={true}
+                                                    largerIcon={true}
+                                                    quantity={trade[currency].resourcesProduced}
+                                                    pictureType={$settings.pictureType}
+                                                />
+                                                {#if trade[currency].surplus}
+                                                    (Surplus: {trade[currency].surplus})
+                                                {/if}
                                             </div>
                                         {/if}
                                     </td>
                                 {/each}
                             </tr>
                         {/each}
-                        <tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
 </main>
-
-<style>
-    .resource-icon {
-        width: 1em;
-    }
-</style>
