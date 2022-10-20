@@ -1,9 +1,10 @@
 <script lang="ts">
-    import { afterUpdate } from "svelte";
-    import { getObject } from "../../../services/data/objects";
-    import { getAlmosphericResourceLocation } from "../../../services/data/resources";
-    import { alphaSort } from "../../../services/utils";
-    import { settings } from "../../../stores";
+    import ObjectName from '../../utils/ObjectName.svelte';
+    import { afterUpdate } from 'svelte';
+    import { getObject } from '../../../services/data/objects';
+    import { getAlmosphericResourceLocation } from '../../../services/data/resources';
+    import { alphaSort } from '../../../services/utils';
+    import { settings } from '../../../stores';
 
     export let categoryName: string;
     export let categoryItems: any;
@@ -27,26 +28,23 @@
                 <ul>
                     {#each Object.keys(categoryItems).sort(alphaSort) as objectName}
                         {@const object = getObject(objectName)}
-                        <li>
-                            <span>
-                                {categoryItems[objectName]}
-                                &nbsp;<img
-                                    class="resource-icon"
-                                    src={object.url[$settings.pictureType]}
-                                    alt={object.labels.en}
-                                />
-                                &nbsp;{objectName}
-                            </span>
-                            {#if object.category === "atmospheric"}
+                        <li class="d-flex justify-content-between">
+                            <ObjectName
+                                {object}
+                                quantity={categoryItems[objectName]}
+                                pictureType={$settings.pictureType}
+                                largerIcon={true}
+                            />
+                            {#if object.category === 'atmospheric'}
                                 <span>
                                     {#each getAlmosphericResourceLocation(objectName) || [] as location}
                                         <img
                                             class="planet-icon rounded-circle"
-                                            src={location.planet.url[
-                                                $settings.pictureType
-                                            ]}
+                                            src={location.planet.url[$settings.pictureType]}
                                             alt={location.planet.labels.en}
-                                            data-toggle="tooltip" data-placement="top" title={location.planet.labels.en}
+                                            data-toggle="tooltip"
+                                            data-placement="top"
+                                            title={location.planet.labels.en}
                                         />
                                     {/each}
                                 </span>

@@ -1,13 +1,14 @@
 <script lang="ts">
-    import { afterUpdate } from "svelte";
-    import { getObject } from "../../../services/data/objects";
+    import ObjectName from '../../utils/ObjectName.svelte';
+    import { afterUpdate } from 'svelte';
+    import { getObject } from '../../../services/data/objects';
     import {
         getNaturalResourceLocation,
         getResourceDetails,
-        NaturalResourceLocation,
-    } from "../../../services/data/resources";
-    import { alphaSort } from "../../../services/utils";
-    import { settings } from "../../../stores";
+        NaturalResourceLocation
+    } from '../../../services/data/resources';
+    import { alphaSort } from '../../../services/utils';
+    import { settings } from '../../../stores';
 
     export let categoryName: string;
     export let categoryItems: any;
@@ -17,11 +18,10 @@
         [resourceName: string]: NaturalResourceLocation;
     };
 
-    const favoriteSubCategoriesOrder = ["organic", "mineral", "ore", "metal"];
+    const favoriteSubCategoriesOrder = ['organic', 'mineral', 'ore', 'metal'];
 
     const subCatSort = (a: string, b: string) =>
-        favoriteSubCategoriesOrder.indexOf(a) -
-        favoriteSubCategoriesOrder.indexOf(b);
+        favoriteSubCategoriesOrder.indexOf(a) - favoriteSubCategoriesOrder.indexOf(b);
 
     afterUpdate(() => {
         sortedItems = {};
@@ -34,8 +34,7 @@
             if (!sortedItems[details.classification]) {
                 sortedItems[details.classification] = {};
             }
-            sortedItems[details.classification][objectName] =
-                categoryItems[objectName];
+            sortedItems[details.classification][objectName] = categoryItems[objectName];
 
             totalResourcesInCategory += categoryItems[objectName];
             locations[objectName] = getNaturalResourceLocation(objectName);
@@ -54,16 +53,13 @@
                     <ul>
                         {#each Object.keys(sortedItems[classification]).sort(alphaSort) as objectName}
                             {@const object = getObject(objectName)}
-                            <li>
-                                <span>
-                                    {categoryItems[objectName]}
-                                    &nbsp;<img
-                                        class="resource-icon"
-                                        src={object.url[$settings.pictureType]}
-                                        alt={object.labels.en}
-                                    />
-                                    &nbsp;{objectName}
-                                </span>
+                            <li class="d-flex justify-content-between">
+                                <ObjectName
+                                    {object}
+                                    quantity={categoryItems[objectName]}
+                                    pictureType={$settings.pictureType}
+                                    largerIcon={true}
+                                />
                                 {#if locations[objectName]}
                                     {@const location = locations[objectName]}
                                     {@const primaryPlanet = location.primary.planet}
