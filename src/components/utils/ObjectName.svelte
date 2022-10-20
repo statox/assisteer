@@ -1,15 +1,21 @@
 <script lang="ts">
-    import type { BaseObject } from "../../services/data/objects";
+    import type { BaseObject } from '../../services/data/objects';
+    import { activePages, selection } from '../../stores';
 
     export let object: BaseObject;
-    export let pictureType: "icon" | "image";
+    export let pictureType: 'icon' | 'image';
     export let quantity: number = null;
     export let hideName: boolean = false;
     export let importantWord: boolean = false;
     export let largerIcon: boolean = false;
+
+    const selectObjectBackToInventory = () => {
+        $selection.object = object;
+        $activePages.planner = 'inventory';
+    };
 </script>
 
-<span class:important-word={importantWord}>
+<span class:important-word={importantWord} on:click={selectObjectBackToInventory}>
     {#if quantity}
         {quantity}&nbsp;
     {/if}
@@ -28,6 +34,9 @@
 </span>
 
 <style>
+    span {
+        cursor: pointer;
+    }
     .text-sized-image {
         width: 1em;
     }
