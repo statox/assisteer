@@ -1213,15 +1213,6 @@
             }
         }
     ],
-    "scrap": [
-        {
-            "product": "scrap",
-            "tool": "shredding",
-            "resources": {
-                "all": 1
-            }
-        }
-    ],
     "shelter": [
         {
             "product": "shelter",
