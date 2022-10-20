@@ -7,6 +7,8 @@
     "dev": "rollup -c -w",
     "lint": "eslint  \"src/**/*.ts\"",
     "lint:fix": "npm run lint -- --quiet --fix",
+    "prettier": "prettier --check 'src/**/*.ts'",
+    "prettier:fix": "prettier -w 'src/**/*.ts'",
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "watch": "svelte-check --tsconfig ./tsconfig.json --watch --threshold warning"
@@ -31,6 +33,7 @@
     "cytoscape-fcose": "^2.1.0",
     "eslint": "^8.25.0",
     "p5": "0.9.0",
+    "prettier": "^2.7.1",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",

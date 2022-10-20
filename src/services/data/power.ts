@@ -5,30 +5,30 @@ import { BaseObject, getObject } from './objects';
 import type { Planet } from './planets';
 
 type PowerProducer = {
-    type: 'producer'
+    type: 'producer';
     category: 'wind' | 'solar' | 'organic' | 'other';
     output: number;
 };
 
 type PowerConsumer = {
-    type: 'consumer'
+    type: 'consumer';
     input: number;
 };
 
 type PowerStorage = {
-    type: 'storage'
+    type: 'storage';
     output: number;
     capacity: number;
-}
+};
 
 export type ObjectPowerStats = PowerProducer | PowerConsumer | PowerStorage;
 
 // https://astroneer.fandom.com/wiki/Power
 const solarCoefficientsByName = {
     'very low': 0.25,
-    'low': 0.5,
-    'medium': 1,
-    'high': 1.5,
+    low: 0.5,
+    medium: 1,
+    high: 1.5,
     'very high': 1.75
 };
 
@@ -53,7 +53,7 @@ type PowerStatsItem = {
     object: BaseObject;
     quantity: number;
     powerStats: ObjectPowerStats;
-}
+};
 
 export type ProjectPowerStats = {
     consumer: {
@@ -77,19 +77,23 @@ export type ProjectPowerStats = {
     secondsToEmptyStorage: {
         withPowerOn: number;
         withPowerOff: number;
-    }
-}
+    };
+};
 
 const getProjectPowerStats = (project: Project, planet: Planet): ProjectPowerStats => {
     const projectPowerStats: ProjectPowerStats = {
         consumer: {
-            total: 0, items: []
+            total: 0,
+            items: []
         },
         producer: {
-            total: 0, items: []
+            total: 0,
+            items: []
         },
         storage: {
-            totalCapacity: 0, totalThroughput: 0, items: []
+            totalCapacity: 0,
+            totalThroughput: 0,
+            items: []
         },
         exceedingProduction: 0,
         secondsToFillStorage: {
@@ -137,17 +141,25 @@ const getProjectPowerStats = (project: Project, planet: Planet): ProjectPowerSta
     const totalStorageThroughput = projectPowerStats.storage.totalThroughput;
     const { min, ceil, floor } = Math;
     if (projectPowerStats.producer.total > 0) {
-        projectPowerStats.secondsToFillStorage.withAllToolsOff = ceil(totalStorageCapacity / min(projectPowerStats.producer.total, totalStorageThroughput));
+        projectPowerStats.secondsToFillStorage.withAllToolsOff = ceil(
+            totalStorageCapacity / min(projectPowerStats.producer.total, totalStorageThroughput)
+        );
     }
     if (projectPowerStats.exceedingProduction > 0) {
-        projectPowerStats.secondsToFillStorage.withAllToolsOn = ceil(totalStorageCapacity / min(projectPowerStats.exceedingProduction, totalStorageThroughput));
+        projectPowerStats.secondsToFillStorage.withAllToolsOn = ceil(
+            totalStorageCapacity / min(projectPowerStats.exceedingProduction, totalStorageThroughput)
+        );
     }
 
     if (projectPowerStats.consumer.total > 0) {
-        projectPowerStats.secondsToEmptyStorage.withPowerOff = floor(totalStorageCapacity / min(projectPowerStats.consumer.total, totalStorageThroughput));
+        projectPowerStats.secondsToEmptyStorage.withPowerOff = floor(
+            totalStorageCapacity / min(projectPowerStats.consumer.total, totalStorageThroughput)
+        );
     }
     if (projectPowerStats.exceedingProduction < 0) {
-        projectPowerStats.secondsToEmptyStorage.withPowerOn = floor(totalStorageCapacity / min(-projectPowerStats.exceedingProduction, totalStorageThroughput));
+        projectPowerStats.secondsToEmptyStorage.withPowerOn = floor(
+            totalStorageCapacity / min(-projectPowerStats.exceedingProduction, totalStorageThroughput)
+        );
     }
 
     return projectPowerStats;

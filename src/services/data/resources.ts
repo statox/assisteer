@@ -3,18 +3,18 @@ import { getAllPlanets, Planet } from './planets';
 
 export type NaturalResourceLocation = {
     primary: {
-        planet: Planet,
-        description: string
+        planet: Planet;
+        description: string;
     };
     secondary: {
-        planet: Planet,
-        description: string
-    }
+        planet: Planet;
+        description: string;
+    };
 };
 
 export type AtmosphericResourceLocations = {
-    planet: Planet,
-    density: number
+    planet: Planet;
+    density: number;
 }[];
 
 export type ResourceDetails = {

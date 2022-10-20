@@ -5,24 +5,28 @@ import { titleCase } from '../utils';
 
 export type EdgeStyle = 'bezier' | 'haystack' | 'straight' | 'taxi';
 
-export const edgeStyles: {id: EdgeStyle, label: string}[] = [
-    {id: 'bezier', label: 'Bezier'},
-    {id: 'taxi', label: 'Taxi'},
-    {id: 'straight', label: 'Straight'},
-    {id: 'haystack', label: 'Haystack'}
+export const edgeStyles: { id: EdgeStyle; label: string }[] = [
+    { id: 'bezier', label: 'Bezier' },
+    { id: 'taxi', label: 'Taxi' },
+    { id: 'straight', label: 'Straight' },
+    { id: 'haystack', label: 'Haystack' }
 ];
 
-const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: 'icon' | 'image', edgeStyle: EdgeStyle }) => {
+const getCytoscapeInstance = (
+    container: HTMLElement,
+    params: { pictureType: 'icon' | 'image'; edgeStyle: EdgeStyle }
+) => {
     const { pictureType, edgeStyle } = params;
     return cytoscape({
         container: container, // container to render in
         elements: [],
-        style: [ // the stylesheet for the graph
+        style: [
+            // the stylesheet for the graph
             {
                 selector: 'node',
                 style: {
                     // TODO The doc advises to memoize the functions
-                    'label': (node: any) => {
+                    label: (node: any) => {
                         const qty = (node.data('quantity') || '?') + ' ';
                         if (node.data('label')) {
                             return titleCase(qty + node.data('label'));
@@ -30,7 +34,10 @@ const getCytoscapeInstance = (container: HTMLElement, params: { pictureType: 'ic
                         return qty + node.data('id');
                     },
                     'background-image': (node: any) => {
-                        return node.data('object')?.url[pictureType] || 'https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Scrap.png';
+                        return (
+                            node.data('object')?.url[pictureType] ||
+                            'https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/74/Icon_Scrap.png'
+                        );
                     },
                     'background-fit': 'cover',
                     'background-color': 'white',
@@ -96,8 +103,4 @@ const addElementsFromProjectSeparatedTrees = (cy: cytoscape.Core, project: Proje
     }
 };
 
-export {
-    addElementsFromProject,
-    addElementsFromProjectSeparatedTrees,
-    getCytoscapeInstance,
-};
+export { addElementsFromProject, addElementsFromProjectSeparatedTrees, getCytoscapeInstance };

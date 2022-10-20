@@ -54,13 +54,13 @@ function makeNodesShowHideOnTap(cy: cytoscape.Core) {
         if (this.scratch().restData == null) {
             // Save node data and remove
             this.scratch({
-                restData: this.successors().targets().remove(),
+                restData: this.successors().targets().remove()
             });
         } else {
             // Restore the removed nodes from saved data
             this.scratch().restData.restore();
             this.scratch({
-                restData: null,
+                restData: null
             });
         }
     });

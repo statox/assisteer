@@ -3,10 +3,10 @@ import planets from '../../data/planets.json';
 type PlanetLocationDetails = {
     id: string;
     description: string;
-}
+};
 export type LocationDetails = {
-    primary: PlanetLocationDetails,
-    secondary: PlanetLocationDetails
+    primary: PlanetLocationDetails;
+    secondary: PlanetLocationDetails;
 };
 
 export type Planet = {
@@ -18,7 +18,7 @@ export type Planet = {
     };
     difficulty: 'easy' | 'medium' | 'hard' | 'very hard';
     power: {
-        dayNightCycleSeconds: number,
+        dayNightCycleSeconds: number;
         sun: 'very low' | 'low' | 'medium' | 'high' | 'very high';
         wind: 'very low' | 'low' | 'medium' | 'high' | 'very high';
         wikiWindCoefficient: number; // The wiki says the wind coeffients are not related to the planets wind power category
@@ -35,8 +35,8 @@ export type Planet = {
     };
     labels: {
         [lang: string]: string;
-    }
-}
+    };
+};
 
 const getPlanet = (planetId: string): Planet => {
     return planets[planetId];

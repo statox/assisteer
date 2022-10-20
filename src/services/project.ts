@@ -16,11 +16,11 @@ interface FlatTree {
         id: string;
         object: BaseObject;
         quantity: number;
-    }[],
+    }[];
     edges: {
         source: string;
         target: string;
-    }[]
+    }[];
 }
 const projectToFlatTree = (project: Project): FlatTree => {
     const nodes = {};
@@ -76,7 +76,7 @@ const projectToFlatTree = (project: Project): FlatTree => {
         }
     }
 
-    const flatNodes = Object.keys(nodes).map(nodeName => {
+    const flatNodes = Object.keys(nodes).map((nodeName) => {
         return {
             ...nodes[nodeName],
             id: nodeName

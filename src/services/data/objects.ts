@@ -3,7 +3,10 @@ import inventory from '../../data/objects.json';
 import researchDetails from '../../data/researchDetails.json';
 
 type ObjectCategory =
-    'natural' | 'atmospheric' | 'composite' | 'refined'
+    | 'natural'
+    | 'atmospheric'
+    | 'composite'
+    | 'refined'
     | 'augment'
     | 'automation'
     | 'battery'
@@ -30,15 +33,15 @@ export type BaseObject = {
         icon: string;
         image: string;
         wiki: string;
-    }
+    };
     labels: {
-        [lang: string]: string
-    }
+        [lang: string]: string;
+    };
 };
 
 const objectNames = Object.keys(inventory);
 const resourceNames = Object.keys(rawResources);
-const allNames = objectNames.concat(resourceNames).sort((a, b) => a < b ? -1 : 1);
+const allNames = objectNames.concat(resourceNames).sort((a, b) => (a < b ? -1 : 1));
 
 const getObjectUnlockCost = (objectName: string) => {
     return researchDetails[objectName]?.bytesRequired || 0;

@@ -63,9 +63,6 @@
         text-align: left;
         display: inline-block;
     }
-    .resource-icon {
-        width: 2em;
-    }
     .planet-icon {
         width: 1.3em;
     }

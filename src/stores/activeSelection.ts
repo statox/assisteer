@@ -3,7 +3,7 @@ import type { BaseObject } from '../services/data/objects';
 
 type ActiveSelection = {
     object: BaseObject;
-}
+};
 
 const defaultActiveSelection: ActiveSelection = {
     object: null

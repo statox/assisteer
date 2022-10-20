@@ -9,13 +9,13 @@ export type StorageDetails = {
         2: number;
         3: number;
         4: number;
-    }
-}
+    };
+};
 
 export type CanisterDetails = {
     holds: 'resources' | 'fluid_soil' | 'gases';
     capacity: number;
-}
+};
 
 type CanisterTypeStorageDetails = {
     storageType: string;
@@ -23,7 +23,7 @@ type CanisterTypeStorageDetails = {
     totalCapacity: number;
     quantity: number;
     id: string;
-}
+};
 
 type ObjectsCountByTier = {
     tier: number;
@@ -32,7 +32,7 @@ type ObjectsCountByTier = {
         id: string;
         quantity: number;
     }[];
-}
+};
 export type ProjectStorageStats = {
     objectsCountByTier: [ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier];
     objectTotalCount: number;
@@ -40,9 +40,9 @@ export type ProjectStorageStats = {
         resources?: CanisterTypeStorageDetails;
         fluid_soil?: CanisterTypeStorageDetails;
         gases?: CanisterTypeStorageDetails;
-    }
+    };
     storagesCapacityByTier: [number, number, number, number];
-    storageObjects: { id: string, quantity: number }[];
+    storageObjects: { id: string; quantity: number }[];
 };
 
 export type StorageStatsSettings = {
@@ -51,7 +51,7 @@ export type StorageStatsSettings = {
     includeStorages: boolean;
     includeResources: boolean;
     includeOthers: boolean;
-}
+};
 
 const getObjectCanisterDetails = (objectName: string): CanisterDetails => canisters[objectName];
 const getObjectStorageDetails = (objectName: string): StorageDetails => storages[objectName];
@@ -110,7 +110,11 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
         if (!params.includeResources && object.type === 'resource') {
             excludeObjectFromCount = true;
         }
-        if (!params.includeOthers && object.type === 'object' && !['canister', 'platform', 'storage'].includes(object.category)) {
+        if (
+            !params.includeOthers &&
+            object.type === 'object' &&
+            !['canister', 'platform', 'storage'].includes(object.category)
+        ) {
             excludeObjectFromCount = true;
         }
         if (excludeObjectFromCount) {

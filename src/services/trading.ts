@@ -8,12 +8,12 @@ export interface PossibleTrades {
         currencyRequired: number;
         resourcesProduced: number;
         surplus: number;
-    }
+    };
     scrap?: {
         currencyRequired: number;
         resourcesProduced: number;
         surplus: number;
-    }
+    };
 }
 export interface TradingStats {
     totalSoil: number;
@@ -30,7 +30,7 @@ const getObjectTradingStats = (objectName: string): PossibleTrades => {
     }
 
     const result: PossibleTrades = {
-        resourceId: objectName,
+        resourceId: objectName
     };
 
     if (scrap) {
@@ -63,14 +63,13 @@ const getProjectTradingStats = (project: Project) => {
         possibleTrades: []
     };
 
-    const tradableResources = Array.from(new Set<string>([
-        ...Object.keys(soilRequirements.byResource),
-        ...Object.keys(scrapRequirements.byResource)
-    ]));
+    const tradableResources = Array.from(
+        new Set<string>([...Object.keys(soilRequirements.byResource), ...Object.keys(scrapRequirements.byResource)])
+    );
 
     for (const resource of tradableResources) {
         const possibleTrades: PossibleTrades = {
-            resourceId: resource,
+            resourceId: resource
         };
         if (soilRequirements.byResource[resource]) {
             possibleTrades.soil = {
@@ -97,15 +96,15 @@ const getProjectTradingStats = (project: Project) => {
 };
 
 export type SoilRequirements = {
-    total: number,
+    total: number;
     byResource: {
         [resourceName: string]: {
-            soilRequired: number,
-            quantityProduced: number,
-            surplus: number
-        }
-    }
-}
+            soilRequired: number;
+            quantityProduced: number;
+            surplus: number;
+        };
+    };
+};
 const getResourcesSoilRequirements = (projectResources: ProjectLightResourcesByCategory): SoilRequirements => {
     const soilRequirements = {
         total: 0,
@@ -140,15 +139,15 @@ const getResourcesSoilRequirements = (projectResources: ProjectLightResourcesByC
 };
 
 export type ScrapRequirements = {
-    total: number,
+    total: number;
     byResource: {
         [resourceName: string]: {
-            scrapRequired: number,
-            quantityProduced: number,
-            surplus: number
-        }
-    }
-}
+            scrapRequired: number;
+            quantityProduced: number;
+            surplus: number;
+        };
+    };
+};
 const getResourcesScrapRequirement = (projectResources: ProjectLightResourcesByCategory): ScrapRequirements => {
     const scrapRequirements = {
         total: 0,
@@ -184,7 +183,4 @@ const getResourcesScrapRequirement = (projectResources: ProjectLightResourcesByC
     return scrapRequirements;
 };
 
-export {
-    getObjectTradingStats,
-    getProjectTradingStats,
-};
+export { getObjectTradingStats, getProjectTradingStats };
