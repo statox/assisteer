@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { getObject } from "../../services/data/objects";
+    import { getObject } from '../../services/data/objects';
 
-    import { getAllPlanets } from "../../services/data/planets";
-    import ObjectName from "../utils/ObjectName.svelte";
+    import { getAllPlanets } from '../../services/data/planets';
+    import ObjectName from '../utils/ObjectName.svelte';
 
     const planets = getAllPlanets();
 </script>
@@ -11,41 +11,28 @@
     <div class="content-section">
         <h3 class="content-header">Planets</h3>
         <div class="container">
-            <div class="warning">
-                Warning: This page contains spoilers about the game mechanisms.
-            </div>
+            <div class="warning">Warning: This page contains spoilers about the game mechanisms.</div>
             <div class="info">
-                See the <a
-                    target="none"
-                    href="https://astroneer.fandom.com/wiki/Planets"
-                    >wiki page about planets</a
-                > for more details about the planet types.
+                See the <a target="none" href="https://astroneer.fandom.com/wiki/Planets">wiki page about planets</a> for
+                more details about the planet types.
             </div>
             <div class="d-flex flex-wrap row">
-            {#each planets as planet}
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                    <h4 class="content-subheader">
-                        <span class="planet-name">
-                            {planet.labels.en}
+                {#each planets as planet}
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <h4 class="content-subheader">
+                            <span class="planet-name">
+                                {planet.labels.en}
                                 &nbsp;
-                            <img
-                                class="img-fluid text-sized-image"
-                                src={planet.url.icon}
-                                alt={planet.labels.en}
-                            />
-                        </span>
-                    </h4>
+                                <img class="img-fluid text-sized-image" src={planet.url.icon} alt={planet.labels.en} />
+                            </span>
+                        </h4>
 
-                    <div class="text-center">
-                        <img
-                            class="img-fluid planet-img"
-                            src={planet.url.image}
-                            alt={planet.id}
-                        />
-                    </div>
+                        <div class="text-center">
+                            <img class="img-fluid planet-img" src={planet.url.image} alt={planet.id} />
+                        </div>
 
-                    <div class="info-section">
-                        <h5 class="content-subheader">Info</h5>
+                        <div class="info-section">
+                            <h5 class="content-subheader">Info</h5>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Type</span>
                                 <span>{planet.type}</span>
@@ -58,10 +45,10 @@
                                 <span class="important-word">Wiki</span>
                                 <a target="none" href={planet.url.wiki}>Link</a>
                             </div>
-                    </div>
+                        </div>
 
-                    <div class="info-section">
-                        <h5 class="content-subheader">Power</h5>
+                        <div class="info-section">
+                            <h5 class="content-subheader">Power</h5>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Day/Night cycle</span>
                                 {planet.power.dayNightCycleSeconds} s
@@ -76,12 +63,12 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Wind activity</span>
-                                {Math.floor(planet.power.wikiWindCoefficient*100)}%
+                                {Math.floor(planet.power.wikiWindCoefficient * 100)}%
                             </div>
-                    </div>
+                        </div>
 
-                    <div class="info-section">
-                        <h5 class="content-subheader">Gateway network</h5>
+                        <div class="info-section">
+                            <h5 class="content-subheader">Gateway network</h5>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Power by gateway</span>
                                 {planet.gatewayNetwork.gatewayPower} s
@@ -90,48 +77,50 @@
                                 <span class="important-word">Core material</span>
                                 {planet.gatewayNetwork.coreMaterial}
                             </div>
-                    </div>
+                        </div>
 
-                    <div class="info-section">
-                        <h5 class="content-subheader">Notable Resources</h5>
-                        {#if planet.resources}
-                            <div class="d-flex justify-content-between">
-                                <span class="important-word">Primary</span>
-                                <ObjectName object={getObject(planet.resources.primary.id)} pictureType={'icon'} />
+                        <div class="info-section">
+                            <h5 class="content-subheader">Notable Resources</h5>
+                            {#if planet.resources}
+                                <div class="d-flex justify-content-between">
+                                    <span class="important-word">Primary</span>
+                                    <ObjectName object={getObject(planet.resources.primary.id)} pictureType={'icon'} />
+                                </div>
+                                <div class="d-flex">
+                                    <span class="ms-auto">
+                                        {planet.resources.primary.description}
+                                    </span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="important-word">Secondary</span>
+                                    <ObjectName
+                                        object={getObject(planet.resources.secondary.id)}
+                                        pictureType={'icon'}
+                                    />
+                                </div>
+                                <div class="d-flex">
+                                    <span class="ms-auto">
+                                        {planet.resources.secondary.description}
+                                    </span>
+                                </div>
+                            {:else}
+                                <span>No notable resources.</span>
+                            {/if}
+                        </div>
+
+                        {#if Object.keys(planet.gases).length}
+                            <div class="info-section">
+                                <h5 class="content-subheader">Gases</h5>
+                                {#each Object.keys(planet.gases) as gas}
+                                    <div class="d-flex justify-content-between">
+                                        <span class="important-word">{gas}</span>
+                                        {planet.gases[gas]} ppm
+                                    </div>
+                                {/each}
                             </div>
-                            <div class="d-flex">
-                                <span class="ms-auto">
-                                    {planet.resources.primary.description}
-                                </span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span class="important-word">Secondary</span>
-                                <ObjectName object={getObject(planet.resources.secondary.id)} pictureType={'icon'} />
-                            </div>
-                            <div class="d-flex">
-                                <span class="ms-auto">
-                                    {planet.resources.secondary.description}
-                                </span>
-                            </div>
-                        {:else}
-                            <span>No notable resources.</span>
                         {/if}
                     </div>
-
-                    {#if Object.keys(planet.gases).length}
-                        <div class="info-section">
-                            <h5 class="content-subheader">Gases</h5>
-                            {#each Object.keys(planet.gases) as gas}
-                                <div class="d-flex justify-content-between">
-                                    <span class="important-word">{gas}</span>
-                                    {planet.gases[gas]} ppm
-                                </div>
-                            {/each}
-                        </div>
-                    {/if}
-
-                </div>
-            {/each}
+                {/each}
             </div>
         </div>
     </div>
