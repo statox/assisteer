@@ -4,6 +4,7 @@
     import { BaseObject, getObject } from '../../../services/data/objects';
     import { getObjectDefaultRecipe, Recipe } from '../../../services/data/recipes';
     import { alphaSort } from '../../../services/utils';
+    import ObjectName from '../../utils/ObjectName.svelte';
     export let object: BaseObject;
     let recipe: Recipe;
     let tool: BaseObject;
@@ -28,10 +29,7 @@
         <div class="row">
             <div class="col-md-6 text-align-center">
                 {#if tool}
-                    <span class="important-word">
-                        <img class="img-fluid tool-icon" src={tool.url.icon} alt={tool.labels.en} />
-                        &nbsp;{tool.labels.en}
-                    </span>
+                    <ObjectName importantWord={true} object={getObject(tool.id)} pictureType={'icon'} />
                     <div class="top-margin-15">
                         <img class="img-fluid tool-image" src={tool.url.image} alt={tool.labels.en} />
                     </div>
@@ -40,17 +38,13 @@
             <div class="col-md-6">
                 <ul>
                     {#each Object.keys(recipe.resources).sort(alphaSort) as resourceName}
-                        {@const resource = getObject(resourceName)}
                         <li>
-                            <span>
-                                {recipe.resources[resourceName]}
-                                &nbsp;<img
-                                    class="resource-icon"
-                                    src={resource.url[$settings.pictureType]}
-                                    alt={resource.labels.en}
-                                />
-                                &nbsp;{resource.labels.en}
-                            </span>
+                            <ObjectName
+                                object={getObject(resourceName)}
+                                pictureType={$settings.pictureType}
+                                quantity={recipe.resources[resourceName]}
+                                largerIcon={true}
+                            />
                         </li>
                     {/each}
                 </ul>
@@ -68,15 +62,6 @@
     }
     .text-align-center {
         text-align: center;
-    }
-    .resource-icon {
-        width: 1.5em;
-    }
-    .tool-icon {
-        width: 1.5em;
-    }
-    .tool-image {
-        max-width: 100px;
     }
     .top-margin-15 {
         margin-top: 15px;
