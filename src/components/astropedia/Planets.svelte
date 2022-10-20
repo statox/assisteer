@@ -1,5 +1,8 @@
 <script lang="ts">
+    import { getObject } from "../../services/data/objects";
+
     import { getAllPlanets } from "../../services/data/planets";
+    import ObjectName from "../utils/ObjectName.svelte";
 
     const planets = getAllPlanets();
 </script>
@@ -89,25 +92,31 @@
                             </div>
                     </div>
 
-                    {#if planet.resources}
-                        <div class="info-section">
-                            <h5 class="content-subheader">Notable Resources</h5>
+                    <div class="info-section">
+                        <h5 class="content-subheader">Notable Resources</h5>
+                        {#if planet.resources}
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Primary</span>
-                                {planet.resources.primary.id}
+                                <ObjectName object={getObject(planet.resources.primary.id)} pictureType={'icon'} />
                             </div>
-                            <div class="d-flex justify-content-center">
-                                {planet.resources.primary.description}
+                            <div class="d-flex">
+                                <span class="ms-auto">
+                                    {planet.resources.primary.description}
+                                </span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Secondary</span>
-                                {planet.resources.secondary.id}
+                                <ObjectName object={getObject(planet.resources.secondary.id)} pictureType={'icon'} />
                             </div>
-                            <div class="d-flex justify-content-center">
-                                {planet.resources.secondary.description}
+                            <div class="d-flex">
+                                <span class="ms-auto">
+                                    {planet.resources.secondary.description}
+                                </span>
                             </div>
-                        </div>
-                    {/if}
+                        {:else}
+                            <span>No notable resources.</span>
+                        {/if}
+                    </div>
 
                     {#if Object.keys(planet.gases).length}
                         <div class="info-section">
