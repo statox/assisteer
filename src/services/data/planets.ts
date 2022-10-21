@@ -1,4 +1,6 @@
 import planets from '../../data/planets.json';
+import galastropods from '../../data/galastropods.json';
+import type { Galastropod } from './galastropods';
 
 type PlanetLocationDetails = {
     id: string;
@@ -14,6 +16,7 @@ export type Planet = {
     type: string;
     resources?: LocationDetails;
     moonId?: string;
+    galastropod: string;
     gases: {
         [gasId: string]: number;
     };
@@ -49,7 +52,11 @@ const getPlanet = (planetId: string): Planet => {
 
 const allPlanets: Planet[] = [];
 for (const planet of Object.values(planets)) {
-    allPlanets.push(planet);
+    const galastropod = Object.values(galastropods).find(g => g.planet === planet.id)?.id;
+    allPlanets.push({
+        ...planet,
+        galastropod
+    });
 }
 const getAllPlanets = (): Planet[] => {
     return allPlanets.sort((a, b) => a.orderToSun - b.orderToSun);

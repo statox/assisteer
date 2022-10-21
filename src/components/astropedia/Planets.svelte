@@ -4,6 +4,7 @@
     import { getAllPlanets } from '../../services/data/planets';
     import ObjectName from '../utils/ObjectName.svelte';
     import ItemName from '../utils/ItemName.svelte';
+    import { getGalastropod } from '../../services/data/galastropods';
 
     const planets = getAllPlanets();
 </script>
@@ -43,6 +44,10 @@
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Difficulty</span>
                                 {planet.difficulty}
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="important-word">Snail</span>
+                                <ItemName item={getGalastropod(planet.galastropod)} pictureType={'icon'} />
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Wiki</span>
