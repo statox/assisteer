@@ -1,6 +1,6 @@
 <script lang="ts">
-    import type { BaseObject } from "../../../services/data/objects";
-    import { getNaturalResourceLocation, NaturalResourceLocation } from "../../../services/data/resources";
+    import type { BaseObject } from '../../../services/data/objects';
+    import { getNaturalResourceLocation, NaturalResourceLocation } from '../../../services/data/resources';
 
     export let resource: BaseObject;
     let location: NaturalResourceLocation;
@@ -22,7 +22,7 @@
         {#if !location}
             <span>Available on all planets</span>
         {:else}
-            {#each ["primary", "secondary"] as locationType}
+            {#each ['primary', 'secondary'] as locationType}
                 <div class="col">
                     <h4 class="content-subheader">{locationType}</h4>
                     <div>
