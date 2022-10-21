@@ -2,6 +2,8 @@
     "sylva": {
         "id": "sylva",
         "type": "terran",
+        "orderToSun": 3,
+        "moonId": "desolo",
         "resources": {
             "primary": {
                 "id": "sphalerite",
@@ -40,6 +42,7 @@
     "desolo": {
         "id": "desolo",
         "type": "terran moon",
+        "orderToSun": 4,
         "resources": {
             "primary": {
                 "id": "wolframite",
@@ -75,6 +78,7 @@
     "calidor": {
         "id": "calidor",
         "type": "arid",
+        "orderToSun": 2,
         "resources": {
             "primary": {
                 "id": "malachite",
@@ -98,7 +102,7 @@
         },
         "gatewayNetwork": {
             "gatewayPower": 12,
-            "coreMaterial": "explosive power"
+            "coreMaterial": "explosive powder"
         },
         "url": {
             "wiki": "https://astroneer.fandom.com/wiki/Calidor",
@@ -113,6 +117,8 @@
     "vesania": {
         "id": "vesania",
         "type": "exotic",
+        "orderToSun": 5,
+        "moonId": "novus",
         "resources": {
             "primary": {
                 "id": "lithium",
@@ -152,6 +158,7 @@
     "novus": {
         "id": "novus",
         "type": "exotic moon",
+        "orderToSun": 6,
         "resources": {
             "primary": {
                 "id": "hematite",
@@ -190,6 +197,7 @@
     "glacio": {
         "id": "glacio",
         "type": "tundra",
+        "orderToSun": 7,
         "resources": {
             "primary": {
                 "id": "titanite",
@@ -227,6 +235,7 @@
     "atrox": {
         "id": "atrox",
         "type": "radiated",
+        "orderToSun": 1,
         "gases": {
             "helium": 25,
             "methane": 100,
