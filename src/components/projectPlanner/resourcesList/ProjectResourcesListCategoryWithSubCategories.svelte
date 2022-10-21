@@ -9,6 +9,7 @@
     } from '../../../services/data/resources';
     import { alphaSort } from '../../../services/utils';
     import { settings } from '../../../stores';
+    import PlanetName from '../../utils/PlanetName.svelte';
 
     export let categoryName: string;
     export let categoryItems: any;
@@ -65,22 +66,8 @@
                                     {@const primaryPlanet = location.primary.planet}
                                     {@const secondaryPlanet = location.secondary.planet}
                                     <span>
-                                        <img
-                                            class="planet-icon rounded-circle"
-                                            src={primaryPlanet.url[$settings.pictureType]}
-                                            alt={primaryPlanet.labels.en}
-                                            data-toggle="tooltip"
-                                            data-placement="top"
-                                            title={primaryPlanet.labels.en}
-                                        />
-                                        <img
-                                            class="planet-icon rounded-circle"
-                                            src={secondaryPlanet.url[$settings.pictureType]}
-                                            alt={secondaryPlanet.labels.en}
-                                            data-toggle="tooltip"
-                                            data-placement="top"
-                                            title={secondaryPlanet.labels.en}
-                                        />
+                                        <PlanetName planet={primaryPlanet} pictureType={'icon'} hideName={true} />
+                                        <PlanetName planet={secondaryPlanet} pictureType={'icon'} hideName={true} />
                                     </span>
                                 {/if}
                             </li>
@@ -97,9 +84,6 @@
         list-style-type: none;
         text-align: left;
         display: inline-block;
-    }
-    .planet-icon {
-        width: 1.3em;
     }
     .text-align-center {
         text-align: center;

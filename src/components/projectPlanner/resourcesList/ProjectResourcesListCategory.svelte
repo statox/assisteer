@@ -5,6 +5,7 @@
     import { getAlmosphericResourceLocation } from '../../../services/data/resources';
     import { alphaSort } from '../../../services/utils';
     import { settings } from '../../../stores';
+    import PlanetName from '../../utils/PlanetName.svelte';
 
     export let categoryName: string;
     export let categoryItems: any;
@@ -38,14 +39,7 @@
                             {#if object.category === 'atmospheric'}
                                 <span>
                                     {#each getAlmosphericResourceLocation(objectName) || [] as location}
-                                        <img
-                                            class="planet-icon rounded-circle"
-                                            src={location.planet.url[$settings.pictureType]}
-                                            alt={location.planet.labels.en}
-                                            data-toggle="tooltip"
-                                            data-placement="top"
-                                            title={location.planet.labels.en}
-                                        />
+                                        <PlanetName planet={location.planet} pictureType={'icon'} hideName={true} />
                                     {/each}
                                 </span>
                             {/if}
@@ -62,9 +56,6 @@
         list-style-type: none;
         text-align: left;
         display: inline-block;
-    }
-    .planet-icon {
-        width: 1.3em;
     }
     .text-align-center {
         text-align: center;

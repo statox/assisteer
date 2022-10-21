@@ -6,6 +6,7 @@
     } from "../../services/data/power";
     import { project } from "../../stores";
     import ObjectName from "../utils/ObjectName.svelte";
+    import PlanetName from "../utils/PlanetName.svelte";
 
     const planets = getAllPlanets();
     let collapsed = false;
@@ -81,14 +82,7 @@
                                 class:selected={planet.id === selectedPlanet.id}
                                 on:click={() => selectedPlanet = planet}
                             >
-                                <span class="important-word">
-                                    <b class="planet-name">{planet.id}</b>
-                                    &nbsp;
-                                    <img class="img-fluid text-sized-image"
-                                        src={planet.url.icon}
-                                        alt={planet.id}
-                                    />
-                                </span>
+                                <PlanetName {planet} pictureType={'icon'} boldName={true} largerIcon={true} largerText={true} />
                                 <div class="row">
                                     <div class="col-3">
                                         <img class="img-fluid planet-img rounded-circle"
@@ -274,9 +268,6 @@
 </main>
 
 <style>
-    .planet-name {
-        font-size: 1.2em;
-    }
     .planet-div {
         margin: 1vw;
         border: 3px solid transparent;
@@ -289,9 +280,6 @@
     }
     .table-borderless tr {
         border: 0;
-    }
-    .text-sized-image {
-        width: 2em;
     }
     .red {
         color: var(--red);

@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { BaseObject } from '../../../services/data/objects';
     import { getNaturalResourceLocation, NaturalResourceLocation } from '../../../services/data/resources';
+    import PlanetName from '../../utils/PlanetName.svelte';
 
     export let resource: BaseObject;
     let location: NaturalResourceLocation;
@@ -26,15 +27,7 @@
                 <div class="col">
                     <h4 class="content-subheader">{locationType}</h4>
                     <div>
-                        <span class="important-word">
-                            {location[locationType].planet.labels.en}
-                        </span>
-
-                        <img
-                            class="img-fluid small-image"
-                            src={location[locationType].planet.url.icon}
-                            alt={location[locationType].planet.labels.en}
-                        />
+                        <PlanetName planet={location[locationType].planet} pictureType={'icon'} />
                     </div>
                     <div>
                         <img
@@ -53,9 +46,3 @@
         {/if}
     </div>
 </main>
-
-<style>
-    .small-image {
-        height: 1em;
-    }
-</style>

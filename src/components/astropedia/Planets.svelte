@@ -3,6 +3,7 @@
 
     import { getAllPlanets } from '../../services/data/planets';
     import ObjectName from '../utils/ObjectName.svelte';
+    import PlanetName from '../utils/PlanetName.svelte';
 
     const planets = getAllPlanets();
 </script>
@@ -20,11 +21,13 @@
                 {#each planets as planet}
                     <div class="col-sm-12 col-md-6 col-lg-3">
                         <h4 class="content-subheader">
-                            <span class="planet-name">
-                                {planet.labels.en}
-                                &nbsp;
-                                <img class="img-fluid text-sized-image" src={planet.url.icon} alt={planet.labels.en} />
-                            </span>
+                            <PlanetName
+                                {planet}
+                                pictureType={'icon'}
+                                uppercase={true}
+                                largerText={true}
+                                largerIcon={true}
+                            />
                         </h4>
 
                         <div class="text-center">
@@ -130,9 +133,6 @@
 </main>
 
 <style>
-    .text-sized-image {
-        width: 1em;
-    }
     .planet-img {
         max-width: 50%;
         /* max-height shouldn't be needed for the wiki serves Sylva image slightly bigger
@@ -143,9 +143,5 @@
     }
     .info-section {
         margin-bottom: 3em;
-    }
-    .planet-name {
-        text-transform: uppercase;
-        font-size: large;
     }
 </style>
