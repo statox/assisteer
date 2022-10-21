@@ -1,0 +1,107 @@
+{
+    "sylvie": {
+        "id": "sylvie",
+        "planet": "sylva",
+        "resource": "zinc",
+        "flora": "bouncevine",
+        "use": "Sylvie provides an illumination buff for 10 minutes when fed a seed, acting like a Worklight. Feeding Sylvie a Mutant Hissbine Seed increases the buff to 30 minutes.",
+        "url": {
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c7/Icon_Sylvie.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/18/Sylvie.png",
+            "wiki": "https://astroneer.fandom.com/wiki/Sylvie"
+        },
+        "labels": {
+            "en": "Sylvie"
+        }
+    },
+    "usagi": {
+        "id": "usagi",
+        "planet": "desolo",
+        "resource": "tungsten",
+        "flora": "daggeroot",
+        "use": "Usagi makes certain curiosities (wrecks, Marbles, Stone Figurines, etc.) show up with a marker on the compass for 10 minutes when fed a seed. Feeding Usagi a Mutant Hissbine Seed increases the buff to 30 minutes.",
+        "url": {
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/d5/Icon_Usagi.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/0f/Usagi.png",
+            "wiki": "https://astroneer.fandom.com/wiki/Usagi"
+        },
+        "labels": {
+            "en": "Usagi"
+        }
+    },
+    "stilgar": {
+        "id": "stilgar",
+        "planet": "calidor",
+        "resource": "copper",
+        "flora": "wheezweed",
+        "use": "Stilgar provides oxygen to the player, similar to a Portable Oxygenator, and also to nearby tethers for 10 minutes when fed a seed. Feeding Stilgar a Mutant Attactus Seed increases the buff to 30 minutes.",
+        "url": {
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/5/50/Icon_Stilgar.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/0/04/Stilgar.png",
+            "wiki": "https://astroneer.fandom.com/wiki/Stilgar"
+        },
+        "labels": {
+            "en": "Stilgar"
+        }
+    },
+    "princess": {
+        "id": "princess",
+        "planet": "vesania",
+        "resource": "lithium",
+        "flora": "lashleaf",
+        "use": "Princess makes the player immune to all types of damage for 10 minutes when fed a seed, but will not prevent suffocation. Feeding Princess a Mutant Cataplant Seed increases the buff to 30 minutes.",
+        "url": {
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/18/Icon_Princess.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/f/f2/Princess.png",
+            "wiki": "https://astroneer.fandom.com/wiki/Princess"
+        },
+        "labels": {
+            "en": "Princess"
+        }
+    },
+    "rogal": {
+        "id": "rogal",
+        "planet": "novus",
+        "resource": "iron",
+        "flora": "thistlewhip",
+        "use": "Rogal will produce 6.0 U/s of power for 10 minutes when fed a seed. Feeding Rogal a Mutant Cataplant Seed will increase the buff to 30 minutes.",
+        "url": {
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/79/Icon_Rogal.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/42/Rogal.png",
+            "wiki": "https://astroneer.fandom.com/wiki/Rogal"
+        },
+        "labels": {
+            "en": "Rogal"
+        }
+    },
+    "bestefar": {
+        "id": "bestefar",
+        "planet": "glacio",
+        "resource": "argon",
+        "flora": "popcoral",
+        "use": "Bestefar provides increased drill width, boost and drilling ability when attached to the terrain tool for 10 minutes when fed a Seed. Feeding Bestefar a Mutant Boomalloon Seed will increase the buff to 30 minutes. The width, boost, and drilling ability buffs are equivalent to the Wide Mod, Boost Mod, and Drill Mod 1. Bestefar's buff stacks with the wide and boost mods, but not the drill mod, requiring a Drill Mod 2 or Drill Mod 3 to handle harder terrain.",
+        "url": {
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/8/87/Icon_Bestefar.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b1/Bestefar.png",
+            "wiki": "https://astroneer.fandom.com/wiki/Bestefar"
+        },
+        "labels": {
+            "en": "Bestefar"
+        }
+    },
+    "enoki": {
+        "id": "enoki",
+        "planet": "atrox",
+        "resource": "helium",
+        "flora": "spinelily",
+        "use": "Enoki provides increased jump height, sprint speed, and reduces movement penalty for carrying heavy items when placed in the Backpack for 10 minutes when fed a Seed. Feeding Enoki a Mutant Spewflower Seed increases the buff to 30 minutes.",
+        "url": {
+            "icon": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/46/Icon_Enoki.png",
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/d/db/Enoki.png",
+            "wiki": "https://astroneer.fandom.com/wiki/Enoki"
+        },
+        "labels": {
+            "en": "Enoki"
+        }
+    }
+}
