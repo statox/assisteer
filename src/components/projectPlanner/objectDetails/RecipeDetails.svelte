@@ -66,4 +66,7 @@
     .top-margin-15 {
         margin-top: 15px;
     }
+    .tool-image {
+        max-height: 10vh;
+    }
 </style>

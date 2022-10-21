@@ -55,6 +55,7 @@
         margin-right: auto;
         margin: auto;
         display: block;
+        max-height: 10vh;
     }
     .small-image {
         height: 1em;
