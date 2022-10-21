@@ -12,6 +12,9 @@
     const selectObjectBackToInventory = () => {
         $selection.object = object;
         $activePages.planner = 'inventory';
+        if (window.location.pathname !== '/') {
+            window.location.replace('/');
+        }
     };
 </script>
 
