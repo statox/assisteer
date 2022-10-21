@@ -1,49 +1,21 @@
 <script lang="ts">
-    import { getAllPlanets, Planet } from '../../../services/data/planets';
+    import { getAllPlanets } from '../../../services/data/planets';
     import { getProjectPowerStats, ProjectPowerStats } from '../../../services/data/power';
     import { project } from '../../../stores';
+    import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
     import ObjectName from '../../utils/ObjectName.svelte';
     import PlanetName from '../../utils/PlanetName.svelte';
+    import PlanetSelection from './PlanetSelection.svelte';
 
     const planets = getAllPlanets();
     let collapsed = false;
     let hasDataToShow = false;
     let projectData: ProjectPowerStats;
 
-    // TODO store the selected planet as part of the project
-    let selectedPlanet: Planet;
-    try {
-        const storedSelectedPlanetId = localStorage.getItem('selectedPlanet');
-        if (storedSelectedPlanetId !== null) {
-            selectedPlanet = planets.find((p) => p.id === storedSelectedPlanetId) || planets[0];
-        } else {
-            selectedPlanet = planets[0];
-        }
-    } catch (e) {
-        selectedPlanet = planets[0];
-        console.error('Could not retrieve the selected planet from local storage');
-        console.error(e);
-    }
-
-    const updateProjectData = () => {
-        projectData = getProjectPowerStats($project, selectedPlanet);
+    $: {
+        projectData = getProjectPowerStats($project, $selectedPowerPlanet);
         hasDataToShow =
             projectData.storage.totalCapacity > 0 || projectData.consumer.total > 0 || projectData.producer.total > 0;
-    };
-
-    $: {
-        (() => {
-            if (!$project || !selectedPlanet) {
-                return;
-            }
-            updateProjectData();
-            try {
-                localStorage.setItem('selectedPlanet', selectedPlanet.id);
-            } catch (e) {
-                console.error('Could not store the selected planet in local storage');
-                console.error(e);
-            }
-        })();
     }
 </script>
 
@@ -80,50 +52,9 @@
                         </ul>
                         Your in-game experience might differ from the computed values, these are just for reference.
                     </div>
-                    <h4 class="content-subheader">Planet to setup the project</h4>
-                    <div class="row row-cols-auto">
-                        {#each planets as planet}
-                            <div
-                                class="col planet-div"
-                                class:selected={planet.id === selectedPlanet.id}
-                                on:click={() => (selectedPlanet = planet)}
-                            >
-                                <PlanetName
-                                    {planet}
-                                    pictureType={'icon'}
-                                    boldName={true}
-                                    largerIcon={true}
-                                    largerText={true}
-                                />
-
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img
-                                            class="img-fluid planet-img rounded-circle"
-                                            src={planet.url.image}
-                                            alt={planet.id}
-                                        />
-                                    </div>
-                                    <div class="col">
-                                        <div>
-                                            <span class="important-word">Solar </span>{planet.power.sun}
-                                        </div>
-                                        <div>
-                                            <span class="important-word">Wind </span>{planet.power.wind}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="important-word">Wind activity </span>{Math.round(
-                                        planet.power.wikiWindCoefficient * 100
-                                    )}%
-                                </div>
-                                <div>
-                                    <span class="important-word">Daylight cycle </span>{planet.power
-                                        .dayNightCycleSeconds} s
-                                </div>
-                            </div>
-                        {/each}
+                    <h4 class="content-subheader">Planet hosting the project</h4>
+                    <div class="row">
+                        <PlanetSelection />
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -306,16 +237,6 @@
 </main>
 
 <style>
-    .planet-div {
-        margin: 1vw;
-        border: 3px solid transparent;
-        border-radius: 5px;
-    }
-    .planet-div.selected {
-        background: #d6edff;
-        /* border: 3px solid var(--blue); */
-        /* border-radius: 5px; */
-    }
     .table-borderless tr {
         border: 0;
     }
