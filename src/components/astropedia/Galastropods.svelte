@@ -37,7 +37,7 @@
                             <td><ItemName item={getPlanet(galastro.planet)} pictureType={'icon'} /></td>
                             <td><ObjectName object={getObject(galastro.resource)} pictureType={'icon'} /></td>
                             <td>{galastro.flora}</td>
-                            <td>{galastro.use}</td>
+                            <td class="use">{galastro.use}</td>
                         </tr>
                     {/each}
                 </tbody>
@@ -45,3 +45,9 @@
         </div>
     </div>
 </main>
+
+<style>
+    .use {
+        text-align: justify;
+    }
+</style>
