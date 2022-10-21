@@ -71,11 +71,14 @@
                             <h5 class="content-subheader">Gateway network</h5>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Power by gateway</span>
-                                {planet.gatewayNetwork.gatewayPower} s
+                                {planet.gatewayNetwork.gatewayPower} U/s / {30 * planet.gatewayNetwork.gatewayPower} U
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Core material</span>
-                                {planet.gatewayNetwork.coreMaterial}
+                                <ObjectName
+                                    object={getObject(planet.gatewayNetwork.coreMaterial)}
+                                    pictureType={'icon'}
+                                />
                             </div>
                         </div>
 
@@ -86,8 +89,8 @@
                                     <span class="important-word">Primary</span>
                                     <ObjectName object={getObject(planet.resources.primary.id)} pictureType={'icon'} />
                                 </div>
-                                <div class="d-flex">
-                                    <span class="ms-auto">
+                                <div class="d-flex justify-content-left">
+                                    <span>
                                         {planet.resources.primary.description}
                                     </span>
                                 </div>
@@ -98,8 +101,8 @@
                                         pictureType={'icon'}
                                     />
                                 </div>
-                                <div class="d-flex">
-                                    <span class="ms-auto">
+                                <div class="d-flex justify-content-left">
+                                    <span>
                                         {planet.resources.secondary.description}
                                     </span>
                                 </div>
@@ -111,9 +114,9 @@
                         {#if Object.keys(planet.gases).length}
                             <div class="info-section">
                                 <h5 class="content-subheader">Gases</h5>
-                                {#each Object.keys(planet.gases) as gas}
+                                {#each Object.keys(planet.gases).sort((a, b) => planet.gases[b] - planet.gases[a]) as gas}
                                     <div class="d-flex justify-content-between">
-                                        <span class="important-word">{gas}</span>
+                                        <ObjectName object={getObject(gas)} pictureType={'icon'} />
                                         {planet.gases[gas]} ppm
                                     </div>
                                 {/each}
