@@ -72,6 +72,8 @@
     <div> 
         <h2>TODO</h2>
         <ul>
+            <li><b>Project inventory revamp</b> Move the project inventory to its own tab in the planner and use the "Added to project" toast to show a small version of the current
+                object list of the project.</li>
             <li><b>Project Graph - general improvements</b> Reintroduce the tools in the graph. Support more layouts. Maybe reintroduce planets.</li>
             <li><b>Storage analyser - storage selection</b> Allow the user to choose which objects should be used for storage and which ones should be stored</li>
             <li><b>Storage analyser - packaging selection</b> Allow the user to choose which object should be stored packaged.</li>
