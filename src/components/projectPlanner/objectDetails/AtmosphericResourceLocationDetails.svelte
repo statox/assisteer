@@ -1,9 +1,6 @@
 <script lang="ts">
-    import type { BaseObject } from "../../../services/data/objects";
-    import {
-        AtmosphericResourceLocations,
-        getAlmosphericResourceLocation,
-    } from "../../../services/data/resources";
+    import type { BaseObject } from '../../../services/data/objects';
+    import { AtmosphericResourceLocations, getAlmosphericResourceLocation } from '../../../services/data/resources';
 
     export let resource: BaseObject;
     let locations: AtmosphericResourceLocations;
@@ -28,15 +25,16 @@
             <span>Error couldn't find {resource.id} location information</span>
         {:else}
             {#each locations as location}
-                <div>
+                <div class="d-flex justify-content-around">
                     <span class="important-word">{location.planet.labels.en}</span>
-                    <img
-                        class="img-fluid small-image"
-                        src={location.planet.url.icon}
-                        alt={location.planet.labels.en}
-                    />
-
-                    {location.density}&nbsp;ppm
+                    <span>
+                        <img
+                            class="img-fluid small-image"
+                            src={location.planet.url.icon}
+                            alt={location.planet.labels.en}
+                        />
+                        {location.density}&nbsp;ppm
+                    </span>
                 </div>
             {/each}
         {/if}

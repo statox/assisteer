@@ -60,11 +60,11 @@
                 <div class="row align-items-center bottom-separator">
                     <div class="col-sm-4">
                         <div class="d-flex justify-content-between">
-                            <span class="important-word">Total objects count</span>
+                            <span class="important-word">Objects in project</span>
                             {projectTotalObjectsCount}
                         </div>
                         <div class="d-flex justify-content-between">
-                            <span class="important-word">Total unlock cost</span>
+                            <span class="important-word">Project unlock cost</span>
                             {projectTotalUnlockCost}&nbsp;bytes
                         </div>
                     </div>
