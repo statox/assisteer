@@ -5,7 +5,7 @@
     import { getAlmosphericResourceLocation } from '../../../services/data/resources';
     import { alphaSort } from '../../../services/utils';
     import { settings } from '../../../stores';
-    import PlanetName from '../../utils/PlanetName.svelte';
+    import ItemName from '../../utils/ItemName.svelte';
 
     export let categoryName: string;
     export let categoryItems: any;
@@ -39,7 +39,7 @@
                             {#if object.category === 'atmospheric'}
                                 <span>
                                     {#each getAlmosphericResourceLocation(objectName) || [] as location}
-                                        <PlanetName planet={location.planet} pictureType={'icon'} hideName={true} />
+                                        <ItemName item={location.planet} pictureType={'icon'} hideName={true} />
                                     {/each}
                                 </span>
                             {/if}

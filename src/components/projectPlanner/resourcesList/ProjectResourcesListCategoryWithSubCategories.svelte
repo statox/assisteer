@@ -9,7 +9,7 @@
     } from '../../../services/data/resources';
     import { alphaSort } from '../../../services/utils';
     import { settings } from '../../../stores';
-    import PlanetName from '../../utils/PlanetName.svelte';
+    import ItemName from '../../utils/ItemName.svelte';
 
     export let categoryName: string;
     export let categoryItems: any;
@@ -66,8 +66,8 @@
                                     {@const primaryPlanet = location.primary.planet}
                                     {@const secondaryPlanet = location.secondary.planet}
                                     <span>
-                                        <PlanetName planet={primaryPlanet} pictureType={'icon'} hideName={true} />
-                                        <PlanetName planet={secondaryPlanet} pictureType={'icon'} hideName={true} />
+                                        <ItemName item={primaryPlanet} pictureType={'icon'} hideName={true} />
+                                        <ItemName item={secondaryPlanet} pictureType={'icon'} hideName={true} />
                                     </span>
                                 {/if}
                             </li>

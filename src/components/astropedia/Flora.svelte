@@ -1,7 +1,7 @@
 <script lang="ts">
     import { getAllFlora } from '../../services/data/flora';
     import { getPlanet } from '../../services/data/planets';
-    import PlanetName from '../utils/PlanetName.svelte';
+    import ItemName from '../utils/ItemName.svelte';
 
     const flora = getAllFlora();
 </script>
@@ -37,7 +37,7 @@
                                     <div class="d-flex justify-content-between">
                                         {#if planetId !== 'all'}
                                             {@const planet = getPlanet(planetId)}
-                                            <PlanetName {planet} pictureType={'icon'} />
+                                            <ItemName item={planet} pictureType={'icon'} />
 
                                             <span>
                                                 {plant.location[planetId]}

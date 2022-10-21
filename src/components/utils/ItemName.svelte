@@ -1,7 +1,14 @@
 <script lang="ts">
-    import type { Planet } from '../../services/data/planets';
-
-    export let planet: Planet;
+    export let item: {
+        url: {
+            icon: string;
+            image: string;
+            wiki: string;
+        };
+        labels: {
+            [lang: string]: string;
+        };
+    };
     export let pictureType: 'icon' | 'image';
     export let hideName: boolean = false;
     export let largerText: boolean = false;
@@ -11,13 +18,13 @@
 </script>
 
 <span class="important-word">
-    <img class="img-fluid em1" class:em2={largerIcon} src={planet.url[pictureType]} alt={planet.labels.en} />
+    <img class="img-fluid em1" class:em2={largerIcon} src={item.url[pictureType]} alt={item.labels.en} />
     {#if !hideName}
         <span class="important-word label em1" class:em2={largerText} class:uppercase>
             {#if boldName === true}
-                <b>{planet.labels.en}</b>
+                <b>{item.labels.en}</b>
             {:else}
-                {planet.labels.en}
+                {item.labels.en}
             {/if}
         </span>
     {/if}

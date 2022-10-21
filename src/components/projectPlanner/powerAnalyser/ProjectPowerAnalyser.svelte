@@ -4,7 +4,7 @@
     import { project } from '../../../stores';
     import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
     import ObjectName from '../../utils/ObjectName.svelte';
-    import PlanetName from '../../utils/PlanetName.svelte';
+    import ItemName from '../../utils/ItemName.svelte';
     import PlanetSelection from './PlanetSelection.svelte';
 
     const planets = getAllPlanets();

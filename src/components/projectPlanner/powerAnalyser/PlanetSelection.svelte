@@ -1,7 +1,7 @@
 <script lang="ts">
     import { getAllPlanets } from '../../../services/data/planets';
     import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
-    import PlanetName from '../../utils/PlanetName.svelte';
+    import ItemName from '../../utils/ItemName.svelte';
 
     const planets = getAllPlanets();
 </script>
@@ -23,7 +23,7 @@
                     class:selected={planet.id === $selectedPowerPlanet.id}
                     on:click={() => ($selectedPowerPlanet = planet)}
                 >
-                    <th><PlanetName {planet} pictureType={'icon'} largerIcon={true} largerText={true} /></th>
+                    <th><ItemName item={planet} pictureType={'icon'} largerIcon={true} largerText={true} /></th>
                     <td>{planet.power.sun}</td>
                     <td>{planet.power.wind}</td>
                     <td>{Math.round(planet.power.wikiWindCoefficient * 100)}%</td>

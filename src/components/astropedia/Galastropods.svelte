@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { getAllGalastropods } from '../../services/data/galastropods';
-    import PlanetName from '../utils/PlanetName.svelte';
+    import { getAllGalastropods, getGalastropod } from '../../services/data/galastropods';
+    import ItemName from '../utils/ItemName.svelte';
     import { getPlanet } from '../../services/data/planets';
     import ObjectName from '../utils/ObjectName.svelte';
     import { getObject } from '../../services/data/objects';
@@ -33,8 +33,8 @@
                 <tbody>
                     {#each galastropods as galastro}
                         <tr>
-                            <td>{galastro.labels.en}</td>
-                            <td><PlanetName planet={getPlanet(galastro.planet)} pictureType={'icon'} /></td>
+                            <td><ItemName item={getGalastropod(galastro.id)} pictureType={'icon'} /></td>
+                            <td><ItemName item={getPlanet(galastro.planet)} pictureType={'icon'} /></td>
                             <td><ObjectName object={getObject(galastro.resource)} pictureType={'icon'} /></td>
                             <td>{galastro.flora}</td>
                             <td>{galastro.use}</td>

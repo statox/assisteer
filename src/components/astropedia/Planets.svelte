@@ -3,7 +3,7 @@
 
     import { getAllPlanets } from '../../services/data/planets';
     import ObjectName from '../utils/ObjectName.svelte';
-    import PlanetName from '../utils/PlanetName.svelte';
+    import ItemName from '../utils/ItemName.svelte';
 
     const planets = getAllPlanets();
 </script>
@@ -21,8 +21,8 @@
                 {#each planets as planet}
                     <div class="col-sm-12 col-md-6 col-lg-3">
                         <h4 class="content-subheader">
-                            <PlanetName
-                                {planet}
+                            <ItemName
+                                item={planet}
                                 pictureType={'icon'}
                                 uppercase={true}
                                 largerText={true}

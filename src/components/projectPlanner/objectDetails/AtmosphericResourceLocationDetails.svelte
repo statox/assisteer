@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { BaseObject } from '../../../services/data/objects';
     import { AtmosphericResourceLocations, getAlmosphericResourceLocation } from '../../../services/data/resources';
-    import PlanetName from '../../utils/PlanetName.svelte';
+    import ItemName from '../../utils/ItemName.svelte';
 
     export let resource: BaseObject;
     let locations: AtmosphericResourceLocations;
@@ -27,7 +27,7 @@
         {:else}
             {#each locations as location}
                 <div class="d-flex justify-content-between">
-                    <PlanetName planet={location.planet} pictureType={'icon'} />
+                    <ItemName item={location.planet} pictureType={'icon'} />
                     <span>{location.density}&nbsp;ppm</span>
                 </div>
             {/each}
