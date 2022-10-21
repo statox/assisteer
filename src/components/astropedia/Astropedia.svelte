@@ -1,18 +1,20 @@
 <script lang="ts">
-    import { activePages } from "../../stores";
-    import Planets from "./Planets.svelte";
-    import Research from "./Research.svelte";
+    import { activePages } from '../../stores';
+    import Flora from './Flora.svelte';
+    import Planets from './Planets.svelte';
+    import Research from './Research.svelte';
 
     const sectionsNames = {
-        research: "Research",
-        planets: "Planets"
+        research: 'Research',
+        planets: 'Planets',
+        flora: 'Flora'
     };
 </script>
 
 <main>
     <div class="nav-menu d-flex flex-row flex-wrap justify-content-evenly">
-        {#each ["research", "planets"] as section, i}
-            <div class="mx-1" class:me-sm-auto={section === "planets"}>
+        {#each ['research', 'planets', 'flora'] as section, i}
+            <div class="mx-1" class:me-sm-auto={i === 2}>
                 <button
                     class="nav-item"
                     class:selected={$activePages.astropedia === section}
@@ -23,11 +25,14 @@
         {/each}
     </div>
 
-    {#if $activePages.astropedia === "research"}
+    {#if $activePages.astropedia === 'research'}
         <Research />
     {/if}
-    {#if $activePages.astropedia === "planets"}
+    {#if $activePages.astropedia === 'planets'}
         <Planets />
+    {/if}
+    {#if $activePages.astropedia === 'flora'}
+        <Flora />
     {/if}
 </main>
 

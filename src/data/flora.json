@@ -1,0 +1,185 @@
+{
+    "popcoral": {
+        "id": "popcoral",
+        "type": "defensive",
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/c4/Popcoral.jpg"
+        },
+        "location": {
+            "all": "found in abundance in caves"
+        },
+        "labels": {
+            "en": "Popcoral"
+        }
+    },
+    "daggeroot": {
+        "id": "daggeroot",
+        "type": "defensive",
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/be/Hazard-Needlers.jpg"
+        },
+        "location": {
+            "desolo": "no information",
+            "atrox": "surface",
+            "sylva": "mantle layer"
+        },
+        "labels": {
+            "en": "Daggeroot"
+        }
+    },
+    "wheezeweed": {
+        "id": "wheezeweed",
+        "type": "defensive",
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/c/cc/Wheezeweed.png"
+        },
+        "location": {
+            "atrox": "no information",
+            "calidor": "no information"
+        },
+        "labels": {
+            "en": "Wheezeweed"
+        }
+    },
+    "spinelily": {
+        "id": "spinelily",
+        "type": "defensive",
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1c/Spinelily.png"
+        },
+        "location": {
+            "atrox": "no information",
+            "calidor": "no information"
+        },
+        "labels": {
+            "en": "Spinelily"
+        }
+    },
+    "lashleaf": {
+        "id": "lashleaf",
+        "type": "defensive",
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/2/27/LashleafClear.png"
+        },
+        "location": {
+            "vesania": "no information",
+            "novus": "no information"
+        },
+        "labels": {
+            "en": "Lashleaf"
+        }
+    },
+    "bouncevine": {
+        "id": "bouncevine",
+        "type": "defensive",
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/9/97/Bouncevine.png"
+        },
+        "location": {
+            "sylva": "surface"
+        },
+        "labels": {
+            "en": "Bouncevine"
+        }
+    },
+    "thistlewhip": {
+        "id": "thistlewhip",
+        "type": "defensive",
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/1/1a/Thistlewhip.png"
+        },
+        "location": {
+            "vesania": "no information",
+            "novus": "no information"
+        },
+        "labels": {
+            "en": "Thistlewhip"
+        }
+    },
+    "hissbine": {
+        "id": "hissbine",
+        "type": "offensive",
+        "galastropods": [
+            "sylvie",
+            "usagi"
+        ],
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/bf/Hazard_Sprayer.jpg"
+        },
+        "location": {
+            "all": "underground"
+        },
+        "labels": {
+            "en": "Hissbine"
+        }
+    },
+    "boomalloon": {
+        "id": "boomalloon",
+        "type": "offensive",
+        "galastropods": [
+            "bestefar"
+        ],
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/7/7b/Hazard_Popper.jpg"
+        },
+        "location": {
+            "glacio": "surface and caves"
+        },
+        "labels": {
+            "en": "Boomalloon"
+        }
+    },
+    "cataplant": {
+        "id": "cataplant",
+        "type": "offensive",
+        "galastropods": [
+            "princess",
+            "rogal"
+        ],
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/a/ae/Hazard_Lobber.jpg"
+        },
+        "location": {
+            "vesania": "surface and caves",
+            "novus": "surface and caves",
+            "glacio": "by groups of three",
+            "atrox": "no information"
+        },
+        "labels": {
+            "en": "Cataplant"
+        }
+    },
+    "attactus": {
+        "id": "attactus",
+        "type": "offensive",
+        "galastropods": [
+            "stilgar"
+        ],
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/4/47/Hazard_Shooter.jpg"
+        },
+        "location": {
+            "calidor": "surface and caves",
+            "atrox": "surface and caves"
+        },
+        "labels": {
+            "en": "Attactus"
+        }
+    },
+    "spewflower": {
+        "id": "spewflower",
+        "type": "offensive",
+        "galastropods": [
+            "enoki"
+        ],
+        "url": {
+            "image": "https://static.wikia.nocookie.net/astroneer_gamepedia/images/b/b6/Hazard_Spewer.jpg"
+        },
+        "location": {
+            "atrox": "surface and caves"
+        },
+        "labels": {
+            "en": "Spewflower"
+        }
+    }
+}

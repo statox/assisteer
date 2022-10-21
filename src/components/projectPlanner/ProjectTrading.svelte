@@ -26,10 +26,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <td>Resource</td>
-                            <td>Required Quantity</td>
-                            <td>Soil</td>
-                            <td>Scrap</td>
+                            <th scope="col">Resource</th>
+                            <th scope="col">Required Quantity</th>
+                            <th scope="col">Soil</th>
+                            <th scope="col">Scrap</th>
                         </tr>
                     </thead>
                     <tbody>
