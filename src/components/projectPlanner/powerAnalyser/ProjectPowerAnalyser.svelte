@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { getAllPlanets, Planet } from '../../services/data/planets';
-    import { getProjectPowerStats, ProjectPowerStats } from '../../services/data/power';
-    import { project } from '../../stores';
-    import ObjectName from '../utils/ObjectName.svelte';
-    import PlanetName from '../utils/PlanetName.svelte';
+    import { getAllPlanets, Planet } from '../../../services/data/planets';
+    import { getProjectPowerStats, ProjectPowerStats } from '../../../services/data/power';
+    import { project } from '../../../stores';
+    import ObjectName from '../../utils/ObjectName.svelte';
+    import PlanetName from '../../utils/PlanetName.svelte';
 
     const planets = getAllPlanets();
     let collapsed = false;
