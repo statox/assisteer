@@ -8,9 +8,9 @@
     const galastropods = getAllGalastropods();
 </script>
 
-<main>
+<main class="container">
     <div class="content-section">
-        <h3 class="content-header">Flora</h3>
+        <h3 class="content-header">Galastropods</h3>
         <div class="warning">Warning: This page contains spoilers about the game mechanisms.</div>
         <div class="info">
             <p>
@@ -19,7 +19,7 @@
                 </a>.
             </p>
         </div>
-        <div class="container table-responsive">
+        <div class="table-responsive">
             <table class="table table-sm">
                 <thead>
                     <tr>
@@ -27,17 +27,28 @@
                         <th>Planet</th>
                         <th>Resource</th>
                         <th>Flora</th>
-                        <th>Use</th>
+                        <th />
                     </tr>
                 </thead>
                 <tbody>
                     {#each galastropods as galastro}
                         <tr>
-                            <td><ItemName item={getGalastropod(galastro.id)} pictureType={'icon'} /></td>
-                            <td><ItemName item={getPlanet(galastro.planet)} pictureType={'icon'} /></td>
-                            <td><ObjectName object={getObject(galastro.resource)} pictureType={'icon'} /></td>
-                            <td>{galastro.flora}</td>
-                            <td class="use">{galastro.use}</td>
+                            <td class="no-border justify-content-left">
+                                <ItemName item={getGalastropod(galastro.id)} pictureType={'icon'} largerIcon={true} />
+                            </td>
+                            <td class="no-border justify-content-left">
+                                <ItemName item={getPlanet(galastro.planet)} pictureType={'icon'} />
+                            </td>
+                            <td class="no-border justify-content-left">
+                                <ObjectName object={getObject(galastro.resource)} pictureType={'icon'} />
+                            </td>
+                            <td class="no-border justify-content-left">{galastro.flora}</td>
+                            <td rowspan="2">
+                                <img class="img-fluid" src={galastro.url.image} alt={galastro.labels.en} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="use">{galastro.use}</td>
                         </tr>
                     {/each}
                 </tbody>
@@ -49,5 +60,8 @@
 <style>
     .use {
         text-align: justify;
+    }
+    .no-border {
+        border: none;
     }
 </style>
