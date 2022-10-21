@@ -28,33 +28,44 @@
                         <tr>
                             <td>Resource</td>
                             <td>Required Quantity</td>
+                            <td>Soil</td>
+                            <td>Scrap</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">All resources in project</td>
                             <td>
                                 <ObjectName
                                     object={getObject('soil')}
                                     pictureType={$settings.pictureType}
-                                    largerIcon={true}
+                                    quantity={tradeStats.totalSoil}
+                                    hideName={true}
                                 />
                             </td>
                             <td>
                                 <ObjectName
                                     object={getObject('scrap')}
                                     pictureType={$settings.pictureType}
-                                    largerIcon={true}
+                                    quantity={tradeStats.totalScrap}
+                                    hideName={true}
                                 />
+                                &nbsp;/&nbsp;
+                                <span class="scrap-only">
+                                    <ObjectName
+                                        object={getObject('scrap')}
+                                        pictureType={$settings.pictureType}
+                                        quantity={tradeStats.totalScrapForScrapOnlyObjects}
+                                        hideName={true}
+                                    />
+                                </span>
                             </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="2">All resources in project</td>
-                            <td>{tradeStats.totalSoil}</td>
-                            <td>{tradeStats.totalScrap}</td>
                         </tr>
                         {#each tradeStats.possibleTrades as trade}
                             {@const object = getObject(trade.resourceId)}
                             <tr>
-                                <td>
-                                    <ObjectName {object} pictureType={$settings.pictureType} largerIcon={true} />
+                                <td class:scrap-only={!trade.soil}>
+                                    <ObjectName {object} pictureType={$settings.pictureType} />
                                 </td>
 
                                 <td>
@@ -73,7 +84,6 @@
                                                 <ObjectName
                                                     object={currencyObject}
                                                     hideName={true}
-                                                    largerIcon={true}
                                                     quantity={trade[currency].currencyRequired}
                                                     pictureType={$settings.pictureType}
                                                 />
@@ -81,12 +91,11 @@
                                                 <ObjectName
                                                     {object}
                                                     hideName={true}
-                                                    largerIcon={true}
                                                     quantity={trade[currency].resourcesProduced}
                                                     pictureType={$settings.pictureType}
                                                 />
                                                 {#if trade[currency].surplus}
-                                                    (Surplus: {trade[currency].surplus})
+                                                    <span class="important-word">(+{trade[currency].surplus})</span>
                                                 {/if}
                                             </div>
                                         {/if}
@@ -100,3 +109,9 @@
         </div>
     </div>
 </main>
+
+<style>
+    .scrap-only {
+        color: #c49015;
+    }
+</style>

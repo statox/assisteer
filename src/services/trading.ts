@@ -18,6 +18,7 @@ export interface PossibleTrades {
 export interface TradingStats {
     totalSoil: number;
     totalScrap: number;
+    totalScrapForScrapOnlyObjects: number;
     possibleTrades: PossibleTrades[];
 }
 
@@ -60,6 +61,7 @@ const getProjectTradingStats = (project: Project) => {
     const result: TradingStats = {
         totalSoil: soilRequirements.total,
         totalScrap: scrapRequirements.total,
+        totalScrapForScrapOnlyObjects: 0,
         possibleTrades: []
     };
 
@@ -84,6 +86,10 @@ const getProjectTradingStats = (project: Project) => {
                 resourcesProduced: scrapRequirements.byResource[resource].quantityProduced,
                 surplus: scrapRequirements.byResource[resource].surplus
             };
+
+            if (!soilRequirements.byResource[resource]) {
+                result.totalScrapForScrapOnlyObjects += scrapRequirements.byResource[resource].scrapRequired;
+            }
         }
         result.possibleTrades.push(possibleTrades);
     }
