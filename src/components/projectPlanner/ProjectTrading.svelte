@@ -23,7 +23,7 @@
                 class="table-responsive"
                 class:hidden={collapsed === true || (tradeStats.totalSoil === 0 && tradeStats.totalScrap === 0)}
             >
-                <table class="table">
+                <table class="table table-sm">
                     <thead>
                         <tr>
                             <th scope="col">Resource</th>

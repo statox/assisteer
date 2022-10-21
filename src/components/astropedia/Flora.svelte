@@ -17,8 +17,8 @@
                 </a>.
             </p>
         </div>
-        <div class="container">
-            <table class="table">
+        <div class="container table-responsive">
+            <table class="table table-sm">
                 <thead>
                     <tr>
                         <th>Name</th>
