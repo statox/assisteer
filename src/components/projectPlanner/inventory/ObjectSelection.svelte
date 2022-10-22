@@ -97,6 +97,7 @@
                 {#key selectedCategory}
                     <Select
                         placeholder="Project item selection"
+                        listOpen={true}
                         {items}
                         {groupBy}
                         groupFilter={objectGroupsFilter}

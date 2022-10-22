@@ -507,8 +507,8 @@
                 value = value;
 
                 setTimeout(() => {
-                    listOpen = false;
-                    activeValue = undefined;
+                    // listOpen = false;
+                    // activeValue = undefined;
                 });
             }
         }

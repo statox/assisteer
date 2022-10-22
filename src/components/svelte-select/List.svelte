@@ -208,7 +208,7 @@
             }
         }
 
-        listStyle = styles;
+        // listStyle = styles;
     }
 
     $: if (parent && list) computePlacement();
@@ -314,4 +314,3 @@
         color: var(--list-empty-color, #78848f);
     }
 </style>
-
