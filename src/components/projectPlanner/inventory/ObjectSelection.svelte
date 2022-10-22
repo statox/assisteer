@@ -3,7 +3,7 @@
     import { Toast } from 'bootstrap';
     import { onMount } from 'svelte';
     import { createEventDispatcher } from 'svelte';
-    import Select from 'svelte-select';
+    import Select from '../../svelte-select';
     import { BaseObject, getAllObjectsNames, getObject } from '../../../services/data/objects';
     import { alphaSort } from '../../../services/utils';
 
