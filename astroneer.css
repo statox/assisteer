@@ -16,6 +16,8 @@
   --content-header-bg-color: #2d9bf0;
   --content-subheader-color: var(--white);
   --content-subheader-bg-color: #8ac5f2;
+
+  --list-position: relative;
 }
 
 /* fonts.css */
