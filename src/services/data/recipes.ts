@@ -2,8 +2,8 @@ import recipes from '../../data/recipes.json';
 import rawResource from '../../data/rawResources.json';
 import { BaseObject, getObject } from './objects';
 
-const getAllRecipesList = () => {
-    return recipes;
+const getAllRecipesList = (): { [productId: string]: Recipe[] } => {
+    return recipes as { [productId: string]: Recipe[] };
 };
 
 export type Recipe = {
@@ -38,7 +38,7 @@ type DepLevel<T> = {
     };
 };
 
-export interface DepTree extends DepLevel<DepTree> {} // eslint-disable-line @typescript-eslint/no-empty-interface
+export interface DepTree extends DepLevel<DepTree> { } // eslint-disable-line @typescript-eslint/no-empty-interface
 
 const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number): DepTree => {
     const result = {

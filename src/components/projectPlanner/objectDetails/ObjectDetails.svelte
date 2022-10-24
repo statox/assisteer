@@ -8,6 +8,7 @@
     import StorageDetails from './StorageDetails.svelte';
     import CanisterDetails from './CanisterDetails.svelte';
     import TradingDetails from './TradingDetails.svelte';
+    import ResourceUsageDetails from './ResourceUsageDetails.svelte';
 
     export let object: BaseObject;
 </script>
@@ -40,6 +41,9 @@
                     <AtmosphericResourceLocationDetails resource={object} />
                 {:else}
                     <RecipeDetails {object} />
+                {/if}
+                {#if object.type === 'resource'}
+                    <ResourceUsageDetails {object} />
                 {/if}
             </div>
         </div>
