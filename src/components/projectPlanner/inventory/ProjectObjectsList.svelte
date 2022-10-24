@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { afterUpdate, createEventDispatcher } from 'svelte';
+    import { afterUpdate } from 'svelte';
     import {
         getProjectObjectsByCategory,
         getProjectObjectsByTier,
@@ -9,8 +9,8 @@
     import { alphaSort } from '../../../services/utils';
     import { project } from '../../../stores';
     import ObjectName from '../../utils/ObjectName.svelte';
+    import QuantitySelector from './QuantitySelector.svelte';
 
-    const dispatch = createEventDispatcher();
     let collapsed = false;
     let sortType: 'category' | 'tier' = 'category';
 
@@ -129,39 +129,12 @@
                                     importantWord={true}
                                     largerIcon={true}
                                 />
-                                <div class="text-align-center">
-                                    <button
-                                        class="btn-minus"
-                                        on:click={() =>
-                                            changeQuantity({
-                                                objectName: item.objectName,
-                                                op: 'dec'
-                                            })}
-                                    >
-                                        -
-                                    </button>
-                                    <span class="important-word"><b>&nbsp;{item.quantity}&nbsp;</b></span>
-                                    <button
-                                        class="btn-plus"
-                                        on:click={() =>
-                                            changeQuantity({
-                                                objectName: item.objectName,
-                                                op: 'inc'
-                                            })}
-                                    >
-                                        +
-                                    </button>
-                                    <button
-                                        class="btn-remove"
-                                        on:click={() =>
-                                            changeQuantity({
-                                                objectName: item.objectName,
-                                                op: 'remove'
-                                            })}
-                                    >
-                                        X
-                                    </button>
-                                </div>
+
+                                <QuantitySelector
+                                    objectId={item.objectName}
+                                    quantity={item.quantity}
+                                    changeQuantityFn={changeQuantity}
+                                />
                             </div>
                             <div class="col-sm-4 text-align-center">
                                 <span>
@@ -181,33 +154,6 @@
 </main>
 
 <style>
-    .btn-minus {
-        border: 1px solid var(--white);
-        background-color: var(--white);
-        color: var(--blue);
-        font-weight: bold;
-        font-size: large;
-
-        width: 2em;
-    }
-    .btn-plus {
-        border: 1px solid var(--blue);
-        background-color: var(--blue);
-        color: var(--white);
-        font-weight: bold;
-        font-size: large;
-
-        width: 2em;
-    }
-    .btn-remove {
-        border: 1px solid var(--red);
-        background-color: var(--red);
-        color: var(--white);
-        font-weight: bold;
-        font-size: large;
-
-        width: 2em;
-    }
     .text-align-center {
         text-align: center;
     }
