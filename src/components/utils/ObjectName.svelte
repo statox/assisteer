@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { BaseObject } from '../../services/data/objects';
-    import { activePages, selection } from '../../stores';
+    import { selection } from '../../stores';
 
     export let object: BaseObject;
     export let pictureType: 'icon' | 'image';
