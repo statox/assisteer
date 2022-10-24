@@ -46,7 +46,7 @@
 
     const orderedCategories = [...categories.values()]
         .map((category: string) => {
-            return { value: category, label: category.toUpperCase() };
+            return { value: category, label: category };
         })
         .sort((a, b) => (a.value < b.value ? -1 : 1));
 
@@ -59,7 +59,7 @@
                     return matchCategory;
                 }
 
-                return i.label.includes(searchedText);
+                return i.label.toLowerCase().includes(searchedText.toLowerCase());
             })
             .sort((a, b) => {
                 if (a.value.tier !== b.value.tier) {
@@ -96,7 +96,7 @@
             <div class="col-md-4 select select-objects">
                 {#each orderedCategories as category}
                     <div
-                        class="select-object"
+                        class="select-object category-name"
                         class:selected={category.value === selectedCategory?.value}
                         on:click={() => (selectedCategory = category)}
                     >
@@ -143,17 +143,28 @@
             <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                     <strong class="me-auto green">
-                        {selectedObject?.labels?.en || ''} ({$project[selectedObject?.id || ''] || ''})
+                        {selectedObject?.labels?.en || ''} - Added to the project ✓
                     </strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" />
                 </div>
-                <div class="toast-body">Added to the project ✓</div>
+                <div class="toast-body">
+                    {#each Object.keys($project) as objectName}
+                        {@const object = getObject(objectName)}
+                        <div class:green={selectedObject?.id === object.id}>
+                            <ObjectName {object} pictureType={'icon'} quantity={$project[objectName]} />
+                        </div>
+                    {/each}
+                </div>
             </div>
         </div>
     </div>
 </main>
 
 <style>
+    .category-name {
+        text-transform: capitalize;
+    }
+
     .green {
         color: var(--green);
     }
