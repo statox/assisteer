@@ -5,6 +5,7 @@
     import ProjectStorageAnalyser from './ProjectStorageAnalyser.svelte';
     import ProjectSettings from './ProjectSettings.svelte';
     import ProjectInventory from './inventory/ProjectInventory.svelte';
+    import ProjectInventoryModal from './inventory/ProjectInventoryModal.svelte';
     import ProjectTrading from './ProjectTrading.svelte';
     import ProjectPowerAnalyser from './powerAnalyser/ProjectPowerAnalyser.svelte';
 
@@ -21,6 +22,10 @@
 
 <main>
     <div class="nav-menu d-flex flex-row flex-wrap justify-content-evenly">
+        <button class="nav-item">
+            <span data-bs-toggle="modal" data-bs-target="#inventoryModal">Object Selection</span>
+        </button>
+
         {#each ['inventory', 'graph', 'resources', 'trading', 'power', 'storage', 'settings'] as section}
             <div class="mx-1" class:ms-sm-auto={section === 'settings'}>
                 <button
@@ -32,6 +37,8 @@
             </div>
         {/each}
     </div>
+
+    <ProjectInventoryModal />
 
     {#if $activePages.planner === 'inventory'}
         <ProjectInventory />
