@@ -4,7 +4,8 @@
         getProjectObjectsByCategory,
         getProjectObjectsByTier,
         getProjectTotalUnlockCost,
-        ProjectObjectsByCategory
+        ProjectObjectsByCategory,
+        updateObjectQuantityInProject
     } from '../../../services/project';
     import { alphaSort } from '../../../services/utils';
     import { project } from '../../../stores';
@@ -20,22 +21,10 @@
     let projectTotalUnlockCost = 0;
 
     const changeQuantity = (params: { op: 'inc' | 'dec' | 'remove' | 'reset'; objectName?: string }) => {
-        const { objectName, op } = params;
-
-        if (op === 'inc') {
-            $project[objectName] += 1;
-        }
-        if (op === 'dec') {
-            $project[objectName] -= 1;
-        }
-        if (op === 'remove' || $project[objectName] <= 0) {
-            delete $project[objectName];
-            // Make sure to trigger the hook which writes the project
-            // to local storage on change
-            $project = $project;
-        }
-        if (op === 'reset') {
+        if (params.op === 'reset') {
             $project = {};
+        } else {
+            $project = updateObjectQuantityInProject($project, { op: params.op, objectId: params.objectName });
         }
 
         updateProjectData();
@@ -113,9 +102,9 @@
                         </div>
                     </div>
 
-                    <button class="col-sm-4 btn-danger" on:click={() => changeQuantity({ op: 'reset' })}
-                        >Reset project</button
-                    >
+                    <button class="col-sm-4 btn-danger" on:click={() => changeQuantity({ op: 'reset' })}>
+                        Reset project
+                    </button>
                 </div>
 
                 {#each Object.keys(objectsByCategory).sort(alphaSort) as category}

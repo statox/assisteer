@@ -5,6 +5,7 @@
     import { createEventDispatcher } from 'svelte';
     import { BaseObject, getAllObjectsNames, getObject } from '../../../services/data/objects';
     import ObjectName from '../../utils/ObjectName.svelte';
+    import { updateObjectQuantityInProject } from '../../../services/project';
 
     export let object: BaseObject;
     let selectedCategory = { value: 'all' };
@@ -84,11 +85,7 @@
         if (!item) {
             return;
         }
-        const objectName = item.id;
-        if (!$project[objectName]) {
-            $project[objectName] = 0;
-        }
-        $project[objectName] += 1;
+        $project = updateObjectQuantityInProject($project, { op: 'add', objectId: item.id });
     };
 
     onMount(async () => {

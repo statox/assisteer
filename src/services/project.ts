@@ -177,6 +177,27 @@ const getProjectTotalUnlockCost = (project: Project) => {
     return projectTotalUnlockCost;
 };
 
+const updateObjectQuantityInProject = (project: Project, params: { op: 'inc' | 'dec' | 'remove' | 'add'; objectId?: string }) => {
+    const { objectId, op } = params;
+
+    if (op === 'inc') {
+        project[objectId] += 1;
+    }
+    if (op === 'dec') {
+        project[objectId] -= 1;
+    }
+    if (op === 'remove' || project[objectId] <= 0) {
+        delete project[objectId];
+    }
+    if (op === 'add') {
+        if (!project[objectId]) {
+            project[objectId] = 0;
+        }
+        project[objectId] += 1;
+    }
+    return project;
+};
+
 export {
     getProjectObjectsByCategory,
     getProjectObjectsByTier,
@@ -185,5 +206,6 @@ export {
     projectToFlatTree,
     ProjectLightResourcesByCategory,
     ProjectObjectsByCategory,
-    ProjectObject
+    ProjectObject,
+    updateObjectQuantityInProject
 };
