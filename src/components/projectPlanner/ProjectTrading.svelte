@@ -50,15 +50,17 @@
                                     quantity={tradeStats.totalScrap}
                                     hideName={true}
                                 />
-                                &nbsp;/&nbsp;
-                                <span class="scrap-only">
-                                    <ObjectName
-                                        object={getObject('scrap')}
-                                        pictureType={$settings.pictureType}
-                                        quantity={tradeStats.totalScrapForScrapOnlyObjects}
-                                        hideName={true}
-                                    />
-                                </span>
+                                {#if tradeStats.totalScrapForScrapOnlyObjects > 0}
+                                    &nbsp;/&nbsp;
+                                    <span class="scrap-only">
+                                        <ObjectName
+                                            object={getObject('scrap')}
+                                            pictureType={$settings.pictureType}
+                                            quantity={tradeStats.totalScrapForScrapOnlyObjects}
+                                            hideName={true}
+                                        />
+                                    </span>
+                                {/if}
                             </td>
                         </tr>
                         {#each tradeStats.possibleTrades as trade}
