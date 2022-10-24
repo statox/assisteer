@@ -4,13 +4,15 @@
     import ProjectGraph from './ProjectGraph.svelte';
     import ProjectStorageAnalyser from './ProjectStorageAnalyser.svelte';
     import ProjectSettings from './ProjectSettings.svelte';
-    import ProjectInventory from './inventory/ProjectInventory.svelte';
     import ProjectInventoryModal from './inventory/ProjectInventoryModal.svelte';
     import ProjectTrading from './ProjectTrading.svelte';
     import ProjectPowerAnalyser from './powerAnalyser/ProjectPowerAnalyser.svelte';
+    import UserGuide from './UserGuide.svelte';
+    import ProjectObjectsList from './inventory/ProjectObjectsList.svelte';
 
     const sectionsNames = {
         inventory: 'Inventory',
+        guide: 'User Guide',
         resources: 'Resources',
         power: 'Power',
         storage: 'Storage',
@@ -26,8 +28,8 @@
             <span data-bs-toggle="modal" data-bs-target="#inventoryModal">Object Selection</span>
         </button>
 
-        {#each ['inventory', 'graph', 'resources', 'trading', 'power', 'storage', 'settings'] as section}
-            <div class="mx-1" class:ms-sm-auto={section === 'settings'}>
+        {#each ['inventory', 'graph', 'resources', 'trading', 'power', 'storage', 'guide', 'settings'] as section}
+            <div class="mx-1" class:ms-sm-auto={section === 'guide'}>
                 <button
                     class="nav-item"
                     class:selected={$activePages.planner === section}
@@ -40,8 +42,11 @@
 
     <ProjectInventoryModal />
 
+    {#if $activePages.planner === 'guide'}
+        <UserGuide />
+    {/if}
     {#if $activePages.planner === 'inventory'}
-        <ProjectInventory />
+        <ProjectObjectsList />
     {/if}
     {#if $activePages.planner === 'resources'}
         <ProjectResourcesList />

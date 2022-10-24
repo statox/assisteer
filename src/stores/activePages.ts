@@ -6,7 +6,7 @@ type ActivePages = {
 };
 
 const defaultActivePages = {
-    planner: 'inventory',
+    planner: 'guide',
     astropedia: 'research'
 };
 

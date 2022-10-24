@@ -21,7 +21,23 @@
 
     const changeQuantity = (params: { op: 'inc' | 'dec' | 'remove' | 'reset'; objectName?: string }) => {
         const { objectName, op } = params;
-        dispatch('updateQuantity', { objectName, op });
+
+        if (op === 'inc') {
+            $project[objectName] += 1;
+        }
+        if (op === 'dec') {
+            $project[objectName] -= 1;
+        }
+        if (op === 'remove' || $project[objectName] <= 0) {
+            delete $project[objectName];
+            // Make sure to trigger the hook which writes the project
+            // to local storage on change
+            $project = $project;
+        }
+        if (op === 'reset') {
+            $project = {};
+        }
+
         updateProjectData();
     };
 

@@ -8,17 +8,14 @@
     export let hideName: boolean = false;
     export let importantWord: boolean = false;
     export let largerIcon: boolean = false;
-
-    const selectObjectBackToInventory = () => {
-        $selection.object = object;
-        $activePages.planner = 'inventory';
-        if (window.location.pathname !== '/') {
-            window.location.replace('/');
-        }
-    };
 </script>
 
-<span class:important-word={importantWord} on:click={selectObjectBackToInventory}>
+<span
+    data-bs-toggle="modal"
+    data-bs-target="#inventoryModal"
+    class:important-word={importantWord}
+    on:click={() => ($selection.object = object)}
+>
     {#if quantity}
         {quantity}&nbsp;
     {/if}

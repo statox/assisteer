@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { project } from '../../../stores';
+    import { project, selection } from '../../../stores';
     import { Toast } from 'bootstrap';
     import { onMount } from 'svelte';
     import { createEventDispatcher } from 'svelte';
@@ -9,7 +9,7 @@
     const dispatch = createEventDispatcher();
     const allObjectNames = getAllObjectsNames();
     let selectedCategory = { value: 'all' };
-    let selectedObject: BaseObject;
+    let selectedObject: BaseObject = $selection.object;
     const categories = new Set(['all']);
     const hiddenCategories = ['others', 'special_resource'];
 
