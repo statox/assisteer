@@ -29,7 +29,12 @@
         <div class="row">
             <div class="col-md-6 text-align-center">
                 {#if tool}
-                    <ObjectName importantWord={true} object={getObject(tool.id)} pictureType={'icon'} />
+                    <ObjectName
+                        importantWord={true}
+                        object={getObject(tool.id)}
+                        pictureType={'icon'}
+                        disableOpenModal={true}
+                    />
                     <div class="top-margin-15">
                         <img class="img-fluid tool-image" src={tool.url.image} alt={tool.labels.en} />
                     </div>
@@ -44,6 +49,7 @@
                                 pictureType={$settings.pictureType}
                                 quantity={recipe.resources[resourceName]}
                                 largerIcon={true}
+                                disableOpenModal={true}
                             />
                         </li>
                     {/each}

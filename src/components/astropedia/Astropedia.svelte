@@ -1,5 +1,6 @@
 <script lang="ts">
     import { activePages } from '../../stores';
+    import ObjectSelectionModal from '../projectPlanner/objectSelection/ObjectSelectionModal.svelte';
     import Flora from './Flora.svelte';
     import Galastropods from './Galastropods.svelte';
     import Planets from './Planets.svelte';
@@ -27,6 +28,7 @@
         {/each}
     </div>
 
+    <ObjectSelectionModal />
     {#if $activePages.astropedia === 'research'}
         <Research />
     {/if}

@@ -33,7 +33,7 @@
     <div class="modal-dialog modal-fullscreen-lg-down">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="inventoryModalLabel">Project Inventory</h1>
+                <h1 class="modal-title fs-5" id="inventoryModalLabel">Inventory</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
             </div>
             <div class="modal-body">
