@@ -29,7 +29,7 @@
             const o = getObject(name);
             let group: string = o.category;
             if (o.type === 'resource') {
-                group = 'resource ' + o.category;
+                group = o.category + ' resource';
             }
             if (!hiddenCategories.includes(o.category)) {
                 categories.add(group);
@@ -48,7 +48,13 @@
         .map((category: string) => {
             return { value: category, label: category };
         })
-        .sort((a, b) => (a.value < b.value ? -1 : 1));
+        .sort((a, b) => {
+            if (a.value === 'all') return -1;
+            if (b.value === 'all') return 1;
+            if (a.value.includes('resource') && !b.value.includes('resource')) return -1;
+            if (b.value.includes('resource') && !a.value.includes('resource')) return 1;
+            return a.value < b.value ? -1 : 1;
+        });
 
     const filterItems = (searchedText: string) => {
         return items
@@ -113,6 +119,9 @@
                         <input class="search-input" bind:value={searchedText} placeholder="Object search" />
                     </div>
                     <div class="select-objects" style="max-height: 185px;">
+                        {#if filterItems(searchedText).length === 0}
+                            <div class="select-objects-divisor">No matching item found in this category.</div>
+                        {/if}
                         {#each filterItems(searchedText) as item, i}
                             {@const filteredItems = filterItems(searchedText)}
                             {#if !['all'].includes(selectedCategory.value) && item.value.tier !== undefined && (i === 0 || filteredItems[i - 1].value.tier !== filteredItems[i].value.tier)}
