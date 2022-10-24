@@ -52,6 +52,7 @@
 <style>
     span {
         cursor: pointer;
+        white-space: nowrap;
     }
     .text-sized-image {
         width: 1em;
