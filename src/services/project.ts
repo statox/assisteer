@@ -181,10 +181,16 @@ const updateObjectQuantityInProject = (project: Project, params: { op: 'inc' | '
     const { objectId, op } = params;
 
     if (op === 'inc') {
+        if (!project[objectId]) {
+            project[objectId] = 0;
+        }
         project[objectId] += 1;
     }
-    if (op === 'dec') {
+    if (op === 'dec' && project[objectId]) {
         project[objectId] -= 1;
+        if (project[objectId] <= 0) {
+            delete project[objectId];
+        }
     }
     if (op === 'remove' || project[objectId] <= 0) {
         delete project[objectId];

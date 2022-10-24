@@ -6,6 +6,7 @@
     import { BaseObject, getAllObjectsNames, getObject } from '../../../services/data/objects';
     import ObjectName from '../../utils/ObjectName.svelte';
     import { updateObjectQuantityInProject } from '../../../services/project';
+    import QuantitySelector from '../inventory/QuantitySelector.svelte';
 
     export let object: BaseObject;
     let selectedCategory = { value: 'all' };
@@ -147,9 +148,17 @@
             </div>
 
             <div class="col">
-                <button id="addToProjectBtn" disabled={!canAddToProject(object)} on:click={() => handleAdd(object)}>
-                    Add to project
-                </button>
+                <QuantitySelector
+                    objectId={object?.id}
+                    quantity={$project[object?.id] || 0}
+                    disabled={!canAddToProject(object)}
+                    changeQuantityFn={(params) => {
+                        $project = updateObjectQuantityInProject($project, {
+                            op: params.op,
+                            objectId: params.objectName
+                        });
+                    }}
+                />
             </div>
         </div>
 
