@@ -5,7 +5,7 @@
     import ProjectObjectsList from './ProjectObjectsList.svelte';
 
     const whenSelectObject = (event: any) => {
-        $selection.object = event.detail.object.value;
+        $selection.object = event.detail;
     };
 
     const whenAddToProject = () => {

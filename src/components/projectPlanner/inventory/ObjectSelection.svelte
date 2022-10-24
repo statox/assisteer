@@ -3,9 +3,8 @@
     import { Toast } from 'bootstrap';
     import { onMount } from 'svelte';
     import { createEventDispatcher } from 'svelte';
-    import Select from '../../svelte-select';
     import { BaseObject, getAllObjectsNames, getObject } from '../../../services/data/objects';
-    import { alphaSort } from '../../../services/utils';
+    import ObjectName from '../../utils/ObjectName.svelte';
 
     const dispatch = createEventDispatcher();
     const allObjectNames = getAllObjectsNames();
@@ -49,24 +48,9 @@
         })
         .sort((a, b) => (a.value < b.value ? -1 : 1));
 
-    const groupBy = (item: SelectItem) => item.group;
-    const objectGroupsFilter = (groups: any) => {
-        return groups
-            .filter((group: any) => {
-                if (selectedCategory.value === 'all') {
-                    return true;
-                }
-                return group.match(selectedCategory.value);
-            })
-            .sort(alphaSort);
-    };
-
-    const handleSelectCategory = (event: any) => {
-        selectedCategory = event.detail;
-    };
-    const handleSelect = (event: any) => {
-        selectedObject = getObject(event.detail.id);
-        dispatch('selectObject', { object: event.detail });
+    const handleSelect = (item: BaseObject) => {
+        selectedObject = item;
+        dispatch('selectObject', item);
     };
     const handleAdd = () => {
         dispatch('addObject', {});
@@ -88,27 +72,33 @@
     <h3 class="content-header">Object selection</h3>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <Select placeholder="Filter category" items={orderedCategories} on:select={handleSelectCategory} />
+            <div class="col-md-4 select">
+                {#each orderedCategories as category}
+                    <div
+                        class:selected={category.value === selectedCategory?.value}
+                        on:click={() => (selectedCategory = category)}
+                    >
+                        {category.label}
+                    </div>
+                {/each}
             </div>
-            <div class="col-md-5">
+
+            <div class="col-md-5 select">
                 <!-- The key block is used to reload the list when the category changes -->
                 <!-- https://svelte.dev/docs#template-syntax-key -->
                 {#key selectedCategory}
-                    <Select
-                        placeholder="Project item selection"
-                        listOpen={true}
-                        {items}
-                        {groupBy}
-                        groupFilter={objectGroupsFilter}
-                        on:select={handleSelect}
-                    />
+                    {#each items.filter((i) => selectedCategory.value === 'all' || i.group === selectedCategory.value) as item}
+                        <div class:selected={selectedObject?.id === item?.id} on:click={() => handleSelect(item.value)}>
+                            <ObjectName object={item.value} pictureType={'icon'} />
+                        </div>
+                    {/each}
                 {/key}
             </div>
+
             <div class="col">
-                <button id="addToProjectBtn" disabled={!canAddToProject(selectedObject)} on:click={handleAdd}
-                    >Add to project</button
-                >
+                <button id="addToProjectBtn" disabled={!canAddToProject(selectedObject)} on:click={handleAdd}>
+                    Add to project
+                </button>
             </div>
         </div>
 
@@ -129,5 +119,23 @@
 <style>
     .green {
         color: var(--green);
+    }
+
+    .select {
+        background: var(--white);
+        overflow-y: auto;
+        max-height: 250px;
+        cursor: pointer;
+        border: 2px solid var(--blue);
+        border-radius: 5px;
+        margin-left: 0.3em;
+        margin-bottom: 0.3em;
+    }
+
+    .selected {
+        border: 2px solid var(--pale-blue);
+        border-radius: 5px;
+        padding-left: 10px;
+        font-weight: bold;
     }
 </style>
