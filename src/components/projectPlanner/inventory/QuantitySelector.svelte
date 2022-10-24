@@ -23,9 +23,9 @@
                     op: 'dec'
                 })}
         >
-            -
+            <span class="bi bi-dash-lg" />
         </button>
-        <span class="important-word"><b>&nbsp;{quantity}&nbsp;</b></span>
+        <span class="important-word">&nbsp;{quantity}&nbsp;</span>
         <button
             class="btn-plus"
             on:click={() =>
@@ -34,7 +34,7 @@
                     op: 'inc'
                 })}
         >
-            +
+            <span class="bi bi-plus-lg" />
         </button>
         <button
             class="btn-remove"
@@ -44,38 +44,32 @@
                     op: 'remove'
                 })}
         >
-            X
+            <span class="bi bi-x-lg" />
         </button>
     </div>
 {/if}
 
 <style>
+    button {
+        padding-left: 0.3em;
+        padding-right: 0.3em;
+        padding-top: 0.1em;
+        padding-bottom: 0.1em;
+    }
     .btn-minus {
         border: 1px solid var(--white);
         background-color: var(--white);
         color: var(--blue);
-        font-weight: bold;
-        font-size: large;
-
-        width: 2em;
     }
     .btn-plus {
         border: 1px solid var(--blue);
         background-color: var(--blue);
         color: var(--white);
-        font-weight: bold;
-        font-size: large;
-
-        width: 2em;
     }
     .btn-remove {
         border: 1px solid var(--red);
         background-color: var(--red);
         color: var(--white);
-        font-weight: bold;
-        font-size: large;
-
-        width: 2em;
     }
     .text-align-center {
         text-align: center;
