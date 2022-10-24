@@ -115,28 +115,36 @@
                                 />
                                 <div class="text-align-center">
                                     <button
+                                        class="btn-minus"
                                         on:click={() =>
                                             changeQuantity({
                                                 objectName: item.objectName,
                                                 op: 'dec'
-                                            })}>-</button
+                                            })}
                                     >
-                                    &nbsp{item.quantity}&nbsp
+                                        -
+                                    </button>
+                                    <span class="important-word"><b>&nbsp;{item.quantity}&nbsp;</b></span>
                                     <button
+                                        class="btn-plus"
                                         on:click={() =>
                                             changeQuantity({
                                                 objectName: item.objectName,
                                                 op: 'inc'
-                                            })}>+</button
+                                            })}
                                     >
+                                        +
+                                    </button>
                                     <button
-                                        class="btn-danger"
+                                        class="btn-remove"
                                         on:click={() =>
                                             changeQuantity({
                                                 objectName: item.objectName,
                                                 op: 'remove'
-                                            })}>Remove</button
+                                            })}
                                     >
+                                        X
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-sm-4 text-align-center">
@@ -157,6 +165,33 @@
 </main>
 
 <style>
+    .btn-minus {
+        border: 1px solid var(--white);
+        background-color: var(--white);
+        color: var(--blue);
+        font-weight: bold;
+        font-size: large;
+
+        width: 2em;
+    }
+    .btn-plus {
+        border: 1px solid var(--blue);
+        background-color: var(--blue);
+        color: var(--white);
+        font-weight: bold;
+        font-size: large;
+
+        width: 2em;
+    }
+    .btn-remove {
+        border: 1px solid var(--red);
+        background-color: var(--red);
+        color: var(--white);
+        font-weight: bold;
+        font-size: large;
+
+        width: 2em;
+    }
     .text-align-center {
         text-align: center;
     }
