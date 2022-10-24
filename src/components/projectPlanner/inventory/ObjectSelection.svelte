@@ -13,6 +13,8 @@
     const categories = new Set(['all']);
     const hiddenCategories = ['others', 'special_resource'];
 
+    let searchedText = '';
+
     interface SelectItem {
         id: string;
         value: BaseObject;
@@ -48,6 +50,25 @@
         })
         .sort((a, b) => (a.value < b.value ? -1 : 1));
 
+    const filterItems = (searchedText: string) => {
+        return items
+            .filter((i) => {
+                const matchCategory = selectedCategory.value === 'all' || i.group === selectedCategory.value;
+
+                if (!searchedText || !matchCategory) {
+                    return matchCategory;
+                }
+
+                return i.label.includes(searchedText);
+            })
+            .sort((a, b) => {
+                if (a.value.tier !== b.value.tier) {
+                    return a.value.tier - b.value.tier;
+                }
+                return a.label < b.label ? -1 : 1;
+            });
+    };
+
     const handleSelect = (item: BaseObject) => {
         selectedObject = item;
         dispatch('selectObject', item);
@@ -72,9 +93,10 @@
     <h3 class="content-header">Object selection</h3>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 select">
+            <div class="col-md-4 select select-objects">
                 {#each orderedCategories as category}
                     <div
+                        class="select-object"
                         class:selected={category.value === selectedCategory?.value}
                         on:click={() => (selectedCategory = category)}
                     >
@@ -87,11 +109,26 @@
                 <!-- The key block is used to reload the list when the category changes -->
                 <!-- https://svelte.dev/docs#template-syntax-key -->
                 {#key selectedCategory}
-                    {#each items.filter((i) => selectedCategory.value === 'all' || i.group === selectedCategory.value) as item}
-                        <div class:selected={selectedObject?.id === item?.id} on:click={() => handleSelect(item.value)}>
-                            <ObjectName object={item.value} pictureType={'icon'} />
-                        </div>
-                    {/each}
+                    <div class="search">
+                        <input class="search-input" bind:value={searchedText} placeholder="Object search" />
+                    </div>
+                    <div class="select-objects" style="max-height: 185px;">
+                        {#each filterItems(searchedText) as item, i}
+                            {@const filteredItems = filterItems(searchedText)}
+                            {#if !['all'].includes(selectedCategory.value) && item.value.tier !== undefined && (i === 0 || filteredItems[i - 1].value.tier !== filteredItems[i].value.tier)}
+                                <div class="select-objects-divisor">
+                                    Tier {item.value.tier}
+                                </div>
+                            {/if}
+                            <div
+                                class="select-object"
+                                class:selected={selectedObject?.id === item?.id}
+                                on:click={() => handleSelect(item.value)}
+                            >
+                                <ObjectName object={item.value} pictureType={'icon'} />
+                            </div>
+                        {/each}
+                    </div>
                 {/key}
             </div>
 
@@ -121,14 +158,40 @@
         color: var(--green);
     }
 
+    .search {
+        position: relative;
+    }
+
+    .search-input {
+        width: 100%;
+        margin-top: 3px;
+        border: 2px solid var(--pale-blue);
+        border-radius: 5px;
+    }
+
     .select {
         background: var(--white);
-        overflow-y: auto;
         max-height: 250px;
-        cursor: pointer;
         border: 2px solid var(--blue);
         border-radius: 5px;
         margin-left: 0.3em;
+        margin-bottom: 0.3em;
+        padding-top: 10px;
+    }
+
+    .select-object {
+        cursor: pointer;
+    }
+
+    .select-objects {
+        overflow-y: auto;
+        max-height: 250px;
+    }
+
+    .select-objects-divisor {
+        font-weight: bold;
+        border-bottom: 1px solid black;
+        margin-top: 0.3em;
         margin-bottom: 0.3em;
     }
 
