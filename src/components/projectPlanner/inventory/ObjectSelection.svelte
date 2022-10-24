@@ -1,19 +1,20 @@
 <script lang="ts">
-    import { project, selection } from '../../../stores';
+    import { project } from '../../../stores';
     import { Toast } from 'bootstrap';
     import { onMount } from 'svelte';
     import { createEventDispatcher } from 'svelte';
     import { BaseObject, getAllObjectsNames, getObject } from '../../../services/data/objects';
     import ObjectName from '../../utils/ObjectName.svelte';
 
+    export let object: BaseObject;
+    let selectedCategory = { value: 'all' };
+    let searchedText = '';
+
     const dispatch = createEventDispatcher();
     const allObjectNames = getAllObjectsNames();
-    let selectedCategory = { value: 'all' };
-    let selectedObject: BaseObject = $selection.object;
+
     const categories = new Set(['all']);
     const hiddenCategories = ['others', 'special_resource'];
-
-    let searchedText = '';
 
     interface SelectItem {
         id: string;
@@ -76,11 +77,18 @@
     };
 
     const handleSelect = (item: BaseObject) => {
-        selectedObject = item;
+        object = item;
         dispatch('selectObject', item);
     };
-    const handleAdd = () => {
-        dispatch('addObject', {});
+    const handleAdd = (item: BaseObject) => {
+        if (!item) {
+            return;
+        }
+        const objectName = item.id;
+        if (!$project[objectName]) {
+            $project[objectName] = 0;
+        }
+        $project[objectName] += 1;
     };
 
     onMount(async () => {
@@ -131,10 +139,10 @@
                             {/if}
                             <div
                                 class="select-object"
-                                class:selected={selectedObject?.id === item?.id}
+                                class:selected={object?.id === item?.id}
                                 on:click={() => handleSelect(item.value)}
                             >
-                                <ObjectName object={item.value} pictureType={'icon'} />
+                                <ObjectName object={item.value} pictureType={'icon'} disableOpenModal={true} />
                             </div>
                         {/each}
                     </div>
@@ -142,7 +150,7 @@
             </div>
 
             <div class="col">
-                <button id="addToProjectBtn" disabled={!canAddToProject(selectedObject)} on:click={handleAdd}>
+                <button id="addToProjectBtn" disabled={!canAddToProject(object)} on:click={() => handleAdd(object)}>
                     Add to project
                 </button>
             </div>
@@ -152,15 +160,15 @@
             <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                     <strong class="me-auto green">
-                        {selectedObject?.labels?.en || ''} - Added to the project ✓
+                        {object?.labels?.en || ''} - Added to the project ✓
                     </strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" />
                 </div>
                 <div class="toast-body">
                     {#each Object.keys($project) as objectName}
-                        {@const object = getObject(objectName)}
-                        <div class:green={selectedObject?.id === object.id}>
-                            <ObjectName {object} pictureType={'icon'} quantity={$project[objectName]} />
+                        {@const item = getObject(objectName)}
+                        <div class:green={item.id === object?.id}>
+                            <ObjectName object={item} pictureType={'icon'} quantity={$project[objectName]} />
                         </div>
                     {/each}
                 </div>

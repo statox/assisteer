@@ -1,27 +1,18 @@
 <script lang="ts">
-    import { project, selection } from '../../../stores';
     import ObjectSelection from './ObjectSelection.svelte';
     import ObjectDetails from '../objectDetails/ObjectDetails.svelte';
+    import type { BaseObject } from '../../../services/data/objects';
 
-    const whenSelectObject = (event: any) => {
-        $selection.object = event.detail;
-    };
+    export let object: BaseObject;
 
-    const whenAddToProject = () => {
-        if (!$selection.object) {
-            return;
-        }
-        const objectName = $selection.object.id;
-        if (!$project[objectName]) {
-            $project[objectName] = 0;
-        }
-        $project[objectName] += 1;
+    const selectObject = (event: any) => {
+        object = event.detail;
     };
 </script>
 
 <main>
     <div class="content-section">
-        <ObjectSelection on:selectObject={whenSelectObject} on:addObject={whenAddToProject} />
-        <ObjectDetails object={$selection.object} />
+        <ObjectSelection {object} on:selectObject={selectObject} />
+        <ObjectDetails {object} />
     </div>
 </main>
