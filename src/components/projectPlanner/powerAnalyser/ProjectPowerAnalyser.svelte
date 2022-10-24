@@ -138,18 +138,19 @@
                         </div>
                     </div>
                 {/if}
-                <div class="row">
-                    {#if projectData['producer'].total > 0}
-                        <h4 class="content-subheader">Power production</h4>
-                        <table class="table table-borderless">
-                            <thead>
+                <div class="row table-responsive">
+                    <table class="table table-borderless">
+                        <tbody>
+                            {#if projectData['producer'].total > 0}
+                                <tr>
+                                    <td colspan="4"><h4 class="content-subheader">Power Production</h4></td>
+                                </tr>
                                 <tr>
                                     <td />
                                     <td class="small-header">By object</td>
                                     <td class="small-header">By type</td>
+                                    <td />
                                 </tr>
-                            </thead>
-                            <tbody>
                                 {#each projectData['producer'].items as item}
                                     <tr>
                                         <td>
@@ -177,20 +178,17 @@
                                         </td>
                                     </tr>
                                 {/each}
-                            </tbody>
-                        </table>
-                    {/if}
-                    {#if projectData['storage'].totalCapacity > 0}
-                        <h4 class="content-subheader">Power storage</h4>
-                        <table class="table table-borderless">
-                            <thead>
+                            {/if}
+                            {#if projectData['storage'].totalCapacity > 0}
+                                <tr>
+                                    <td colspan="4"><h4 class="content-subheader">Power Storage</h4></td>
+                                </tr>
                                 <tr>
                                     <td />
                                     <td class="small-header">By object</td>
                                     <td class="small-header">By type</td>
+                                    <td />
                                 </tr>
-                            </thead>
-                            <tbody>
                                 {#each projectData['storage'].items as item}
                                     <tr>
                                         <td>
@@ -218,20 +216,17 @@
                                         </td>
                                     </tr>
                                 {/each}
-                            </tbody>
-                        </table>
-                    {/if}
-                    {#if projectData['consumer'].total > 0}
-                        <h4 class="content-subheader">Power consumption</h4>
-                        <table class="table table-borderless">
-                            <thead>
+                            {/if}
+                            {#if projectData['consumer'].total > 0}
+                                <tr>
+                                    <td colspan="4"><h4 class="content-subheader">Power Consumption</h4></td>
+                                </tr>
                                 <tr>
                                     <td />
                                     <td class="small-header">By object</td>
                                     <td class="small-header">By type</td>
+                                    <td />
                                 </tr>
-                            </thead>
-                            <tbody>
                                 {#each projectData['consumer'].items as item}
                                     <tr>
                                         <td>
@@ -259,9 +254,9 @@
                                         </td>
                                     </tr>
                                 {/each}
-                            </tbody>
-                        </table>
-                    {/if}
+                            {/if}
+                        </tbody>
+                    </table>
                 </div>
             {/if}
         </div>
