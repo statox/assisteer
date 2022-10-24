@@ -1,13 +1,12 @@
 <script lang="ts">
-    import { getAllPlanets } from '../../../services/data/planets';
     import { getProjectPowerStats, ProjectPowerStats } from '../../../services/data/power';
     import { project } from '../../../stores';
     import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
     import ObjectName from '../../utils/ObjectName.svelte';
-    import ItemName from '../../utils/ItemName.svelte';
     import PlanetSelection from './PlanetSelection.svelte';
+    import QuantitySelector from '../inventory/QuantitySelector.svelte';
+    import { updateObjectQuantityInProject } from '../../../services/project';
 
-    const planets = getAllPlanets();
     let collapsed = false;
     let hasDataToShow = false;
     let projectData: ProjectPowerStats;
@@ -165,6 +164,17 @@
                                                 {item.quantity * item.powerStats.output} U/s
                                             </td>
                                         {/if}
+                                        <td>
+                                            <QuantitySelector
+                                                objectId={item.object.id}
+                                                quantity={$project[item.object.id]}
+                                                changeQuantityFn={(params) =>
+                                                    ($project = updateObjectQuantityInProject($project, {
+                                                        op: params.op,
+                                                        objectId: params.objectName
+                                                    }))}
+                                            />
+                                        </td>
                                     </tr>
                                 {/each}
                             </tbody>
@@ -195,6 +205,17 @@
                                                 {item.quantity * item.powerStats.capacity} U
                                             </td>
                                         {/if}
+                                        <td>
+                                            <QuantitySelector
+                                                objectId={item.object.id}
+                                                quantity={$project[item.object.id]}
+                                                changeQuantityFn={(params) =>
+                                                    ($project = updateObjectQuantityInProject($project, {
+                                                        op: params.op,
+                                                        objectId: params.objectName
+                                                    }))}
+                                            />
+                                        </td>
                                     </tr>
                                 {/each}
                             </tbody>
@@ -225,6 +246,17 @@
                                                 {item.quantity * item.powerStats.input} U/s
                                             </td>
                                         {/if}
+                                        <td>
+                                            <QuantitySelector
+                                                objectId={item.object.id}
+                                                quantity={$project[item.object.id]}
+                                                changeQuantityFn={(params) =>
+                                                    ($project = updateObjectQuantityInProject($project, {
+                                                        op: params.op,
+                                                        objectId: params.objectName
+                                                    }))}
+                                            />
+                                        </td>
                                     </tr>
                                 {/each}
                             </tbody>
