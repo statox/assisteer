@@ -4,7 +4,7 @@
     import ProjectGraph from './ProjectGraph.svelte';
     import ProjectStorageAnalyser from './ProjectStorageAnalyser.svelte';
     import ProjectSettings from './ProjectSettings.svelte';
-    import ProjectInventoryModal from './inventory/ProjectInventoryModal.svelte';
+    import ObjectSelectionModal from './objectSelection/ObjectSelectionModal.svelte';
     import ProjectTrading from './ProjectTrading.svelte';
     import ProjectPowerAnalyser from './powerAnalyser/ProjectPowerAnalyser.svelte';
     import UserGuide from './UserGuide.svelte';
@@ -40,7 +40,7 @@
         {/each}
     </div>
 
-    <ProjectInventoryModal />
+    <ObjectSelectionModal />
 
     {#if $activePages.planner === 'guide'}
         <UserGuide />

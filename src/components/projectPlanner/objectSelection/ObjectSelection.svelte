@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ObjectSelection from './ObjectSelection.svelte';
+    import ObjectSearch from './ObjectSearch.svelte';
     import ObjectDetails from '../objectDetails/ObjectDetails.svelte';
     import type { BaseObject } from '../../../services/data/objects';
 
@@ -12,7 +12,7 @@
 
 <main>
     <div class="content-section">
-        <ObjectSelection {object} on:selectObject={selectObject} />
+        <ObjectSearch {object} on:selectObject={selectObject} />
         <ObjectDetails {object} />
     </div>
 </main>

@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { BaseObject, getObject } from '../../../services/data/objects';
 
-    import ProjectInventory from './ProjectInventory.svelte';
+    import ObjectSelection from './ObjectSelection.svelte';
     let object: BaseObject;
 
     onMount(() => {
@@ -37,7 +37,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
             </div>
             <div class="modal-body">
-                <ProjectInventory {object} />
+                <ObjectSelection {object} />
             </div>
         </div>
     </div>
