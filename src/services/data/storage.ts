@@ -42,7 +42,7 @@ export type ProjectStorageStats = {
         gases?: CanisterTypeStorageDetails;
     };
     storagesCapacityByTier: [number, number, number, number];
-    storageObjects: { id: string; quantity: number }[];
+    storageObjectsByTier: [ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier];
 };
 
 export type StorageStatsSettings = {
@@ -65,7 +65,12 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
     ];
     const canistersCapacitybyType = {};
     const storagesCapacityByTier: [number, number, number, number] = [0, 0, 0, 0];
-    const storageObjects = [];
+    const storageObjectsByTier: [ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier, ObjectsCountByTier] = [
+        { tier: 1, total: 0, objects: [] },
+        { tier: 2, total: 0, objects: [] },
+        { tier: 3, total: 0, objects: [] },
+        { tier: 4, total: 0, objects: [] }
+    ];
     let objectTotalCount = 0;
 
     for (const objectName of Object.keys(project)) {
@@ -91,7 +96,8 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
             for (let tier = 1; tier <= 4; tier++) {
                 storagesCapacityByTier[tier - 1] += storage.slotsByTier[tier] * objectQuantity;
             }
-            storageObjects.push({ id: objectName, quantity: objectQuantity });
+            storageObjectsByTier[object.tier - 1].objects.push({ id: objectName, quantity: objectQuantity });
+            storageObjectsByTier[object.tier - 1].total += objectQuantity;
         }
 
         // Wanna know how bad and unreadable can I make my code? Check this out!
@@ -133,7 +139,7 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
         objectTotalCount,
         canistersCapacitybyType,
         storagesCapacityByTier,
-        storageObjects
+        storageObjectsByTier
     };
 };
 
