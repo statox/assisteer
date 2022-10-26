@@ -22,7 +22,8 @@ interface FlatTree {
         target: string;
     }[];
 }
-const projectToFlatTree = (project: Project): FlatTree => {
+const projectToFlatTree = (project: Project, params?: { includeObjectTool: boolean }): FlatTree => {
+    const { includeObjectTool } = params || {};
     const nodes = {};
     const edges = {};
 
@@ -41,11 +42,19 @@ const projectToFlatTree = (project: Project): FlatTree => {
             return;
         }
 
-        for (const depName of Object.keys(rootDepTree.resources)) {
-            if (!edges[depName]) {
-                edges[depName] = new Set([objectName]);
+        if (includeObjectTool) {
+            const toolName = recipe.tool;
+            const tool = getObject(toolName);
+            nodes[toolName] = {
+                object: tool,
+                quantity: 0
+            };
+            rootDepTree.object = tool;
+
+            if (!edges[toolName]) {
+                edges[toolName] = new Set([objectName]);
             } else {
-                edges[depName].add(objectName);
+                edges[toolName].add(objectName);
             }
         }
 

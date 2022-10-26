@@ -27,7 +27,7 @@ const getCytoscapeInstance = (
                 style: {
                     // TODO The doc advises to memoize the functions
                     label: (node: any) => {
-                        const qty = (node.data('quantity') || '?') + ' ';
+                        const qty = node.data('quantity') ? node.data('quantity') + ' ' : '';
                         if (node.data('label')) {
                             return titleCase(qty + node.data('label'));
                         }
@@ -54,8 +54,8 @@ const getCytoscapeInstance = (
     });
 };
 
-const addElementsFromProject = (cy: cytoscape.Core, project: Project) => {
-    const tree = projectToFlatTree(project);
+const addElementsFromProject = (cy: cytoscape.Core, project: Project, params: { showObjectTool: boolean }) => {
+    const tree = projectToFlatTree(project, { includeObjectTool: params.showObjectTool });
     cy.add(
         tree.nodes.map((n) => {
             const object = getObject(n.id);
@@ -75,11 +75,11 @@ const addElementsFromProject = (cy: cytoscape.Core, project: Project) => {
     );
 };
 
-const addElementsFromProjectSeparatedTrees = (cy: cytoscape.Core, project: Project) => {
+const addElementsFromProjectSeparatedTrees = (cy: cytoscape.Core, project: Project, params: { showObjectTool: boolean }) => {
     for (const objectName of Object.keys(project)) {
         const subProject: Project = {};
         subProject[objectName] = project[objectName];
-        const tree = projectToFlatTree(subProject);
+        const tree = projectToFlatTree(subProject, { includeObjectTool: params.showObjectTool });
         cy.add(
             tree.nodes.map((n) => {
                 const object = getObject(n.id);

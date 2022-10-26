@@ -21,9 +21,9 @@
         cy = getCytoscapeInstance(cyContainer, { pictureType: $settings.pictureType, edgeStyle: selectedEdgeStyle.id });
 
         if ($settings.treeSplitByObject) {
-            addElementsFromProjectSeparatedTrees(cy, $project);
+            addElementsFromProjectSeparatedTrees(cy, $project, { showObjectTool: $settings.showObjectTool });
         } else {
-            addElementsFromProject(cy, $project);
+            addElementsFromProject(cy, $project, { showObjectTool: $settings.showObjectTool });
         }
         makeNodesShowHideOnTap(cy);
         makeNodesMoveSubtree(cy);
@@ -65,26 +65,52 @@
                     </span>
                 </div>
                 <div class="col-sm-4">
-                    <span class="important-word">Split tree by object</span>
-                    <div class="form-check form-check-inline">
-                        <input
-                            checked={$settings.treeSplitByObject}
-                            on:click={() => ($settings.treeSplitByObject = true)}
-                            class="form-check-input"
-                            type="radio"
-                            id="treeSplit"
-                        />
-                        <label class="form-check-label" for="treeSplit">yes</label>
+                    <div>
+                        <span class="important-word">Split tree by object</span>
+                        <div class="form-check form-check-inline">
+                            <input
+                                checked={$settings.treeSplitByObject}
+                                on:click={() => ($settings.treeSplitByObject = true)}
+                                class="form-check-input"
+                                type="radio"
+                                id="treeSplit"
+                            />
+                            <label class="form-check-label" for="treeSplit">yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input
+                                checked={!$settings.treeSplitByObject}
+                                on:click={() => ($settings.treeSplitByObject = false)}
+                                class="form-check-input"
+                                type="radio"
+                                id="treeNoSplit"
+                            />
+                            <label class="form-check-label" for="treeNoSplit">no</label>
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input
-                            checked={!$settings.treeSplitByObject}
-                            on:click={() => ($settings.treeSplitByObject = false)}
-                            class="form-check-input"
-                            type="radio"
-                            id="treeNoSplit"
-                        />
-                        <label class="form-check-label" for="treeNoSplit">no</label>
+
+                    <div>
+                        <span class="important-word">Show objects tool</span>
+                        <div class="form-check form-check-inline">
+                            <input
+                                checked={$settings.showObjectTool}
+                                on:click={() => ($settings.showObjectTool = true)}
+                                class="form-check-input"
+                                type="radio"
+                                id="showObjectTool"
+                            />
+                            <label class="form-check-label" for="showObjectTool">yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input
+                                checked={!$settings.showObjectTool}
+                                on:click={() => ($settings.showObjectTool = false)}
+                                class="form-check-input"
+                                type="radio"
+                                id="noShowObjectTool"
+                            />
+                            <label class="form-check-label" for="noShowObjectTool">no</label>
+                        </div>
                     </div>
                 </div>
             </div>
