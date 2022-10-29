@@ -37,7 +37,7 @@
                 <ul>
                     {#each usages[category] as producedObject}
                         <li>
-                            <ObjectName object={producedObject} pictureType={'icon'} disableOpenModal={true} />
+                            <ObjectName object={producedObject} pictureType={'icon'} />
                         </li>
                     {/each}
                 </ul>

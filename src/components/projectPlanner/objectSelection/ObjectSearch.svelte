@@ -134,7 +134,7 @@
                                 class:selected={object?.id === item?.id}
                                 on:click={() => handleSelect(item.value)}
                             >
-                                <ObjectName object={item.value} pictureType={'icon'} disableOpenModal={true} />
+                                <ObjectName object={item.value} pictureType={'icon'} />
                             </div>
                         {/each}
                     </div>

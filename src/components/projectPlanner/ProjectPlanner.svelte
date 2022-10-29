@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { activePages } from '../../stores';
+    import { activePages, modalShown } from '../../stores';
     import ProjectResourcesList from './resourcesList/ProjectResourcesList.svelte';
     import ProjectGraph from './ProjectGraph.svelte';
     import ProjectStorageAnalyser from './ProjectStorageAnalyser.svelte';
@@ -24,8 +24,13 @@
 
 <main>
     <div class="nav-menu d-flex flex-row flex-wrap justify-content-evenly">
-        <button class="nav-item">
-            <span data-bs-toggle="modal" data-bs-target="#inventoryModal">Object Selection</span>
+        <button
+            class="nav-item"
+            on:click={() => {
+                $modalShown = true;
+            }}
+        >
+            <span>Object Selection</span>
         </button>
 
         {#each ['inventory', 'graph', 'resources', 'trading', 'power', 'storage', 'guide', 'settings'] as section}
