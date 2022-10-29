@@ -24,23 +24,10 @@
             <span>Available on all planets</span>
         {:else}
             {#each ['primary', 'secondary'] as locationType}
-                <div class="col">
-                    <h4 class="content-subheader">{locationType}</h4>
-                    <div>
-                        <ItemName item={location[locationType].planet} pictureType={'icon'} />
-                    </div>
-                    <div>
-                        <img
-                            class="img-fluid text-sized-image"
-                            src={location[locationType].planet.url.image}
-                            alt={location[locationType].planet.labels.en}
-                        />
-                    </div>
-                    <div>
-                        <span>
-                            {location[locationType].description}
-                        </span>
-                    </div>
+                <div class="d-flex">
+                    <ItemName item={location[locationType].planet} pictureType={'icon'} />
+                    <span><i>&nbsp;({locationType})</i></span>
+                    <span class="ms-auto">{location[locationType].description}</span>
                 </div>
             {/each}
         {/if}
