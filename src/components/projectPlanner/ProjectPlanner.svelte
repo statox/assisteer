@@ -24,17 +24,19 @@
 
 <main>
     <div class="nav-menu d-flex flex-row flex-wrap justify-content-evenly">
-        <button
-            class="nav-item"
-            on:click={() => {
-                $modalShown = true;
-            }}
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Object selection"
-        >
-            <span class="bi bi-card-list" />
-        </button>
+        <div class="mx-1">
+            <button
+                class="nav-item"
+                on:click={() => {
+                    $modalShown = true;
+                }}
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Object selection"
+            >
+                <span class="bi bi-card-list" />
+            </button>
+        </div>
 
         {#each ['inventory', 'graph', 'resources', 'trading', 'power', 'storage', 'guide', 'settings'] as section}
             <div class="mx-1" class:ms-sm-auto={section === 'guide'}>

@@ -15,6 +15,12 @@
             onClosed();
         }
     };
+    const onKeyDown = (e: any) => {
+        const ESCAPE = 27;
+        if (e.keyCode == ESCAPE) {
+            modalClose();
+        }
+    };
 </script>
 
 {#if $modalShown}
@@ -25,14 +31,13 @@
         role="dialog"
         aria-labelledby="inventoryModalLabel"
         aria-hidden="true"
+        on:keydown|preventDefault={onKeyDown}
     >
         <div class="modal-dialog modal-fullscreen-lg-down" style="z-index: 11">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="inventoryModalLabel">
-                        <button data-toggle="tooltip" data-placement="top" title="Object selection">
-                            <span class="bi bi-card-list" />
-                        </button>
+                        <span class="bi bi-card-list important-word" />
                         Object selection
                     </h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" on:click={modalClose}>
