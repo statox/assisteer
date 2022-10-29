@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { BaseObject } from '../../services/data/objects';
-    import { modalObject, modalShown } from '../../stores';
+    import { modalShown, updateModalObject } from '../../stores';
 
     export let object: BaseObject;
     export let pictureType: 'icon' | 'image' | 'both';
@@ -12,7 +12,7 @@
 
 <span
     on:click={() => {
-        $modalObject = object;
+        updateModalObject(object);
         $modalShown = true;
     }}
     class:important-word={importantWord}

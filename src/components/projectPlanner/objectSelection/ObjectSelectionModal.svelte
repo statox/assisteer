@@ -1,12 +1,13 @@
 <script lang="ts">
     import { modalObject, modalShown } from '../../../stores';
+    import { nextModalObject, prevModalObject, updateModalObject } from '../../../stores/modal';
     import ObjectDetails from '../objectDetails/ObjectDetails.svelte';
     import ObjectSearch from './ObjectSearch.svelte';
 
     export let onClosed: () => void = undefined;
 
     const selectObject = (event: any) => {
-        $modalObject = event.detail;
+        updateModalObject(event.detail);
     };
 
     const modalClose = () => {
@@ -31,16 +32,30 @@
         role="dialog"
         aria-labelledby="inventoryModalLabel"
         aria-hidden="true"
-        on:keydown|preventDefault={onKeyDown}
+        on:keydown={onKeyDown}
     >
         <div class="modal-dialog modal-fullscreen-lg-down" style="z-index: 11">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="inventoryModalLabel">
+                <div class="modal-header d-flex">
+                    <h1 class="modal-title fs-5 me-1" id="inventoryModalLabel">
                         <span class="bi bi-card-list important-word" />
                         Object selection
                     </h1>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" on:click={modalClose}>
+
+                    <button type="button" class="me-1" aria-label="Previous object" on:click={prevModalObject}>
+                        <span class="bi bi-arrow-counterclockwise" />
+                    </button>
+                    <button type="button" data-dismiss="Next object" on:click={nextModalObject}>
+                        <span class="bi bi-arrow-clockwise" />
+                    </button>
+
+                    <button
+                        type="button"
+                        class="close ms-auto"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                        on:click={modalClose}
+                    >
                         <span class="bi bi-x-lg" />
                     </button>
                 </div>
