@@ -31,7 +31,7 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="inventoryModalLabel">Inventory</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" on:click={modalClose}>
-                        <span aria-hidden="true">&times;</span>
+                        <span class="bi bi-x-lg" />
                     </button>
                 </div>
                 <div class="modal-body">

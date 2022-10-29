@@ -17,6 +17,7 @@
     <div class="text-align-center">
         <button
             class="btn-minus"
+            class:disabled
             on:click={() =>
                 onClick({
                     objectName: objectId,
@@ -28,6 +29,7 @@
         <span class="important-word">&nbsp;{quantity}&nbsp;</span>
         <button
             class="btn-plus"
+            class:disabled
             on:click={() =>
                 onClick({
                     objectName: objectId,
@@ -38,6 +40,7 @@
         </button>
         <button
             class="btn-remove"
+            class:disabled
             on:click={() =>
                 onClick({
                     objectName: objectId,
@@ -55,6 +58,11 @@
         padding-right: 0.3em;
         padding-top: 0.1em;
         padding-bottom: 0.1em;
+    }
+    button.disabled {
+        border: 1px solid var(--white);
+        background-color: var(--grey);
+        color: var(--white);
     }
     .btn-minus {
         border: 1px solid var(--white);
