@@ -96,7 +96,7 @@
 </script>
 
 <main>
-    <h3 class="content-header">Object selection</h3>
+    <h3 class="content-header">Object search</h3>
     <div class="container">
         <div class="row">
             <div class="col-md-4 select select-objects">

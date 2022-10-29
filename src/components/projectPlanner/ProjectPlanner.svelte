@@ -29,8 +29,11 @@
             on:click={() => {
                 $modalShown = true;
             }}
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Object selection"
         >
-            <span>Object Selection</span>
+            <span class="bi bi-card-list" />
         </button>
 
         {#each ['inventory', 'graph', 'resources', 'trading', 'power', 'storage', 'guide', 'settings'] as section}

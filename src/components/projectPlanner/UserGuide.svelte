@@ -14,7 +14,11 @@
             <h4 class="content-subheader">Navigation</h4>
             <p>
                 First select the items you want to use in your project with the
-                <span class="important-word">object selection</span> modal.
+                <span class="important-word">object selection</span>
+                <button class="nav-item" data-toggle="tooltip" data-placement="top" title="Object selection">
+                    <span class="bi bi-card-list" />
+                </button>
+                modal.
             </p>
             <p>Use the buttons at the top to navigate between the different sections.</p>
         </div>

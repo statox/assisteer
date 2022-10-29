@@ -29,7 +29,12 @@
         <div class="modal-dialog modal-fullscreen-lg-down" style="z-index: 11">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="inventoryModalLabel">Inventory</h1>
+                    <h1 class="modal-title fs-5" id="inventoryModalLabel">
+                        <button data-toggle="tooltip" data-placement="top" title="Object selection">
+                            <span class="bi bi-card-list" />
+                        </button>
+                        Object selection
+                    </h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" on:click={modalClose}>
                         <span class="bi bi-x-lg" />
                     </button>
