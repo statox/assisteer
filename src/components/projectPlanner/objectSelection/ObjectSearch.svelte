@@ -82,12 +82,6 @@
         object = item;
         dispatch('selectObject', item);
     };
-    const handleAdd = (item: BaseObject) => {
-        if (!item) {
-            return;
-        }
-        $project = updateObjectQuantityInProject($project, { op: 'add', objectId: item.id });
-    };
 
     onMount(async () => {
         const toastTrigger = document.getElementById('addToProjectBtn');

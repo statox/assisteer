@@ -27,8 +27,11 @@
 
 <div class="d-flex flex-wrap row justify-content-between">
     <h5 class="content-subheader">Usages</h5>
+    {#if !usages}
+        <span>No usages found.</span>
+    {/if}
     {#each ['refined', 'composite', 'tier_1', 'tier_2', 'tier_3', 'tier_4'] as category}
-        {#if usages[category]}
+        {#if usages && usages[category]}
             <div>
                 <span class="important-word">{categoryLabels[category]}</span>
                 <ul>
