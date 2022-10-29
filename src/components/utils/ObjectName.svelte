@@ -3,7 +3,7 @@
     import { modalObject, modalShown } from '../../stores';
 
     export let object: BaseObject;
-    export let pictureType: 'icon' | 'image';
+    export let pictureType: 'icon' | 'image' | 'both';
     export let quantity: number = null;
     export let hideName: boolean = false;
     export let importantWord: boolean = false;
@@ -20,12 +20,22 @@
     {#if quantity}
         {quantity}&nbsp;
     {/if}
-    <img
-        class="img-fluid text-sized-image"
-        class:larger-text-sized-image={largerIcon}
-        src={object.url[pictureType]}
-        alt={object.labels.en}
-    />
+    {#if ['icon', 'both'].includes(pictureType)}
+        <img
+            class="img-fluid text-sized-image"
+            class:larger-text-sized-image={largerIcon}
+            src={object.url.icon}
+            alt={object.labels.en}
+        />
+    {/if}
+    {#if ['image', 'both'].includes(pictureType)}
+        <img
+            class="img-fluid text-sized-image"
+            class:larger-text-sized-image={largerIcon}
+            src={object.url.image}
+            alt={object.labels.en}
+        />
+    {/if}
     &nbsp;
     {#if !hideName}
         <span class="label">

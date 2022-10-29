@@ -26,29 +26,23 @@
 <main class="container">
     {#if recipe}
         <h4 class="content-subheader">Recipe</h4>
-        <div class="row">
-            <div class="col-md-6 text-align-center">
-                {#if tool}
-                    <ObjectName importantWord={true} object={getObject(tool.id)} pictureType={'icon'} />
-                    <div class="top-margin-15">
-                        <img class="img-fluid tool-image" src={tool.url.image} alt={tool.labels.en} />
-                    </div>
-                {/if}
-            </div>
-            <div class="col-md-6">
-                <ul>
-                    {#each Object.keys(recipe.resources).sort(alphaSort) as resourceName}
-                        <li>
-                            <ObjectName
-                                object={getObject(resourceName)}
-                                pictureType={$settings.pictureType}
-                                quantity={recipe.resources[resourceName]}
-                                largerIcon={true}
-                            />
-                        </li>
-                    {/each}
-                </ul>
-            </div>
+        <div>
+            {#if tool}
+                <ObjectName importantWord={true} object={getObject(tool.id)} pictureType={'both'} largerIcon={true} />
+            {/if}
+        </div>
+        <div>
+            <ul>
+                {#each Object.keys(recipe.resources).sort(alphaSort) as resourceName}
+                    <li>
+                        <ObjectName
+                            object={getObject(resourceName)}
+                            pictureType={$settings.pictureType}
+                            quantity={recipe.resources[resourceName]}
+                        />
+                    </li>
+                {/each}
+            </ul>
         </div>
     {/if}
 </main>
