@@ -45,3 +45,9 @@
         {/if}
     {/each}
 </div>
+
+<style>
+    ul {
+        list-style-type: none;
+    }
+</style>
