@@ -4,15 +4,7 @@
     import { project } from '../../../stores';
     import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
     import ItemName from '../../utils/ItemName.svelte';
-    import defaultProjectList from '../../../data/assisteer/defaultProjects.json';
-
-    type SavedProject = {
-        planet: string;
-        objects: {
-            [objectId: string]: number;
-        };
-        name: string;
-    };
+    import { getDefaultProjectsList, SavedProject } from '../../../services/project';
 
     let name: string;
     const savedProjectsKey = 'savedProjectsList';
@@ -23,10 +15,10 @@
         try {
             projectsList = JSON.parse(storedProjectsListStr) as SavedProject[];
         } catch (e) {
-            projectsList = defaultProjectList;
+            projectsList = getDefaultProjectsList();
         }
     } else {
-        projectsList = defaultProjectList;
+        projectsList = getDefaultProjectsList();
     }
 
     const saveProject = () => {
@@ -82,7 +74,7 @@
             </div>
             {#key projectsList}
                 <div>
-                    {#each projectsList as savedProject}
+                    {#each projectsList.sort((a, b) => (a.name < b.name ? -1 : 1)) as savedProject}
                         <div
                             class="d-flex justify-content-between pointer p-1"
                             class:selected={savedProject.name === name}

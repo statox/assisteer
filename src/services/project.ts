@@ -1,5 +1,6 @@
+import sampleProjects from '../data/assisteer/defaultProjects.json';
 import { BaseObject, getObject, getObjectUnlockCost } from './data/objects';
-import { getObjectDefaultRecipe, getRecipeDependenciesTree } from './data/recipes';
+import { getAllRecipesList, getObjectDefaultRecipe, getRecipeDependenciesTree } from './data/recipes';
 
 export type Project = {
     name: string;
@@ -7,6 +8,15 @@ export type Project = {
         [objectName: string]: number;
     }
 };
+
+export type SavedProject = {
+    planet: string;
+    objects: {
+        [objectId: string]: number;
+    };
+    name: string;
+};
+
 
 export type ResourceList = {
     [category: string]: {
@@ -216,7 +226,25 @@ const updateObjectQuantityInProject = (project: Project, params: { op: 'inc' | '
     return project;
 };
 
+const getDefaultProjectsList = (): SavedProject[] => {
+    const allRecipes = getAllRecipesList();
+    const allObjectsProject = {
+        name: 'All objects',
+        planet: 'sylva',
+        objects: Object.keys(allRecipes).reduce((all, objectName) => {
+            const object = getObject(objectName);
+            if (object.type === 'object') {
+                all[objectName] = 1;
+            }
+            return all;
+        }, {})
+    };
+
+    return [...sampleProjects, allObjectsProject];
+};
+
 export {
+    getDefaultProjectsList,
     getProjectObjectsByCategory,
     getProjectObjectsByTier,
     getProjectResourcesByCategories,
