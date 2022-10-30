@@ -70,6 +70,8 @@ const getNaturalResourceLocation = (resourceName: string): NaturalResourceLocati
     return naturalResourcesLocation[resourceName];
 };
 
+const getAllAlmosphericResourcesLocation = () => atmosphericResourcesLocation;
+
 const getAlmosphericResourceLocation = (resourceName: string): AtmosphericResourceLocations => {
     return atmosphericResourcesLocation[resourceName];
 };
@@ -78,4 +80,4 @@ const getResourceDetails = (resourceName: string): ResourceDetails => {
     return resourcesDetails[resourceName];
 };
 
-export { getAlmosphericResourceLocation, getNaturalResourceLocation, getResourceDetails };
+export { getAllAlmosphericResourcesLocation, getAlmosphericResourceLocation, getNaturalResourceLocation, getResourceDetails };
