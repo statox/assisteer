@@ -59,7 +59,6 @@
                                     {object}
                                     quantity={categoryItems[objectName]}
                                     pictureType={$settings.pictureType}
-                                    largerIcon={true}
                                 />
                                 {#if locations[objectName]}
                                     {@const location = locations[objectName]}

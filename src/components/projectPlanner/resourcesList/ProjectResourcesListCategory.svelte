@@ -34,7 +34,6 @@
                                 {object}
                                 quantity={categoryItems[objectName]}
                                 pictureType={$settings.pictureType}
-                                largerIcon={true}
                             />
                             {#if object.category === 'atmospheric'}
                                 <span>
