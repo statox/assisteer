@@ -111,12 +111,12 @@
                     <h4 class="content-subheader">{category}</h4>
                     {#each objectsByCategory[category] as item}
                         <div class="row align-items-center bottom-separator">
-                            <div class="col-sm-8 d-flex justify-content-between">
+                            <div class="d-flex justify-content-between">
                                 <ObjectName
-                                    pictureType="icon"
+                                    pictureType="both"
                                     object={item.object}
                                     importantWord={true}
-                                    largerIcon={true}
+                                    pictureSize="larger"
                                 />
 
                                 <QuantitySelector
@@ -124,15 +124,6 @@
                                     quantity={item.quantity}
                                     changeQuantityFn={changeQuantity}
                                 />
-                            </div>
-                            <div class="col-sm-4 text-align-center">
-                                <span>
-                                    <img
-                                        class="img-fluid object-image"
-                                        src={item.object.url.image}
-                                        alt={item.object.labels.en}
-                                    />
-                                </span>
                             </div>
                         </div>
                     {/each}
@@ -143,12 +134,6 @@
 </main>
 
 <style>
-    .text-align-center {
-        text-align: center;
-    }
-    .object-image {
-        max-height: 5em;
-    }
     .bottom-separator {
         margin-bottom: 1em;
     }

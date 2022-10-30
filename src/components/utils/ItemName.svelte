@@ -12,13 +12,13 @@
     export let pictureType: 'icon' | 'image';
     export let hideName: boolean = false;
     export let largerText: boolean = false;
-    export let largerIcon: boolean = false;
+    export let pictureSize: 'default' | 'large' | 'larger' = 'default';
     export let boldName: boolean = false;
     export let uppercase: boolean = false;
 </script>
 
 <span class="important-word">
-    <img class="img-fluid em1" class:em2={largerIcon} src={item.url[pictureType]} alt={item.labels.en} />
+    <img class="img-fluid em1" class:em2={pictureSize === 'large'} src={item.url[pictureType]} alt={item.labels.en} />
     {#if !hideName}
         <span class="important-word label em1" class:em2={largerText} class:uppercase>
             {#if boldName === true}

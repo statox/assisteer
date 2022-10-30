@@ -34,7 +34,7 @@
                     {#each galastropods as galastro}
                         <tr>
                             <td class="no-border justify-content-left">
-                                <ItemName item={getGalastropod(galastro.id)} pictureType={'icon'} largerIcon={true} />
+                                <ItemName item={getGalastropod(galastro.id)} pictureType={'icon'} pictureSize="large" />
                             </td>
                             <td class="no-border justify-content-left">
                                 <ItemName item={getPlanet(galastro.planet)} pictureType={'icon'} />

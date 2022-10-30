@@ -27,7 +27,7 @@
                                 pictureType={'icon'}
                                 uppercase={true}
                                 largerText={true}
-                                largerIcon={true}
+                                pictureSize="large"
                             />
                         </h4>
 

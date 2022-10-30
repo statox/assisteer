@@ -116,7 +116,7 @@
                     <tbody>
                         {#each researchDetails as object}
                             <tr>
-                                <td><ObjectName pictureType={'icon'} largerIcon={true} {object} /></td>
+                                <td><ObjectName pictureType={'icon'} pictureSize='large' {object} /></td>
                                 <td>{object.byteValue}</td>
                                 <td>{object.bytesPerMinute}</td>
                                 <td>{object.category}</td>

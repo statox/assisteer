@@ -28,7 +28,7 @@
         <h4 class="content-subheader">Recipe</h4>
         <div>
             {#if tool}
-                <ObjectName importantWord={true} object={getObject(tool.id)} pictureType={'both'} largerIcon={true} />
+                <ObjectName importantWord={true} object={getObject(tool.id)} pictureType={'both'} pictureSize="large" />
             {/if}
         </div>
         <div>

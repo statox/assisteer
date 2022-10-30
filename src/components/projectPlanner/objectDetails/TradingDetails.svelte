@@ -31,7 +31,6 @@
                         <ObjectName
                             object={soil}
                             hideName={true}
-                            largerIcon={false}
                             quantity={tradingDetails.soil.currencyRequired}
                             pictureType={'icon'}
                         />
@@ -39,7 +38,6 @@
                         <ObjectName
                             {object}
                             hideName={true}
-                            largerIcon={false}
                             quantity={tradingDetails.soil.resourcesProduced}
                             pictureType={'icon'}
                         />
@@ -54,7 +52,6 @@
                         <ObjectName
                             object={scrap}
                             hideName={true}
-                            largerIcon={false}
                             quantity={tradingDetails.scrap.currencyRequired}
                             pictureType={'icon'}
                         />
@@ -62,7 +59,6 @@
                         <ObjectName
                             {object}
                             hideName={true}
-                            largerIcon={false}
                             quantity={tradingDetails.scrap.resourcesProduced}
                             pictureType={'icon'}
                         />
