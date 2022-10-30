@@ -2,10 +2,8 @@
     import ObjectName from '../../utils/ObjectName.svelte';
     import { afterUpdate } from 'svelte';
     import { getObject } from '../../../services/data/objects';
-    import { getAlmosphericResourceLocation } from '../../../services/data/resources';
     import { alphaSort } from '../../../services/utils';
     import { settings } from '../../../stores';
-    import ItemName from '../../utils/ItemName.svelte';
 
     export let categoryName: string;
     export let categoryItems: any;
@@ -34,14 +32,8 @@
                                 {object}
                                 quantity={categoryItems[objectName]}
                                 pictureType={$settings.pictureType}
+                                showPlanets={true}
                             />
-                            {#if object.category === 'atmospheric'}
-                                <span>
-                                    {#each getAlmosphericResourceLocation(objectName) || [] as location}
-                                        <ItemName item={location.planet} pictureType={'icon'} hideName={true} />
-                                    {/each}
-                                </span>
-                            {/if}
                         </li>
                     {/each}
                 </ul>

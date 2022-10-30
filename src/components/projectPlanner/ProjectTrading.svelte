@@ -44,30 +44,32 @@
                                 />
                             </td>
                             <td>
-                                <ObjectName
-                                    object={getObject('scrap')}
-                                    pictureType={$settings.pictureType}
-                                    quantity={tradeStats.totalScrap}
-                                    hideName={true}
-                                />
-                                {#if tradeStats.totalScrapForScrapOnlyObjects > 0}
-                                    &nbsp;/&nbsp;
-                                    <span class="scrap-only">
-                                        <ObjectName
-                                            object={getObject('scrap')}
-                                            pictureType={$settings.pictureType}
-                                            quantity={tradeStats.totalScrapForScrapOnlyObjects}
-                                            hideName={true}
-                                        />
-                                    </span>
-                                {/if}
+                                <div class="d-inline-flex">
+                                    <ObjectName
+                                        object={getObject('scrap')}
+                                        pictureType={$settings.pictureType}
+                                        quantity={tradeStats.totalScrap}
+                                        hideName={true}
+                                    />
+                                    {#if tradeStats.totalScrapForScrapOnlyObjects > 0}
+                                        &nbsp;/&nbsp;
+                                        <span class="scrap-only">
+                                            <ObjectName
+                                                object={getObject('scrap')}
+                                                pictureType={$settings.pictureType}
+                                                quantity={tradeStats.totalScrapForScrapOnlyObjects}
+                                                hideName={true}
+                                            />
+                                        </span>
+                                    {/if}
+                                </div>
                             </td>
                         </tr>
                         {#each tradeStats.possibleTrades as trade}
                             {@const object = getObject(trade.resourceId)}
                             <tr>
                                 <td class:scrap-only={!trade.soil}>
-                                    <ObjectName {object} pictureType={$settings.pictureType} />
+                                    <ObjectName {object} pictureType={$settings.pictureType} showPlanets={true} />
                                 </td>
 
                                 <td>
@@ -82,14 +84,14 @@
                                     {@const currencyObject = getObject(currency)}
                                     <td>
                                         {#if trade[currency]}
-                                            <div>
+                                            <div class="d-inline-flex">
                                                 <ObjectName
                                                     object={currencyObject}
                                                     hideName={true}
                                                     quantity={trade[currency].currencyRequired}
                                                     pictureType={$settings.pictureType}
                                                 />
-                                                :
+                                                <span>:</span>
                                                 <ObjectName
                                                     {object}
                                                     hideName={true}

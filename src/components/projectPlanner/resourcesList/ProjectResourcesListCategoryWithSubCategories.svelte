@@ -2,22 +2,14 @@
     import ObjectName from '../../utils/ObjectName.svelte';
     import { afterUpdate } from 'svelte';
     import { getObject } from '../../../services/data/objects';
-    import {
-        getNaturalResourceLocation,
-        getResourceDetails,
-        NaturalResourceLocation
-    } from '../../../services/data/resources';
+    import { getResourceDetails } from '../../../services/data/resources';
     import { alphaSort } from '../../../services/utils';
     import { settings } from '../../../stores';
-    import ItemName from '../../utils/ItemName.svelte';
 
     export let categoryName: string;
     export let categoryItems: any;
     let sortedItems: any = {};
     let totalResourcesInCategory = 0;
-    let locations: {
-        [resourceName: string]: NaturalResourceLocation;
-    };
 
     const favoriteSubCategoriesOrder = ['organic', 'mineral', 'ore', 'metal'];
 
@@ -26,7 +18,6 @@
 
     afterUpdate(() => {
         sortedItems = {};
-        locations = {};
         totalResourcesInCategory = 0;
         for (const objectName of Object.keys(categoryItems)) {
             const details = getResourceDetails(objectName);
@@ -38,7 +29,6 @@
             sortedItems[details.classification][objectName] = categoryItems[objectName];
 
             totalResourcesInCategory += categoryItems[objectName];
-            locations[objectName] = getNaturalResourceLocation(objectName);
         }
     });
 </script>
@@ -59,16 +49,8 @@
                                     {object}
                                     quantity={categoryItems[objectName]}
                                     pictureType={$settings.pictureType}
+                                    showPlanets={true}
                                 />
-                                {#if locations[objectName]}
-                                    {@const location = locations[objectName]}
-                                    {@const primaryPlanet = location.primary.planet}
-                                    {@const secondaryPlanet = location.secondary.planet}
-                                    <span>
-                                        <ItemName item={primaryPlanet} pictureType={'icon'} hideName={true} />
-                                        <ItemName item={secondaryPlanet} pictureType={'icon'} hideName={true} />
-                                    </span>
-                                {/if}
                             </li>
                         {/each}
                     </ul>
