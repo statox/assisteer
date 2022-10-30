@@ -30,7 +30,7 @@
     const saveProject = () => {
         const savedProject: SavedProject = {
             planet: $selectedPowerPlanet.id,
-            objects: $project,
+            objects: $project.objects,
             name
         };
 
@@ -47,7 +47,9 @@
     };
 
     const onSelect = (selectedProject: SavedProject) => {
-        $project = selectedProject.objects;
+        $project = {
+            objects: selectedProject.objects
+        };
         $selectedPowerPlanet = getPlanet(selectedProject.planet);
         name = selectedProject.name;
     };

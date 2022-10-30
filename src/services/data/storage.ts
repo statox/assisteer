@@ -73,8 +73,8 @@ const getProjectStorageStats = (project: Project, params: StorageStatsSettings):
     ];
     let objectTotalCount = 0;
 
-    for (const objectName of Object.keys(project)) {
-        const objectQuantity = project[objectName];
+    for (const objectName of Object.keys(project.objects)) {
+        const objectQuantity = project.objects[objectName];
         const object = getObject(objectName);
 
         if (canisters[objectName]) {

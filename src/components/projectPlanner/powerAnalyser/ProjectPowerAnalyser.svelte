@@ -168,7 +168,7 @@
                                         <td>
                                             <QuantitySelector
                                                 objectId={item.object.id}
-                                                quantity={$project[item.object.id]}
+                                                quantity={$project.objects[item.object.id]}
                                                 changeQuantityFn={(params) =>
                                                     ($project = updateObjectQuantityInProject($project, {
                                                         op: params.op,
@@ -206,7 +206,7 @@
                                         <td>
                                             <QuantitySelector
                                                 objectId={item.object.id}
-                                                quantity={$project[item.object.id]}
+                                                quantity={$project.objects[item.object.id]}
                                                 changeQuantityFn={(params) =>
                                                     ($project = updateObjectQuantityInProject($project, {
                                                         op: params.op,
@@ -244,7 +244,7 @@
                                         <td>
                                             <QuantitySelector
                                                 objectId={item.object.id}
-                                                quantity={$project[item.object.id]}
+                                                quantity={$project.objects[item.object.id]}
                                                 changeQuantityFn={(params) =>
                                                     ($project = updateObjectQuantityInProject($project, {
                                                         op: params.op,

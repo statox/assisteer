@@ -105,13 +105,13 @@ const getProjectPowerStats = (project: Project, planet: Planet): ProjectPowerSta
             withPowerOff: 0
         }
     };
-    for (const objectName of Object.keys(project)) {
+    for (const objectName of Object.keys(project.objects)) {
         const powerStats = getObjectPowerStats(objectName);
         if (!powerStats) {
             continue;
         }
         const object = getObject(objectName);
-        const quantity = project[objectName];
+        const quantity = project.objects[objectName];
 
         const objectType = powerStats.type;
 

@@ -8,7 +8,7 @@
         updateObjectQuantityInProject
     } from '../../../services/project';
     import { alphaSort } from '../../../services/utils';
-    import { project } from '../../../stores';
+    import { defaultProject, project } from '../../../stores';
     import ObjectName from '../../utils/ObjectName.svelte';
     import QuantitySelector from './QuantitySelector.svelte';
 
@@ -22,7 +22,7 @@
 
     const changeQuantity = (params: { op: 'inc' | 'dec' | 'remove' | 'reset'; objectName?: string }) => {
         if (params.op === 'reset') {
-            $project = {};
+            $project = defaultProject;
         } else {
             $project = updateObjectQuantityInProject($project, { op: params.op, objectId: params.objectName });
         }
@@ -38,7 +38,7 @@
             objectsByCategory = getProjectObjectsByTier($project);
         }
         projectTotalUnlockCost = getProjectTotalUnlockCost($project);
-        projectTotalObjectsCount = Object.values($project).reduce((a, b) => a + b, 0);
+        projectTotalObjectsCount = Object.values($project.objects).reduce((a, b) => a + b, 0);
     };
 
     const changeSortType = (value: 'category' | 'tier') => {
@@ -58,10 +58,10 @@
     <div class="content-section">
         <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>Project inventory</h3>
         <div class="container" class:hidden={collapsed || !$project}>
-            {#if Object.keys($project).length === 0}
+            {#if Object.keys($project.objects).length === 0}
                 <p>Nothing to show. Add objects to the project in the Inventory section.</p>
             {/if}
-            {#if Object.keys($project).length !== 0}
+            {#if Object.keys($project.objects).length !== 0}
                 <div class="row align-items-center bottom-separator">
                     <div class="col-sm-4">
                         <div class="d-flex justify-content-between">

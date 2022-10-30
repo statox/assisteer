@@ -5,7 +5,6 @@
     import Header from './components/Header.svelte';
     import Footer from './components/Footer.svelte';
     import Astropedia from './routes/astropedia.svelte';
-    import ObjectSelectionModal from './components/projectPlanner/objectSelection/ObjectSelectionModal.svelte';
 
     let url = '';
 </script>

@@ -2,7 +2,9 @@ import { BaseObject, getObject, getObjectUnlockCost } from './data/objects';
 import { getObjectDefaultRecipe, getRecipeDependenciesTree } from './data/recipes';
 
 export type Project = {
-    [objectName: string]: number;
+    objects: {
+        [objectName: string]: number;
+    }
 };
 
 export type ResourceList = {
@@ -27,10 +29,10 @@ const projectToFlatTree = (project: Project, params?: { includeObjectTool: boole
     const nodes = {};
     const edges = {};
 
-    for (const objectName of Object.keys(project)) {
+    for (const objectName of Object.keys(project.objects)) {
         const object = getObject(objectName);
         const recipe = getObjectDefaultRecipe(objectName);
-        const quantity = project[objectName];
+        const quantity = project.objects[objectName];
         const rootDepTree = getRecipeDependenciesTree(recipe, quantity);
 
         nodes[objectName] = {
@@ -147,9 +149,9 @@ type ProjectObjectsByCategory = {
 const getProjectObjectsByCategory = (project: Project): ProjectObjectsByCategory => {
     const objectsByCategory: ProjectObjectsByCategory = {};
 
-    for (const objectName of Object.keys(project)) {
+    for (const objectName of Object.keys(project.objects)) {
         const object = getObject(objectName);
-        const quantity = project[objectName];
+        const quantity = project.objects[objectName];
         const category = object.category;
 
         if (!objectsByCategory[category]) {
@@ -164,9 +166,9 @@ const getProjectObjectsByCategory = (project: Project): ProjectObjectsByCategory
 const getProjectObjectsByTier = (project: Project): ProjectObjectsByCategory => {
     const objectsByTier: ProjectObjectsByCategory = {};
 
-    for (const objectName of Object.keys(project)) {
+    for (const objectName of Object.keys(project.objects)) {
         const object = getObject(objectName);
-        const quantity = project[objectName];
+        const quantity = project.objects[objectName];
         const tier = 'tier ' + object.tier;
 
         if (!objectsByTier[tier]) {
@@ -180,7 +182,7 @@ const getProjectObjectsByTier = (project: Project): ProjectObjectsByCategory => 
 
 const getProjectTotalUnlockCost = (project: Project) => {
     let projectTotalUnlockCost = 0;
-    for (const objectName of Object.keys(project)) {
+    for (const objectName of Object.keys(project.objects)) {
         projectTotalUnlockCost += getObjectUnlockCost(objectName);
     }
     return projectTotalUnlockCost;
@@ -190,25 +192,25 @@ const updateObjectQuantityInProject = (project: Project, params: { op: 'inc' | '
     const { objectId, op } = params;
 
     if (op === 'inc') {
-        if (!project[objectId]) {
-            project[objectId] = 0;
+        if (!project.objects[objectId]) {
+            project.objects[objectId] = 0;
         }
-        project[objectId] += 1;
+        project.objects[objectId] += 1;
     }
-    if (op === 'dec' && project[objectId]) {
-        project[objectId] -= 1;
-        if (project[objectId] <= 0) {
-            delete project[objectId];
+    if (op === 'dec' && project.objects[objectId]) {
+        project.objects[objectId] -= 1;
+        if (project.objects[objectId] <= 0) {
+            delete project.objects[objectId];
         }
     }
-    if (op === 'remove' || project[objectId] <= 0) {
-        delete project[objectId];
+    if (op === 'remove' || project.objects[objectId] <= 0) {
+        delete project.objects[objectId];
     }
     if (op === 'add') {
-        if (!project[objectId]) {
-            project[objectId] = 0;
+        if (!project.objects[objectId]) {
+            project.objects[objectId] = 0;
         }
-        project[objectId] += 1;
+        project.objects[objectId] += 1;
     }
     return project;
 };

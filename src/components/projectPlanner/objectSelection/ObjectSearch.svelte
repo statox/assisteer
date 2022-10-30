@@ -144,7 +144,7 @@
             <div class="col">
                 <QuantitySelector
                     objectId={object?.id}
-                    quantity={$project[object?.id] || 0}
+                    quantity={$project.objects[object?.id] || 0}
                     disabled={!canAddToProject(object)}
                     changeQuantityFn={(params) => {
                         $project = updateObjectQuantityInProject($project, {
@@ -165,10 +165,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" />
                 </div>
                 <div class="toast-body">
-                    {#each Object.keys($project) as objectName}
+                    {#each Object.keys($project.objects) as objectName}
                         {@const item = getObject(objectName)}
                         <div class:green={item.id === object?.id}>
-                            <ObjectName object={item} pictureType={'icon'} quantity={$project[objectName]} />
+                            <ObjectName object={item} pictureType={'icon'} quantity={$project.objects[objectName]} />
                         </div>
                     {/each}
                 </div>

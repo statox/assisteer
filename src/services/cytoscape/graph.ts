@@ -76,9 +76,9 @@ const addElementsFromProject = (cy: cytoscape.Core, project: Project, params: { 
 };
 
 const addElementsFromProjectSeparatedTrees = (cy: cytoscape.Core, project: Project, params: { showObjectTool: boolean }) => {
-    for (const objectName of Object.keys(project)) {
-        const subProject: Project = {};
-        subProject[objectName] = project[objectName];
+    for (const objectName of Object.keys(project.objects)) {
+        const subProject: Project = { objects: {} };
+        subProject.objects[objectName] = project.objects[objectName];
         const tree = projectToFlatTree(subProject, { includeObjectTool: params.showObjectTool });
         cy.add(
             tree.nodes.map((n) => {
