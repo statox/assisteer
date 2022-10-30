@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { activePages, modalShown } from '../../stores';
+    import { activePages, objectSelectionModalShow } from '../../stores';
     import ProjectResourcesList from './resourcesList/ProjectResourcesList.svelte';
     import ProjectGraph from './ProjectGraph.svelte';
     import ProjectStorageAnalyser from './ProjectStorageAnalyser.svelte';
@@ -28,7 +28,7 @@
             <button
                 class="nav-item"
                 on:click={() => {
-                    $modalShown = true;
+                    $objectSelectionModalShow = true;
                 }}
                 data-toggle="tooltip"
                 data-placement="top"

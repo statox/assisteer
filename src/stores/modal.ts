@@ -1,8 +1,8 @@
 import { writable } from 'svelte/store';
 import type { BaseObject } from '../services/data/objects';
 
-const modalShown = writable<boolean>(false);
-const modalObject = writable<BaseObject>(null);
+const objectSelectionModalShow = writable<boolean>(false);
+const objectSelectionModalObject = writable<BaseObject>(null);
 
 const modalObjectHistory: BaseObject[] = [];
 let modalObjectHistoryIndex = 0;
@@ -16,7 +16,7 @@ const updateModalObject = (object: BaseObject) => {
     modalObjectHistory.push(object);
     modalObjectHistoryIndex = modalObjectHistory.length - 1;
 
-    modalObject.set(object);
+    objectSelectionModalObject.set(object);
 };
 
 const prevModalObject = () => {
@@ -25,7 +25,7 @@ const prevModalObject = () => {
     }
 
     modalObjectHistoryIndex--;
-    modalObject.set(modalObjectHistory[modalObjectHistoryIndex]);
+    objectSelectionModalObject.set(modalObjectHistory[modalObjectHistoryIndex]);
 };
 
 const nextModalObject = () => {
@@ -33,7 +33,7 @@ const nextModalObject = () => {
         return;
     }
     modalObjectHistoryIndex++;
-    modalObject.set(modalObjectHistory[modalObjectHistoryIndex]);
+    objectSelectionModalObject.set(modalObjectHistory[modalObjectHistoryIndex]);
 };
 
-export { modalShown, modalObject, nextModalObject, prevModalObject, updateModalObject };
+export { objectSelectionModalShow, objectSelectionModalObject, nextModalObject, prevModalObject, updateModalObject };

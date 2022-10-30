@@ -1,6 +1,6 @@
 import { activePages } from './activePages';
-import { modalObject, modalShown, updateModalObject } from './modal';
+import { objectSelectionModalObject, objectSelectionModalShow, updateModalObject } from './modal';
 import { project } from './project';
 import { settings } from './settings';
 
-export { activePages, project, settings, modalShown, modalObject, updateModalObject };
+export { activePages, project, settings, objectSelectionModalShow, objectSelectionModalObject, updateModalObject };

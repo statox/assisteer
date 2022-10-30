@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { modalObject, modalShown } from '../../../stores';
+    import { objectSelectionModalObject, objectSelectionModalShow } from '../../../stores';
     import { nextModalObject, prevModalObject, updateModalObject } from '../../../stores/modal';
     import ObjectDetails from '../objectDetails/ObjectDetails.svelte';
     import ObjectSearch from './ObjectSearch.svelte';
@@ -11,7 +11,7 @@
     };
 
     const modalClose = () => {
-        $modalShown = false;
+        $objectSelectionModalShow = false;
         if (onClosed) {
             onClosed();
         }
@@ -24,7 +24,7 @@
     };
 </script>
 
-{#if $modalShown}
+{#if $objectSelectionModalShow}
     <div
         class="modal modal-xl"
         id="inventoryModal"
@@ -61,9 +61,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="content-section">
-                        <ObjectSearch object={$modalObject} on:selectObject={selectObject} />
-                        {#if $modalObject}
-                            <ObjectDetails object={$modalObject} />
+                        <ObjectSearch object={$objectSelectionModalObject} on:selectObject={selectObject} />
+                        {#if $objectSelectionModalObject}
+                            <ObjectDetails object={$objectSelectionModalObject} />
                         {:else}
                             <span>Select an object</span>
                         {/if}
