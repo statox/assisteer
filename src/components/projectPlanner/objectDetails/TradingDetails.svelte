@@ -1,13 +1,10 @@
 <script lang="ts">
-    import { BaseObject, getObject } from '../../../services/data/objects';
+    import type { BaseObject } from '../../../services/data/objects';
     import { getObjectTradingStats, PossibleTrades } from '../../../services/trading';
-    import ObjectName from '../../utils/ObjectName.svelte';
+    import Trade from '../../utils/Trade.svelte';
 
     export let object: BaseObject;
     let tradingDetails: PossibleTrades;
-
-    const soil = getObject('soil');
-    const scrap = getObject('scrap');
 
     // Reactive declaration: The code runs on props change
     $: {
@@ -27,42 +24,24 @@
             {#if tradingDetails.soil}
                 <div class="d-flex justify-content-between">
                     <span class="important-word">Soil centrifuge</span>
-                    <span>
-                        <ObjectName
-                            object={soil}
-                            hideName={true}
-                            quantity={tradingDetails.soil.currencyRequired}
-                            pictureType={'icon'}
-                        />
-                        :
-                        <ObjectName
-                            {object}
-                            hideName={true}
-                            quantity={tradingDetails.soil.resourcesProduced}
-                            pictureType={'icon'}
-                        />
-                    </span>
+                    <Trade
+                        currencyId="soil"
+                        {object}
+                        currencyQty={tradingDetails.soil.currencyRequired}
+                        objectQty={tradingDetails.soil.resourcesProduced}
+                    />
                 </div>
             {/if}
 
             {#if tradingDetails.scrap}
                 <div class="d-flex justify-content-between">
                     <span class="important-word">Trade platform</span>
-                    <span>
-                        <ObjectName
-                            object={scrap}
-                            hideName={true}
-                            quantity={tradingDetails.scrap.currencyRequired}
-                            pictureType={'icon'}
-                        />
-                        :
-                        <ObjectName
-                            {object}
-                            hideName={true}
-                            quantity={tradingDetails.scrap.resourcesProduced}
-                            pictureType={'icon'}
-                        />
-                    </span>
+                    <Trade
+                        currencyId="scrap"
+                        {object}
+                        currencyQty={tradingDetails.scrap.currencyRequired}
+                        objectQty={tradingDetails.scrap.resourcesProduced}
+                    />
                 </div>
             {/if}
         </div>

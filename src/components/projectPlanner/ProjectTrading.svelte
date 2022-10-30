@@ -3,6 +3,7 @@
     import { getObject } from '../../services/data/objects';
     import { getProjectTradingStats, TradingStats } from '../../services/trading';
     import ObjectName from '../utils/ObjectName.svelte';
+    import Trade from '../utils/Trade.svelte';
 
     let collapsed = false;
     let tradeStats: TradingStats;
@@ -81,27 +82,16 @@
                                 </td>
 
                                 {#each ['soil', 'scrap'] as currency}
-                                    {@const currencyObject = getObject(currency)}
                                     <td>
-                                        {#if trade[currency]}
-                                            <div class="d-inline-flex">
-                                                <ObjectName
-                                                    object={currencyObject}
-                                                    hideName={true}
-                                                    quantity={trade[currency].currencyRequired}
-                                                    pictureType={$settings.pictureType}
-                                                />
-                                                <span>:</span>
-                                                <ObjectName
-                                                    {object}
-                                                    hideName={true}
-                                                    quantity={trade[currency].resourcesProduced}
-                                                    pictureType={$settings.pictureType}
-                                                />
-                                                {#if trade[currency].surplus}
-                                                    <span class="important-word">(+{trade[currency].surplus})</span>
-                                                {/if}
-                                            </div>
+                                        <!-- The second condition is only there as a typeguard -->
+                                        {#if trade[currency] && (currency === 'soil' || currency === 'scrap')}
+                                            <Trade
+                                                currencyId={currency}
+                                                {object}
+                                                currencyQty={trade[currency].currencyRequired}
+                                                objectQty={trade[currency].resourcesProduced}
+                                                surplus={trade[currency].surplus}
+                                            />
                                         {/if}
                                     </td>
                                 {/each}
