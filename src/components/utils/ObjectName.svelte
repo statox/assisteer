@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { BaseObject } from '../../services/data/objects';
-    import { objectSelectionModalShow, updateModalObject } from '../../stores';
+    import { objectSelectionModalShow, projectListModalShow, updateModalObject } from '../../stores';
 
     export let object: BaseObject;
     export let pictureType: 'icon' | 'image' | 'both';
@@ -14,6 +14,7 @@
     on:click={() => {
         updateModalObject(object);
         $objectSelectionModalShow = true;
+        $projectListModalShow = false;
     }}
     class:important-word={importantWord}
 >
