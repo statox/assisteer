@@ -11,7 +11,7 @@
 
     <div class="container">
         <div>
-            <h4 class="content-subheader">Navigation</h4>
+            <h4 class="content-subheader">Object selection</h4>
             <p>
                 First select the items you want to use in your project with the
                 <span class="important-word">object selection</span>
@@ -20,7 +20,26 @@
                 </button>
                 modal.
             </p>
-            <p>Use the buttons at the top to navigate between the different sections.</p>
+            <p>
+                This modal will show the details of the object (recipe, tier, wiki link, power stats, planets location,
+                ...) and allows you to choose which objects to include in your project.
+            </p>
+        </div>
+
+        <div>
+            <h4 class="content-subheader">Projects list</h4>
+            <p>
+                The
+                <span class="important-word">projects list</span>
+                <button class="nav-item" data-toggle="tooltip" data-placement="top" title="Object selection">
+                    <span class="bi bi-list-ul" />
+                </button>
+                modal allows you to save your current project and load previously saved projects.
+            </p>
+            <p>
+                Once you are happy with your project you can give it a name and use the save button. If you reuse an
+                existing name the existing project will be overwritten.
+            </p>
         </div>
 
         <div>
