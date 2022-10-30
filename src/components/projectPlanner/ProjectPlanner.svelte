@@ -9,17 +9,50 @@
     import ProjectTrading from './ProjectTrading.svelte';
     import ProjectPowerAnalyser from './powerAnalyser/ProjectPowerAnalyser.svelte';
     import UserGuide from './UserGuide.svelte';
-    import ProjectObjectsList from './inventory/ProjectObjectsList.svelte';
 
-    const sectionsNames = {
-        inventory: 'Inventory',
-        guide: 'User Guide',
-        resources: 'Resources',
-        power: 'Power',
-        storage: 'Storage',
-        settings: 'Settings',
-        trading: 'Trading',
-        graph: 'Production Graph'
+    const sections = {
+        graph: {
+            labels: {
+                en: 'Production Graph'
+            },
+            component: ProjectGraph
+        },
+        resources: {
+            labels: {
+                en: 'Resources'
+            },
+            component: ProjectResourcesList
+        },
+        power: {
+            labels: {
+                en: 'Power'
+            },
+            component: ProjectPowerAnalyser
+        },
+        trading: {
+            labels: {
+                en: 'Trading'
+            },
+            component: ProjectTrading
+        },
+        storage: {
+            labels: {
+                en: 'Storage'
+            },
+            component: ProjectStorageAnalyser
+        },
+        guide: {
+            labels: {
+                en: 'User Guide'
+            },
+            component: UserGuide
+        },
+        settings: {
+            labels: {
+                en: 'Settings'
+            },
+            component: ProjectSettings
+        }
     };
 </script>
 
@@ -52,13 +85,13 @@
             </button>
         </div>
 
-        {#each ['inventory', 'graph', 'resources', 'trading', 'power', 'storage', 'guide', 'settings'] as section}
+        {#each ['graph', 'resources', 'trading', 'power', 'storage', 'guide', 'settings'] as section}
             <div class="mx-1" class:ms-sm-auto={section === 'guide'}>
                 <button
                     class="nav-item"
                     class:selected={$activePages.planner === section}
                     on:click={() => ($activePages.planner = section)}
-                    >{sectionsNames[section]}
+                    >{sections[section].labels.en}
                 </button>
             </div>
         {/each}
@@ -67,30 +100,7 @@
     <ObjectSelectionModal />
     <ProjectsListModal />
 
-    {#if $activePages.planner === 'guide'}
-        <UserGuide />
-    {/if}
-    {#if $activePages.planner === 'inventory'}
-        <ProjectObjectsList />
-    {/if}
-    {#if $activePages.planner === 'resources'}
-        <ProjectResourcesList />
-    {/if}
-    {#if $activePages.planner === 'graph'}
-        <ProjectGraph />
-    {/if}
-    {#if $activePages.planner === 'trading'}
-        <ProjectTrading />
-    {/if}
-    {#if $activePages.planner === 'storage'}
-        <ProjectStorageAnalyser />
-    {/if}
-    {#if $activePages.planner === 'settings'}
-        <ProjectSettings />
-    {/if}
-    {#if $activePages.planner === 'power'}
-        <ProjectPowerAnalyser />
-    {/if}
+    <svelte:component this={sections[$activePages.planner].component} />
 </main>
 
 <style>
