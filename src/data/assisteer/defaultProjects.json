@@ -1,0 +1,41 @@
+[
+    {
+        "name": "All resources",
+        "planet": "sylva",
+        "objects": {
+            "aluminum alloy": 1,
+            "diamond": 1,
+            "explosive powder": 1,
+            "graphene": 1,
+            "hydrazine": 1,
+            "nanocarbon alloy": 1,
+            "plastic": 1,
+            "rubber": 1,
+            "silicone": 1,
+            "steel": 1,
+            "titanium alloy": 1,
+            "tungsten carbide": 1,
+            "aluminum": 1,
+            "carbon": 1,
+            "ceramic": 1,
+            "copper": 1,
+            "glass": 1,
+            "iron": 1,
+            "titanium": 1,
+            "tungsten": 1,
+            "zinc": 1
+        }
+    },
+    {
+        "name": "Auto extractor Glacio",
+        "planet": "glacio",
+        "objects": {
+            "auto extractor": 1,
+            "large resource canister": 1,
+            "large wind turbine": 2,
+            "medium battery": 1,
+            "auto arm": 1,
+            "extra large platform c": 1
+        }
+    }
+]

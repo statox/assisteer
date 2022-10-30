@@ -4,6 +4,7 @@
     import { project } from '../../../stores';
     import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
     import ItemName from '../../utils/ItemName.svelte';
+    import defaultProjectList from '../../../data/assisteer/defaultProjects.json';
 
     type SavedProject = {
         planet: string;
@@ -22,10 +23,10 @@
         try {
             projectsList = JSON.parse(storedProjectsListStr) as SavedProject[];
         } catch (e) {
-            projectsList = [];
+            projectsList = defaultProjectList;
         }
     } else {
-        projectsList = [];
+        projectsList = defaultProjectList;
     }
 
     const saveProject = () => {
