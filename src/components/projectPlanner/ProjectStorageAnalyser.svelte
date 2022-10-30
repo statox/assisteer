@@ -142,10 +142,10 @@
 
             <div class="row">
                 <div>
-                    <h4 class="content-subheader">Storages capacity</h4>
+                    <h4 class="content-subheader">Platforms, Storages and Silos</h4>
                     <div class="d-flex justify-content-between flex-column flex-md-row">
-                        {#each ['small', 'medium', 'large', 'extra large'] as tier, index}
-                            {@const objectsInTier = storageStats.storageObjectsByTier[index]}
+                        {#each ['medium', 'large', 'extra large'] as tier, index}
+                            {@const objectsInTier = storageStats.storageObjectsByTier[index + 1]}
                             <div class="flex-fill mx-1">
                                 <div class="tier-header">
                                     <span class="important-word">Tier {tier}</span>
