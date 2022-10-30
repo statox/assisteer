@@ -13,7 +13,7 @@
 
 <!-- Routing inspired by https://sustainablewww.org/principles/how-to-implement-routes-in-your-svelte-web-application-using-svelte-routing -->
 <Router {url}>
-    <nav>
+    <nav class="d-flex flex-column flex-sm-row">
         <Link to="/">
             <span class="nav-item">Planner</span>
             <span class="nav-item-separator" />
