@@ -15,86 +15,111 @@
             labels: {
                 en: 'Production Graph'
             },
+            iconClass: 'bi bi-diagram-2',
             component: ProjectGraph
         },
         resources: {
             labels: {
                 en: 'Resources'
             },
+            iconClass: 'bi bi-list-stars',
             component: ProjectResourcesList
         },
         power: {
             labels: {
                 en: 'Power'
             },
+            iconClass: 'bi bi-lightning-charge',
             component: ProjectPowerAnalyser
         },
         trading: {
             labels: {
                 en: 'Trading'
             },
+            iconClass: 'bi bi-recycle',
             component: ProjectTrading
         },
         storage: {
             labels: {
                 en: 'Storage'
             },
+            iconClass: 'bi bi-archive',
             component: ProjectStorageAnalyser
         },
         guide: {
             labels: {
                 en: 'User Guide'
             },
+            iconClass: 'bi bi-info-square',
             component: UserGuide
         },
         settings: {
             labels: {
                 en: 'Settings'
             },
+            iconClass: 'bi bi-sliders',
             component: ProjectSettings
         }
     };
 </script>
 
 <main>
-    <div class="nav-menu d-flex flex-row flex-wrap justify-content-evenly">
-        <div class="mx-1">
-            <button
-                class="nav-item"
-                on:click={() => {
-                    $objectSelectionModalShow = true;
-                }}
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Object selection"
-            >
-                <span class="bi bi-card-list" />
-            </button>
-        </div>
-        <div class="mx-1">
-            <button
-                class="nav-item"
-                on:click={() => {
-                    $projectListModalShow = true;
-                }}
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Projects list"
-            >
-                <span class="bi bi-list-ul" />
-            </button>
-        </div>
-
-        {#each ['graph', 'resources', 'trading', 'power', 'storage', 'guide', 'settings'] as section}
-            <div class="mx-1" class:ms-sm-auto={section === 'guide'}>
+    <div class="nav-menu d-flex flex-row">
+        <div class="d-flex flex-column align-items-start flex-md-row">
+            <div class="mx-1">
                 <button
                     class="nav-item"
-                    class:selected={$activePages.planner === section}
-                    on:click={() => ($activePages.planner = section)}
-                    >{sections[section].labels.en}
+                    on:click={() => {
+                        $objectSelectionModalShow = true;
+                    }}
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Object selection"
+                >
+                    <span class="bi bi-card-list" />
                 </button>
             </div>
-        {/each}
+            <div class="mx-1">
+                <button
+                    class="nav-item"
+                    on:click={() => {
+                        $projectListModalShow = true;
+                    }}
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Projects list"
+                >
+                    <span class="bi bi-list-ul" />
+                </button>
+            </div>
+            {#each ['graph', 'resources', 'trading', 'power', 'storage'] as section}
+                <div class="mx-1">
+                    <button
+                        class="nav-item"
+                        class:selected={$activePages.planner === section}
+                        on:click={() => ($activePages.planner = section)}
+                    >
+                        <span class={sections[section].iconClass} />
+                        {sections[section].labels.en}
+                    </button>
+                </div>
+            {/each}
+        </div>
+
+        <div class="d-flex flex-column align-items-start flex-md-row ms-auto">
+            {#each ['guide', 'settings'] as section}
+                <div class="mx-1">
+                    <button
+                        class="nav-item"
+                        class:selected={$activePages.planner === section}
+                        on:click={() => ($activePages.planner = section)}
+                    >
+                        <span class={sections[section].iconClass} />
+                        {sections[section].labels.en}
+                    </button>
+                </div>
+            {/each}
+        </div>
     </div>
 
     <ObjectSelectionModal />
