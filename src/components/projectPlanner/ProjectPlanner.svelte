@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { activePages, objectSelectionModalShow } from '../../stores';
+    import { activePages, objectSelectionModalShow, projectListModalShow } from '../../stores';
+    import ProjectsListModal from './projectsLists/ProjectsListModal.svelte';
     import ProjectResourcesList from './resourcesList/ProjectResourcesList.svelte';
     import ProjectGraph from './ProjectGraph.svelte';
     import ProjectStorageAnalyser from './ProjectStorageAnalyser.svelte';
@@ -37,6 +38,19 @@
                 <span class="bi bi-card-list" />
             </button>
         </div>
+        <div class="mx-1">
+            <button
+                class="nav-item"
+                on:click={() => {
+                    $projectListModalShow = true;
+                }}
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Projects list"
+            >
+                <span class="bi bi-list-ul" />
+            </button>
+        </div>
 
         {#each ['inventory', 'graph', 'resources', 'trading', 'power', 'storage', 'guide', 'settings'] as section}
             <div class="mx-1" class:ms-sm-auto={section === 'guide'}>
@@ -51,6 +65,7 @@
     </div>
 
     <ObjectSelectionModal />
+    <ProjectsListModal />
 
     {#if $activePages.planner === 'guide'}
         <UserGuide />

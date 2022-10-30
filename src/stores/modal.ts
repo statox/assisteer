@@ -1,6 +1,8 @@
 import { writable } from 'svelte/store';
 import type { BaseObject } from '../services/data/objects';
 
+const projectListModalShow = writable<boolean>(false);
+
 const objectSelectionModalShow = writable<boolean>(false);
 const objectSelectionModalObject = writable<BaseObject>(null);
 
@@ -36,4 +38,4 @@ const nextModalObject = () => {
     objectSelectionModalObject.set(modalObjectHistory[modalObjectHistoryIndex]);
 };
 
-export { objectSelectionModalShow, objectSelectionModalObject, nextModalObject, prevModalObject, updateModalObject };
+export { objectSelectionModalShow, objectSelectionModalObject, projectListModalShow, nextModalObject, prevModalObject, updateModalObject };
