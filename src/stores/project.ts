@@ -2,8 +2,10 @@ import { Writable, writable } from 'svelte/store';
 import type { Project } from '../services/project';
 
 const defaultProject = {
+    name: 'Default project',
     objects: {}
-}
+};
+
 const storedProjectStr = localStorage.getItem('project');
 
 let project: Writable<Project>;

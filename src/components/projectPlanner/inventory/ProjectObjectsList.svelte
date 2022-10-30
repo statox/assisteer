@@ -56,7 +56,7 @@
 
 <main>
     <div class="content-section">
-        <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>Project inventory</h3>
+        <h3 class="content-header" on:click={() => (collapsed = !collapsed)}>{$project.name} - inventory</h3>
         <div class="container" class:hidden={collapsed || !$project}>
             {#if Object.keys($project.objects).length === 0}
                 <p>Nothing to show. Add objects to the project in the Inventory section.</p>

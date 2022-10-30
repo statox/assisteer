@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import { getPlanet } from '../../../services/data/planets';
     import { project } from '../../../stores';
     import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
@@ -12,7 +13,7 @@
         name: string;
     };
 
-    let name: string = 'Default name';
+    let name: string;
     const savedProjectsKey = 'savedProjectsList';
 
     let projectsList: SavedProject[];
@@ -34,6 +35,8 @@
             name
         };
 
+        $project.name = name;
+
         const projectIndex = projectsList.findIndex((p) => p.name === name);
 
         if (projectIndex >= 0) {
@@ -48,6 +51,7 @@
 
     const onSelect = (selectedProject: SavedProject) => {
         $project = {
+            name: selectedProject.name,
             objects: selectedProject.objects
         };
         $selectedPowerPlanet = getPlanet(selectedProject.planet);
@@ -59,6 +63,12 @@
         projectsList.splice(projectIndex, 1);
         projectsList = projectsList;
     };
+
+    onMount(() => {
+        if ($project && $project.name) {
+            name = $project.name;
+        }
+    });
 </script>
 
 <main>

@@ -2,6 +2,7 @@ import { BaseObject, getObject, getObjectUnlockCost } from './data/objects';
 import { getObjectDefaultRecipe, getRecipeDependenciesTree } from './data/recipes';
 
 export type Project = {
+    name: string;
     objects: {
         [objectName: string]: number;
     }
