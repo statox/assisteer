@@ -1,15 +1,12 @@
 <script lang="ts">
-    import {
-        getAllResearchDetails,
-        ObjectResearchDetails,
-    } from "../../services/data/research";
-    import ObjectName from "../utils/ObjectName.svelte";
+    import { getAllResearchDetails, ObjectResearchDetails } from '../../services/data/research';
+    import ObjectName from '../utils/ObjectName.svelte';
 
     let researchDetails = getAllResearchDetails();
 
-    let sortBy = { column: "label", ascending: true };
+    let sortBy = { column: 'label', ascending: true };
 
-    $: sort = (column: "label" | "category" | "byteValue" | "bpm") => {
+    $: sort = (column: 'label' | 'category' | 'byteValue' | 'bpm') => {
         if (sortBy.column === column) {
             sortBy.ascending = !sortBy.ascending;
         } else {
@@ -20,19 +17,17 @@
         const sortModifier = sortBy.ascending ? 1 : -1;
 
         let sort = (a: ObjectResearchDetails, b: ObjectResearchDetails) => {
-            if (sortBy.column === "label") {
+            if (sortBy.column === 'label') {
                 return a.labels.en < b.labels.en ? -sortModifier : sortModifier;
             }
-            if (sortBy.column === "category") {
+            if (sortBy.column === 'category') {
                 return a.category < b.category ? -sortModifier : sortModifier;
             }
-            if (sortBy.column === "byteValue") {
+            if (sortBy.column === 'byteValue') {
                 return a.byteValue < b.byteValue ? -sortModifier : sortModifier;
             }
-            if (sortBy.column === "bpm") {
-                return a.bytesPerMinute - b.bytesPerMinute
-                    ? -sortModifier
-                    : sortModifier;
+            if (sortBy.column === 'bpm') {
+                return a.bytesPerMinute - b.bytesPerMinute ? -sortModifier : sortModifier;
             }
             return a.id < b.id ? -1 : 1;
         };
@@ -48,28 +43,19 @@
                 <p>
                     Objects can be researched with <a
                         target="none"
-                        href="https://astroneer.fandom.com/wiki/Research_Chamber"
-                    >the Research Chamber</a
+                        href="https://astroneer.fandom.com/wiki/Research_Chamber">the Research Chamber</a
                     >.
                 </p>
                 <p>
-                    The wiki has a reference of <a
-                        target="none"
-                        href="https://astroneer.fandom.com/wiki/Research_Items"
-                    >all the research items by planet</a
+                    The wiki has a reference of <a target="none" href="https://astroneer.fandom.com/wiki/Research_Items"
+                        >all the research items by planet</a
                     >
-                    and their research information. But I haven't found the same kind
-                    of list for
-                    <a
-                        target="none"
-                        href="https://astroneer.fandom.com/wiki/Research_Sample"
-                    >the research samples</a
-                    >.
+                    and their research information. But I haven't found the same kind of list for
+                    <a target="none" href="https://astroneer.fandom.com/wiki/Research_Sample">the research samples</a>.
                 </p>
                 <p>
-                    You can also use resources in the research chamber with the
-                    following values. <b
-                    >All the resources take 2.5 minutes to be researched.</b
+                    You can also use resources in the research chamber with the following values. <b
+                        >All the resources take 2.5 minutes to be researched.</b
                     >
                 </p>
             </div>
@@ -78,45 +64,50 @@
                     <thead>
                         <tr>
                             <th
-                                class={sortBy.column === "label"
+                                class={sortBy.column === 'label'
                                     ? sortBy.ascending
-                                        ? "sortedAscending"
-                                        : "sortedDescending"
-                                    : "notSorted"}
-                                on:click={() => sort("label")}>Resource</th
+                                        ? 'sortedAscending'
+                                        : 'sortedDescending'
+                                    : 'notSorted'}
+                                on:click={() => sort('label')}>Resource</th
                             >
                             <th
-                                class={sortBy.column === "byteValue"
+                                class={sortBy.column === 'byteValue'
                                     ? sortBy.ascending
-                                        ? "sortedAscending"
-                                        : "sortedDescending"
-                                    : "notSorted"}
-                                on:click={() => sort("byteValue")}
-                                >Byte value</th
+                                        ? 'sortedAscending'
+                                        : 'sortedDescending'
+                                    : 'notSorted'}
+                                on:click={() => sort('byteValue')}>Byte value</th
                             >
                             <th
-                                class={sortBy.column === "bpm"
+                                class={sortBy.column === 'bpm'
                                     ? sortBy.ascending
-                                        ? "sortedAscending"
-                                        : "sortedDescending"
-                                    : "notSorted"}
-                                on:click={() => sort("bpm")}
-                                >Bytes Per minute</th
+                                        ? 'sortedAscending'
+                                        : 'sortedDescending'
+                                    : 'notSorted'}
+                                on:click={() => sort('bpm')}>Bytes Per minute</th
                             >
                             <th
-                                class={sortBy.column === "category"
+                                class={sortBy.column === 'category'
                                     ? sortBy.ascending
-                                        ? "sortedAscending"
-                                        : "sortedDescending"
-                                    : "notSorted"}
-                                on:click={() => sort("category")}>Category</th
+                                        ? 'sortedAscending'
+                                        : 'sortedDescending'
+                                    : 'notSorted'}
+                                on:click={() => sort('category')}>Category</th
                             >
                         </tr>
                     </thead>
                     <tbody>
                         {#each researchDetails as object}
                             <tr>
-                                <td><ObjectName pictureType={'icon'} pictureSize='large' {object} /></td>
+                                <td
+                                    ><ObjectName
+                                        pictureType={'icon'}
+                                        pictureSize="large"
+                                        showPlanets={true}
+                                        {object}
+                                    /></td
+                                >
                                 <td>{object.byteValue}</td>
                                 <td>{object.bytesPerMinute}</td>
                                 <td>{object.category}</td>
@@ -131,19 +122,19 @@
 
 <style>
     th.sortedAscending:before {
-        content: "↑";
+        content: '↑';
         font-weight: 900;
         right: 16px;
         font-size: 1rem;
     }
     th.sortedDescending:before {
-        content: "↓";
+        content: '↓';
         font-weight: 900;
         right: 16px;
         font-size: 1rem;
     }
     th.notSorted:before {
-        content: "⇅";
+        content: '⇅';
         font-weight: 900;
         right: 16px;
         font-size: 1rem;
