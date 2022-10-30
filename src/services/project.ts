@@ -6,7 +6,7 @@ export type Project = {
     name: string;
     objects: {
         [objectName: string]: number;
-    }
+    };
 };
 
 export type SavedProject = {
@@ -16,7 +16,6 @@ export type SavedProject = {
     };
     name: string;
 };
-
 
 export type ResourceList = {
     [category: string]: {
@@ -199,7 +198,10 @@ const getProjectTotalUnlockCost = (project: Project) => {
     return projectTotalUnlockCost;
 };
 
-const updateObjectQuantityInProject = (project: Project, params: { op: 'inc' | 'dec' | 'remove' | 'add'; objectId?: string }) => {
+const updateObjectQuantityInProject = (
+    project: Project,
+    params: { op: 'inc' | 'dec' | 'remove' | 'add'; objectId?: string }
+) => {
     const { objectId, op } = params;
 
     if (op === 'inc') {

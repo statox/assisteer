@@ -80,4 +80,9 @@ const getResourceDetails = (resourceName: string): ResourceDetails => {
     return resourcesDetails[resourceName];
 };
 
-export { getAllAlmosphericResourcesLocation, getAlmosphericResourceLocation, getNaturalResourceLocation, getResourceDetails };
+export {
+    getAllAlmosphericResourcesLocation,
+    getAlmosphericResourceLocation,
+    getNaturalResourceLocation,
+    getResourceDetails
+};

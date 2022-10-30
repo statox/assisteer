@@ -38,4 +38,11 @@ const nextModalObject = () => {
     objectSelectionModalObject.set(modalObjectHistory[modalObjectHistoryIndex]);
 };
 
-export { objectSelectionModalShow, objectSelectionModalObject, projectListModalShow, nextModalObject, prevModalObject, updateModalObject };
+export {
+    objectSelectionModalShow,
+    objectSelectionModalObject,
+    projectListModalShow,
+    nextModalObject,
+    prevModalObject,
+    updateModalObject
+};

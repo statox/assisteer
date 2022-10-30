@@ -50,7 +50,7 @@ function makeNodesMoveSubtree(cy: cytoscape.Core) {
  * Allow to hide/show successors when clicking a node
  */
 function makeNodesShowHideOnTap(cy: cytoscape.Core) {
-    cy.on('tap', 'node', function() {
+    cy.on('tap', 'node', function () {
         if (this.scratch().restData == null) {
             // Save node data and remove
             this.scratch({

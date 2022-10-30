@@ -4,7 +4,6 @@ import { getAllPlanets, getPlanet, Planet } from '../services/data/planets';
 const defaultPlanet = getPlanet('sylva');
 const planets = getAllPlanets();
 
-
 const storedSelectedPlanetId = localStorage.getItem('power_selectedPlanet');
 
 let selectedPlanet: Writable<Planet>;

@@ -13,7 +13,7 @@ export type Galastropod = {
     };
     labels: {
         [lang: string]: string;
-    }
+    };
 };
 
 const getGalastropod = (galastropodId: string) => galastropods[galastropodId];

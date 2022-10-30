@@ -3,4 +3,13 @@ import { objectSelectionModalObject, objectSelectionModalShow, projectListModalS
 import { defaultProject, project } from './project';
 import { settings } from './settings';
 
-export { activePages, defaultProject, project, settings, objectSelectionModalShow, objectSelectionModalObject, projectListModalShow, updateModalObject };
+export {
+    activePages,
+    defaultProject,
+    project,
+    settings,
+    objectSelectionModalShow,
+    objectSelectionModalObject,
+    projectListModalShow,
+    updateModalObject
+};

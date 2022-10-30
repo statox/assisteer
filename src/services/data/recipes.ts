@@ -38,7 +38,7 @@ type DepLevel<T> = {
     };
 };
 
-export interface DepTree extends DepLevel<DepTree> { } // eslint-disable-line @typescript-eslint/no-empty-interface
+export interface DepTree extends DepLevel<DepTree> {} // eslint-disable-line @typescript-eslint/no-empty-interface
 
 const getRecipeDependenciesTree = (recipe: Recipe, finalObjectQuantity: number): DepTree => {
     const result = {

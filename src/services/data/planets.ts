@@ -52,7 +52,7 @@ const getPlanet = (planetId: string): Planet => {
 
 const allPlanets: Planet[] = [];
 for (const planet of Object.values(planets)) {
-    const galastropod = Object.values(galastropods).find(g => g.planet === planet.id)?.id;
+    const galastropod = Object.values(galastropods).find((g) => g.planet === planet.id)?.id;
     allPlanets.push({
         ...planet,
         galastropod

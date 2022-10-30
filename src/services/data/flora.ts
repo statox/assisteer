@@ -9,11 +9,11 @@ export type Flora = {
     };
     location: {
         [planet: string]: string; // planet can be a planet name or "all"
-    }
+    };
     labels: {
         [lang: string]: string;
-    }
-}
+    };
+};
 
 const getAllFlora = (): Flora[] => {
     const all: Flora[] = [];

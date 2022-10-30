@@ -3,17 +3,17 @@ import { getAllRecipesList } from './data/recipes';
 import { Project, projectToFlatTree } from './project';
 
 export type ResourceUsages = {
-    refined?: BaseObject[],
-    composite?: BaseObject[],
-    tier_1?: BaseObject[],
-    tier_2?: BaseObject[],
-    tier_3?: BaseObject[],
-    tier_4?: BaseObject[]
-}
+    refined?: BaseObject[];
+    composite?: BaseObject[];
+    tier_1?: BaseObject[];
+    tier_2?: BaseObject[];
+    tier_3?: BaseObject[];
+    tier_4?: BaseObject[];
+};
 
 type AllResourcesUsages = {
     [resourceId: string]: ResourceUsages;
-}
+};
 const computeAllResourcesUsages = (): AllResourcesUsages => {
     const allRecipes = getAllRecipesList();
     const allDependencies = {};
