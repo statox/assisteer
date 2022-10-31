@@ -12,7 +12,7 @@
 
 <div class="d-inline-flex">
     <ObjectName object={getObject(currencyId)} hideName={true} quantity={currencyQty} pictureType={'icon'} />
-    :
+    <span class="mx-2">:</span>
     <ObjectName {object} hideName={true} quantity={objectQty} pictureType={'icon'} />
 
     {#if surplus}
