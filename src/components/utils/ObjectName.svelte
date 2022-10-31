@@ -20,12 +20,14 @@
         $projectListModalShow = false;
     }}
     class:important-word={importantWord}
-    class="object-name d-flex flex-row justify-content-between"
+    class="object-name d-flex flex-row justify-content-start"
 >
-    <div class="flex-grow-1">
-        {#if quantity}
+    {#if quantity}
+        <div class="quantity">
             {quantity}&nbsp;
-        {/if}
+        </div>
+    {/if}
+    <div>
         {#if ['icon', 'both'].includes(pictureType)}
             <img
                 class="img-fluid text-sized-image"
@@ -76,6 +78,9 @@
 </div>
 
 <style>
+    .quantity {
+        min-width: 3ex;
+    }
     .object-name {
         width: 100%;
         cursor: pointer;
