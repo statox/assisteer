@@ -33,7 +33,7 @@ const computeAllResourcesUsages = (): AllResourcesUsages => {
 
         for (const resourceNode of flatTree.nodes) {
             const resourceId = resourceNode.object.id;
-            if (resourceNode.object.type !== 'resource') {
+            if (resourceNode.object.type !== 'resource' || resourceNode.object.id === objectId) {
                 continue;
             }
 
