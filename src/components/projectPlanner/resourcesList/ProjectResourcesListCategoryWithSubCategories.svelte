@@ -37,33 +37,19 @@
     <h4 class="content-subheader">
         {categoryName} ({totalResourcesInCategory})
     </h4>
-    <div class="container">
-        <div class="d-flex flex-sm-row flex-column justify-content-evenly">
-            {#each Object.keys(sortedItems).sort(subCatSort) as classification}
-                <div class="flex-column text-align-center">
-                    <ul>
-                        {#each Object.keys(sortedItems[classification]).sort(alphaSort) as objectName}
-                            {@const object = getObject(objectName)}
-                            <li class="d-flex justify-content-between">
-                                <ObjectName
-                                    {object}
-                                    quantity={categoryItems[objectName]}
-                                    pictureType={$settings.pictureType}
-                                    showPlanets={true}
-                                />
-                            </li>
-                        {/each}
-                    </ul>
-                </div>
-            {/each}
-        </div>
+    <div class="d-flex flex-sm-row flex-column justify-content-around">
+        {#each Object.keys(sortedItems).sort(subCatSort) as classification}
+            <div class="flex-column text-align-center">
+                {#each Object.keys(sortedItems[classification]).sort(alphaSort) as objectName}
+                    {@const object = getObject(objectName)}
+                    <ObjectName
+                        {object}
+                        quantity={categoryItems[objectName]}
+                        pictureType={$settings.pictureType}
+                        showPlanets={true}
+                    />
+                {/each}
+            </div>
+        {/each}
     </div>
 </main>
-
-<style>
-    ul {
-        list-style-type: none;
-        text-align: left;
-        display: inline-block;
-    }
-</style>

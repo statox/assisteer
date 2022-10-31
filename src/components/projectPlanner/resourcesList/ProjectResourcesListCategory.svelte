@@ -21,31 +21,17 @@
     <h4 class="content-subheader">
         {categoryName} ({totalResourcesInCategory})
     </h4>
-    <div class="container">
-        <div class="row">
-            <div class="col text-align-center">
-                <ul>
-                    {#each Object.keys(categoryItems).sort(alphaSort) as objectName}
-                        {@const object = getObject(objectName)}
-                        <li class="d-flex justify-content-between">
-                            <ObjectName
-                                {object}
-                                quantity={categoryItems[objectName]}
-                                pictureType={$settings.pictureType}
-                                showPlanets={true}
-                            />
-                        </li>
-                    {/each}
-                </ul>
-            </div>
+    <div class="d-flex justify-content-start justify-content-md-around">
+        <div class="flex-column text-align-center">
+            {#each Object.keys(categoryItems).sort(alphaSort) as objectName}
+                {@const object = getObject(objectName)}
+                <ObjectName
+                    {object}
+                    quantity={categoryItems[objectName]}
+                    pictureType={$settings.pictureType}
+                    showPlanets={true}
+                />
+            {/each}
         </div>
     </div>
 </main>
-
-<style>
-    ul {
-        list-style-type: none;
-        text-align: left;
-        display: inline-block;
-    }
-</style>
