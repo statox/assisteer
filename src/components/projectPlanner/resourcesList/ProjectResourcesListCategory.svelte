@@ -48,7 +48,4 @@
         text-align: left;
         display: inline-block;
     }
-    .text-align-center {
-        text-align: center;
-    }
 </style>

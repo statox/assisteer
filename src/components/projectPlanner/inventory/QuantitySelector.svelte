@@ -79,7 +79,4 @@
         background-color: var(--red);
         color: var(--white);
     }
-    .text-align-center {
-        text-align: center;
-    }
 </style>

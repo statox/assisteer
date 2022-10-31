@@ -28,7 +28,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Resource</th>
-                            <th scope="col">Required Quantity</th>
+                            <th scope="col" class="text-align-center">Required Quantity</th>
                             <th scope="col">Soil</th>
                             <th scope="col">Scrap</th>
                         </tr>
@@ -73,7 +73,7 @@
                                     <ObjectName {object} pictureType={$settings.pictureType} showPlanets={true} />
                                 </td>
 
-                                <td>
+                                <td class="text-align-center">
                                     {#if trade.soil}
                                         {trade.soil.resourcesProduced - trade.soil.surplus}
                                     {:else}
