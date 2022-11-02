@@ -1,6 +1,6 @@
 <script lang="ts">
     import { getProjectPowerStats, ProjectPowerStats } from '../../../services/data/power';
-    import { project } from '../../../stores';
+    import { objectSelectionModalShow, project } from '../../../stores';
     import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
     import ObjectName from '../../utils/ObjectName.svelte';
     import PlanetSelection from './PlanetSelection.svelte';
@@ -143,6 +143,20 @@
                     </div>
                 {/if}
                 <div class="row table-responsive">
+                    <div>
+                        <button
+                            class="nav-item"
+                            on:click={() => {
+                                $objectSelectionModalShow = true;
+                            }}
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Object selection"
+                        >
+                            <span class="bi bi-card-list" />
+                        </button>
+                    </div>
+
                     <table class="table table-borderless">
                         <tbody>
                             {#if projectData['producer'].total > 0}
