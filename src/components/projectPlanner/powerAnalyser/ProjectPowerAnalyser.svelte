@@ -6,6 +6,7 @@
     import PlanetSelection from './PlanetSelection.svelte';
     import QuantitySelector from '../inventory/QuantitySelector.svelte';
     import { updateObjectQuantityInProject } from '../../../services/project';
+    import ProjectPowerTimeline from './ProjectPowerTimeline.svelte';
 
     let collapsed = false;
     let hasDataToShow = false;
@@ -54,6 +55,9 @@
                     <h4 class="content-subheader">Planet hosting the project</h4>
                     <div class="row">
                         <PlanetSelection />
+                    </div>
+                    <div class="row">
+                        <ProjectPowerTimeline />
                     </div>
                     <div class="row">
                         <div class="col-md-6">

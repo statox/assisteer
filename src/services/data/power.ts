@@ -15,7 +15,7 @@ type PowerConsumer = {
     input: number;
 };
 
-type PowerStorage = {
+export type PowerStorage = {
     type: 'storage';
     output: number;
     capacity: number;
