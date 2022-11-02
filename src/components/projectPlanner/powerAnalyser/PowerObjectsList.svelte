@@ -5,23 +5,14 @@
     import { objectSelectionModalShow, project } from '../../../stores';
     import ObjectName from '../../utils/ObjectName.svelte';
     import QuantitySelector from '../inventory/QuantitySelector.svelte';
+    import ObjectSelectionButton from '../utils/buttons/ObjectSelectionButton.svelte';
 
     export let projectData: ProjectPowerStats;
 </script>
 
 <div class="table-responsive">
     <div>
-        <button
-            class="nav-item"
-            on:click={() => {
-                $objectSelectionModalShow = true;
-            }}
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Object selection"
-        >
-            <span class="bi bi-card-list" />
-        </button>
+        <ObjectSelectionButton showName={true} />
     </div>
 
     <table class="table table-borderless">

@@ -9,6 +9,8 @@
     import ProjectTrading from './ProjectTrading.svelte';
     import ProjectPowerAnalyser from './powerAnalyser/ProjectPowerAnalyser.svelte';
     import UserGuide from './UserGuide.svelte';
+    import ObjectSelectionButton from './utils/buttons/ObjectSelectionButton.svelte';
+    import ProjectsListButton from './utils/buttons/ProjectsListButton.svelte';
 
     const sections = {
         graph: {
@@ -67,30 +69,10 @@
     <div class="nav-menu d-flex flex-row">
         <div class="d-flex flex-column align-items-start flex-md-row">
             <div class="mx-1">
-                <button
-                    class="nav-item"
-                    on:click={() => {
-                        $objectSelectionModalShow = true;
-                    }}
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Object selection"
-                >
-                    <span class="bi bi-card-list" />
-                </button>
+                <ObjectSelectionButton />
             </div>
             <div class="mx-1">
-                <button
-                    class="nav-item"
-                    on:click={() => {
-                        $projectListModalShow = true;
-                    }}
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Projects list"
-                >
-                    <span class="bi bi-list-ul" />
-                </button>
+                <ProjectsListButton />
             </div>
             {#each ['graph', 'resources', 'trading', 'power', 'storage'] as section}
                 <div class="mx-1">
