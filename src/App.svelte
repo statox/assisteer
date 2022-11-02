@@ -7,6 +7,15 @@
     import Astropedia from './routes/astropedia.svelte';
 
     let url = '';
+
+    window.onunhandledrejection = (event: any) => {
+        // Logs the error in the console
+        console.log(`UNHANDLED PROMISE REJECTION: ${event.reason}`);
+        console.log(event);
+        alert(
+            'Something went wrong. You should try deleting the local storage for this website and refresh the page. If the problem persists you can here an issue here: https://github.com/statox/assisteer/issues'
+        );
+    };
 </script>
 
 <Header />
