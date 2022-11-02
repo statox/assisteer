@@ -54,3 +54,7 @@ input:disabled {
 .hidden {
   display: none;
 }
+
+.text-align-center {
+    text-align: center;
+}
