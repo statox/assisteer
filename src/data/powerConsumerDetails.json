@@ -38,6 +38,9 @@
     "large shredder": {
         "input": 7.5
     },
+    "medium printer": {
+        "input": 2
+    },
     "medium shredder": {
         "input": 5
     },

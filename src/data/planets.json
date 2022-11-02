@@ -22,6 +22,7 @@
         "power": {
             "dayNightCycleSeconds": 720,
             "sun": "medium",
+            "wikiSolarCoefficient": 1,
             "wind": "medium",
             "wikiWindCoefficient": 0.48
         },
@@ -58,6 +59,7 @@
         "power": {
             "dayNightCycleSeconds": 115,
             "sun": "high",
+            "wikiSolarCoefficient": 1.5,
             "wind": "low",
             "wikiWindCoefficient": 0.25
         },
@@ -97,6 +99,7 @@
         "power": {
             "dayNightCycleSeconds": 810,
             "sun": "very high",
+            "wikiSolarCoefficient": 1.75,
             "wind": "low",
             "wikiWindCoefficient": 0.4
         },
@@ -138,6 +141,7 @@
         "power": {
             "dayNightCycleSeconds": 810,
             "sun": "low",
+            "wikiSolarCoefficient": 0.5,
             "wind": "high",
             "wikiWindCoefficient": 0.56
         },
@@ -177,6 +181,7 @@
         "power": {
             "dayNightCycleSeconds": 210,
             "sun": "high",
+            "wikiSolarCoefficient": 1.5,
             "wind": "high",
             "wikiWindCoefficient": 0.58
         },
@@ -215,6 +220,7 @@
         "power": {
             "dayNightCycleSeconds": 1200,
             "sun": "very low",
+            "wikiSolarCoefficient": 0.25,
             "wind": "very high",
             "wikiWindCoefficient": 0.56
         },
@@ -246,6 +252,7 @@
         "power": {
             "dayNightCycleSeconds": 1200,
             "sun": "low",
+            "wikiSolarCoefficient": 0.5,
             "wind": "low",
             "wikiWindCoefficient": 0.25
         },

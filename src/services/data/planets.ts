@@ -1,6 +1,5 @@
 import planets from '../../data/planets.json';
 import galastropods from '../../data/galastropods.json';
-import type { Galastropod } from './galastropods';
 
 type PlanetLocationDetails = {
     id: string;
@@ -29,6 +28,7 @@ export type Planet = {
         sun: string;
         wind: string;
         wikiWindCoefficient: number; // The wiki says the wind coeffients are not related to the planets wind power category
+        wikiSolarCoefficient: number;
     };
     gatewayNetwork: {
         gatewayPower: number;
