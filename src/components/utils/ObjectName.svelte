@@ -11,6 +11,7 @@
     export let importantWord: boolean = false;
     export let pictureSize: 'default' | 'large' | 'larger' = 'default';
     export let showPlanets: boolean = false;
+    export let classes: string[] = [];
 </script>
 
 <div
@@ -20,7 +21,7 @@
         $projectListModalShow = false;
     }}
     class:important-word={importantWord}
-    class="object-name d-flex flex-row justify-content-start"
+    class={'object-name d-flex flex-row justify-content-start ' + classes.join(' ')}
 >
     {#if quantity}
         <div class="quantity">
@@ -97,5 +98,8 @@
     }
     .label {
         text-transform: capitalize;
+    }
+    .green {
+        color: var(--green);
     }
 </style>
