@@ -1,6 +1,7 @@
 <script lang="ts">
     import { projectListModalShow } from '../../../stores';
     import ProjectObjectsList from '../inventory/ProjectObjectsList.svelte';
+    import ObjectSelectionButton from '../utils/buttons/ObjectSelectionButton.svelte';
     import ProjectsList from './ProjectsList.svelte';
 
     export let onClosed: () => void = undefined;
@@ -37,9 +38,12 @@
                         Projects List
                     </h1>
 
+                    <span class="ms-auto">
+                        <ObjectSelectionButton />
+                    </span>
                     <button
                         type="button"
-                        class="close ms-auto"
+                        class="close ms-1"
                         data-dismiss="modal"
                         aria-label="Close"
                         on:click={modalClose}

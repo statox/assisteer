@@ -2,6 +2,7 @@
     import { objectSelectionModalObject, objectSelectionModalShow } from '../../../stores';
     import { nextModalObject, prevModalObject, updateModalObject } from '../../../stores/modal';
     import ObjectDetails from '../objectDetails/ObjectDetails.svelte';
+    import ProjectsListButton from '../utils/buttons/ProjectsListButton.svelte';
     import ObjectSearch from './ObjectSearch.svelte';
 
     export let onClosed: () => void = undefined;
@@ -43,15 +44,18 @@
                     </h1>
 
                     <button type="button" class="me-1" aria-label="Previous object" on:click={prevModalObject}>
-                        <span class="bi bi-arrow-counterclockwise" />
+                        <span class="bi bi-arrow-left" />
                     </button>
                     <button type="button" data-dismiss="Next object" on:click={nextModalObject}>
-                        <span class="bi bi-arrow-clockwise" />
+                        <span class="bi bi-arrow-right" />
                     </button>
 
+                    <span class="ms-auto">
+                        <ProjectsListButton />
+                    </span>
                     <button
                         type="button"
-                        class="close ms-auto"
+                        class="close ms-1"
                         data-dismiss="modal"
                         aria-label="Close"
                         on:click={modalClose}
