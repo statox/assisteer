@@ -40,13 +40,9 @@
                 Once you are happy with your project you can give it a name and use the save button. If you reuse an
                 existing name the existing project will be overwritten.
             </p>
-        </div>
-
-        <div>
-            <h4 class="content-subheader">Inventory</h4>
             <p>
-                This section shows all the items you added in the project. You can choose to group your items by tier or
-                categories. (The categories used here are not explicitely matching the in-game sorts)
+                In this modal you will also findall the items you added in the project. You can choose to group your
+                items by tier or categories. (The categories used here are not explicitely matching the in-game sorts)
             </p>
             <p>
                 You can use add or remove items individually. The page also shows the number of bytes required to unlock
@@ -142,7 +138,33 @@
                     wind is blowing.
                 </li>
             </ul>
-            <p>The section does several calculations:</p>
+            <p>The section shows different graphs:</p>
+            <ul>
+                <li>
+                    <b>Environment</b> displays the day/night cycle length (in seconds) with the coefficient for the sun
+                    power and the wind turbines activity. The activity percentage of the wind turbines comes from
+                    <a target="blank" href="astroneer.fandom.com/wiki/wind_Turbines">the wiki</a> and this percentage is
+                    assumed to be true over periods of 60 seconds.
+                </li>
+                <li>
+                    <b>Producers output</b> displays how much power is produced by each type of items depending on the wind
+                    and sun situation. It also shows the tool nominal consumption which is how much power is drained by all
+                    the tools if they are working at the same time.
+                </li>
+                <li>
+                    <b>Storage throughput</b> is used to understand when the batteries in the project are being filled, how
+                    much power is available to fill them and how much power they are delivering when the other power sources
+                    are lacking.
+                </li>
+                <li>
+                    <b>Storage capacity</b> shows how much power is stored in all the batteries compared to their maximum
+                    capacity.
+                </li>
+            </ul>
+            <p>
+                The section also shows several calculations (note that these ones need to be reworked and might not be
+                accurage):
+            </p>
             <ul>
                 <li>
                     <b>Max instant</b> The power production and consumption when all power sources are active at the same
@@ -156,7 +178,10 @@
                     the batteries in the project. (For now the computations are wrong, to be fixed)
                 </li>
             </ul>
-            <p>It also lists the different power sources, tools consuming power and batteries in the project.</p>
+            <p>
+                It finally lists the different power sources, tools consuming power and batteries in the project and
+                allow the user to change their quantity in the project.
+            </p>
         </div>
 
         <div>
