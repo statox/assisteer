@@ -22,6 +22,10 @@ export interface TradingStats {
     possibleTrades: PossibleTrades[];
 }
 
+const getSoilTradingRates = () => exchangeRates.soilCentrifuge;
+const getScrapTradingRates = () => exchangeRates.tradePlatformScrap;
+const getAstroniumTradingRates = () => exchangeRates.tradePlatformAstronium;
+
 const getObjectTradingStats = (objectName: string): PossibleTrades => {
     const scrap = exchangeRates.tradePlatformScrap[objectName];
     const soil = exchangeRates.soilCentrifuge[objectName];
@@ -189,4 +193,4 @@ const getResourcesScrapRequirement = (projectResources: ProjectLightResourcesByC
     return scrapRequirements;
 };
 
-export { getObjectTradingStats, getProjectTradingStats };
+export { getAstroniumTradingRates, getObjectTradingStats, getProjectTradingStats, getScrapTradingRates, getSoilTradingRates };

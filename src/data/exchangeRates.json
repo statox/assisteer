@@ -65,5 +65,27 @@
             "scrap": 4,
             "item": 1
         }
+    },
+    "tradePlatformAstronium": {
+        "exo chip": {
+            "astronium": 3,
+            "item": 1
+        },
+        "packager": {
+            "astronium": 1,
+            "item": 4
+        },
+        "solid fuel jump jet": {
+            "astronium": 1,
+            "item": 2
+        },
+        "dynamite": {
+            "astronium": 3,
+            "item": 4
+        },
+        "hydrazine": {
+            "astronium": 3,
+            "item": 4
+        }
     }
 }
