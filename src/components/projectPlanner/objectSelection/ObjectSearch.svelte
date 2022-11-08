@@ -25,7 +25,11 @@
         group: string;
     }
 
-    const canAddToProject = (object: BaseObject) => object && !['atmospheric', 'natural'].includes(object.category);
+    const forbiddenCategories = ['atmospheric', 'natural'];
+    const forbiddenItems = ['exo chip', 'soil', 'scrap'];
+
+    const canAddToProject = (object: BaseObject) =>
+        object && !forbiddenCategories.includes(object.category) && !forbiddenItems.includes(object.id);
 
     const items = allObjectNames
         .map((name): SelectItem => {
