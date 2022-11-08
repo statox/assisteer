@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { activePages, objectSelectionModalShow, projectListModalShow } from '../../stores';
+    import { activePages } from '../../stores';
     import ProjectsListModal from './projectsLists/ProjectsListModal.svelte';
     import ProjectResourcesList from './resourcesList/ProjectResourcesList.svelte';
     import ProjectGraph from './ProjectGraph.svelte';
