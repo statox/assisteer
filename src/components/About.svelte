@@ -194,11 +194,17 @@
                 <li>A lot of code splitting, refactoring, dependencies removal</li>
                 <li>Finally add eslint and prettier</li>
                 <li>Better use svelte with stuff like <code>&lt;svelte:component /&gt;</code></li>
+                <li>I also experiemented quite a bit with Bootstrap, getting more comfortable with flexboxes and its principles in general.</li>
             </ul>
 
             <p>
                 In the near future I have a list of tings I want to work on like marking objects as done in the project and implementing more time-based tooling to
                 make it easier to plan larger factories.
+            </p>
+            <p>
+                The app is also starting to have some serious slow downs. One part is due to the new power analyser which is pretty compute intensive. I think this could
+                be made a bit better by memoizing some functions and a lot better by reworking the data structure completey. But other slow downs might not be related to
+                power analyser and for now I haven't investigated where they could be coming from.
             </p>
         </div>
 
