@@ -2,7 +2,7 @@
     import type { ProjectPowerStats } from '../../../services/data/power';
     import { updateObjectQuantityInProject } from '../../../services/project';
 
-    import { objectSelectionModalShow, project } from '../../../stores';
+    import { project } from '../../../stores';
     import ObjectName from '../../utils/ObjectName.svelte';
     import QuantitySelector from '../inventory/QuantitySelector.svelte';
     import ObjectSelectionButton from '../utils/buttons/ObjectSelectionButton.svelte';
@@ -44,7 +44,7 @@
                         <td>
                             <QuantitySelector
                                 objectId={item.object.id}
-                                quantity={$project.objects[item.object.id]}
+                                quantity={$project.objects[item.object.id].quantity}
                                 changeQuantityFn={(params) =>
                                     ($project = updateObjectQuantityInProject($project, {
                                         op: params.op,
@@ -82,7 +82,7 @@
                         <td>
                             <QuantitySelector
                                 objectId={item.object.id}
-                                quantity={$project.objects[item.object.id]}
+                                quantity={$project.objects[item.object.id].quantity}
                                 changeQuantityFn={(params) =>
                                     ($project = updateObjectQuantityInProject($project, {
                                         op: params.op,
@@ -120,7 +120,7 @@
                         <td>
                             <QuantitySelector
                                 objectId={item.object.id}
-                                quantity={$project.objects[item.object.id]}
+                                quantity={$project.objects[item.object.id].quantity}
                                 changeQuantityFn={(params) =>
                                     ($project = updateObjectQuantityInProject($project, {
                                         op: params.op,

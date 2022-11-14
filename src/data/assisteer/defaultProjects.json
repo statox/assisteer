@@ -3,39 +3,93 @@
         "name": "All resources",
         "planet": "sylva",
         "objects": {
-            "aluminum alloy": 1,
-            "diamond": 1,
-            "explosive powder": 1,
-            "graphene": 1,
-            "hydrazine": 1,
-            "nanocarbon alloy": 1,
-            "plastic": 1,
-            "rubber": 1,
-            "silicone": 1,
-            "steel": 1,
-            "titanium alloy": 1,
-            "tungsten carbide": 1,
-            "aluminum": 1,
-            "carbon": 1,
-            "ceramic": 1,
-            "copper": 1,
-            "glass": 1,
-            "iron": 1,
-            "titanium": 1,
-            "tungsten": 1,
-            "zinc": 1
+            "aluminum alloy": {
+                "quantity": 1
+             },
+            "diamond": {
+                "quantity": 1
+             },
+            "explosive powder": {
+                "quantity": 1
+             },
+            "graphene": {
+                "quantity": 1
+             },
+            "hydrazine": {
+                "quantity": 1
+             },
+            "nanocarbon alloy": {
+                "quantity": 1
+             },
+            "plastic": {
+                "quantity": 1
+             },
+            "rubber": {
+                "quantity": 1
+             },
+            "silicone": {
+                "quantity": 1
+             },
+            "steel": {
+                "quantity": 1
+             },
+            "titanium alloy": {
+                "quantity": 1
+             },
+            "tungsten carbide": {
+                "quantity": 1
+             },
+            "aluminum": {
+                "quantity": 1
+             },
+            "carbon": {
+                "quantity": 1
+             },
+            "ceramic": {
+                "quantity": 1
+             },
+            "copper": {
+                "quantity": 1
+             },
+            "glass": {
+                "quantity": 1
+             },
+            "iron": {
+                "quantity": 1
+             },
+            "titanium": {
+                "quantity": 1
+             },
+            "tungsten": {
+                "quantity": 1
+             },
+            "zinc": {
+                "quantity": 1
+             }
         }
     },
     {
         "name": "Auto extractor Glacio",
         "planet": "glacio",
         "objects": {
-            "auto extractor": 1,
-            "large resource canister": 1,
-            "large wind turbine": 2,
-            "medium battery": 1,
-            "auto arm": 1,
-            "extra large platform c": 1
+            "auto extractor": {
+                "quantity": 1
+             },
+            "large resource canister": {
+                "quantity": 1
+             },
+            "large wind turbine": {
+                "quantity": 2
+            },
+            "medium battery": {
+                "quantity": 1
+             },
+            "auto arm": {
+                "quantity": 1
+             },
+            "extra large platform c": {
+                "quantity": 1
+             }
         }
     }
 ]

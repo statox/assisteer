@@ -21,7 +21,7 @@ const computeAllResourcesUsages = (): AllResourcesUsages => {
     for (const objectId of Object.keys(allRecipes)) {
         const producedObject = getObject(objectId);
         const fakeProject: Project = { name: 'tmp', objects: {} };
-        fakeProject.objects[objectId] = 1;
+        fakeProject.objects[objectId] = { quantity: 1 };
         const flatTree = projectToFlatTree(fakeProject);
 
         let category: string;

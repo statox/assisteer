@@ -111,7 +111,7 @@ const getProjectPowerStats = (project: Project, planet: Planet): ProjectPowerSta
             continue;
         }
         const object = getObject(objectName);
-        const quantity = project.objects[objectName];
+        const quantity = project.objects[objectName].quantity;
 
         const objectType = powerStats.type;
 

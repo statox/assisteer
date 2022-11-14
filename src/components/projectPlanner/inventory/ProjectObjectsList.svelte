@@ -38,7 +38,7 @@
             objectsByCategory = getProjectObjectsByTier($project);
         }
         projectTotalUnlockCost = getProjectTotalUnlockCost($project);
-        projectTotalObjectsCount = Object.values($project.objects).reduce((a, b) => a + b, 0);
+        projectTotalObjectsCount = Object.values($project.objects).reduce((a, b) => a + b.quantity, 0);
     };
 
     const changeSortType = (value: 'category' | 'tier') => {

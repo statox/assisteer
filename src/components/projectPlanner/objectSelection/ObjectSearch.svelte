@@ -148,7 +148,7 @@
             <div class="col">
                 <QuantitySelector
                     objectId={object?.id}
-                    quantity={$project.objects[object?.id] || 0}
+                    quantity={$project.objects[object?.id]?.quantity || 0}
                     disabled={!canAddToProject(object)}
                     changeQuantityFn={(params) => {
                         $project = updateObjectQuantityInProject($project, {
@@ -172,7 +172,11 @@
                     {#each Object.keys($project.objects) as objectName}
                         {@const item = getObject(objectName)}
                         <div class:green={item.id === object?.id}>
-                            <ObjectName object={item} pictureType={'icon'} quantity={$project.objects[objectName]} />
+                            <ObjectName
+                                object={item}
+                                pictureType={'icon'}
+                                quantity={$project.objects[objectName].quantity}
+                            />
                         </div>
                     {/each}
                 </div>

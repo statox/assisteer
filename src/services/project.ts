@@ -5,14 +5,18 @@ import { getAllRecipesList, getObjectDefaultRecipe, getRecipeDependenciesTree } 
 export type Project = {
     name: string;
     objects: {
-        [objectName: string]: number;
+        [objectName: string]: {
+            quantity: number;
+        }
     };
 };
 
 export type SavedProject = {
     planet: string;
     objects: {
-        [objectId: string]: number;
+        [objectId: string]: {
+            quantity: number;
+        };
     };
     name: string;
 };
@@ -42,7 +46,7 @@ const projectToFlatTree = (project: Project, params?: { includeObjectTool: boole
     for (const objectName of Object.keys(project.objects)) {
         const object = getObject(objectName);
         const recipe = getObjectDefaultRecipe(objectName);
-        const quantity = project.objects[objectName];
+        const quantity = project.objects[objectName].quantity;
         const rootDepTree = getRecipeDependenciesTree(recipe, quantity);
 
         nodes[objectName] = {
@@ -161,7 +165,7 @@ const getProjectObjectsByCategory = (project: Project): ProjectObjectsByCategory
 
     for (const objectName of Object.keys(project.objects)) {
         const object = getObject(objectName);
-        const quantity = project.objects[objectName];
+        const quantity = project.objects[objectName].quantity;
         const category = object.category;
 
         if (!objectsByCategory[category]) {
@@ -178,7 +182,7 @@ const getProjectObjectsByTier = (project: Project): ProjectObjectsByCategory => 
 
     for (const objectName of Object.keys(project.objects)) {
         const object = getObject(objectName);
-        const quantity = project.objects[objectName];
+        const quantity = project.objects[objectName].quantity;
         const tier = 'tier ' + object.tier;
 
         if (!objectsByTier[tier]) {
@@ -206,24 +210,24 @@ const updateObjectQuantityInProject = (
 
     if (op === 'inc') {
         if (!project.objects[objectId]) {
-            project.objects[objectId] = 0;
+            project.objects[objectId] = { quantity: 0 };
         }
-        project.objects[objectId] += 1;
+        project.objects[objectId].quantity += 1;
     }
     if (op === 'dec' && project.objects[objectId]) {
-        project.objects[objectId] -= 1;
-        if (project.objects[objectId] <= 0) {
+        project.objects[objectId].quantity -= 1;
+        if (project.objects[objectId].quantity <= 0) {
             delete project.objects[objectId];
         }
     }
-    if (op === 'remove' || project.objects[objectId] <= 0) {
+    if (op === 'remove' || project.objects[objectId].quantity <= 0) {
         delete project.objects[objectId];
     }
     if (op === 'add') {
         if (!project.objects[objectId]) {
-            project.objects[objectId] = 0;
+            project.objects[objectId] = { quantity: 0 };
         }
-        project.objects[objectId] += 1;
+        project.objects[objectId].quantity += 1;
     }
     return project;
 };
