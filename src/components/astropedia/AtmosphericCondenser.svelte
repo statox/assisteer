@@ -3,7 +3,7 @@
 
     import { getAllPlanets } from '../../services/data/planets';
     import { getAllAlmosphericResourcesLocation } from '../../services/data/resources';
-    import { alphaSort } from '../../services/utils';
+    import { alphaSort, formatedDurationFromSeconds } from '../../services/utils';
     import ItemName from '../utils/ItemName.svelte';
     import ObjectName from '../utils/ObjectName.svelte';
 
@@ -82,24 +82,24 @@
                 <tbody>
                     <tr>
                         <th>Time to extract 1 unit of gas (1U)</th>
-                        <td>10s</td>
-                        <td>13.33s</td>
-                        <td>20s</td>
-                        <td>40s</td>
+                        <td>{formatedDurationFromSeconds(10)}</td>
+                        <td>{formatedDurationFromSeconds(13.33)}</td>
+                        <td>{formatedDurationFromSeconds(20)}</td>
+                        <td>{formatedDurationFromSeconds(40)}</td>
                     </tr>
                     <tr>
                         <th>Time to extract 1 single gas canister (5U)</th>
-                        <td>50s</td>
-                        <td>66.6s</td>
-                        <td>100s</td>
-                        <td>200s</td>
+                        <td>{formatedDurationFromSeconds(50)}</td>
+                        <td>{formatedDurationFromSeconds(66.6)}</td>
+                        <td>{formatedDurationFromSeconds(100)}</td>
+                        <td>{formatedDurationFromSeconds(200)}</td>
                     </tr>
                     <tr>
                         <th>Time to extract 1 medium gas canister (160U)</th>
-                        <td>27m</td>
-                        <td>36m</td>
-                        <td>53m</td>
-                        <td>1h 45m</td>
+                        <td>{formatedDurationFromSeconds(1620)}</td>
+                        <td>{formatedDurationFromSeconds(2160)}</td>
+                        <td>{formatedDurationFromSeconds(3180)}</td>
+                        <td>{formatedDurationFromSeconds(6840)}</td>
                     </tr>
                 </tbody>
             </table>

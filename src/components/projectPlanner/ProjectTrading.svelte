@@ -4,6 +4,7 @@
     import { getProjectTradingStats, TradingStats } from '../../services/trading';
     import ObjectName from '../utils/ObjectName.svelte';
     import Trade from '../utils/Trade.svelte';
+    import { formatedDurationFromSeconds } from '../../services/utils';
 
     let collapsed = false;
     let tradeStats: TradingStats;
@@ -104,7 +105,7 @@
                                                     hideName={true}
                                                     pictureSize="small"
                                                 />
-                                                {trade[currency].timeToRun}s
+                                                {formatedDurationFromSeconds(trade[currency].timeToRun)}
                                             </div>
                                         {/if}
                                     </td>

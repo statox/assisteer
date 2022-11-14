@@ -3,14 +3,14 @@
     import Chart from 'chart.js/auto';
     import type { ChartDatasets } from '../../../services/data/powerTimeLine';
 
-    export let labels: number[];
+    export let labels: string[];
     export let datasets: ChartDatasets;
 
     let chart: Chart;
 
     const canvasId = 'canvas' + uuidv4();
 
-    const updateChart = (labels: number[], datasets: ChartDatasets) => {
+    const updateChart = (labels: string[], datasets: ChartDatasets) => {
         const canvas = document.getElementById(canvasId);
         if (!canvas) {
             return;

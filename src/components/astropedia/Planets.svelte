@@ -5,6 +5,7 @@
     import ObjectName from '../utils/ObjectName.svelte';
     import ItemName from '../utils/ItemName.svelte';
     import { getGalastropod } from '../../services/data/galastropods';
+    import { formatedDurationFromSeconds } from '../../services/utils';
 
     const planets = getAllPlanets();
 </script>
@@ -59,7 +60,7 @@
                             <h5 class="content-subheader">Power</h5>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Day/Night cycle</span>
-                                {planet.power.dayNightCycleSeconds} s
+                                {formatedDurationFromSeconds(planet.power.dayNightCycleSeconds)}
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span class="important-word">Wind</span>

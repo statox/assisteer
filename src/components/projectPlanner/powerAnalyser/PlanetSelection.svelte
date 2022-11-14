@@ -1,5 +1,6 @@
 <script lang="ts">
     import { getAllPlanets } from '../../../services/data/planets';
+    import { formatedDurationFromSeconds } from '../../../services/utils';
     import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
     import ItemName from '../../utils/ItemName.svelte';
 
@@ -27,7 +28,7 @@
                     <td>{planet.power.sun}</td>
                     <td>{planet.power.wind}</td>
                     <td>{Math.round(planet.power.wikiWindCoefficient * 100)}%</td>
-                    <td>{planet.power.dayNightCycleSeconds}s</td>
+                    <td>{formatedDurationFromSeconds(planet.power.dayNightCycleSeconds)}</td>
                 </tr>
             {/each}
         </tbody>

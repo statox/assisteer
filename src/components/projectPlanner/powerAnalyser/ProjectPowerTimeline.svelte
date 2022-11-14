@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
 
     import { ChartDatasets, getProjectPowerTimeLine, PowerTimeLine } from '../../../services/data/powerTimeLine';
+    import { formatedDurationFromSeconds } from '../../../services/utils';
 
     import { project } from '../../../stores';
     import { selectedPowerPlanet } from '../../../stores/selectedPowerPlanet';
@@ -9,7 +10,7 @@
 
     let timeline: PowerTimeLine;
 
-    let labels: number[];
+    let labels: string[];
     let environmentDatasets: ChartDatasets;
     let producersOutputDatasets: ChartDatasets;
     let storageOutputDataset: ChartDatasets;
@@ -28,7 +29,7 @@
             return;
         }
 
-        labels = timeline.map((i) => i.timestamp);
+        labels = timeline.map((i) => formatedDurationFromSeconds(i.timestamp));
 
         environmentDatasets = [
             {

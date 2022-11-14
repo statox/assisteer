@@ -5,6 +5,7 @@
     import PlanetSelection from './PlanetSelection.svelte';
     import ProjectPowerTimeline from './ProjectPowerTimeline.svelte';
     import PowerObjectsList from './PowerObjectsList.svelte';
+    import { formatedDurationFromSeconds } from '../../../services/utils';
 
     let collapsed = false;
     let hasDataToShow = false;
@@ -106,34 +107,50 @@
                                     </tr>
                                     <tr>
                                         <td>All tools on</td>
-                                        <td
-                                            ><span
+                                        <td>
+                                            <span
                                                 class={projectData.secondsToFillStorage.withAllToolsOn > 0
                                                     ? 'green'
-                                                    : 'red'}>{projectData.secondsToFillStorage.withAllToolsOn}</span
-                                            > s</td
-                                        >
+                                                    : 'red'}
+                                            >
+                                                {formatedDurationFromSeconds(
+                                                    projectData.secondsToFillStorage.withAllToolsOn
+                                                )}
+                                            </span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>All tools off</td>
-                                        <td>{projectData.secondsToFillStorage.withAllToolsOff} s</td>
+                                        <td>
+                                            {formatedDurationFromSeconds(
+                                                projectData.secondsToFillStorage.withAllToolsOff
+                                            )}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Time to empty</th>
                                     </tr>
                                     <tr>
                                         <td>Power on</td>
-                                        <td
-                                            ><span
+                                        <td>
+                                            <span
                                                 class={projectData.secondsToEmptyStorage.withPowerOn === 0
                                                     ? 'green'
-                                                    : 'red'}>{projectData.secondsToEmptyStorage.withPowerOn}</span
-                                            > s</td
-                                        >
+                                                    : 'red'}
+                                            >
+                                                {formatedDurationFromSeconds(
+                                                    projectData.secondsToEmptyStorage.withPowerOn
+                                                )}
+                                            </span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Power off</td>
-                                        <td>{projectData.secondsToEmptyStorage.withPowerOff} s</td>
+                                        <td>
+                                            {formatedDurationFromSeconds(
+                                                projectData.secondsToEmptyStorage.withPowerOff
+                                            )}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
