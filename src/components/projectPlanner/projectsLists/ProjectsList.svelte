@@ -72,30 +72,38 @@
                 <input type="text" bind:value={name} />
                 <button on:click={saveProject}>Save current project</button>
             </div>
-            {#key projectsList}
-                <div>
+            <table>
+                {#key projectsList}
                     {#each projectsList.sort((a, b) => (a.name < b.name ? -1 : 1)) as savedProject}
-                        <div
-                            class="d-flex justify-content-between pointer p-1"
+                        <tr
+                            class="pointer"
                             class:selected={savedProject.name === name}
                             on:click={() => onSelect(savedProject)}
                         >
-                            <span class="important-word">{savedProject.name}</span>
-
-                            <ItemName item={getPlanet(savedProject.planet)} pictureType={'icon'} />
-
-                            <button class="btn-remove" on:click={() => onDelete(savedProject)}>
-                                <span class="bi bi-x-lg" />
-                            </button>
-                        </div>
+                            <td>
+                                <span class="important-word">{savedProject.name}</span>
+                            </td>
+                            <td>
+                                <ItemName item={getPlanet(savedProject.planet)} pictureType={'icon'} />
+                            </td>
+                            <td class="text-align-right">
+                                <button class="btn-remove" on:click={() => onDelete(savedProject)}>
+                                    <span class="bi bi-x-lg" />
+                                </button>
+                            </td>
+                        </tr>
                     {/each}
-                </div>
-            {/key}
+                {/key}
+            </table>
         </div>
     </div>
 </main>
 
 <style>
+    table {
+        width: 100%;
+    }
+
     .pointer {
         cursor: pointer;
     }
