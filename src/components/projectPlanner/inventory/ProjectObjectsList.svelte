@@ -9,7 +9,7 @@
         updateObjectQuantityInProject
     } from '../../../services/project';
     import { alphaSort } from '../../../services/utils';
-    import { defaultProject, project } from '../../../stores';
+    import { project } from '../../../stores';
     import ObjectName from '../../utils/ObjectName.svelte';
     import QuantitySelector from './QuantitySelector.svelte';
 
@@ -20,6 +20,8 @@
 
     let projectTotalObjectsCount = 0;
     let projectTotalUnlockCost = 0;
+
+    let showCopyFeedback = false;
 
     const changeQuantity = (params: ChangeQuantityFnParams) => {
         $project = updateObjectQuantityInProject($project, params);
@@ -41,6 +43,20 @@
     const changeSortType = (value: 'category' | 'tier') => {
         sortType = value;
         updateProjectData();
+    };
+
+    const copyToClipboard = () => {
+        if (!navigator.clipboard) {
+            alert('Your browser does not support the clipboard capability and I am too lazy to make it work');
+        }
+
+        const result = Object.keys($project.objects)
+            .map((k) => `${$project.objects[k].quantity} x ${k}`)
+            .join('\n');
+
+        navigator.clipboard.writeText(result);
+        showCopyFeedback = true;
+        setInterval(() => (showCopyFeedback = false), 1000);
     };
 
     afterUpdate(() => {
@@ -99,9 +115,19 @@
                         </div>
                     </div>
 
-                    <button class="col-sm-4 btn-danger" on:click={() => changeQuantity({ op: 'reset' })}>
-                        Reset project
-                    </button>
+                    <span class="col-sm-2">
+                        <button class="btn-danger m-1" on:click={() => changeQuantity({ op: 'reset' })}>
+                            Reset project
+                        </button>
+                        <button
+                            id="clipboard-copy-btn"
+                            class="m-1 green"
+                            class:confirmed={showCopyFeedback}
+                            on:click={copyToClipboard}
+                        >
+                            Copy to clipboard
+                        </button>
+                    </span>
                 </div>
 
                 {#each Object.keys(objectsByCategory).sort(alphaSort) as category}
