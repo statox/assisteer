@@ -151,10 +151,7 @@
                     quantity={$project.objects[object?.id]?.quantity || 0}
                     disabled={!canAddToProject(object)}
                     changeQuantityFn={(params) => {
-                        $project = updateObjectQuantityInProject($project, {
-                            op: params.op,
-                            objectId: params.objectName
-                        });
+                        $project = updateObjectQuantityInProject($project, params);
                     }}
                 />
             </div>

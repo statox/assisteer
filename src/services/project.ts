@@ -1,4 +1,5 @@
 import sampleProjects from '../data/assisteer/defaultProjects.json';
+import { defaultProject } from '../stores';
 import { BaseObject, getObject, getObjectUnlockCost } from './data/objects';
 import { getAllRecipesList, getObjectDefaultRecipe, getRecipeDependenciesTree } from './data/recipes';
 
@@ -202,28 +203,58 @@ const getProjectTotalUnlockCost = (project: Project) => {
     return projectTotalUnlockCost;
 };
 
+export type ChangeQuantityFnParams = {
+    op: 'inc' | 'dec' | 'remove' | 'add';
+    objectId: string;
+} | {
+    op: 'reset';
+} | {
+    op: 'set';
+    objectId: string;
+    quantity: number;
+};
 const updateObjectQuantityInProject = (
     project: Project,
-    params: { op: 'inc' | 'dec' | 'remove' | 'add'; objectId?: string }
+    params: ChangeQuantityFnParams
 ) => {
-    const { objectId, op } = params;
+    const { op } = params;
 
+    if (op === 'reset') {
+        project = defaultProject;
+    }
+    if (op === 'set') {
+        const { quantity, objectId } = params;
+        if (Number.isNaN(quantity) || quantity <= 0) {
+            return;
+        }
+        if (!project.objects[objectId]) {
+            project.objects[objectId] = { quantity: 0 };
+        }
+        project.objects[objectId].quantity = quantity;
+    }
     if (op === 'inc') {
+        const { objectId } = params;
         if (!project.objects[objectId]) {
             project.objects[objectId] = { quantity: 0 };
         }
         project.objects[objectId].quantity += 1;
     }
-    if (op === 'dec' && project.objects[objectId]) {
+    if (op === 'dec') {
+        const { objectId } = params;
+        if (!project.objects[objectId]) {
+            return;
+        }
         project.objects[objectId].quantity -= 1;
         if (project.objects[objectId].quantity <= 0) {
             delete project.objects[objectId];
         }
     }
-    if (op === 'remove' || project.objects[objectId].quantity <= 0) {
+    if (op === 'remove') {
+        const { objectId } = params;
         delete project.objects[objectId];
     }
     if (op === 'add') {
+        const { objectId } = params;
         if (!project.objects[objectId]) {
             project.objects[objectId] = { quantity: 0 };
         }

@@ -1,10 +1,17 @@
 <script lang="ts">
-    type ChangeQuantityFnParams = { objectName: string; op: 'inc' | 'dec' | 'remove' };
+    import type { ChangeQuantityFnParams } from '../../../services/project';
+
     export let objectId: string;
     export let quantity: number;
     export let changeQuantityFn: (params: ChangeQuantityFnParams) => void;
     export let disabled: boolean = false;
 
+    const changedQuantity = () => {
+        if (Number.isNaN(quantity)) {
+            return;
+        }
+        changeQuantityFn({ objectId: objectId, op: 'set', quantity });
+    };
     const onClick = (params: ChangeQuantityFnParams) => {
         if (disabled) {
             return;
@@ -20,19 +27,19 @@
             class:disabled
             on:click={() =>
                 onClick({
-                    objectName: objectId,
+                    objectId,
                     op: 'dec'
                 })}
         >
             <span class="bi bi-dash-lg" />
         </button>
-        <span class="important-word">&nbsp;{quantity}&nbsp;</span>
+        <input class="quantity-input" type="number" {disabled} bind:value={quantity} on:input={changedQuantity} />
         <button
             class="btn-plus"
             class:disabled
             on:click={() =>
                 onClick({
-                    objectName: objectId,
+                    objectId,
                     op: 'inc'
                 })}
         >
@@ -43,7 +50,7 @@
             class:disabled
             on:click={() =>
                 onClick({
-                    objectName: objectId,
+                    objectId,
                     op: 'remove'
                 })}
         >
@@ -78,5 +85,22 @@
         border: 1px solid var(--red);
         background-color: var(--red);
         color: var(--white);
+    }
+    .quantity-input {
+        text-align: center;
+        color: var(--blue);
+        width: 5ex;
+        padding: 0;
+    }
+    /* Remove the arrows from the input on different browsers */
+    /* Chrome, Safari, Edge, Opera */
+    .quantity-input::-webkit-outer-spin-button,
+    .quantity-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /* Firefox */
+    .quantity-input[type='number'] {
+        -moz-appearance: textfield;
     }
 </style>

@@ -46,10 +46,7 @@
                                 objectId={item.object.id}
                                 quantity={$project.objects[item.object.id].quantity}
                                 changeQuantityFn={(params) =>
-                                    ($project = updateObjectQuantityInProject($project, {
-                                        op: params.op,
-                                        objectId: params.objectName
-                                    }))}
+                                    ($project = updateObjectQuantityInProject($project, params))}
                             />
                         </td>
                     </tr>
@@ -84,10 +81,7 @@
                                 objectId={item.object.id}
                                 quantity={$project.objects[item.object.id].quantity}
                                 changeQuantityFn={(params) =>
-                                    ($project = updateObjectQuantityInProject($project, {
-                                        op: params.op,
-                                        objectId: params.objectName
-                                    }))}
+                                    ($project = updateObjectQuantityInProject($project, params))}
                             />
                         </td>
                     </tr>
@@ -122,10 +116,7 @@
                                 objectId={item.object.id}
                                 quantity={$project.objects[item.object.id].quantity}
                                 changeQuantityFn={(params) =>
-                                    ($project = updateObjectQuantityInProject($project, {
-                                        op: params.op,
-                                        objectId: params.objectName
-                                    }))}
+                                    ($project = updateObjectQuantityInProject($project, params))}
                             />
                         </td>
                     </tr>

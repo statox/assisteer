@@ -1,6 +1,7 @@
 <script lang="ts">
     import { afterUpdate } from 'svelte';
     import {
+        ChangeQuantityFnParams,
         getProjectObjectsByCategory,
         getProjectObjectsByTier,
         getProjectTotalUnlockCost,
@@ -20,12 +21,8 @@
     let projectTotalObjectsCount = 0;
     let projectTotalUnlockCost = 0;
 
-    const changeQuantity = (params: { op: 'inc' | 'dec' | 'remove' | 'reset'; objectName?: string }) => {
-        if (params.op === 'reset') {
-            $project = defaultProject;
-        } else {
-            $project = updateObjectQuantityInProject($project, { op: params.op, objectId: params.objectName });
-        }
+    const changeQuantity = (params: ChangeQuantityFnParams) => {
+        $project = updateObjectQuantityInProject($project, params);
 
         updateProjectData();
     };
