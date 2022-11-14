@@ -10,6 +10,9 @@
         if (Number.isNaN(quantity)) {
             return;
         }
+        if (quantity <= 0) {
+            quantity = 1;
+        }
         changeQuantityFn({ objectId: objectId, op: 'set', quantity });
     };
     const onClick = (params: ChangeQuantityFnParams) => {
