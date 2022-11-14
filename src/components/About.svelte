@@ -15,6 +15,10 @@
     a:visited {
         color: rgb(0, 80, 160);
     }
+
+    /* Indent nested lists */
+    /* https://stackoverflow.com/a/21762342 */
+    li+ul {padding-left: 20px;}
 </style>
 <main>
     <div class="about-content">
@@ -72,9 +76,8 @@
     <div> 
         <h2>TODO</h2>
         <ul>
-            <li><b>Project inventory revamp</b> Move the project inventory to its own tab in the planner and use the "Added to project" toast to show a small version of the current
-                object list of the project.</li>
-            <li><b>Project Graph - general improvements</b> Reintroduce the tools in the graph. Support more layouts. Maybe reintroduce planets.</li>
+            <li><b>Quantity Selector</b> Re-introduce the toast confirming the action done on the object</li>
+            <li><b>Project Graph - general improvements</b>Support more layouts. Maybe reintroduce planets.</li>
             <li><b>Storage analyser - storage selection</b> Allow the user to choose which objects should be used for storage and which ones should be stored</li>
             <li><b>Storage analyser - packaging selection</b> Allow the user to choose which object should be stored packaged.</li>
             <li><b>Resource List - exclude object</b> Allow objects to be marked as done so that they are not included in Resource List and Project Graph</li>
@@ -82,29 +85,30 @@
             <li><b>Astropedia+ - research</b> Add the ability to select a number of objects/resources and compute the time required to research them all and
                 the resulting number of bytes
             </li>
-            <li><b>Astropedia+ - objects</b> Allow each object to redirect to its own information page in the app</li>
-            <li><b>Astropedia+ - planets</b> Improve UI.</li>
-            <li><b>Astropedia+ - flora</b> Create a page to show the detailed informations of the flora</li>
-            <li><b>Astropedia+ - galastropods</b> Create a page to show the detailed informations of the galastropods</li>
-            <li><b>Feature - Project saves</b> Allow the user to save multiple projects</li>
             <li><b>Feature - Project notes</b> Attach notes to projects to let the user keep track of where they put their resources, where are their project, etc...</li>
             <li><b>Feature - Scrap production planner</b> Assess how to help automate scrap farms based on the scrap value of objects when shredded</li>
-            <li><b>UI - User guide</b> Add a user guide explaining how to use each section</li>
             <li><b>UI - Spoiler warning</b> Show a spoiler warning when the user visits the app for the first time</li>
-            <li><b>UI - Add object modal</b> Assess how to move the Object Selection in a modal window so that the user can add objects to project from any tab. The
-                modal could also show the Astropedia+ entry when it exists.
-            </li>
         </ul>
         <ul>
             <li><b>Hosting - Pictures</b> For now all images are served from the wiki. Make sure their ToS allow that and maybe download all the images to serve them myself.</li>
             <li><b>Routing - Improve reloading</b> Study the possibility to use a server.js file to avoid 404 when navigating directly to a page.</li>
-            <li><b>Component System</b> Create small components to show the objects names, quantities, icons and to show values and unities.</li>
+            <li><b>Component System</b> Create a component to show value and unit</li>
             <li><b>Markdown component</b> Find a way to process markdown files with svelte (particularly for the about page)</li>
-            <li><b>Object Selection - v2</b> Improve the selection experience on mobile. Sort by tier. Maybe revamp the UI completely to have the lists shown completely.</li>
             <li><b>Project Graph - refacto</b> Find another library than cytoscape</li>
         </ul>
         <h2>Done</h2>
         <ul>
+            <li><s><b>Object Selection - v2</b> Improve the selection experience on mobile. Sort by tier. Maybe revamp the UI completely to have the lists shown completely.</s></li>
+            <li><s><b>Component System</b> Create small components to show the objects names, quantities, icons</s></li>
+            <li><s><b>UI - User guide</b> Add a user guide explaining how to use each section</s></li>
+            <li><s><b>UI - Add object modal</b> Assess how to move the Object Selection in a modal window so that the user can add objects to project from any tab. The
+                modal could also show the Astropedia+ entry when it exists.</s></li>
+            <li><s><b>Feature - Project saves</b> Allow the user to save multiple projects</s></li>
+            <li><s><b>Astropedia+ - planets</b> Improve UI.</s></li>
+            <li><s><b>Astropedia+ - flora</b> Create a page to show the detailed informations of the flora</s></li>
+            <li><s><b>Astropedia+ - galastropods</b> Create a page to show the detailed informations of the galastropods</s></li>
+            <li><s><b>Astropedia+ - objects</b> Allow each object to redirect to its own information page in the app</s></li>
+            <li><s><b>Project Graph - general improvements</b> Reintroduce the tools in the graph.</s></li>
             <li><s><b>Storage Analyser - v1</b> Show the number of objects by tier in the project, the number of available slots and the canisters capacity.</s></li>
             <li><s><b>Resource List - Soil centrifuge</b> Add soil centrifuge mechanism to resource list</s></li>
             <li><s><b>Resource List - Trade platform</b> Add trade platform mechanism to resource list</s></li>
@@ -115,6 +119,89 @@
     </div>
     <div>
         <h2>Changelog</h2>
+        <div>
+            <h3>v 0.5</h3>
+            <p>Tags are a lie and I create them randomly</p>
+            <p>I pushed about 140 commits since the 0.4 so I might miss things but the main points are:</p>
+            <ul>
+                <li>Many minor tweaks and details added in the UI</li>
+                <li>Big revamp of the sections many were split in different pages</li>
+                <li>More things stored in local storate to restaure the state of the app</li>
+
+                <li>Project Trading:</li>
+                <ul>
+                    <li>Show total scrap for scrap-only items</li>
+                    <li>Show the number of tool cycles needed to create the objects and the time it takes</li>
+                    <li>Also show trading information in Object Details</li>
+                </ul>
+
+                <li>Astropedia:</li>
+                <ul>
+                    <li>Rework planets UI </li>
+                    <li>Add info about the bytes values of the resources. In the future I want to add the values of all objects.</li>
+                    <li>Add Flora, Galastropods</li>
+                    <li>Add info about the Atmospheric Condenser with stats about the time.</li>
+                </ul>
+
+                <li>Power Analyzer:</li>
+                <ul>
+                    <li>Add charts trying to estimate the efficiency of a setup.</li>
+                    <li>It works by simulating the system by time increments over the span of one planet day.</li>
+                    <li>This was super exciting to do and I think it will require some more tweaking in the future.</li>
+                    <li>Also allow to change the quantity of objects from the Power Objects List and add a button to open the new Object Selection modal</li>
+                </ul>
+
+                <li>Object selection:</li>
+                <ul>
+                    <li>Move the object selection to its own modal combining the search of items and the details of the object. Also allowing to change the item quantity in the project.</li>
+                    <li>Completely rework the UI to better show the categories and the list of objects. Ditched the lib svelte-select I was using to replace it by my own component.</li>
+                    <li>Also show the object details with their recipe, usages, trading details, byte value, power, etc...</li>
+                </ul>
+
+                <li>Projects List:</li>
+                <ul>
+                    <li>Add the ability to store the current project in local storage and to switch between different saved projects.</li>
+                    <li>Also create some default projects with all items and all resources to help testing in development.</li>
+                </ul>
+
+                <li>Resources List:</li>
+                <ul>
+                    <li>A lot of tweaking and messing around with flexboxes.</li>
+                </ul>
+
+                <li>Storage Analyzer:</li>
+                <ul>
+                    <li>Some tweaks in how the items are sorted</li>
+                </ul>
+
+                <li>User Guide:</li>
+                <ul>
+                    <li>Add a user guide with some basic explanation of how to use the different sections.</li>
+                    <li>This is just the ground work for a better more detailed guide.</li>
+                </ul>
+
+                <li>Project Graph:</li>
+                <ul>
+                    <li>Allow to display tools as nodes in the graph</li>
+                </ul>
+            </ul>
+
+            <p>A few changes about the code:</p>
+            <ul>
+                <li>Create <code>ObjectName</code> component to unify how objects are displayed and allow to open the object selection modal </li>
+                <li>Create <code>QuantitySelector</code> component to allow to change the quantity of objects in the project from different places</li>
+                <li>Reworked the data structure of a project to make possible future changes like marking an object as done</li>
+                <li>A lot of code splitting, refactoring, dependencies removal</li>
+                <li>Finally add eslint and prettier</li>
+                <li>Better use svelte with stuff like <code>&lt;svelte:component /&gt;</code></li>
+            </ul>
+
+            <p>
+                In the near future I have a list of tings I want to work on like marking objects as done in the project and implementing more time-based tooling to
+                make it easier to plan larger factories.
+            </p>
+        </div>
+
         <div>
             <h3>v 0.4</h3>
             <p>The first version of storage analyser and Astropedia are here!</p>
