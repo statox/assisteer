@@ -6,6 +6,7 @@
     import Galastropods from './Galastropods.svelte';
     import Planets from './Planets.svelte';
     import Research from './Research.svelte';
+    import SoilCentrifuge from './SoilCentrifuge.svelte';
 
     const sections = {
         atmo: {
@@ -13,6 +14,12 @@
                 en: 'Atmospheric Condenser'
             },
             component: AtmosphericCondenser
+        },
+        soil: {
+            labels: {
+                en: 'Soil Centrifuge'
+            },
+            component: SoilCentrifuge
         },
         research: {
             labels: {
@@ -43,7 +50,7 @@
 
 <main>
     <div class="nav-menu d-flex flex-row flex-wrap justify-content-start">
-        {#each ['research', 'planets', 'flora', 'galastropods', 'atmo'] as section}
+        {#each ['research', 'planets', 'flora', 'galastropods', 'atmo', 'soil'] as section}
             <div class="mx-1">
                 <button
                     class="nav-item"

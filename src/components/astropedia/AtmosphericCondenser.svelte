@@ -20,6 +20,9 @@
             <a target="none" href="https://astroneer.fandom.com/wiki/Atmospheric_Condenser"
                 >Atmospheric Condenser's wiki page</a
             >.
+            <br />
+            You can open the Atmospheric Condenser in the object selection by clicking this:
+            <ObjectName object={getObject('atmospheric condenser')} pictureType="icon" />
         </div>
 
         <div class="container table-responsive">
