@@ -21,7 +21,7 @@
 </script>
 
 {#if objectId}
-    <div class="text-align-center">
+    <div>
         <button
             class="btn-minus"
             class:disabled

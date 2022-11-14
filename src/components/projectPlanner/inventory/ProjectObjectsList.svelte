@@ -107,15 +107,17 @@
                 {#each Object.keys(objectsByCategory).sort(alphaSort) as category}
                     <h4 class="content-subheader">{category}</h4>
                     {#each objectsByCategory[category] as item}
-                        <div class="row align-items-center bottom-separator">
-                            <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-column flex-sm-row justify-content-sm-between bottom-separator">
+                            <div>
                                 <ObjectName
                                     pictureType="both"
                                     object={item.object}
                                     importantWord={true}
                                     pictureSize="larger"
                                 />
+                            </div>
 
+                            <div>
                                 <QuantitySelector
                                     objectId={item.objectName}
                                     quantity={item.quantity}
