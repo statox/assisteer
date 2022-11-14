@@ -140,6 +140,13 @@ button:disabled {
     border-radius: 5px;
 }
 
+button.confirmed {
+    color: var(--green);
+    background: white;
+    border: 1px solid var(--green);
+    border-radius: 5px;
+}
+
 .btn-danger {
     color: var(--red);
     border: 1px solid var(--red);
