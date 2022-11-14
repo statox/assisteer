@@ -10,10 +10,13 @@ const titleCase = (a: string) =>
         .join(' ');
 
 const formatedDurationFromSeconds = (seconds: number) => {
+    if (Number.isNaN(seconds)) {
+        return '-';
+    }
     if (seconds < 60 * 60) {
         return Duration.fromObject({ seconds }).toFormat('mm:ss');
     }
     return Duration.fromObject({ seconds }).toFormat('hh:mm:ss');
-}
+};
 
 export { alphaSort, formatedDurationFromSeconds, titleCase };
