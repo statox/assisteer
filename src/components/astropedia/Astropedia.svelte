@@ -18,7 +18,7 @@
 
 <main>
     <div class="nav-menu d-flex flex-row flex-wrap justify-content-start">
-        {#each ['research', 'planets', 'flora', 'galastropods', 'atmo'] as section, i}
+        {#each ['research', 'planets', 'flora', 'galastropods', 'atmo'] as section}
             <div class="mx-1">
                 <button
                     class="nav-item"
