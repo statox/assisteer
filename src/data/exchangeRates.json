@@ -11,59 +11,73 @@
     "tradePlatformScrap": {
         "compound": {
             "scrap": 1,
-            "item": 2
+            "item": 2,
+            "maxScrapPerRound": 4
         },
         "resin": {
             "scrap": 1,
-            "item": 2
+            "item": 2,
+            "maxScrapPerRound": 4
         },
         "organic": {
             "scrap": 1,
-            "item": 2
+            "item": 2,
+            "maxScrapPerRound": 4
         },
         "clay": {
             "scrap": 1,
-            "item": 2
+            "item": 2,
+            "maxScrapPerRound": 4
         },
         "quartz": {
             "scrap": 1,
-            "item": 2
+            "item": 2,
+            "maxScrapPerRound": 4
         },
         "graphite": {
             "scrap": 1,
-            "item": 2
+            "item": 2,
+            "maxScrapPerRound": 4
         },
         "sphalerite": {
             "scrap": 1,
-            "item": 2
+            "item": 2,
+            "maxScrapPerRound": 4
         },
         "ammonium": {
             "scrap": 1,
-            "item": 1
+            "item": 1,
+            "maxScrapPerRound": 4
         },
         "laterite": {
             "scrap": 1,
-            "item": 1
+            "item": 1,
+            "maxScrapPerRound": 4
         },
         "malachite": {
             "scrap": 1,
-            "item": 1
+            "item": 1,
+            "maxScrapPerRound": 4
         },
         "wolframite": {
             "scrap": 3,
-            "item": 2
+            "item": 2,
+            "maxScrapPerRound": 3
         },
         "hematite": {
             "scrap": 3,
-            "item": 2
+            "item": 2,
+            "maxScrapPerRound": 3
         },
         "titanite": {
             "scrap": 2,
-            "item": 1
+            "item": 1,
+            "maxScrapPerRound": 4
         },
         "lithium": {
             "scrap": 4,
-            "item": 1
+            "item": 1,
+            "maxScrapPerRound": 4
         }
     },
     "tradePlatformAstronium": {

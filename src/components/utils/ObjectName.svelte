@@ -9,7 +9,7 @@
     export let quantity: number = null;
     export let hideName: boolean = false;
     export let importantWord: boolean = false;
-    export let pictureSize: 'default' | 'large' | 'larger' = 'default';
+    export let pictureSize: 'small' | 'default' | 'large' | 'larger' = 'default';
     export let showPlanets: boolean = false;
     export let classes: string[] = [];
 </script>
@@ -32,6 +32,7 @@
         {#if ['icon', 'both'].includes(pictureType)}
             <img
                 class="img-fluid text-sized-image"
+                class:small-text-sized-image={pictureSize === 'small'}
                 class:large-text-sized-image={pictureSize === 'large'}
                 class:larger-text-sized-image={pictureSize === 'larger'}
                 src={object.url.icon}
@@ -41,6 +42,7 @@
         {#if ['image', 'both'].includes(pictureType)}
             <img
                 class="img-fluid text-sized-image"
+                class:small-text-sized-image={pictureSize === 'small'}
                 class:large-text-sized-image={pictureSize === 'large'}
                 class:larger-text-sized-image={pictureSize === 'larger'}
                 src={object.url.image}
@@ -101,5 +103,8 @@
     }
     .green {
         color: var(--green);
+    }
+    .small-text-sized-image {
+        width: 0.8em;
     }
 </style>

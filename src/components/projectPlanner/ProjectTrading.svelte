@@ -82,16 +82,30 @@
                                 </td>
 
                                 {#each ['soil', 'scrap'] as currency}
+                                    {@const toolName = { soil: 'soil centrifuge', scrap: 'trade platform' }[currency]}
+                                    {@const tool = getObject(toolName)}
                                     <td>
                                         <!-- The second condition is only there as a typeguard -->
                                         {#if trade[currency] && (currency === 'soil' || currency === 'scrap')}
-                                            <Trade
-                                                currencyId={currency}
-                                                {object}
-                                                currencyQty={trade[currency].currencyRequired}
-                                                objectQty={trade[currency].resourcesProduced}
-                                                surplus={trade[currency].surplus}
-                                            />
+                                            <div>
+                                                <Trade
+                                                    currencyId={currency}
+                                                    {object}
+                                                    currencyQty={trade[currency].currencyRequired}
+                                                    objectQty={trade[currency].resourcesProduced}
+                                                    surplus={trade[currency].surplus}
+                                                />
+                                            </div>
+                                            <div class="d-inline-flex">
+                                                <ObjectName
+                                                    object={tool}
+                                                    pictureType={$settings.pictureType}
+                                                    quantity={trade[currency].requiredRounds}
+                                                    hideName={true}
+                                                    pictureSize="small"
+                                                />
+                                                {trade[currency].timeToRun}s
+                                            </div>
                                         {/if}
                                     </td>
                                 {/each}
