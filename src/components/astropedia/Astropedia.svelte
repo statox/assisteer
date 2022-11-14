@@ -7,12 +7,37 @@
     import Planets from './Planets.svelte';
     import Research from './Research.svelte';
 
-    const sectionsNames = {
-        atmo: 'Atmospheric Condenser',
-        research: 'Research',
-        planets: 'Planets',
-        flora: 'Flora',
-        galastropods: 'Galastropods'
+    const sections = {
+        atmo: {
+            labels: {
+                en: 'Atmospheric Condenser'
+            },
+            component: AtmosphericCondenser
+        },
+        research: {
+            labels: {
+                en: 'Research'
+            },
+            component: Research
+        },
+        planets: {
+            labels: {
+                en: 'Planets'
+            },
+            component: Planets
+        },
+        flora: {
+            labels: {
+                en: 'Flora'
+            },
+            component: Flora
+        },
+        galastropods: {
+            labels: {
+                en: 'Galastropods'
+            },
+            component: Galastropods
+        }
     };
 </script>
 
@@ -24,28 +49,15 @@
                     class="nav-item"
                     class:selected={$activePages.astropedia === section}
                     on:click={() => ($activePages.astropedia = section)}
-                    >{sectionsNames[section]}
+                    >{sections[section].labels.en}
                 </button>
             </div>
         {/each}
     </div>
 
     <ObjectSelectionModal />
-    {#if $activePages.astropedia === 'research'}
-        <Research />
-    {/if}
-    {#if $activePages.astropedia === 'planets'}
-        <Planets />
-    {/if}
-    {#if $activePages.astropedia === 'flora'}
-        <Flora />
-    {/if}
-    {#if $activePages.astropedia === 'galastropods'}
-        <Galastropods />
-    {/if}
-    {#if $activePages.astropedia === 'atmo'}
-        <AtmosphericCondenser />
-    {/if}
+
+    <svelte:component this={sections[$activePages.astropedia].component} />
 </main>
 
 <style>
