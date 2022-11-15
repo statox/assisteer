@@ -8,6 +8,7 @@ export type Project = {
     objects: {
         [objectName: string]: {
             quantity: number;
+            done?: boolean;
         }
     };
 };
@@ -45,6 +46,9 @@ const projectToFlatTree = (project: Project, params?: { includeObjectTool: boole
     const edges = {};
 
     for (const objectName of Object.keys(project.objects)) {
+        if (project.objects[objectName].done) {
+            continue;
+        }
         const object = getObject(objectName);
         const recipe = getObjectDefaultRecipe(objectName);
         const quantity = project.objects[objectName].quantity;
@@ -262,6 +266,21 @@ const updateObjectQuantityInProject = (
     }
     return project;
 };
+
+export const toggleObjectDoneStatusInProject = (project: Project, objectId: string) => {
+    if (!project.objects[objectId]) {
+        return project;
+    }
+
+    if (!project.objects[objectId].done) {
+        project.objects[objectId].done = true;
+    } else {
+        project.objects[objectId].done = false;
+    }
+
+    return project;
+};
+
 
 const getDefaultProjectsList = (): SavedProject[] => {
     const allRecipes = getAllRecipesList();

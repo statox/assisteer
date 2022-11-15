@@ -6,6 +6,7 @@
         getProjectObjectsByTier,
         getProjectTotalUnlockCost,
         ProjectObjectsByCategory,
+        toggleObjectDoneStatusInProject,
         updateObjectQuantityInProject
     } from '../../../services/project';
     import { alphaSort } from '../../../services/utils';
@@ -130,29 +131,48 @@
                     </span>
                 </div>
 
-                {#each Object.keys(objectsByCategory).sort(alphaSort) as category}
-                    <h4 class="content-subheader">{category}</h4>
-                    {#each objectsByCategory[category] as item}
-                        <div class="d-flex flex-column flex-sm-row justify-content-sm-between bottom-separator">
-                            <div>
-                                <ObjectName
-                                    pictureType="both"
-                                    object={item.object}
-                                    importantWord={true}
-                                    pictureSize="larger"
-                                />
-                            </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        {#each Object.keys(objectsByCategory).sort(alphaSort) as category}
+                            <tr>
+                                <th colspan="3">
+                                    <h4 class="content-subheader">{category}</h4>
+                                </th>
+                            </tr>
+                            {#each objectsByCategory[category] as item}
+                                <tr>
+                                    <td>
+                                        <ObjectName
+                                            pictureType="both"
+                                            object={item.object}
+                                            importantWord={true}
+                                            pictureSize="larger"
+                                        />
+                                    </td>
 
-                            <div>
-                                <QuantitySelector
-                                    objectId={item.objectName}
-                                    quantity={item.quantity}
-                                    changeQuantityFn={changeQuantity}
-                                />
-                            </div>
-                        </div>
-                    {/each}
-                {/each}
+                                    <td>
+                                        <span
+                                            class="bi bi-check2-circle"
+                                            class:bi-check2-circle={$project.objects[item.object.id].done}
+                                            class:bi-circle={!$project.objects[item.object.id].done}
+                                            on:click={() => {
+                                                $project = toggleObjectDoneStatusInProject($project, item.object.id);
+                                            }}
+                                        />
+                                    </td>
+
+                                    <td>
+                                        <QuantitySelector
+                                            objectId={item.objectName}
+                                            quantity={item.quantity}
+                                            changeQuantityFn={changeQuantity}
+                                        />
+                                    </td>
+                                </tr>
+                            {/each}
+                        {/each}
+                    </table>
+                </div>
             {/if}
         </div>
     </div>
